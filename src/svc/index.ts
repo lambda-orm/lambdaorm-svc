@@ -11,7 +11,7 @@ app.use(express.static('public'))
 
 const start = async () => {
 	try {
-		await orm.init('orm/config.yaml')
+		await orm.init()
 		const host = process.env.HOST || 'http://localhost'
 		const port = process.env.PORT || '8000'
 

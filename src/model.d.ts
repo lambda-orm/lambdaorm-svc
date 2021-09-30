@@ -1,5 +1,5 @@
-import '../orm/sintaxis'
-declare global {
+// declare global {
+
 	interface Category {
 		id: number
 		name: string
@@ -95,12 +95,13 @@ declare global {
 		order: Order & OneToMany<Order>
 		product: Product & OneToMany<Product>
 	}
-	let Categories: Entity<Category>
-	let Customers: Entity<Customer>
-	let Employees: Entity<Employee>
-	let Shippers: Entity<Shipper>
-	let Suppliers: Entity<Supplier>
-	let Products: Entity<Product>
-	let Orders: Entity<Order>
-	let OrderDetails: Entity<OrderDetail>
-}
+declare const Categories: Entity<Category>
+declare const Customers: Entity<Customer>
+declare const Employees: Entity<Employee>
+declare const Shippers: Entity<Shipper>
+declare const Suppliers: Entity<Supplier>
+declare const Products: Entity<Product>
+declare const Orders: Entity<Order>
+declare const OrderDetails: Entity<OrderDetail>
+
+// }

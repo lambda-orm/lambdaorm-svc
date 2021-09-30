@@ -1,5 +1,5 @@
 import { Post, SuccessResponse, Body, Route } from 'tsoa'
-import { orm } from './../../orm/orm'
+import { orm } from 'lambda-orm'
 import CompileRequest from '../model/compileRequest'
 import RunRequest from '../model/runRequest'
 
