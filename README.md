@@ -1,2 +1,2 @@
-# lambda-orm-svc
+# Lambda ORM service
 service of lambda orm

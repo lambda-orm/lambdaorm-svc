@@ -1,5 +1,5 @@
 {
-	"name": "lambda-orm-svc",
+	"name": "lambdaorm-svc",
 	"version": "0.0.1",
 	"description": "service of lambda orm",
 	"main": "./dist/svc/index",
@@ -21,11 +21,12 @@
 	},
 	"repository": {
 		"type": "git",
-		"url": "git+https://github.com/FlavioLionelRita/lambda-orm-svc.git"
+		"url": "git+https://github.com/FlavioLionelRita/lambdaorm-svc.git"
 	},
 	"keywords": [
 		"orm",
-		"lambda-orm-svc",
+		"lambdaorm",
+		"lambdaorm-svc",
 		"service",
 		"builder",
 		"expression",
@@ -36,12 +37,12 @@
 	"author": "Flavio Lionel Rita <flaviolrita@hotmail.com>",
 	"license": "Apache-2.0 License",
 	"bugs": {
-		"url": "https://github.com/FlavioLionelRita/lambda-orm-svc/issues"
+		"url": "https://github.com/FlavioLionelRita/lambdaorm-svc/issues"
 	},
-	"homepage": "https://github.com/FlavioLionelRita/lambda-orm-svc#readme",
+	"homepage": "https://github.com/FlavioLionelRita/lambdaorm-svc#readme",
 	"dependencies": {
 		"express": "^4.17.1",
-		"lambdaorm": "0.0.35",
+		"lambdaorm": "^0.0.36",
 		"morgan": "^1.10.0",
 		"reflect-metadata": "^0.1.13",
 		"swagger-ui-express": "^4.1.6",

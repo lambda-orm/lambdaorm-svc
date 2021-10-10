@@ -1,26 +1,14 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
 import { orm } from 'lambdaorm'
+(async () => {
+	try {
+		await orm.init()
 
-async function example () {
-	await orm.init()
-
-	const categories = [
-		{
-			name: 'Beverages4',
-			description: 'Soft drinks, coffees, teas, beers, and ales',
-			id: 12
-		},
-		{
-			name: 'Condiments4',
-			description: 'Sweet and savory sauces, relishes, spreads, and seasonings',
-			id: 13
-		}
-	]
-
-	const insert = () => Categories.bulkInsert()
-	const result = await orm.lambda(insert).execute('mysql', categories)
-	console.log(JSON.stringify(result, null, 2))
-	await orm.end()
-}
-
-example()
+		const query = () => Customers.first(p => p)
+		const result = await orm.lambda(query).execute('mysql')
+		console.log(JSON.stringify(result, null, 2))
+	} catch (error) {
+		console.error(error)
+	} finally {
+		await orm.end()
+	}
+})()
