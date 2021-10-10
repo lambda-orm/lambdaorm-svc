@@ -1,12 +1,26 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import { orm } from 'lambda-orm'
+import { orm } from 'lambdaorm'
 
-export async function apply () {
+async function example () {
 	await orm.init()
-	const query = () => Products.filter(p => p.price > 10).map(p => ({ name: p.name, category: p.category.name })).sort(p => p.category).page(1, 10)
-	const sentence = await orm.lambda(query).sentence('mysql', 'northwind:0.0.2')
-	console.log(sentence)
+
+	const categories = [
+		{
+			name: 'Beverages4',
+			description: 'Soft drinks, coffees, teas, beers, and ales',
+			id: 12
+		},
+		{
+			name: 'Condiments4',
+			description: 'Sweet and savory sauces, relishes, spreads, and seasonings',
+			id: 13
+		}
+	]
+
+	const insert = () => Categories.bulkInsert()
+	const result = await orm.lambda(insert).execute('mysql', categories)
+	console.log(JSON.stringify(result, null, 2))
 	await orm.end()
 }
 
-apply()
+example()

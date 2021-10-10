@@ -189,7 +189,7 @@ declare function sinh(value:number):number
 declare function tan(value:number):number
 /** Get hyperbolic tangent */
 declare function tanh(value:number):number
-/** runcate num  */
+/** truncate num  */
 declare function trunc(value:number, decimals:number):number
 // string:---------------------------------------------------------
 /** Get character from ASCII code */

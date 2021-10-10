@@ -1,5 +1,5 @@
 export default interface RunRequest {
     expression: string
-    connection: string
+    database: string
     context?: any
 }

@@ -41,7 +41,7 @@
 	"homepage": "https://github.com/FlavioLionelRita/lambda-orm-svc#readme",
 	"dependencies": {
 		"express": "^4.17.1",
-		"lambda-orm": "0.0.24",
+		"lambdaorm": "0.0.35",
 		"morgan": "^1.10.0",
 		"reflect-metadata": "^0.1.13",
 		"swagger-ui-express": "^4.1.6",

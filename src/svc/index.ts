@@ -2,7 +2,7 @@ import express, { Application } from 'express'
 import morgan from 'morgan'
 import swaggerUi from 'swagger-ui-express'
 import router from './routes'
-import { orm } from 'lambda-orm'
+import { orm } from 'lambdaorm'
 
 const app:Application = express()
 app.use(express.json())
@@ -32,6 +32,7 @@ const start = async () => {
 		process.exitCode = 0
 		return 0
 	} catch (error) {
+		await orm.end()
 		console.error(error)
 		process.exitCode = -1
 		return -1
