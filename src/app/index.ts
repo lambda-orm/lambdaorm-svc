@@ -11,9 +11,11 @@ app.use(express.static('public'))
 
 const start = async () => {
 	try {
-		const host = process.env.HOST || 'http://localhost'
+		const host = process.env.HOST || 'http://0.0.0.0'
 		const port = process.env.PORT || '8000'
 		const workspace = process.env.WORKSPACE || './workspace'
+
+		console.log(workspace)
 
 		await orm.init(workspace)
 
