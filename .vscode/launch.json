@@ -5,14 +5,14 @@
 	"version": "0.2.0",
 	"configurations": [
 		{
-			"name": "debug",
+			"name": "app",
 			"type": "node",
 			"request": "launch",
 			"skipFiles": [
 				"<node_internals>/**"
 			],
-			"program": "${workspaceFolder}/src/lib/index.ts",
-			"envFile": "${workspaceFolder}/workspace/test.env"
+			"program": "${workspaceFolder}/src/app/index.ts",
+			"envFile": "${workspaceFolder}/src/dev/workspace/test.env"
 		},
 		{
 			"name": "lab",
@@ -22,7 +22,7 @@
 				"<node_internals>/**"
 			],
 			"program": "${workspaceFolder}/src/dev/lab/lab.ts",
-			"envFile": "${workspaceFolder}/workspace/test.env"
+			"envFile": "${workspaceFolder}/src/dev/workspace/test.env"
 		}
 	]
 }

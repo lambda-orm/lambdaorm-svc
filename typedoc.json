@@ -1,0 +1,11 @@
+{
+	"entryPoints": [
+		"src/app/controllers",
+		"src/app/routes"
+	],
+	"out": "doc",
+	"excludePrivate": true,
+	"excludeProtected": true,
+	"name": "Lambdaorm Service",
+	"readme": "none"
+}
