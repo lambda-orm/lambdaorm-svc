@@ -1,22 +1,28 @@
-version: "3"
+version: "3.2"
 services:
   lambdaorm:
     container_name: lambdaorm-svc
-    image: flaviorita/lambdaorm-svc:0.0.6
+    image: flaviorita/lambdaorm-svc:0.0.14
     restart: always
     environment:
       - HOST=http://localhost
-      - PORT=8000
-      - WORKSPACE=/usr/src/app/workspace
+      - PORT=9289
+      - WORKSPACE=/workspace
       - ORM_CNN_MONGODB=mongodb://0.0.0.0:27017/testdb
-      - ORM_CNN_MSSQL='{"server":"0.0.0.0","authentication":{"type":"default","options":{"userName":"sa","password":"Lambda1234!"}},"options":{"encrypt":false,"database":"northwind"}}
-      - ORM_CNN_POSTGRES='{"host":"0.0.0.0","port":5432,"user":"test","password":"test","database":"northwind"}'
-      - ORM_CNN_MARIADB='{"host":"0.0.0.0","port":3308,"user":"test","password":"test","database":"northwind","multipleStatements":true,"waitForConnections":true, "connectionLimit":10,"queueLimit":0}'
-      - ORM_CNN_SOURCE='{"host":"0.0.0.0","port":3306,"user":"test","password":"test","database":"northwind","multipleStatements":true,"waitForConnections":true, "connectionLimit":10,"queueLimit":0}'
-      - ORM_CNN_MYSQL='{"host":"0.0.0.0","port":3307,"user":"test","password":"test","database":"northwind","multipleStatements":true ,"waitForConnections":true, "connectionLimit":10,"queueLimit":0}'
+      - 'ORM_CNN_MSSQL={"server":"0.0.0.0","authentication":{"type":"default","options":{"userName":"sa","password":"Lambda1234!"}},"options":{"encrypt":false,"database":"northwind"}}'
+      - 'ORM_CNN_POSTGRES={"host":"0.0.0.0","port":5432,"user":"test","password":"test","database":"northwind"}'
+      - 'ORM_CNN_MARIADB={"host":"0.0.0.0","port":3308,"user":"test","password":"test","database":"northwind","multipleStatements":true,"waitForConnections":true, "connectionLimit":10,"queueLimit":0}'
+      - 'ORM_CNN_SOURCE={"host":"0.0.0.0","port":3306,"user":"test","password":"test","database":"northwind","multipleStatements":true,"waitForConnections":true, "connectionLimit":10,"queueLimit":0}'
+      - 'ORM_CNN_MYSQL={"host":"0.0.0.0","port":3307,"user":"test","password":"test","database":"northwind","multipleStatements":true ,"waitForConnections":true, "connectionLimit":10,"queueLimit":0}'
     ports:
-      - 8000:8000
+      - 9289:9289
+    network_mode: "host"
     volumes:
-      - workspace:/usr/src/app/workspace
+      - workspace-data:/workspace
 volumes:
-  workspace: null
+  workspace-data:
+    driver: local
+    driver_opts:
+      o: bind
+      type: none
+      device: ~/volumes/workspace

@@ -13,10 +13,9 @@ const start = async () => {
 	try {
 		const host = process.env.HOST || 'http://0.0.0.0'
 		const port = process.env.PORT || '9289'
-		const workspace = process.env.WORKSPACE || './workspace'
+		const workspace = process.env.WORKSPACE || '/workspace'
 
 		console.log(workspace)
-
 		await orm.init(workspace)
 
 		app.use(

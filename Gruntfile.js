@@ -17,7 +17,7 @@ module.exports = function (grunt) {
 		copy: {
 			app: { expand: true, cwd: 'build/app', src: '**', dest: 'dist/' },
 			public: { expand: true, cwd: 'public', src: '**', dest: 'dist/public' },
-			workspace: { expand: true, cwd: 'src/app/workspace', src: '**', dest: 'dist/workspace' },
+			// workspace: { expand: true, cwd: 'src/app/workspace', src: '**', dest: 'dist/workspace' },
 			license: { expand: true, src: './LICENSE', dest: 'dist/' }
 		}
 	})
@@ -36,6 +36,6 @@ module.exports = function (grunt) {
 	grunt.registerTask('build', ['clean:build', 'exec:swagger', 'exec:tsc'])
 	grunt.registerTask('lint', ['exec:lint'])
 	grunt.registerTask('doc', ['exec:typedoc'])
-	grunt.registerTask('dist', ['clean:dist', 'copy:app', 'copy:public', 'copy:workspace', 'copy:license', 'create-package'])
+	grunt.registerTask('dist', ['clean:dist', 'copy:app', 'copy:public', 'copy:license', 'create-package'])
 	grunt.registerTask('default', [])
 }

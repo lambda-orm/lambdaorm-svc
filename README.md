@@ -28,8 +28,8 @@ npm run dist
 
 ```sh
 docker login -u flaviorita -p [PASSWORD]
-docker build -t flaviorita/lambdaorm-svc:0.0.5 .
-docker push flaviorita/lambdaorm-svc:0.0.5
+docker build -t flaviorita/lambdaorm-svc:0.0.14 .
+docker push flaviorita/lambdaorm-svc:0.0.14
 ```
 
 ## use image
@@ -37,22 +37,14 @@ docker push flaviorita/lambdaorm-svc:0.0.5
 pull
 
 ``` sh
-docker pull flaviorita/lambdaorm-svc:0.0.1
+docker pull flaviorita/lambdaorm-svc:0.0.14
 ```
 
 ## docker compose
 
-linux:
+### linux
 
 ``` sh
-docker volume create --name workspace --opt type=none --opt device=~/volumes/workspace --opt o=bind
-docker-compose up -d
-```
-
-windows:
-
-``` sh
-docker volume create --name workspace --opt type=none --opt device=C:\volumes\workspace --opt o=bind
 docker-compose up -d
 ```
 
@@ -60,5 +52,23 @@ uninstall
 
 ``` sh
 docker-compose down --remove-orphans
-docker volume rm workspace
+```
+
+### windows
+
+``` sh
+docker-compose -f ./docker-compose-win.yaml up -d 
+```
+
+create user:
+
+```sh
+docker exec lambdaorm-svc-mysql  mysql --host 127.0.0.1 --port 3306 -uroot -proot -e "CREATE USER IF NOT EXISTS 'test'@'%' IDENTIFIED BY 'test';"
+docker exec lambdaorm-svc-mysql  mysql --host 127.0.0.1 --port 3306 -uroot -proot -e "GRANT ALL ON *.* TO 'test'@'%' with grant option; FLUSH PRIVILEGES;"
+```
+
+uninstall
+
+``` sh
+docker-compose -f ./docker-compose-win.yaml down --remove-orphans
 ```
