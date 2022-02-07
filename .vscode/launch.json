@@ -13,16 +13,16 @@
 			],
 			"program": "${workspaceFolder}/src/app/index.ts",
 			"envFile": "${workspaceFolder}/src/dev/workspace/test.env"
-		},
-		{
-			"name": "lab",
-			"type": "node",
-			"request": "launch",
-			"skipFiles": [
-				"<node_internals>/**"
-			],
-			"program": "${workspaceFolder}/src/dev/lab/lab.ts",
-			"envFile": "${workspaceFolder}/src/dev/workspace/test.env"
 		}
+		// {
+		// 	"name": "lab",
+		// 	"type": "node",
+		// 	"request": "launch",
+		// 	"skipFiles": [
+		// 		"<node_internals>/**"
+		// 	],
+		// 	"program": "${workspaceFolder}/src/dev/lab/lab.ts",
+		// 	"envFile": "${workspaceFolder}/src/dev/workspace/test.env"
+		// }
 	]
 }

@@ -402,7 +402,7 @@
 	"paths": {
 		"/ping": {
 			"get": {
-				"operationId": "GetMessage",
+				"operationId": "Ping",
 				"responses": {
 					"200": {
 						"description": "Ok",
@@ -415,6 +415,9 @@
 						}
 					}
 				},
+				"tags": [
+					"general"
+				],
 				"security": [],
 				"parameters": []
 			}

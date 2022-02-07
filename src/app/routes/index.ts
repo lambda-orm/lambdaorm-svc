@@ -1,5 +1,5 @@
 import express from 'express'
-import PingController from '../controllers/ping'
+import GeneralController from '../controllers/general'
 import ExpressionController from '../controllers/expression'
 import StageController from '../controllers/stage'
 import SchemaController from '../controllers/schema'
@@ -7,8 +7,8 @@ import SchemaController from '../controllers/schema'
 const router = express.Router()
 
 router.get('/ping', async (_req, res) => {
-	const controller = new PingController()
-	const response = await controller.getMessage()
+	const controller = new GeneralController()
+	const response = await controller.ping()
 	return res.send(response)
 })
 router.get('/expression/:expression/metadata', async (req, res) => {
