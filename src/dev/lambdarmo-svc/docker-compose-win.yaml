@@ -25,7 +25,7 @@ services:
     depends_on:
       - db
     container_name: lambdaorm-svc
-    image: flaviorita/lambdaorm-svc:0.0.14
+    image: flaviorita/lambdaorm-svc:0.1.0
     restart: always
     environment:
       - HOST=http://localhost
@@ -50,9 +50,3 @@ volumes:
       o: bind
       type: none
       device: C:\volumes\source
-  # postgres:
-  #   driver: local
-  #   driver_opts:
-  #     o: bind
-  #     type: none
-  #     device: C:\volumes\postgres
