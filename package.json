@@ -1,6 +1,6 @@
 {
 	"name": "lambdaorm-svc",
-	"version": "0.0.1",
+	"version": "0.1.0",
 	"description": "service of lambda orm",
 	"main": "./dist/lib/index",
 	"scripts": {
