@@ -388,7 +388,7 @@
 	},
 	"info": {
 		"title": "lambdaorm-svc",
-		"version": "0.0.1",
+		"version": "0.1.0",
 		"description": "service of lambda orm",
 		"license": {
 			"name": "Apache-2.0 License"
@@ -422,7 +422,7 @@
 				"parameters": []
 			}
 		},
-		"/expression/{expression}/metadata": {
+		"/metadata": {
 			"get": {
 				"operationId": "Metadata",
 				"responses": {
@@ -441,8 +441,8 @@
 				"security": [],
 				"parameters": [
 					{
-						"in": "path",
-						"name": "expression",
+						"in": "query",
+						"name": "exp",
 						"required": true,
 						"schema": {
 							"type": "string"
@@ -451,7 +451,7 @@
 				]
 			}
 		},
-		"/expression/{expression}/model": {
+		"/model": {
 			"get": {
 				"operationId": "Model",
 				"responses": {
@@ -470,8 +470,8 @@
 				"security": [],
 				"parameters": [
 					{
-						"in": "path",
-						"name": "expression",
+						"in": "query",
+						"name": "exp",
 						"required": true,
 						"schema": {
 							"type": "string"
@@ -480,7 +480,7 @@
 				]
 			}
 		},
-		"/expression/{expression}/parameters": {
+		"/parameters": {
 			"get": {
 				"operationId": "Parameters",
 				"responses": {
@@ -499,8 +499,8 @@
 				"security": [],
 				"parameters": [
 					{
-						"in": "path",
-						"name": "expression",
+						"in": "query",
+						"name": "exp",
 						"required": true,
 						"schema": {
 							"type": "string"
@@ -509,7 +509,7 @@
 				]
 			}
 		},
-		"/expression/{expression}/sentence": {
+		"/sentence": {
 			"get": {
 				"operationId": "Sentence",
 				"responses": {
@@ -528,8 +528,8 @@
 				"security": [],
 				"parameters": [
 					{
-						"in": "path",
-						"name": "expression",
+						"in": "query",
+						"name": "exp",
 						"required": true,
 						"schema": {
 							"type": "string"
@@ -546,7 +546,7 @@
 				]
 			}
 		},
-		"/expression/{expression}/run": {
+		"/run": {
 			"post": {
 				"operationId": "Run",
 				"responses": {
@@ -565,8 +565,8 @@
 				"security": [],
 				"parameters": [
 					{
-						"in": "path",
-						"name": "expression",
+						"in": "query",
+						"name": "exp",
 						"required": true,
 						"schema": {
 							"type": "string"

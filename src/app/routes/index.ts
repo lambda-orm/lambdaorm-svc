@@ -11,31 +11,36 @@ router.get('/ping', async (_req, res) => {
 	const response = await controller.ping()
 	return res.send(response)
 })
-router.get('/expression/:expression/metadata', async (req, res) => {
+router.get('/metadata', async (req, res) => {
 	const controller = new ExpressionController()
-	const response = await controller.metadata(req.params.expression)
+	const exp = req.query.exp as string
+	const response = await controller.metadata(exp)
 	return res.send(response)
 })
-router.get('/expression/:expression/parameters', async (req, res) => {
+router.get('/parameters', async (req, res) => {
 	const controller = new ExpressionController()
-	const response = await controller.parameters(req.params.expression)
+	const exp = req.query.exp as string
+	const response = await controller.parameters(exp)
 	return res.send(response)
 })
-router.get('/expression/:expression/model', async (req, res) => {
+router.get('/model', async (req, res) => {
 	const controller = new ExpressionController()
-	const response = await controller.model(req.params.expression)
+	const exp = req.query.exp as string
+	const response = await controller.model(exp)
 	return res.send(response)
 })
-router.get('/expression/:expression/sentence', async (req, res) => {
+router.get('/sentence', async (req, res) => {
+	const controller = new ExpressionController()
+	const exp = req.query.exp as string
+	const stage = req.query ? req.query.stage as string : undefined
+	const response = await controller.sentence(exp, stage)
+	return res.send(response)
+})
+router.post('/run', async (req, res) => {
 	const controller = new ExpressionController()
 	const stage = req.query ? req.query.stage as string : undefined
-	const response = await controller.sentence(req.params.expression, stage)
-	return res.send(response)
-})
-router.post('/expression/:expression/run', async (req, res) => {
-	const controller = new ExpressionController()
-	const stage = req.query ? req.query.stage as string : undefined
-	const response = await controller.run(req.params.expression, req.body, stage)
+	const exp = req.query.exp as string
+	const response = await controller.run(exp, req.body, stage)
 	return res.send(response)
 })
 

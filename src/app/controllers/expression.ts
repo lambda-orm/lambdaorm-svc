@@ -1,40 +1,40 @@
-import { Tags, Post, Get, SuccessResponse, Body, Route, Path, Query } from 'tsoa'
+import { Tags, Post, Get, SuccessResponse, Body, Route, Query } from 'tsoa'
 import { orm } from 'lambdaorm'
 
-@Route('expression')
+@Route('/')
 export default class ExpressionController {
 	@Tags('expression')
-	@Get('/{expression}/metadata')
+	@Get('/metadata')
 	@SuccessResponse('200', 'Ok')
-	public async metadata (@Path() expression:string): Promise<any> {
-		return await orm.metadata(expression)
+	public async metadata (@Query() exp:string): Promise<any> {
+		return await orm.metadata(exp)
 	}
 
 	@Tags('expression')
-	@Get('/{expression}/model')
+	@Get('/model')
 	@SuccessResponse('200', 'Ok')
-	public async model (@Path() expression:string): Promise<any> {
-		return await orm.model(expression)
+	public async model (@Query() exp:string): Promise<any> {
+		return await orm.model(exp)
 	}
 
 	@Tags('expression')
-	@Get('/{expression}/parameters')
+	@Get('/parameters')
 	@SuccessResponse('200', 'Ok')
-	public async parameters (@Path() expression:string): Promise<any> {
-		return await orm.parameters(expression)
+	public async parameters (@Query() exp:string): Promise<any> {
+		return await orm.parameters(exp)
 	}
 
 	@Tags('expression')
-	@Get('/{expression}/sentence/')
+	@Get('/sentence/')
 	@SuccessResponse('200', 'Ok')
-	public async sentence (@Path() expression:string, @Query() stage?:string): Promise<any> {
-		return await orm.sentence(expression, stage)
+	public async sentence (@Query() exp:string, @Query() stage?:string): Promise<any> {
+		return await orm.sentence(exp, stage)
 	}
 
 	@Tags('expression')
-	@Post('/{expression}/run')
+	@Post('/run')
 	@SuccessResponse('200', 'Ok')
-	public async run (@Path() expression:string, @Body() data?: any, @Query() stage?:string): Promise<any> {
-		return await orm.execute(expression, data, stage)
+	public async run (@Query() exp:string, @Body() data?: any, @Query() stage?:string): Promise<any> {
+		return await orm.execute(exp, data, stage)
 	}
 }
