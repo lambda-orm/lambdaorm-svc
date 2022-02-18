@@ -2,7 +2,7 @@ version: "3.2"
 services:
   lambdaorm:
     container_name: lambdaorm-svc
-    image: flaviorita/lambdaorm-svc:0.1.4
+    image: flaviorita/lambdaorm-svc:0.1.5
     restart: always
     environment:
       - HOST=http://localhost
