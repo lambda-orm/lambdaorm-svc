@@ -1,5 +1,5 @@
 {
-	"entryFile": "src/app/index.ts",
+	"entryFile": "src/api/index.ts",
 	"noImplicitAdditionalProperties": "throw-on-extras",
 	"spec": {
 		"outputDirectory": "public",

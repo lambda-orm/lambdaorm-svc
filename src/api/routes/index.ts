@@ -13,34 +13,34 @@ router.get('/ping', async (_req, res) => {
 })
 router.get('/metadata', async (req, res) => {
 	const controller = new ExpressionController()
-	const exp = req.query.exp as string
-	const response = await controller.metadata(exp)
+	const query = req.query.query as string
+	const response = await controller.metadata(query)
 	return res.send(response)
 })
 router.get('/parameters', async (req, res) => {
 	const controller = new ExpressionController()
-	const exp = req.query.exp as string
-	const response = await controller.parameters(exp)
+	const query = req.query.query as string
+	const response = await controller.parameters(query)
 	return res.send(response)
 })
 router.get('/model', async (req, res) => {
 	const controller = new ExpressionController()
-	const exp = req.query.exp as string
-	const response = await controller.model(exp)
+	const query = req.query.query as string
+	const response = await controller.model(query)
 	return res.send(response)
 })
 router.get('/sentence', async (req, res) => {
 	const controller = new ExpressionController()
-	const exp = req.query.exp as string
+	const query = req.query.query as string
 	const stage = req.query ? req.query.stage as string : undefined
-	const response = await controller.sentence(exp, stage)
+	const response = await controller.sentence(query, stage)
 	return res.send(response)
 })
 router.post('/run', async (req, res) => {
 	const controller = new ExpressionController()
 	const stage = req.query ? req.query.stage as string : undefined
-	const exp = req.query.exp as string
-	const response = await controller.run(exp, req.body, stage)
+	const query = req.query.query as string
+	const response = await controller.run(query, req.body, stage)
 	return res.send(response)
 })
 

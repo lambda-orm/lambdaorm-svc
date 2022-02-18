@@ -1,22 +1,22 @@
-@host = http://localhost:9289
+@host = http://localhost:9290
 
-@expression= Orders.filter(p=>p.id==id).include(p=>p.customer)  
+@query= Orders.filter(p=>p.id==id).include(p=>p.customer)  
 
 
 
-GET {{host}}/metadata?exp={{expression}} HTTP/1.1
-
-###
-GET {{host}}/model?exp={{expression}} HTTP/1.1
+GET {{host}}/metadata?query={{query}} HTTP/1.1
 
 ###
-GET {{host}}/parameters?exp={{expression}} HTTP/1.1
+GET {{host}}/model?query={{query}} HTTP/1.1
 
 ###
-GET {{host}}/sentence?exp={{expression}} HTTP/1.1
+GET {{host}}/parameters?query={{query}} HTTP/1.1
 
 ###
-POST {{host}}/run?exp={{expression}} HTTP/1.1
+GET {{host}}/sentence?query={{query}} HTTP/1.1
+
+###
+POST {{host}}/run?query={{query}} HTTP/1.1
 content-type: application/json
 
 { 
