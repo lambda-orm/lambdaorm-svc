@@ -77,6 +77,18 @@
 					},
 					"autoincrement": {
 						"type": "boolean"
+					},
+					"default": {
+						"type": "string"
+					},
+					"encrypt": {
+						"type": "string"
+					},
+					"base64": {
+						"type": "boolean"
+					},
+					"serialize": {
+						"type": "boolean"
 					}
 				},
 				"required": [
@@ -113,6 +125,22 @@
 					"from",
 					"entity",
 					"to"
+				],
+				"type": "object",
+				"additionalProperties": false
+			},
+			"Dependent": {
+				"properties": {
+					"entity": {
+						"type": "string"
+					},
+					"relation": {
+						"$ref": "#/components/schemas/Relation"
+					}
+				},
+				"required": [
+					"entity",
+					"relation"
 				],
 				"type": "object",
 				"additionalProperties": false
@@ -160,6 +188,12 @@
 							"$ref": "#/components/schemas/Relation"
 						},
 						"type": "array"
+					},
+					"dependents": {
+						"items": {
+							"$ref": "#/components/schemas/Dependent"
+						},
+						"type": "array"
 					}
 				},
 				"required": [
@@ -168,7 +202,8 @@
 					"indexes",
 					"primaryKey",
 					"properties",
-					"relations"
+					"relations",
+					"dependents"
 				],
 				"type": "object",
 				"additionalProperties": false
@@ -249,6 +284,18 @@
 					"autoincrement": {
 						"type": "boolean"
 					},
+					"default": {
+						"type": "string"
+					},
+					"encrypt": {
+						"type": "string"
+					},
+					"base64": {
+						"type": "boolean"
+					},
+					"serialize": {
+						"type": "boolean"
+					},
 					"mapping": {
 						"type": "string"
 					},
@@ -308,6 +355,12 @@
 						},
 						"type": "array"
 					},
+					"dependents": {
+						"items": {
+							"$ref": "#/components/schemas/Dependent"
+						},
+						"type": "array"
+					},
 					"mapping": {
 						"type": "string"
 					}
@@ -319,6 +372,7 @@
 					"primaryKey",
 					"properties",
 					"relations",
+					"dependents",
 					"mapping"
 				],
 				"type": "object",
@@ -388,7 +442,7 @@
 	},
 	"info": {
 		"title": "lambdaorm-svc",
-		"version": "0.1.0",
+		"version": "0.1.2",
 		"description": "service of lambda orm",
 		"license": {
 			"name": "Apache-2.0 License"
@@ -442,7 +496,7 @@
 				"parameters": [
 					{
 						"in": "query",
-						"name": "exp",
+						"name": "query",
 						"required": true,
 						"schema": {
 							"type": "string"
@@ -471,7 +525,7 @@
 				"parameters": [
 					{
 						"in": "query",
-						"name": "exp",
+						"name": "query",
 						"required": true,
 						"schema": {
 							"type": "string"
@@ -500,7 +554,7 @@
 				"parameters": [
 					{
 						"in": "query",
-						"name": "exp",
+						"name": "query",
 						"required": true,
 						"schema": {
 							"type": "string"
@@ -529,7 +583,7 @@
 				"parameters": [
 					{
 						"in": "query",
-						"name": "exp",
+						"name": "query",
 						"required": true,
 						"schema": {
 							"type": "string"
@@ -566,7 +620,7 @@
 				"parameters": [
 					{
 						"in": "query",
-						"name": "exp",
+						"name": "query",
 						"required": true,
 						"schema": {
 							"type": "string"

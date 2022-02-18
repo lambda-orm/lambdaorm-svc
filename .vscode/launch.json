@@ -5,13 +5,13 @@
 	"version": "0.2.0",
 	"configurations": [
 		{
-			"name": "app",
+			"name": "api",
 			"type": "node",
 			"request": "launch",
 			"skipFiles": [
 				"<node_internals>/**"
 			],
-			"program": "${workspaceFolder}/src/app/index.ts",
+			"program": "${workspaceFolder}/src/api/index.ts",
 			"envFile": "${workspaceFolder}/src/dev/workspace/test.env"
 		}
 		// {

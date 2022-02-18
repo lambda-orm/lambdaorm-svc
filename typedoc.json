@@ -1,7 +1,6 @@
 {
 	"entryPoints": [
-		"src/app/controllers",
-		"src/app/routes"
+		"src/api/routes"
 	],
 	"out": "doc",
 	"excludePrivate": true,
