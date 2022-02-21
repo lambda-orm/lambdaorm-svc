@@ -16,4 +16,4 @@ Lambdaorm Service
 
 #### Defined in
 
-index.ts:7
+[index.ts:7](https://github.com/FlavioLionelRita/lambda-orm-svc/blob/4b62893/src/api/routes/index.ts#L7)

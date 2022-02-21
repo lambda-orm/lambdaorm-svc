@@ -81,14 +81,11 @@
 					"default": {
 						"type": "string"
 					},
-					"encrypt": {
+					"readValue": {
 						"type": "string"
 					},
-					"base64": {
-						"type": "boolean"
-					},
-					"serialize": {
-						"type": "boolean"
+					"writeValue": {
+						"type": "string"
 					}
 				},
 				"required": [
@@ -145,6 +142,22 @@
 				"type": "object",
 				"additionalProperties": false
 			},
+			"Constraint": {
+				"properties": {
+					"message": {
+						"type": "string"
+					},
+					"condition": {
+						"type": "string"
+					}
+				},
+				"required": [
+					"message",
+					"condition"
+				],
+				"type": "object",
+				"additionalProperties": false
+			},
 			"Entity": {
 				"properties": {
 					"name": {
@@ -192,6 +205,12 @@
 					"dependents": {
 						"items": {
 							"$ref": "#/components/schemas/Dependent"
+						},
+						"type": "array"
+					},
+					"constraints": {
+						"items": {
+							"$ref": "#/components/schemas/Constraint"
 						},
 						"type": "array"
 					}
@@ -287,14 +306,11 @@
 					"default": {
 						"type": "string"
 					},
-					"encrypt": {
+					"readValue": {
 						"type": "string"
 					},
-					"base64": {
-						"type": "boolean"
-					},
-					"serialize": {
-						"type": "boolean"
+					"writeValue": {
+						"type": "string"
 					},
 					"mapping": {
 						"type": "string"
@@ -358,6 +374,12 @@
 					"dependents": {
 						"items": {
 							"$ref": "#/components/schemas/Dependent"
+						},
+						"type": "array"
+					},
+					"constraints": {
+						"items": {
+							"$ref": "#/components/schemas/Constraint"
 						},
 						"type": "array"
 					},
@@ -442,7 +464,7 @@
 	},
 	"info": {
 		"title": "lambdaorm-svc",
-		"version": "0.1.2",
+		"version": "0.1.5",
 		"description": "service of lambda orm",
 		"license": {
 			"name": "Apache-2.0 License"
