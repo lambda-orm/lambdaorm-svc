@@ -25,6 +25,13 @@ export default class ExpressionController {
 	}
 
 	@Tags('expression')
+	@Get('/constraints/')
+	@SuccessResponse('200', 'Ok')
+	public async constraints (@Query() query:string): Promise<any> {
+		return await orm.constraints(query)
+	}
+
+	@Tags('expression')
 	@Get('/sentence/')
 	@SuccessResponse('200', 'Ok')
 	public async sentence (@Query() query:string, @Query() stage?:string): Promise<any> {
