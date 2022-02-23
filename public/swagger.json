@@ -86,6 +86,9 @@
 					},
 					"writeValue": {
 						"type": "string"
+					},
+					"enum": {
+						"type": "string"
 					}
 				},
 				"required": [
@@ -312,6 +315,9 @@
 					"writeValue": {
 						"type": "string"
 					},
+					"enum": {
+						"type": "string"
+					},
 					"mapping": {
 						"type": "string"
 					},
@@ -464,7 +470,7 @@
 	},
 	"info": {
 		"title": "lambdaorm-svc",
-		"version": "0.1.5",
+		"version": "0.1.6",
 		"description": "service of lambda orm",
 		"license": {
 			"name": "Apache-2.0 License"
