@@ -1,6 +1,9 @@
 {
 	"entryPoints": [
-		"src/api/routes"
+		"src/api/routes/general.ts",
+		"src/api/routes/expressions.ts",
+		"src/api/routes/schema.ts",
+		"src/api/routes/stage.ts"
 	],
 	"out": "doc",
 	"excludePrivate": true,

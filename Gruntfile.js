@@ -36,6 +36,6 @@ module.exports = function (grunt) {
 	grunt.registerTask('build', ['clean:build', 'exec:swagger', 'exec:tsc'])
 	grunt.registerTask('lint', ['exec:lint'])
 	grunt.registerTask('doc', ['exec:typedoc'])
-	grunt.registerTask('dist', ['clean:dist', 'copy:api', 'copy:public', 'copy:license', 'create-package'])
+	grunt.registerTask('dist', ['clean:dist', 'build', 'copy:api', 'copy:public', 'copy:license', 'create-package'])
 	grunt.registerTask('default', [])
 }

@@ -6,38 +6,6 @@
 		"requestBodies": {},
 		"responses": {},
 		"schemas": {
-			"SchemaDataEntity": {
-				"properties": {
-					"entity": {
-						"type": "string"
-					},
-					"rows": {
-						"items": {},
-						"type": "array"
-					}
-				},
-				"required": [
-					"entity",
-					"rows"
-				],
-				"type": "object",
-				"additionalProperties": false
-			},
-			"SchemaData": {
-				"properties": {
-					"entities": {
-						"items": {
-							"$ref": "#/components/schemas/SchemaDataEntity"
-						},
-						"type": "array"
-					}
-				},
-				"required": [
-					"entities"
-				],
-				"type": "object",
-				"additionalProperties": false
-			},
 			"Index": {
 				"properties": {
 					"name": {
@@ -464,13 +432,45 @@
 				],
 				"type": "object",
 				"additionalProperties": false
+			},
+			"SchemaDataEntity": {
+				"properties": {
+					"entity": {
+						"type": "string"
+					},
+					"rows": {
+						"items": {},
+						"type": "array"
+					}
+				},
+				"required": [
+					"entity",
+					"rows"
+				],
+				"type": "object",
+				"additionalProperties": false
+			},
+			"SchemaData": {
+				"properties": {
+					"entities": {
+						"items": {
+							"$ref": "#/components/schemas/SchemaDataEntity"
+						},
+						"type": "array"
+					}
+				},
+				"required": [
+					"entities"
+				],
+				"type": "object",
+				"additionalProperties": false
 			}
 		},
 		"securitySchemes": {}
 	},
 	"info": {
 		"title": "lambdaorm-svc",
-		"version": "0.1.6",
+		"version": "0.1.14",
 		"description": "service of lambda orm",
 		"license": {
 			"name": "Apache-2.0 License"
@@ -482,28 +482,6 @@
 	},
 	"openapi": "3.0.0",
 	"paths": {
-		"/ping": {
-			"get": {
-				"operationId": "Ping",
-				"responses": {
-					"200": {
-						"description": "Ok",
-						"content": {
-							"application/json": {
-								"schema": {
-									"type": "string"
-								}
-							}
-						}
-					}
-				},
-				"tags": [
-					"general"
-				],
-				"security": [],
-				"parameters": []
-			}
-		},
 		"/metadata": {
 			"get": {
 				"operationId": "Metadata",
@@ -565,6 +543,35 @@
 		"/parameters": {
 			"get": {
 				"operationId": "Parameters",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {}
+							}
+						}
+					}
+				},
+				"tags": [
+					"expression"
+				],
+				"security": [],
+				"parameters": [
+					{
+						"in": "query",
+						"name": "query",
+						"required": true,
+						"schema": {
+							"type": "string"
+						}
+					}
+				]
+			}
+		},
+		"/constraints": {
+			"get": {
+				"operationId": "Constraints",
 				"responses": {
 					"200": {
 						"description": "Ok",
@@ -671,6 +678,191 @@
 						}
 					}
 				}
+			}
+		},
+		"/ping": {
+			"get": {
+				"operationId": "Ping",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {}
+							}
+						}
+					}
+				},
+				"tags": [
+					"general"
+				],
+				"security": [],
+				"parameters": []
+			}
+		},
+		"/health": {
+			"get": {
+				"operationId": "Health",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {}
+							}
+						}
+					}
+				},
+				"tags": [
+					"general"
+				],
+				"security": [],
+				"parameters": []
+			}
+		},
+		"/metrics": {
+			"get": {
+				"operationId": "Metrics",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {}
+							}
+						}
+					}
+				},
+				"tags": [
+					"general"
+				],
+				"security": [],
+				"parameters": []
+			}
+		},
+		"/schema/entities": {
+			"get": {
+				"operationId": "Entities",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {
+									"items": {
+										"$ref": "#/components/schemas/Entity"
+									},
+									"type": "array"
+								}
+							}
+						}
+					}
+				},
+				"tags": [
+					"schema"
+				],
+				"security": [],
+				"parameters": []
+			}
+		},
+		"/schema/enums": {
+			"get": {
+				"operationId": "Enums",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {
+									"items": {
+										"$ref": "#/components/schemas/Enum"
+									},
+									"type": "array"
+								}
+							}
+						}
+					}
+				},
+				"tags": [
+					"schema"
+				],
+				"security": [],
+				"parameters": []
+			}
+		},
+		"/schema/datasources": {
+			"get": {
+				"operationId": "DataSources",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {
+									"items": {
+										"$ref": "#/components/schemas/DataSource"
+									},
+									"type": "array"
+								}
+							}
+						}
+					}
+				},
+				"tags": [
+					"schema"
+				],
+				"security": [],
+				"parameters": []
+			}
+		},
+		"/schema/mappings": {
+			"get": {
+				"operationId": "Mappings",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {
+									"items": {
+										"$ref": "#/components/schemas/Mapping"
+									},
+									"type": "array"
+								}
+							}
+						}
+					}
+				},
+				"tags": [
+					"schema"
+				],
+				"security": [],
+				"parameters": []
+			}
+		},
+		"/schema/stages": {
+			"get": {
+				"operationId": "Stages",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {
+									"items": {
+										"$ref": "#/components/schemas/Stage"
+									},
+									"type": "array"
+								}
+							}
+						}
+					}
+				},
+				"tags": [
+					"schema"
+				],
+				"security": [],
+				"parameters": []
 			}
 		},
 		"/stage": {
@@ -797,131 +989,6 @@
 						}
 					}
 				}
-			}
-		},
-		"/schema/entities": {
-			"get": {
-				"operationId": "Entities",
-				"responses": {
-					"200": {
-						"description": "Ok",
-						"content": {
-							"application/json": {
-								"schema": {
-									"items": {
-										"$ref": "#/components/schemas/Entity"
-									},
-									"type": "array"
-								}
-							}
-						}
-					}
-				},
-				"tags": [
-					"schema"
-				],
-				"security": [],
-				"parameters": []
-			}
-		},
-		"/schema/enums": {
-			"get": {
-				"operationId": "Enums",
-				"responses": {
-					"200": {
-						"description": "Ok",
-						"content": {
-							"application/json": {
-								"schema": {
-									"items": {
-										"$ref": "#/components/schemas/Enum"
-									},
-									"type": "array"
-								}
-							}
-						}
-					}
-				},
-				"tags": [
-					"schema"
-				],
-				"security": [],
-				"parameters": []
-			}
-		},
-		"/schema/datasources": {
-			"get": {
-				"operationId": "DataSources",
-				"responses": {
-					"200": {
-						"description": "Ok",
-						"content": {
-							"application/json": {
-								"schema": {
-									"items": {
-										"$ref": "#/components/schemas/DataSource"
-									},
-									"type": "array"
-								}
-							}
-						}
-					}
-				},
-				"tags": [
-					"schema"
-				],
-				"security": [],
-				"parameters": []
-			}
-		},
-		"/schema/mappings": {
-			"get": {
-				"operationId": "Mappings",
-				"responses": {
-					"200": {
-						"description": "Ok",
-						"content": {
-							"application/json": {
-								"schema": {
-									"items": {
-										"$ref": "#/components/schemas/Mapping"
-									},
-									"type": "array"
-								}
-							}
-						}
-					}
-				},
-				"tags": [
-					"schema"
-				],
-				"security": [],
-				"parameters": []
-			}
-		},
-		"/schema/stages": {
-			"get": {
-				"operationId": "Stages",
-				"responses": {
-					"200": {
-						"description": "Ok",
-						"content": {
-							"application/json": {
-								"schema": {
-									"items": {
-										"$ref": "#/components/schemas/Stage"
-									},
-									"type": "array"
-								}
-							}
-						}
-					}
-				},
-				"tags": [
-					"schema"
-				],
-				"security": [],
-				"parameters": []
 			}
 		}
 	},

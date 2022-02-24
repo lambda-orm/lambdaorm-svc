@@ -2,8 +2,18 @@
 
 
 
+### General -------------------------------------------------------------------------------------------------------------------------
 
-### Inserts
+### ping
+GET {{host}}/ping HTTP/1.1
+
+### health
+GET {{host}}/health HTTP/1.1
+
+### metrics
+GET {{host}}/metrics HTTP/1.1
+
+### Inserts -------------------------------------------------------------------------------------------------------------------------
 
 ### Users
 POST {{host}}/run?query=Users.bulkInsert() HTTP/1.1
@@ -107,7 +117,7 @@ content-type: application/json
 	}
 ]
 
-### Metadata
+### Metadata -------------------------------------------------------------------------------------------------------------------------
 
 
 ### model
@@ -123,7 +133,6 @@ GET {{host}}/constraints?query=Devices.bulkInsert().include(p=>p.components) HTT
 GET {{host}}/sentence?query=Devices.bulkInsert().include(p=>p.components) HTTP/1.1
 
 ### Execute
-
 POST {{host}}/run?query=Groups.include(p=>[p.members.include(p=>p.user),p.devices.include(p=>p.components.filter(p=>p.type==ComponentType.camera))]) HTTP/1.1
 content-type: application/json
 

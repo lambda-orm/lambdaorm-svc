@@ -12,7 +12,7 @@
 				"<node_internals>/**"
 			],
 			"program": "${workspaceFolder}/src/api/index.ts",
-			"envFile": "${workspaceFolder}/src/dev/lab/nordwind/.env"
+			"envFile": "${workspaceFolder}/src/lab/nordwind/.env"
 		},
 		{
 			"name": "devicenet lab",
@@ -22,7 +22,7 @@
 				"<node_internals>/**"
 			],
 			"program": "${workspaceFolder}/src/api/index.ts",
-			"envFile": "${workspaceFolder}/src/dev/lab/devicenet/.env"
+			"envFile": "${workspaceFolder}/src/lab/devicenet/.env"
 		}
 	]
 }
