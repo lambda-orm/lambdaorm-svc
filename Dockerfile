@@ -5,3 +5,4 @@ RUN npm install
 VOLUME ["/workspace"]
 CMD ["node","index"]
 USER 1000
+LABEL maintainer="flaviolrita@hotmail.com"

@@ -4,26 +4,16 @@
 
 ## Table of contents
 
-### Functions
+### Variables
 
 - [default](stage.md#default)
 
-## Functions
+## Variables
 
 ### default
 
-▸ `Const` **default**(`app`): `void`
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `app` | `Application` |
-
-#### Returns
-
-`void`
+• **default**: `Router`
 
 #### Defined in
 
-stage.ts:4
+[stage.ts:3](https://github.com/FlavioLionelRita/lambda-orm-svc/blob/f1d4370/src/api/routes/stage.ts#L3)

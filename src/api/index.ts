@@ -1,9 +1,12 @@
 import express, { Application } from 'express'
+import swaggerUi from 'swagger-ui-express'
 import morgan from 'morgan'
 import expressions from './routes/expressions'
 import general from './routes/general'
 import schema from './routes/schema'
 import stage from './routes/stage'
+import metrics, { before, after } from './routes/metrics'
+import { errorHandler } from './routes/errors'
 import { orm } from 'lambdaorm'
 
 const app:Application = express()
@@ -16,10 +19,26 @@ const port = process.env.PORT || '9289'
 const workspace = process.env.WORKSPACE || '/workspace'
 
 // add routes
-general(app)
-expressions(app)
-schema(app)
-stage(app)
+app.use(before)
+app.use(general)
+app.use(expressions)
+app.use(schema)
+app.use(stage)
+app.use(stage)
+app.use(metrics)
+app.use(errorHandler)
+app.use(after)
+
+// swagger
+app.use(
+	'/docs',
+	swaggerUi.serve,
+	swaggerUi.setup(undefined, {
+		swaggerOptions: {
+			url: '/swagger.json'
+		}
+	})
+)
 
 const server = app.listen(port, async () => {
 	await orm.init(workspace)

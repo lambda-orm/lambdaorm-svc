@@ -4,26 +4,16 @@
 
 ## Table of contents
 
-### Functions
+### Variables
 
 - [default](schema.md#default)
 
-## Functions
+## Variables
 
 ### default
 
-▸ `Const` **default**(`app`): `void`
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `app` | `Application` |
-
-#### Returns
-
-`void`
+• **default**: `Router`
 
 #### Defined in
 
-schema.ts:4
+[schema.ts:3](https://github.com/FlavioLionelRita/lambda-orm-svc/blob/f1d4370/src/api/routes/schema.ts#L3)

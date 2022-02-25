@@ -1,11 +1,11 @@
 version: "3"
 networks:
-  monitoring:
+  lab:
     driver: bridge
 
 services:
   db:
-    container_name: devicenet-postgres-lab
+    container_name: devicenet-svc-lab-postgres
     image: postgres:10
     restart: always
     environment:
@@ -22,7 +22,28 @@ services:
       timeout: 1s
       retries: 10
     networks:
-      - monitoring
+      - lab
+  lambdaorm-api:
+    depends_on:
+      - db
+    container_name: devicenet-svc-lab-api
+    build:
+      context: ./../../..
+    environment:
+      - HOST=http://localhost
+      - PORT=9291
+      - WORKSPACE=/workspace
+      - USERS_SECRET_KEY=rifk863hmKSJDJ87hd*nhJ98
+      - DEVICES_SECRET_KEY=hhd843hf8HD7HDg65GD&^5
+      - 'CNN_POSTGRES={"host":"devicenet-svc-lab-postgres","port":5432,"user":"devicenet","password":"devicenet","database":"devicenet"}'
+    ports:
+      - 9291:9291
+    expose:
+      - 9291
+    networks:
+      - lab
+    volumes:
+      - workspace:/workspace
   prometheus:
     image: prom/prometheus:v2.20.1
     container_name: prometheus
@@ -34,8 +55,10 @@ services:
     expose:
       - 9090
     networks:
-      - monitoring
+      - lab
   grafana:
+    depends_on:
+      - prometheus
     image: grafana/grafana:7.1.5
     container_name: grafana
     volumes:
@@ -50,28 +73,7 @@ services:
     expose:
       - 3000
     networks:
-      - monitoring
-  devicenet-api-lab:
-    depends_on:
-      - db
-    container_name: devicenet-api-lab
-    build:
-      context: ./../../..
-    environment:
-      - HOST=http://localhost
-      - PORT=9291
-      - WORKSPACE=/workspace
-      - USERS_SECRET_KEY=rifk863hmKSJDJ87hd*nhJ98
-      - DEVICES_SECRET_KEY=hhd843hf8HD7HDg65GD&^5
-      - 'CNN_POSTGRES={"host":"devicenet-postgres-lab","port":5432,"user":"devicenet","password":"devicenet","database":"devicenet"}'
-    ports:
-      - 9291:9291
-    expose:
-      - 9291
-    networks:
-      - monitoring
-    volumes:
-      - workspace:/workspace
+      - lab
 volumes:
   postgres:
     driver: local
