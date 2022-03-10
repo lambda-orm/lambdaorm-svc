@@ -66,13 +66,21 @@
 				"type": "object",
 				"additionalProperties": false
 			},
+			"RelationType": {
+				"enum": [
+					"oneToMany",
+					"manyToOne",
+					"oneToOne"
+				],
+				"type": "string"
+			},
 			"Relation": {
 				"properties": {
 					"name": {
 						"type": "string"
 					},
 					"type": {
-						"type": "string"
+						"$ref": "#/components/schemas/RelationType"
 					},
 					"composite": {
 						"type": "boolean"
@@ -85,6 +93,15 @@
 					},
 					"to": {
 						"type": "string"
+					},
+					"weak": {
+						"type": "boolean"
+					},
+					"target": {
+						"type": "string"
+					},
+					"targetComposite": {
+						"type": "boolean"
 					}
 				},
 				"required": [
@@ -470,7 +487,7 @@
 	},
 	"info": {
 		"title": "lambdaorm-svc",
-		"version": "0.1.14",
+		"version": "0.1.16",
 		"description": "service of lambda orm",
 		"license": {
 			"name": "Apache-2.0 License"

@@ -14,6 +14,19 @@ Down:
 docker-compose -f ./docker-compose-win-db.yaml down --remove-orphans
 ```
 
+## Keycloak
+
+```sql
+CREATE ROLE keycloak SUPERUSER NOCREATEDB NOCREATEROLE INHERIT LOGIN PASSWORD 'keycloak';
+```
+
+- [tutorial basico](https://www.youtube.com/watch?v=4lAMd2hnU04)
+- [public api example](https://medium.com/devops-dudes/securing-node-js-express-rest-apis-with-keycloak-a4946083be51)
+
+<https://www.keycloak.org/docs/latest/securing_apps/#_nodejs_adapter>
+<https://medium.com/devops-dudes/securing-node-js-express-rest-apis-with-keycloak-a4946083be51>
+<https://medium.com/devops-dudes/secure-front-end-react-js-and-back-end-node-js-express-rest-api-with-keycloak-daf159f0a94e>
+
 ## Complete
 
 ### Init
@@ -40,7 +53,6 @@ lambdaorm sync -e ./.env
 Up:
 
 ``` sh
-copy lambdaorm.yaml C:\volumes\devicenet\workspace
 npm run dist
 docker-compose -f ./docker-compose-win.yaml up -d 
 ```
@@ -87,6 +99,9 @@ lambdaorm drop -e ./.env
   - <https://www.vinsguru.com/jmeter-scaling-out-load-servers-using-docker-compose-in-distributed-load-testing/>
   - <https://hub.docker.com/r/justb4/jmeter>
   -<https://github.com/apolloclark/jmeter/blob/master/docker-compose.yml>
+
+- KeyCloak
+  - [docker-compose](https://github.com/keycloak/keycloak-containers/blob/main/docker-compose-examples/keycloak-postgres.yml)
 
 Kill Port:
 

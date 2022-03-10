@@ -1,10 +1,10 @@
 version: "3"
 networks:
-  lab:
+  devicenet:
     driver: bridge
 
 services:
-  db:
+  postgres:
     container_name: devicenet-svc-lab-postgres
     image: postgres:10
     restart: always
@@ -13,7 +13,7 @@ services:
       - POSTGRES_USER=devicenet
       - POSTGRES_PASSWORD=devicenet
     volumes:
-      - postgres:/var/lib/postgresql/data
+      - postgres_data:/var/lib/postgresql/data
     ports:
       - '5432:5432'
     healthcheck:
@@ -22,10 +22,32 @@ services:
       timeout: 1s
       retries: 10
     networks:
-      - lab
+      - devicenet
+  keycloak:
+    depends_on:
+      - postgres
+    image: quay.io/keycloak/keycloak:legacy
+    container_name: devicenet-svc-lab-keycloak
+    environment:
+      DB_VENDOR: POSTGRES
+      DB_ADDR: postgres
+      DB_SCHEMA: public
+      DB_DATABASE: keycloak
+      DB_USER: keycloak
+      DB_PASSWORD: keycloak
+      KEYCLOAK_USER: admin
+      KEYCLOAK_PASSWORD: Pa55w0rd
+      # Uncomment the line below if you want to specify JDBC parameters. The parameter below is just an example, and it shouldn't be used in production without knowledge. It is highly recommended that you read the PostgreSQL JDBC driver documentation in order to use it.
+      #JDBC_PARAMS: "ssl=true"
+    ports:
+      - 9000:8080
+    expose:
+      - 9000
+    networks:
+      - devicenet
   lambdaorm-api:
     depends_on:
-      - db
+      - postgres
     container_name: devicenet-svc-lab-api
     build:
       context: ./../../..
@@ -41,12 +63,12 @@ services:
     expose:
       - 9291
     networks:
-      - lab
+      - devicenet
     volumes:
-      - workspace:/workspace
+      - ./workspace:/workspace
   prometheus:
     image: prom/prometheus:v2.20.1
-    container_name: prometheus
+    container_name: devicenet-svc-lab-prometheus
     volumes:
       - ./prometheus:/etc/prometheus
       - prometheus_data:/prometheus
@@ -55,12 +77,12 @@ services:
     expose:
       - 9090
     networks:
-      - lab
+      - devicenet
   grafana:
     depends_on:
       - prometheus
     image: grafana/grafana:7.1.5
-    container_name: grafana
+    container_name: devicenet-svc-lab-grafana
     volumes:
       - grafana_data:/var/lib/grafana
       - ./grafana/provisioning:/etc/grafana/provisioning
@@ -73,19 +95,13 @@ services:
     expose:
       - 3000
     networks:
-      - lab
+      - devicenet
 volumes:
-  postgres:
+  postgres_data:
     driver: local
     driver_opts:
       o: bind
       type: none
       device: C:\volumes\devicenet\postgres
-  workspace:
-    driver: local
-    driver_opts:
-      o: bind
-      type: none
-      device: C:\volumes\devicenet\workspace
   prometheus_data: {}
   grafana_data: {}

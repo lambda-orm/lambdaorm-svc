@@ -22,7 +22,7 @@
 				"<node_internals>/**"
 			],
 			"program": "${workspaceFolder}/src/api/index.ts",
-			"envFile": "${workspaceFolder}/src/lab/devicenet/.env"
+			"envFile": "${workspaceFolder}/src/lab/devicenet-svc/workspace/.env"
 		}
 	]
 }

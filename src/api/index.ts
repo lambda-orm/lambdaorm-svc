@@ -9,6 +9,8 @@ import metrics, { before, after } from './routes/metrics'
 import { errorHandler } from './routes/errors'
 import { orm } from 'lambdaorm'
 
+import KeycloakAuth from './config/keycloak-config'
+
 const app:Application = express()
 app.use(express.json())
 app.use(morgan('tiny'))
@@ -19,6 +21,7 @@ const port = process.env.PORT || '9289'
 const workspace = process.env.WORKSPACE || '/workspace'
 
 // add routes
+app.use(new KeycloakAuth().auth())
 app.use(before)
 app.use(general)
 app.use(expressions)
