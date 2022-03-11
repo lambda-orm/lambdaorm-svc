@@ -9,19 +9,19 @@ import metrics, { before, after } from './routes/metrics'
 import { errorHandler } from './routes/errors'
 import { orm } from 'lambdaorm'
 
-import KeycloakAuth from './config/keycloak-config'
+// import KeycloakAuth from './config/keycloak-config'
 
 const app:Application = express()
 app.use(express.json())
 app.use(morgan('tiny'))
 app.use(express.static('public'))
 
-const host = process.env.HOST || 'http://0.0.0.0'
+const host = process.env.HOST || 'http://localhost'
 const port = process.env.PORT || '9289'
 const workspace = process.env.WORKSPACE || '/workspace'
 
 // add routes
-app.use(new KeycloakAuth().auth())
+// app.use(new KeycloakAuth().auth())
 app.use(before)
 app.use(general)
 app.use(expressions)
@@ -34,7 +34,7 @@ app.use(after)
 
 // swagger
 app.use(
-	'/docs',
+	'/api-docs',
 	swaggerUi.serve,
 	swaggerUi.setup(undefined, {
 		swaggerOptions: {
@@ -45,7 +45,7 @@ app.use(
 
 const server = app.listen(port, async () => {
 	await orm.init(workspace)
-	console.log('Server running at: ' + host + ':' + port + '/docs')
+	console.log('Server running at: ' + host + ':' + port + '/api-docs')
 })
 
 // Graceful shutdown

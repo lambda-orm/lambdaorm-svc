@@ -28,6 +28,9 @@ module.exports = function (grunt) {
 		delete data.private
 		delete data.scripts
 		delete data.nodemonConfig
+		data.scripts = {
+			start: 'node index.js'
+		}
 		data.main = 'index.js'
 		data.types = 'index.d.ts'
 		fs.writeFileSync('dist/package.json', JSON.stringify(data, null, 2), 'utf8')

@@ -28,11 +28,11 @@ router.get('/sentence', async (req, res, next) => {
 	res.json(await new ExpressionController().sentence(query, stage))
 	next()
 })
-router.post('/run', async (req, res, next) => {
+router.post('/execute', async (req, res, next) => {
 	try {
 		const query = req.query.query as string
 		const stage = req.query ? req.query.stage as string : undefined
-		res.json(await new ExpressionController().run(query, req.body, stage))
+		res.json(await new ExpressionController().execute(query, req.body, stage))
 		next()
 	} catch (error) {
 		next(error)

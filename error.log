@@ -1,0 +1,6 @@
+{"level":"error","message":"Express Server failure","service":"user-service","timestamp":"2022-03-11T10:40:57.598Z"}
+{"level":"error","service":"user-service","timestamp":"2022-03-11T10:40:57.618Z"}
+{"level":"error","message":"Express Server failure","service":"user-service","timestamp":"2022-03-11T10:41:48.572Z"}
+{"level":"error","service":"user-service","timestamp":"2022-03-11T10:41:48.584Z"}
+{"level":"error","message":"Express Server failure","service":"user-service","timestamp":"2022-03-11T10:43:21.864Z"}
+{"level":"error","service":"user-service","timestamp":"2022-03-11T10:43:21.873Z"}

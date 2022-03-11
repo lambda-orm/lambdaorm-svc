@@ -6,21 +6,55 @@
 		"requestBodies": {},
 		"responses": {},
 		"schemas": {
-			"Index": {
+			"Metadata": {
 				"properties": {
 					"name": {
 						"type": "string"
 					},
-					"fields": {
+					"type": {
+						"type": "string"
+					},
+					"entity": {
+						"type": "string"
+					},
+					"children": {
 						"items": {
-							"type": "string"
+							"$ref": "#/components/schemas/Metadata"
 						},
 						"type": "array"
+					},
+					"fields": {
+						"items": {
+							"$ref": "#/components/schemas/Property"
+						},
+						"type": "array"
+					},
+					"property": {
+						"type": "string"
+					},
+					"parameters": {
+						"items": {
+							"$ref": "#/components/schemas/Parameter"
+						},
+						"type": "array"
+					},
+					"relation": {
+						"$ref": "#/components/schemas/Relation"
+					},
+					"sentence": {
+						"type": "string"
+					},
+					"alias": {
+						"type": "string"
+					},
+					"number": {
+						"type": "number",
+						"format": "double"
 					}
 				},
 				"required": [
 					"name",
-					"fields"
+					"type"
 				],
 				"type": "object",
 				"additionalProperties": false
@@ -58,6 +92,23 @@
 					"enum": {
 						"type": "string"
 					}
+				},
+				"required": [
+					"name",
+					"type"
+				],
+				"type": "object",
+				"additionalProperties": false
+			},
+			"Parameter": {
+				"properties": {
+					"name": {
+						"type": "string"
+					},
+					"type": {
+						"type": "string"
+					},
+					"value": {}
 				},
 				"required": [
 					"name",
@@ -114,18 +165,46 @@
 				"type": "object",
 				"additionalProperties": false
 			},
-			"Dependent": {
+			"MetadataModel": {
 				"properties": {
-					"entity": {
+					"name": {
 						"type": "string"
 					},
-					"relation": {
-						"$ref": "#/components/schemas/Relation"
+					"type": {
+						"type": "string"
+					},
+					"childs": {
+						"items": {
+							"$ref": "#/components/schemas/MetadataModel"
+						},
+						"type": "array"
 					}
 				},
 				"required": [
-					"entity",
-					"relation"
+					"name",
+					"type"
+				],
+				"type": "object",
+				"additionalProperties": false
+			},
+			"MetadataParameter": {
+				"properties": {
+					"name": {
+						"type": "string"
+					},
+					"type": {
+						"type": "string"
+					},
+					"childs": {
+						"items": {
+							"$ref": "#/components/schemas/MetadataParameter"
+						},
+						"type": "array"
+					}
+				},
+				"required": [
+					"name",
+					"type"
 				],
 				"type": "object",
 				"additionalProperties": false
@@ -142,6 +221,133 @@
 				"required": [
 					"message",
 					"condition"
+				],
+				"type": "object",
+				"additionalProperties": false
+			},
+			"MetadataConstraint": {
+				"properties": {
+					"entity": {
+						"type": "string"
+					},
+					"constraints": {
+						"items": {
+							"$ref": "#/components/schemas/Constraint"
+						},
+						"type": "array"
+					},
+					"childs": {
+						"items": {
+							"$ref": "#/components/schemas/MetadataConstraint"
+						},
+						"type": "array"
+					}
+				},
+				"required": [
+					"entity",
+					"constraints"
+				],
+				"type": "object",
+				"additionalProperties": false
+			},
+			"MetadataSentence": {
+				"properties": {
+					"entity": {
+						"type": "string"
+					},
+					"dialect": {
+						"type": "string"
+					},
+					"dataSource": {
+						"type": "string"
+					},
+					"sentence": {
+						"type": "string"
+					},
+					"childs": {
+						"items": {
+							"$ref": "#/components/schemas/MetadataSentence"
+						},
+						"type": "array"
+					}
+				},
+				"required": [
+					"entity",
+					"dialect",
+					"dataSource",
+					"sentence"
+				],
+				"type": "object",
+				"additionalProperties": false
+			},
+			"Ping": {
+				"properties": {
+					"message": {
+						"type": "string"
+					},
+					"time": {
+						"type": "string"
+					}
+				},
+				"required": [
+					"message",
+					"time"
+				],
+				"type": "object",
+				"additionalProperties": false
+			},
+			"Health": {
+				"properties": {
+					"message": {
+						"type": "string"
+					},
+					"time": {
+						"type": "string"
+					},
+					"uptime": {
+						"type": "number",
+						"format": "double"
+					}
+				},
+				"required": [
+					"message",
+					"time",
+					"uptime"
+				],
+				"type": "object",
+				"additionalProperties": false
+			},
+			"Index": {
+				"properties": {
+					"name": {
+						"type": "string"
+					},
+					"fields": {
+						"items": {
+							"type": "string"
+						},
+						"type": "array"
+					}
+				},
+				"required": [
+					"name",
+					"fields"
+				],
+				"type": "object",
+				"additionalProperties": false
+			},
+			"Dependent": {
+				"properties": {
+					"entity": {
+						"type": "string"
+					},
+					"relation": {
+						"$ref": "#/components/schemas/Relation"
+					}
+				},
+				"required": [
+					"entity",
+					"relation"
 				],
 				"type": "object",
 				"additionalProperties": false
@@ -507,7 +713,9 @@
 						"description": "Ok",
 						"content": {
 							"application/json": {
-								"schema": {}
+								"schema": {
+									"$ref": "#/components/schemas/Metadata"
+								}
 							}
 						}
 					}
@@ -536,7 +744,12 @@
 						"description": "Ok",
 						"content": {
 							"application/json": {
-								"schema": {}
+								"schema": {
+									"items": {
+										"$ref": "#/components/schemas/MetadataModel"
+									},
+									"type": "array"
+								}
 							}
 						}
 					}
@@ -565,7 +778,12 @@
 						"description": "Ok",
 						"content": {
 							"application/json": {
-								"schema": {}
+								"schema": {
+									"items": {
+										"$ref": "#/components/schemas/MetadataParameter"
+									},
+									"type": "array"
+								}
 							}
 						}
 					}
@@ -594,7 +812,9 @@
 						"description": "Ok",
 						"content": {
 							"application/json": {
-								"schema": {}
+								"schema": {
+									"$ref": "#/components/schemas/MetadataConstraint"
+								}
 							}
 						}
 					}
@@ -623,7 +843,9 @@
 						"description": "Ok",
 						"content": {
 							"application/json": {
-								"schema": {}
+								"schema": {
+									"$ref": "#/components/schemas/MetadataSentence"
+								}
 							}
 						}
 					}
@@ -652,9 +874,9 @@
 				]
 			}
 		},
-		"/run": {
+		"/execute": {
 			"post": {
-				"operationId": "Run",
+				"operationId": "Execute",
 				"responses": {
 					"200": {
 						"description": "Ok",
@@ -705,7 +927,9 @@
 						"description": "Ok",
 						"content": {
 							"application/json": {
-								"schema": {}
+								"schema": {
+									"$ref": "#/components/schemas/Ping"
+								}
 							}
 						}
 					}
@@ -725,7 +949,9 @@
 						"description": "Ok",
 						"content": {
 							"application/json": {
-								"schema": {}
+								"schema": {
+									"$ref": "#/components/schemas/Health"
+								}
 							}
 						}
 					}

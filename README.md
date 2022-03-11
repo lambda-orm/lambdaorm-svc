@@ -2,6 +2,22 @@
 
 service of lambda orm
 
+## OpenId
+
+- [openapi generator](https://openapi-generator.tech/)
+
+install openapi-generator:
+
+```sh
+npm install @openapitools/openapi-generator-cli -g
+```
+
+generate api:
+
+```sh
+npx @openapitools/openapi-generator-cli generate -i src/dev/config/lambda-svc.yaml -g nodejs-express-server -o src/openapi
+```
+
 ## Dev Scripts
 
 build
@@ -71,4 +87,13 @@ uninstall
 
 ``` sh
 docker-compose -f ./docker-compose-win.yaml down --remove-orphans
+```
+
+## Kill Port
+
+- [data](https://stackoverflow.com/questions/39632667/how-do-i-kill-the-process-currently-using-a-port-on-localhost-in-windows)
+
+```sh
+netstat -ano | findstr :9291
+taskkill /PID 4500 /F
 ```

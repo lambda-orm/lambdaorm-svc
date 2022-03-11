@@ -5,24 +5,44 @@
 	"version": "0.2.0",
 	"configurations": [
 		{
-			"name": "nordwind lab",
+			"name": "nordwind api",
 			"type": "node",
 			"request": "launch",
 			"skipFiles": [
 				"<node_internals>/**"
 			],
 			"program": "${workspaceFolder}/src/api/index.ts",
-			"envFile": "${workspaceFolder}/src/lab/nordwind/.env"
+			"envFile": "${workspaceFolder}/src/dev/lab/nordwind/.env"
 		},
 		{
-			"name": "devicenet lab",
+			"name": "nordwind openapi",
+			"type": "node",
+			"request": "launch",
+			"skipFiles": [
+				"<node_internals>/**"
+			],
+			"program": "${workspaceFolder}/src/openapi/index.js",
+			"envFile": "${workspaceFolder}/src/dev/lab/nordwind/.env"
+		},
+		{
+			"name": "devicenet api",
 			"type": "node",
 			"request": "launch",
 			"skipFiles": [
 				"<node_internals>/**"
 			],
 			"program": "${workspaceFolder}/src/api/index.ts",
-			"envFile": "${workspaceFolder}/src/lab/devicenet-svc/workspace/.env"
+			"envFile": "${workspaceFolder}/src/dev/lab/devicenet-svc/workspace/.env"
+		},
+		{
+			"name": "devicenet openapi",
+			"type": "node",
+			"request": "launch",
+			"skipFiles": [
+				"<node_internals>/**"
+			],
+			"program": "${workspaceFolder}/src/openapi/index.js",
+			"envFile": "${workspaceFolder}/src/dev/lab/devicenet-svc/workspace/.env"
 		}
 	]
 }
