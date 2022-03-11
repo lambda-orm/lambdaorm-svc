@@ -22,10 +22,51 @@ CREATE ROLE keycloak SUPERUSER NOCREATEDB NOCREATEROLE INHERIT LOGIN PASSWORD 'k
 
 - [tutorial basico](https://www.youtube.com/watch?v=4lAMd2hnU04)
 - [public api example](https://medium.com/devops-dudes/securing-node-js-express-rest-apis-with-keycloak-a4946083be51)
+- others examples:
+  - [nodejs_adapter](https://www.keycloak.org/docs/latest/securing_apps/#_nodejs_adapter)
+  - [securing-node-js](https://medium.com/devops-dudes/securing-node-js-express-rest-apis-with-keycloak-a4946083be51)
+  - [secure-front-end](https://medium.com/devops-dudes/secure-front-end-react-js-and-back-end-node-js-express-rest-api-with-keycloak-daf159f0a94e)
 
-<https://www.keycloak.org/docs/latest/securing_apps/#_nodejs_adapter>
-<https://medium.com/devops-dudes/securing-node-js-express-rest-apis-with-keycloak-a4946083be51>
-<https://medium.com/devops-dudes/secure-front-end-react-js-and-back-end-node-js-express-rest-api-with-keycloak-daf159f0a94e>
+### Configuration
+
+#### Create Client
+
+- Client ID: lambdaorm
+- Root URL: <http://localhost:9291>
+
+- Access Type: confidentional
+- Service Accounts Enabled : Check
+- Authorization Enabled: Check
+
+Credentials Tab
+
+- Secret : F8Z4Me6gbd0ghiBspmvXpwxfR8b7Yhqf
+
+Roles Tab:
+
+- user
+- admin
+
+#### Create Roles
+
+- app-user
+- app-admin
+
+#### Create Users
+
+- user
+- admin
+
+#### Client Scopes
+
+lambdaorm:execute
+
+#### Run Service and authorize
+
+- Client ID: lambdaorm
+- Secret : F8Z4Me6gbd0ghiBspmvXpwxfR8b7Yhqf
+- user: user:user
+- admin: admin:admin
 
 ## Complete
 

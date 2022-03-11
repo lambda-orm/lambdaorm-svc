@@ -29,7 +29,7 @@ docker-compose -f ./docker-compose-db.yaml down --remove-orphans
 Up:
 
 ``` sh
-docker-compose -f ./docker-compose-db_keycloak.yaml up -d 
+docker-compose -f ./docker-compose-db-keycloak.yaml up -d 
 ```
 
 ``` sh

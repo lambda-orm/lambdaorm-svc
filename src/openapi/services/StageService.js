@@ -1,3 +1,4 @@
+/* eslint-disable no-async-promise-executor */
 /* eslint-disable no-unused-vars */
 const { orm } = require('lambdaorm')
 const Service = require('./Service')

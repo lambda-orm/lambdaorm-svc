@@ -13,7 +13,10 @@ externalDocs:
   description: Find out more about λORM
   url: https://www.npmjs.com/package/lambdaorm
 servers:
-  - url: /
+  - description: localhost
+    url: "http://localhost:9291"
+  - description: docker-compose
+    url: "http://localhost:9292"
 tags:
   - description: Expression methods
     name: expression
@@ -42,7 +45,9 @@ paths:
               schema:
                 $ref: "#/components/schemas/Metadata"
           description: Ok
-      security: []
+      security:
+        - auth:
+            - lambdaorm:execute
       tags:
         - expression
       x-eov-operation-handler: controllers/ExpressionController
@@ -66,7 +71,9 @@ paths:
                   $ref: "#/components/schemas/MetadataModel"
                 type: array
           description: Ok
-      security: []
+      security:
+        - auth:
+            - lambdaorm:execute
       tags:
         - expression
       x-eov-operation-handler: controllers/ExpressionController
@@ -90,7 +97,9 @@ paths:
                   $ref: "#/components/schemas/MetadataParameter"
                 type: array
           description: Ok
-      security: []
+      security:
+        - auth:
+            - lambdaorm:execute
       tags:
         - expression
       x-eov-operation-handler: controllers/ExpressionController
@@ -112,7 +121,9 @@ paths:
               schema:
                 $ref: "#/components/schemas/MetadataConstraint"
           description: Ok
-      security: []
+      security:
+        - auth:
+            - lambdaorm:execute
       tags:
         - expression
       x-eov-operation-handler: controllers/ExpressionController
@@ -141,7 +152,9 @@ paths:
               schema:
                 $ref: "#/components/schemas/MetadataSentence"
           description: Ok
-      security: []
+      security:
+        - auth:
+            - lambdaorm:execute
       tags:
         - expression
       x-eov-operation-handler: controllers/ExpressionController
@@ -175,7 +188,9 @@ paths:
             application/json:
               schema: {}
           description: Ok
-      security: []
+      security:
+        - auth:
+            - lambdaorm:execute
       tags:
         - expression
       x-eov-operation-handler: controllers/ExpressionController
@@ -190,7 +205,9 @@ paths:
               schema:
                 $ref: "#/components/schemas/Ping"
           description: Ok
-      security: []
+      security:
+        - auth:
+            - lambdaorm:general
       tags:
         - general
       x-eov-operation-handler: controllers/GeneralController
@@ -205,7 +222,9 @@ paths:
               schema:
                 $ref: "#/components/schemas/Health"
           description: Ok
-      security: []
+      security:
+        - auth:
+            - lambdaorm:general
       tags:
         - general
       x-eov-operation-handler: controllers/GeneralController
@@ -219,7 +238,9 @@ paths:
             application/json:
               schema: {}
           description: Ok
-      security: []
+      security:
+        - auth:
+            - lambdaorm:general
       tags:
         - general
       x-eov-operation-handler: controllers/GeneralController
@@ -236,7 +257,9 @@ paths:
                   $ref: "#/components/schemas/Entity"
                 type: array
           description: Ok
-      security: []
+      security:
+        - auth:
+            - lambdaorm:admin
       tags:
         - schema
       x-eov-operation-handler: controllers/SchemaController
@@ -253,7 +276,9 @@ paths:
                   $ref: "#/components/schemas/Enum"
                 type: array
           description: Ok
-      security: []
+      security:
+        - auth:
+            - lambdaorm:admin
       tags:
         - schema
       x-eov-operation-handler: controllers/SchemaController
@@ -270,7 +295,9 @@ paths:
                   $ref: "#/components/schemas/DataSource"
                 type: array
           description: Ok
-      security: []
+      security:
+        - auth:
+            - lambdaorm:admin
       tags:
         - schema
       x-eov-operation-handler: controllers/SchemaController
@@ -287,7 +314,9 @@ paths:
                   $ref: "#/components/schemas/Mapping"
                 type: array
           description: Ok
-      security: []
+      security:
+        - auth:
+            - lambdaorm:admin
       tags:
         - schema
       x-eov-operation-handler: controllers/SchemaController
@@ -304,7 +333,9 @@ paths:
                   $ref: "#/components/schemas/Stage"
                 type: array
           description: Ok
-      security: []
+      security:
+        - auth:
+            - lambdaorm:admin
       tags:
         - schema
       x-eov-operation-handler: controllers/SchemaController
@@ -321,7 +352,9 @@ paths:
                   type: string
                 type: array
           description: Ok
-      security: []
+      security:
+        - auth:
+            - lambdaorm:admin
       tags:
         - stage
       x-eov-operation-handler: controllers/StageController
@@ -343,7 +376,9 @@ paths:
               schema:
                 type: boolean
           description: Ok
-      security: []
+      security:
+        - auth:
+            - lambdaorm:admin
       tags:
         - stage
       x-eov-operation-handler: controllers/StageController
@@ -365,7 +400,9 @@ paths:
               schema:
                 $ref: "#/components/schemas/SchemaData"
           description: Ok
-      security: []
+      security:
+        - auth:
+            - lambdaorm:admin
       tags:
         - stage
       x-eov-operation-handler: controllers/StageController
@@ -392,7 +429,9 @@ paths:
             application/json:
               schema: {}
           description: Ok
-      security: []
+      security:
+        - auth:
+            - lambdaorm:admin
       tags:
         - stage
       x-eov-operation-handler: controllers/StageController
@@ -1410,4 +1449,20 @@ components:
       required:
         - entities
       type: object
-  securitySchemes: {}
+  securitySchemes:
+    auth:
+      flows:
+        password:
+          scopes:
+            lambdaorm:general: ping , health and metrics
+            lambdaorm:admin: stages and schemas actions
+            lambdaorm:execute: execute queries and metadata of queries
+          tokenUrl: "http://localhost:9000/auth/realms/devicenet/protocol/openid-connect/token"
+      type: oauth2
+    api_key:
+      in: header
+      name: api_key
+      type: apiKey
+security:
+  - auth:
+      - openid
