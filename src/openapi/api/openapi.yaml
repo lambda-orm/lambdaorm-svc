@@ -27,7 +27,52 @@ tags:
   - description: Stage methods
     name: stage
 paths:
-  /metadata:
+  /ping:
+    get:
+      operationId: ping
+      parameters: []
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Ping"
+          description: Ok
+      security: []
+      tags:
+        - general
+      x-eov-operation-handler: controllers/GeneralController
+  /health:
+    get:
+      operationId: health
+      parameters: []
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Health"
+          description: Ok
+      security: []
+      tags:
+        - general
+      x-eov-operation-handler: controllers/GeneralController
+  /metrics:
+    get:
+      operationId: metrics
+      parameters: []
+      responses:
+        "200":
+          content:
+            application/json:
+              schema: {}
+          description: Ok
+      security: []
+      tags:
+        - general
+      x-eov-operation-handler: controllers/GeneralController
+  # expression
+  /expression/metadata:
     get:
       operationId: metadata
       parameters:
@@ -47,11 +92,11 @@ paths:
           description: Ok
       security:
         - auth:
-            - lambdaorm:execute
+            - expression:read
       tags:
         - expression
       x-eov-operation-handler: controllers/ExpressionController
-  /model:
+  /expression/model:
     get:
       operationId: model
       parameters:
@@ -73,11 +118,11 @@ paths:
           description: Ok
       security:
         - auth:
-            - lambdaorm:execute
+            - expression:read
       tags:
         - expression
       x-eov-operation-handler: controllers/ExpressionController
-  /parameters:
+  /expression/parameters:
     get:
       operationId: parameters
       parameters:
@@ -99,11 +144,11 @@ paths:
           description: Ok
       security:
         - auth:
-            - lambdaorm:execute
+            - expression:read
       tags:
         - expression
       x-eov-operation-handler: controllers/ExpressionController
-  /constraints:
+  /expression/constraints:
     get:
       operationId: constraints
       parameters:
@@ -123,11 +168,11 @@ paths:
           description: Ok
       security:
         - auth:
-            - lambdaorm:execute
+            - expression:read
       tags:
         - expression
       x-eov-operation-handler: controllers/ExpressionController
-  /sentence:
+  /expressionsentence:
     get:
       operationId: sentence
       parameters:
@@ -154,11 +199,11 @@ paths:
           description: Ok
       security:
         - auth:
-            - lambdaorm:execute
+            - expression:read
       tags:
         - expression
       x-eov-operation-handler: controllers/ExpressionController
-  /execute:
+  /expression/execute:
     post:
       operationId: execute
       parameters:
@@ -190,60 +235,11 @@ paths:
           description: Ok
       security:
         - auth:
-            - lambdaorm:execute
+            - expression:execute
       tags:
         - expression
       x-eov-operation-handler: controllers/ExpressionController
-  /ping:
-    get:
-      operationId: ping
-      parameters: []
-      responses:
-        "200":
-          content:
-            application/json:
-              schema:
-                $ref: "#/components/schemas/Ping"
-          description: Ok
-      security:
-        - auth:
-            - lambdaorm:general
-      tags:
-        - general
-      x-eov-operation-handler: controllers/GeneralController
-  /health:
-    get:
-      operationId: health
-      parameters: []
-      responses:
-        "200":
-          content:
-            application/json:
-              schema:
-                $ref: "#/components/schemas/Health"
-          description: Ok
-      security:
-        - auth:
-            - lambdaorm:general
-      tags:
-        - general
-      x-eov-operation-handler: controllers/GeneralController
-  /metrics:
-    get:
-      operationId: metrics
-      parameters: []
-      responses:
-        "200":
-          content:
-            application/json:
-              schema: {}
-          description: Ok
-      security:
-        - auth:
-            - lambdaorm:general
-      tags:
-        - general
-      x-eov-operation-handler: controllers/GeneralController
+  # schema
   /schema/entities:
     get:
       operationId: entities
@@ -259,7 +255,7 @@ paths:
           description: Ok
       security:
         - auth:
-            - lambdaorm:admin
+            - schema:read
       tags:
         - schema
       x-eov-operation-handler: controllers/SchemaController
@@ -278,7 +274,7 @@ paths:
           description: Ok
       security:
         - auth:
-            - lambdaorm:admin
+            - schema:read
       tags:
         - schema
       x-eov-operation-handler: controllers/SchemaController
@@ -297,7 +293,7 @@ paths:
           description: Ok
       security:
         - auth:
-            - lambdaorm:admin
+            - schema:read
       tags:
         - schema
       x-eov-operation-handler: controllers/SchemaController
@@ -316,7 +312,7 @@ paths:
           description: Ok
       security:
         - auth:
-            - lambdaorm:admin
+            - schema:read
       tags:
         - schema
       x-eov-operation-handler: controllers/SchemaController
@@ -335,10 +331,11 @@ paths:
           description: Ok
       security:
         - auth:
-            - lambdaorm:admin
+            - schema:read
       tags:
         - schema
       x-eov-operation-handler: controllers/SchemaController
+  # stage
   /stage:
     get:
       operationId: list
@@ -354,7 +351,7 @@ paths:
           description: Ok
       security:
         - auth:
-            - lambdaorm:admin
+            - stage:read
       tags:
         - stage
       x-eov-operation-handler: controllers/StageController
@@ -378,7 +375,7 @@ paths:
           description: Ok
       security:
         - auth:
-            - lambdaorm:admin
+            - stage:read
       tags:
         - stage
       x-eov-operation-handler: controllers/StageController
@@ -402,7 +399,7 @@ paths:
           description: Ok
       security:
         - auth:
-            - lambdaorm:admin
+            - stage:export
       tags:
         - stage
       x-eov-operation-handler: controllers/StageController
@@ -431,7 +428,7 @@ paths:
           description: Ok
       security:
         - auth:
-            - lambdaorm:admin
+            - stage:import
       tags:
         - stage
       x-eov-operation-handler: controllers/StageController
@@ -1454,9 +1451,12 @@ components:
       flows:
         password:
           scopes:
-            lambdaorm:general: ping , health and metrics
-            lambdaorm:admin: stages and schemas actions
-            lambdaorm:execute: execute queries and metadata of queries
+            expression:read: read actions on expression [metadata|parameters|mode|constraints]
+            expression:execute: execute expressions
+            schema:read: read schema
+            stage:read: read stages
+            stage:export: export data from stage
+            stage:import: import data from stage
           tokenUrl: "http://localhost:9000/auth/realms/devicenet/protocol/openid-connect/token"
       type: oauth2
     api_key:

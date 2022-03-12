@@ -20,7 +20,11 @@ docker-compose -f ./docker-compose-win-db.yaml down --remove-orphans
 CREATE ROLE keycloak SUPERUSER NOCREATEDB NOCREATEROLE INHERIT LOGIN PASSWORD 'keycloak';
 ```
 
+- [Authentication](https://www.keycloak.org/docs/latest/server_admin/index.html#_role_scope_mappings)
+- [Authorization](https://www-keycloak-org.translate.goog/docs/latest/authorization_services/index.html?_x_tr_sl=en&_x_tr_tl=es&_x_tr_hl=es&_x_tr_pto=wapp)
 - [tutorial basico](https://www.youtube.com/watch?v=4lAMd2hnU04)
+- [tutotial](https://www.youtube.com/watch?v=0TiRsueDmO4)
+- [tutorial Authorization](https://www.youtube.com/watch?v=j3uydtrYLSE)
 - [public api example](https://medium.com/devops-dudes/securing-node-js-express-rest-apis-with-keycloak-a4946083be51)
 - others examples:
   - [nodejs_adapter](https://www.keycloak.org/docs/latest/securing_apps/#_nodejs_adapter)
@@ -67,6 +71,12 @@ lambdaorm:execute
 - Secret : F8Z4Me6gbd0ghiBspmvXpwxfR8b7Yhqf
 - user: user:user
 - admin: admin:admin
+
+Error:
+
+```error
+Auth ErrorError: Bad Request, error: invalid_scope, description: Invalid scopes: lambdaorm:general lambdaorm:execute
+```
 
 ## Complete
 
