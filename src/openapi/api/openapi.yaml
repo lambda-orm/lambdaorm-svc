@@ -92,7 +92,7 @@ paths:
           description: Ok
       security:
         - auth:
-            - expression:read
+            - read
       tags:
         - expression
       x-eov-operation-handler: controllers/ExpressionController
@@ -118,7 +118,7 @@ paths:
           description: Ok
       security:
         - auth:
-            - expression:read
+            - read
       tags:
         - expression
       x-eov-operation-handler: controllers/ExpressionController
@@ -144,7 +144,7 @@ paths:
           description: Ok
       security:
         - auth:
-            - expression:read
+            - read
       tags:
         - expression
       x-eov-operation-handler: controllers/ExpressionController
@@ -168,11 +168,11 @@ paths:
           description: Ok
       security:
         - auth:
-            - expression:read
+            - read
       tags:
         - expression
       x-eov-operation-handler: controllers/ExpressionController
-  /expressionsentence:
+  /expression/sentence:
     get:
       operationId: sentence
       parameters:
@@ -199,7 +199,7 @@ paths:
           description: Ok
       security:
         - auth:
-            - expression:read
+            - read
       tags:
         - expression
       x-eov-operation-handler: controllers/ExpressionController
@@ -235,7 +235,7 @@ paths:
           description: Ok
       security:
         - auth:
-            - expression:execute
+            - execute
       tags:
         - expression
       x-eov-operation-handler: controllers/ExpressionController
@@ -255,7 +255,7 @@ paths:
           description: Ok
       security:
         - auth:
-            - schema:read
+            - read
       tags:
         - schema
       x-eov-operation-handler: controllers/SchemaController
@@ -274,7 +274,7 @@ paths:
           description: Ok
       security:
         - auth:
-            - schema:read
+            - read
       tags:
         - schema
       x-eov-operation-handler: controllers/SchemaController
@@ -293,7 +293,7 @@ paths:
           description: Ok
       security:
         - auth:
-            - schema:read
+            - read
       tags:
         - schema
       x-eov-operation-handler: controllers/SchemaController
@@ -312,7 +312,7 @@ paths:
           description: Ok
       security:
         - auth:
-            - schema:read
+            - read
       tags:
         - schema
       x-eov-operation-handler: controllers/SchemaController
@@ -331,7 +331,7 @@ paths:
           description: Ok
       security:
         - auth:
-            - schema:read
+            - read
       tags:
         - schema
       x-eov-operation-handler: controllers/SchemaController
@@ -351,7 +351,7 @@ paths:
           description: Ok
       security:
         - auth:
-            - stage:read
+            - read
       tags:
         - stage
       x-eov-operation-handler: controllers/StageController
@@ -375,7 +375,7 @@ paths:
           description: Ok
       security:
         - auth:
-            - stage:read
+            - read
       tags:
         - stage
       x-eov-operation-handler: controllers/StageController
@@ -399,7 +399,7 @@ paths:
           description: Ok
       security:
         - auth:
-            - stage:export
+            - export
       tags:
         - stage
       x-eov-operation-handler: controllers/StageController
@@ -428,7 +428,7 @@ paths:
           description: Ok
       security:
         - auth:
-            - stage:import
+            - import
       tags:
         - stage
       x-eov-operation-handler: controllers/StageController
@@ -1448,17 +1448,23 @@ components:
       type: object
   securitySchemes:
     auth:
-      flows:
-        password:
-          scopes:
-            expression:read: read actions on expression [metadata|parameters|mode|constraints]
-            expression:execute: execute expressions
-            schema:read: read schema
-            stage:read: read stages
-            stage:export: export data from stage
-            stage:import: import data from stage
-          tokenUrl: "http://localhost:9000/auth/realms/devicenet/protocol/openid-connect/token"
       type: oauth2
+      flows:
+        # password:
+        #   scopes:
+        #     read: read
+        #     execute: execute
+        #     export: export
+        #     import: import
+        #   tokenUrl: "http://localhost:8180/auth/realms/devicenet/protocol/openid-connect/token"
+        authorizationCode:
+          authorizationUrl: http://localhost:8180/auth/realms/devicenet/protocol/openid-connect/auth
+          tokenUrl: http://localhost:8180/auth/realms/devicenet/protocol/openid-connect/token
+          scopes:
+            read: read
+            execute: execute
+            export: export
+            import: import
     api_key:
       in: header
       name: api_key

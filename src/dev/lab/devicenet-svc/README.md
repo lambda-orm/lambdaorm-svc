@@ -1,86 +1,6 @@
 # Devicenet service
 
-## Only db
-
-Up:
-
-``` sh
-docker-compose -f ./docker-compose-win-db.yaml up -d 
-```
-
-Down:
-
-``` sh
-docker-compose -f ./docker-compose-win-db.yaml down --remove-orphans
-```
-
-## Keycloak
-
-```sql
-CREATE ROLE keycloak SUPERUSER NOCREATEDB NOCREATEROLE INHERIT LOGIN PASSWORD 'keycloak';
-```
-
-- [Authentication](https://www.keycloak.org/docs/latest/server_admin/index.html#_role_scope_mappings)
-- [Authorization](https://www-keycloak-org.translate.goog/docs/latest/authorization_services/index.html?_x_tr_sl=en&_x_tr_tl=es&_x_tr_hl=es&_x_tr_pto=wapp)
-- [tutorial basico](https://www.youtube.com/watch?v=4lAMd2hnU04)
-- [tutotial](https://www.youtube.com/watch?v=0TiRsueDmO4)
-- [tutorial Authorization](https://www.youtube.com/watch?v=j3uydtrYLSE)
-- [public api example](https://medium.com/devops-dudes/securing-node-js-express-rest-apis-with-keycloak-a4946083be51)
-- others examples:
-  - [nodejs_adapter](https://www.keycloak.org/docs/latest/securing_apps/#_nodejs_adapter)
-  - [securing-node-js](https://medium.com/devops-dudes/securing-node-js-express-rest-apis-with-keycloak-a4946083be51)
-  - [secure-front-end](https://medium.com/devops-dudes/secure-front-end-react-js-and-back-end-node-js-express-rest-api-with-keycloak-daf159f0a94e)
-
-### Configuration
-
-#### Create Client
-
-- Client ID: lambdaorm
-- Root URL: <http://localhost:9291>
-
-- Access Type: confidentional
-- Service Accounts Enabled : Check
-- Authorization Enabled: Check
-
-Credentials Tab
-
-- Secret : F8Z4Me6gbd0ghiBspmvXpwxfR8b7Yhqf
-
-Roles Tab:
-
-- user
-- admin
-
-#### Create Roles
-
-- app-user
-- app-admin
-
-#### Create Users
-
-- user
-- admin
-
-#### Client Scopes
-
-lambdaorm:execute
-
-#### Run Service and authorize
-
-- Client ID: lambdaorm
-- Secret : F8Z4Me6gbd0ghiBspmvXpwxfR8b7Yhqf
-- user: user:user
-- admin: admin:admin
-
-Error:
-
-```error
-Auth ErrorError: Bad Request, error: invalid_scope, description: Invalid scopes: lambdaorm:general lambdaorm:execute
-```
-
-## Complete
-
-### Init
+## Init
 
 init:
 
@@ -120,7 +40,7 @@ Test:
   - [Node Service Level Metrics Dashboard](http://localhost:3000/d/WBxkVyRnz/node-service-level-metrics-dashboard)
   - [NodeJS Request Flow Dashboard](http://localhost:3000/d/2Er5E1R7k/nodejs-request-flow-dashboard)
 
-### End
+## End
 
 Down:
 

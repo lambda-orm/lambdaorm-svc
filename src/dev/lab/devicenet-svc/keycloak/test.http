@@ -2,14 +2,14 @@
 
 # tutorial: https://medium.com/devops-dudes/securing-node-js-express-rest-apis-with-keycloak-a4946083be51
 
-POST http://localhost:9000/auth/realms/devicenet/protocol/openid-connect/token HTTP/1.1
+POST http://localhost:8180/auth/realms/devicenet/protocol/openid-connect/token HTTP/1.1
 content-type: application/x-www-form-urlencoded
 
 client_id=lambdaorm
 &client_secret=F8Z4Me6gbd0ghiBspmvXpwxfR8b7Yhqf
 &grant_type=password
-&username=user
-&password=user
+&username=admin
+&password=admin
 
 
 # Resul:

@@ -20,3 +20,7 @@
 {"level":"info","message":"Express server running","service":"user-service","timestamp":"2022-03-12T11:23:48.269Z"}
 {"level":"info","message":"Express server running","service":"user-service","timestamp":"2022-03-12T11:48:53.844Z"}
 {"level":"info","message":"Express server running","service":"user-service","timestamp":"2022-03-12T13:57:22.815Z"}
+{"level":"info","message":"Express server running","service":"user-service","timestamp":"2022-03-14T10:10:09.052Z"}
+{"level":"info","message":"Express server running","service":"user-service","timestamp":"2022-03-14T10:39:01.884Z"}
+{"level":"info","message":"Express server running","service":"user-service","timestamp":"2022-03-14T10:39:34.956Z"}
+{"level":"info","message":"Express server running","service":"user-service","timestamp":"2022-03-14T11:59:57.253Z"}
