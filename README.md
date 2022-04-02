@@ -15,7 +15,7 @@ npm install @openapitools/openapi-generator-cli -g
 generate api:
 
 ```sh
-npx @openapitools/openapi-generator-cli generate -i src/dev/config/lambda-svc.yaml -g nodejs-express-server -o src/openapi
+npx @openapitools/openapi-generator-cli generate -i src/dev/config/lambda-svc.yaml -g nodejs-express-server -o src/api
 ```
 
 ## Dev Scripts
