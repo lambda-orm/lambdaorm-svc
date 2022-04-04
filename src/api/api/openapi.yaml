@@ -1432,9 +1432,22 @@ components:
         - entities
       type: object
   securitySchemes:
-    openid:
-      type: openIdConnect
-      openIdConnectUrl: http://localhost:8180/auth/realms/devicenet-dev/.well-known/openid-configuration
+    auth:
+      type: oauth2
+      flows:
+        authorizationCode:
+          authorizationUrl: http://localhost:8180/auth/realms/devicenet-dev/protocol/openid-connect/auth
+          tokenUrl: http://localhost:8180/auth/realms/devicenet-dev/protocol/openid-connect/token
+          scopes:
+            lambdaorm:expression:read: read expression
+            lambdaorm:expression:execute: execute expression
+            lambdaorm:schema:read: read schema
+            lambdaorm:stage:read: read stage
+            lambdaorm:stage:import: import stage
+            lambdaorm:stage:export: export stage
+    # openid:
+    #   type: openIdConnect
+    #   openIdConnectUrl: http://localhost:8180/auth/realms/devicenet-dev/.well-known/openid-configuration
     # auth:
     #   type: oauth2
     #   flows:
