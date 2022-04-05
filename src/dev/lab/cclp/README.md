@@ -46,7 +46,7 @@ Down:
 
 ``` sh
 docker-compose -f ./docker-compose-win.yaml down --remove-orphans
-docker rmi devicenet_lambdaorm-api
+docker rmi cclp_lambdaorm-api
 ```
 
 Clear database:

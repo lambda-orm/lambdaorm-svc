@@ -1,4 +1,6 @@
-FROM node:15.6-buster-slim
+# FROM node:15.6-buster-slim
+# Error: https://stackoverflow.com/questions/66420890/open-api-error-request-should-have-required-property-headers-docker
+FROM node:10.18.1-buster-slim
 
 WORKDIR /tmp
 RUN apt-get update && apt-get -y upgrade && apt-get -y dist-upgrade && apt-get install -y alien libaio1 && apt-get install -y wget
