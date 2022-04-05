@@ -30,7 +30,7 @@ const execute = ({ query, stage, body }) => new Promise(
 	// eslint-disable-next-line no-async-promise-executor
 	async (resolve, reject) => {
 		try {
-			const result = await orm.execute(query, body, stage)
+			const result = await orm.execute(query, body, undefined, stage)
 			resolve(Service.successResponse(result))
 		} catch (e) {
 			reject(Service.rejectResponse(
@@ -100,7 +100,7 @@ const parameters = ({ query }) => new Promise(
 const sentence = ({ query, stage }) => new Promise(
 	(resolve, reject) => {
 		try {
-			resolve(Service.successResponse(orm.sentence(query, stage)))
+			resolve(Service.successResponse(orm.sentence(query, undefined, stage)))
 		} catch (e) {
 			reject(Service.rejectResponse(
 				e.message || 'Invalid input',

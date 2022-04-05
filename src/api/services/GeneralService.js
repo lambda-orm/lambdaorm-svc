@@ -1,5 +1,7 @@
 /* eslint-disable no-unused-vars */
 const Service = require('./Service')
+const Metrics = require('./Metrics')
+
 
 /**
 *
@@ -26,10 +28,10 @@ const health = () => new Promise(
 * returns oas_any_type_not_mapped
 * */
 const metrics = () => new Promise(
-	(resolve, reject) => {
+	async (resolve, reject) => {
 		try {
-			resolve(Service.successResponse({
-			}))
+			const metrics = await Metrics.register.metrics()
+			resolve(Service.successResponse(metrics))
 		} catch (e) {
 			reject(Service.rejectResponse(
 				e.message || 'Invalid input',

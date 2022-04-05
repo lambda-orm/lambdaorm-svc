@@ -13,6 +13,9 @@ const { OpenApiValidator } = require('express-openapi-validator')
 const logger = require('./logger')
 const config = require('./config')
 const { orm } = require('lambdaorm')
+const Metrics = require('./services/Metrics')
+
+
 
 class ExpressServer {
 	constructor() {
@@ -28,6 +31,7 @@ class ExpressServer {
 	setupMiddleware() {
 		// this.setupAllowedMedia()
 		this.app.use(cors())
+		this.app.use(Metrics.before)
 		this.app.use(bodyParser.json({ limit: '14MB' }))
 		this.app.use(express.json())
 		this.app.use(express.urlencoded({ extended: false }))
@@ -54,6 +58,9 @@ class ExpressServer {
 			operationHandlers: path.join(__dirname),
 			fileUploader: { dest: config.FILE_UPLOAD_PATH }
 		}).install(this.app)
+			.then(() => {
+				this.app.use(Metrics.after)
+			})
 			.catch(e =>
 				console.log(e)
 			)

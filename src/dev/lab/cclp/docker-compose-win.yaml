@@ -1,0 +1,87 @@
+version: "3"
+networks:
+  cclp:
+    driver: bridge
+
+services:
+  postgres:
+    container_name: cclp-svc-lab-postgres
+    image: postgres:10
+    restart: always
+    environment:
+      - POSTGRES_DB=cclp
+      - POSTGRES_USER=cclp
+      - POSTGRES_PASSWORD=cclp
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    ports:
+      - '5432:5432'
+    healthcheck:
+      test: [ "CMD", "pg_isready", "-U", "test" ]
+      interval: 3s
+      timeout: 1s
+      retries: 10
+    networks:
+      - cclp
+  keycloak:
+    depends_on:
+      - postgres
+    image: quay.io/keycloak/keycloak:legacy
+    container_name: cclp-svc-lab-keycloak
+    environment:
+      DB_VENDOR: POSTGRES
+      DB_ADDR: postgres
+      DB_SCHEMA: public
+      DB_DATABASE: keycloak
+      DB_USER: keycloak
+      DB_PASSWORD: keycloak
+      KEYCLOAK_USER: admin
+      KEYCLOAK_PASSWORD: Pa55w0rd
+      # Uncomment the line below if you want to specify JDBC parameters. The parameter below is just an example, and it shouldn't be used in production without knowledge. It is highly recommended that you read the PostgreSQL JDBC driver documentation in order to use it.
+      #JDBC_PARAMS: "ssl=true"
+    ports:
+      - 8180:8080
+    expose:
+      - 8180
+    networks:
+      - cclp
+  lambdaorm-api:
+    depends_on:
+      - keycloak
+    container_name: cclp-svc-lab-api
+    build:
+      context: ./../../../..
+    environment:
+      - HOST=http://localhost
+      - PORT=9291
+      - WORKSPACE=/workspace
+      - 'BEE_CCLP_LOCATIONS={"connectString":"10.0.07/ORAMS01","user":"CCLP_LOCATIONS","password":"CCLP_LOCATIONS"}'
+      - 'BEE_CCLP_PARTIES={"connectString":"10.0.07/ORAMS01","user":"CCLP_PARTY_MANAGEMENT","password":"CCLP_PARTY_MANAGEMENT"}'
+      - 'BEE_CCLP_PARTY_ROLES={"connectString":"10.0.07/ORAMS01","user":"CCLP_PARTYROLE_MANAGEMENT","password":"CCLP_PARTYROLE_MANAGEMENT"}'
+      - 'BEE_CCLP_LEDGER_ACCOUNTS={"connectString":"10.0.07/ORAMS01","user":"CCLP_ACCOUNT_LEDGER_MANAGEMENT","password":"CCLP_ACCOUNT_LEDGER_MANAGEMENT"}'
+      - 'BEE_CCLP_DEBTORS={"connectString":"10.0.07/ORAMS01","user":"CCLP_DEBTOR_MANAGEMENT","password":"CCLP_DEBTOR_MANAGEMENT"}'
+      - 'LOC_CCLP_LOCATIONS={"host":"0.0.0.0","port":5432,"user":"CCLP_LOCATIONS","password":"CCLP_LOCATIONS","database":"CCLP_LOCATIONS"}'
+      - 'LOC_CCLP_PARTIES={"host":"0.0.0.0","port":5432,"user":"CCLP_PARTIES","password":"CCLP_PARTIES","database":"CCLP_PARTIES"}'
+      - 'LOC_CCLP_PARTY_ROLES={"host":"0.0.0.0","port":5432,"user":"CCLP_PARTY_ROLES","password":"CCLP_PARTY_ROLES","database":"CCLP_PARTY_ROLES"}'
+      - 'LOC_CCLP_LEDGER_ACCOUNTS={"host":"0.0.0.0","port":5432,"user":"CCLP_LEDGER_ACCOUNTS","password":"CCLP_LEDGER_ACCOUNTS","database":"CCLP_LEDGER_ACCOUNTS"}'
+      - 'LOC_CCLP_DEBTORS={"host":"0.0.0.0","port":5432,"user":"CCLP_DEBTORS","password":"CCLP_DEBTORS","database":"CCLP_DEBTORS"}'
+      - 'LOC_ORA_CCLP_LOCATIONS={"connectString":"localhost:1522/xe","user":"CCLP_LOCATIONS","password":"CCLP_LOCATIONS"}'
+      - 'LOC_ORA_CCLP_PARTIES={"connectString":"localhost:1522/xe","user":"CCLP_PARTIES","password":"CCLP_PARTIES"}'
+      - 'LOC_ORA_CCLP_PARTY_ROLES={"connectString":"localhost:1522/xe","user":"CCLP_PARTY_ROLES","password":"CCLP_PARTY_ROLES"}'
+      - 'LOC_ORA_CCLP_LEDGER_ACCOUNTS={"connectString":"localhost:1522/xe","user":"CCLP_LEDGER_ACCOUNTS","password":"CCLP_LEDGER_ACCOUNTS"}'
+      - 'LOC_ORA_CCLP_DEBTORS={"connectString":"localhost:1522/xe","user":"CCLP_DEBTORS","password":"CCLP_DEBTORS"}'
+    ports:
+      - 9291:9291
+    expose:
+      - 9291
+    networks:
+      - cclp
+    volumes:
+      - ./workspace:/workspace
+volumes:
+  postgres_data:
+    driver: local
+    driver_opts:
+      o: bind
+      type: none
+      device: C:\volumes\cclp\postgres

@@ -8,12 +8,14 @@
 
 const Controller = require('./Controller')
 const service = require('../services/GeneralService')
+const Metrics = require('../services/Metrics')
 
 const health = async (request, response) => {
 	await Controller.handleRequest(request, response, service.health)
 }
 
 const metrics = async (request, response) => {
+	response.setHeader('Content-Type', Metrics.register.contentType)
 	await Controller.handleRequest(request, response, service.metrics)
 }
 
