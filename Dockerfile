@@ -1,31 +1,44 @@
-# FROM node:15.6-buster-slim
-# Error: https://stackoverflow.com/questions/66420890/open-api-error-request-should-have-required-property-headers-docker
-FROM node:10.18.1-buster-slim
+FROM node:14.19.1-slim
 
-WORKDIR /tmp
-RUN apt-get update && apt-get -y upgrade && apt-get -y dist-upgrade && apt-get install -y alien libaio1 && apt-get install -y wget
-RUN wget https://yum.oracle.com/repo/OracleLinux/OL7/oracle/instantclient/x86_64/getPackage/oracle-instantclient19.11-basic-19.11.0.0.0-1.x86_64.rpm
-RUN alien -i --scripts oracle-instantclient*.rpm
-RUN rm -f oracle-instantclient19.11*.rpm && apt-get -y autoremove && apt-get -y clean
+# PM2 will be used as PID 1 process
+# RUN /bin/bash -c 'npm install -g pm2@4.2.3'
+
+# Install packages
+RUN /bin/bash -c 'npm config set loglevel warn \
+	# To mitigate issues with npm saturating the network interface we limit the number of concurrent connections
+	&& npm config set maxsockets 5 \
+	&& npm config set only production \
+	&& npm config set progress false'
+
+# Oracle instanclient
+RUN apt-get update
+RUN apt-get install libaio1 unzip
+COPY oracle/instantclient-basic-linux.x64-19.14.0.0.0dbru.zip instantclient.zip
+RUN unzip instantclient.zip
+RUN rm instantclient.zip
+
+COPY oracle/instantclient-sqlplus-linux.x64-19.14.0.0.0dbru.zip instantclient-sqlplus.zip
+RUN unzip instantclient-sqlplus.zip
+RUN rm instantclient-sqlplus.zip
+
+RUN mkdir -p /opt/oracle
+RUN mv instantclient_19_14 /opt/oracle
+
+ENV LD_LIBRARY_PATH=/opt/oracle/instantclient_19_14:$LD_LIBRARY_PATH \
+	PATH=/opt/oracle/instantclient_19_14:$PATH
+
+RUN /bin/bash -c 'echo "node version" && node --version'
+RUN /bin/bash -c 'cat /etc/os-release'
+
+# Cleaning up:
+RUN apt-get purge unzip -y
+RUN apt-get autoremove -y
+RUN apt-get clean
 
 WORKDIR /usr/src/app
 COPY ./dist .
 RUN npm install
 VOLUME ["/workspace"]
 CMD ["npm","run","start"]
-USER 1000
-LABEL maintainer="flaviolrita@hotmail.com"
-
-
-# https://yum.oracle.com/repo/OracleLinux/OL7/oracle/instantclient/x86_64/
-# https://blogs.oracle.com/opal/post/dockerfiles-for-node-oracledb-are-easy-and-simple
-
-# FROM node:14.18.3-alpine
-# WORKDIR /usr/src/app
-# COPY ./dist .
-# RUN npm install
-# VOLUME ["/workspace"]
-# CMD ["npm","run","start"]
-# # CMD ["node","index"]
 # USER 1000
-# LABEL maintainer="flaviolrita@hotmail.com"
+LABEL maintainer="flaviolrita@hotmail.com"

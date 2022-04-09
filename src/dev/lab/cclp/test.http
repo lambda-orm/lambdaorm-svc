@@ -1,6 +1,8 @@
 @host = http://localhost:9291
+# @host = http://localhost:9292
 @keycloaHost = http://localhost:8180
-@locStage = localOracle
+@locStage = local
+# @locStage = localOracle
 @realm = cclp
 
 
@@ -58,6 +60,13 @@ content-type: application/json
 
 ### Execute
 POST {{host}}/expression/execute?query=LocCountries&stage={{locStage}} HTTP/1.1
+content-type: application/json
+
+{
+}
+
+### Execute
+POST {{host}}/expression/execute?query=LocAreaTypes.include(p => p.areas)&stage={{locStage}} HTTP/1.1
 content-type: application/json
 
 {

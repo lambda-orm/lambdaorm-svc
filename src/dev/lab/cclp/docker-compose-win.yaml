@@ -4,6 +4,25 @@ networks:
     driver: bridge
 
 services:
+  # oracle:
+  #   container_name: cclp-svc-lab-oracle
+  #   image: oracledb19c/oracle.19.3.0-ee:oracle19.3.0-ee
+  #   # image: oracle/database:19.3.0-ee
+  #   # https://hub.docker.com/r/oracledb19c/oracle.19.3.0-ee/tags
+  #   # docker pull oracledb19c/oracle.19.3.0-ee:oracle19.3.0-ee
+  #   environment:
+  #     ORACLE_SID: ORCLCDB
+  #     ORACLE_PDB: ORCLCPDB
+  #     ORACLE_PWD: SYSTEM
+  #     ORACLE_CHARACTERSET: WE8MSWIN1252
+  #   volumes:
+  #     - oradata:/opt/oracle/oradata # persistent oracle database data.
+  #   ports:
+  #     - 1523:1521
+  #     # - 5500:5500
+  #     # - 8080:8080
+  #   networks:
+  #     - cclp
   postgres:
     container_name: cclp-svc-lab-postgres
     image: postgres:10
@@ -46,13 +65,14 @@ services:
     networks:
       - cclp
   lambdaorm-api:
-    # depends_on:
-    #   - keycloak
+    depends_on:
+      # - oracle
+      - postgres
     container_name: cclp-svc-lab-api
     build:
       context: ./../../../..
     environment:
-      - HOST=http://localhost
+      - HOST=http://0.0.0.0
       - PORT=9291
       - WORKSPACE=/workspace
       - 'BEE_CCLP_LOCATIONS={"connectString":"10.0.07/ORAMS01","user":"CCLP_LOCATIONS","password":"CCLP_LOCATIONS"}'
@@ -65,11 +85,11 @@ services:
       - 'LOC_CCLP_PARTY_ROLES={"host":"cclp-svc-lab-postgres","port":5432,"user":"CCLP_PARTY_ROLES","password":"CCLP_PARTY_ROLES","database":"CCLP_PARTY_ROLES"}'
       - 'LOC_CCLP_LEDGER_ACCOUNTS={"host":"cclp-svc-lab-postgres","port":5432,"user":"CCLP_LEDGER_ACCOUNTS","password":"CCLP_LEDGER_ACCOUNTS","database":"CCLP_LEDGER_ACCOUNTS"}'
       - 'LOC_CCLP_DEBTORS={"host":"cclp-svc-lab-postgres","port":5432,"user":"CCLP_DEBTORS","password":"CCLP_DEBTORS","database":"CCLP_DEBTORS"}'
-      - 'LOC_ORA_CCLP_LOCATIONS={"connectString":"0.0.0.0:1522/xe","user":"CCLP_LOCATIONS","password":"CCLP_LOCATIONS"}'
-      - 'LOC_ORA_CCLP_PARTIES={"connectString":"0.0.0.0:1522/xe","user":"CCLP_PARTIES","password":"CCLP_PARTIES"}'
-      - 'LOC_ORA_CCLP_PARTY_ROLES={"connectString":"0.0.0.0:1522/xe","user":"CCLP_PARTY_ROLES","password":"CCLP_PARTY_ROLES"}'
-      - 'LOC_ORA_CCLP_LEDGER_ACCOUNTS={"connectString":"0.0.0.0:1522/xe","user":"CCLP_LEDGER_ACCOUNTS","password":"CCLP_LEDGER_ACCOUNTS"}'
-      - 'LOC_ORA_CCLP_DEBTORS={"connectString":"0.0.0.0:1522/xe","user":"CCLP_DEBTORS","password":"CCLP_DEBTORS"}'
+      - 'LOC_ORA_CCLP_LOCATIONS={"connectString":"cclp-svc-lab-oracle:1523/ORCLCDB","user":"CCLP_LOCATIONS","password":"CCLP_LOCATIONS"}'
+      - 'LOC_ORA_CCLP_PARTIES={"connectString":"cclp-svc-lab-oracle:1523/ORCLCDB","user":"CCLP_PARTIES","password":"CCLP_PARTIES"}'
+      - 'LOC_ORA_CCLP_PARTY_ROLES={"connectString":"cclp-svc-lab-oracle:1523/ORCLCDB","user":"CCLP_PARTY_ROLES","password":"CCLP_PARTY_ROLES"}'
+      - 'LOC_ORA_CCLP_LEDGER_ACCOUNTS={"connectString":"cclp-svc-lab-oracle:1523/ORCLCDB","user":"CCLP_LEDGER_ACCOUNTS","password":"CCLP_LEDGER_ACCOUNTS"}'
+      - 'LOC_ORA_CCLP_DEBTORS={"connectString":"cclp-svc-lab-oracle:1523/ORCLCDB","user":"CCLP_DEBTORS","password":"CCLP_DEBTORS"}'
     ports:
       - 9291:9291
     expose:
@@ -111,6 +131,12 @@ services:
 volumes:
   prometheus_data: {}
   grafana_data: {}
+  oradata:
+    driver: local
+    driver_opts:
+      o: bind
+      type: none
+      device: C:\volumes\cclp\oradata
   postgres_data:
     driver: local
     driver_opts:

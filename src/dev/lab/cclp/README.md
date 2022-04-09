@@ -28,7 +28,72 @@ npm run dist
 docker-compose -f ./docker-compose-win.yaml up -d 
 ```
 
-Test:
+### Oracle
+
+#### Conexion
+
+- port: 1523
+- sid: ORCLCDB
+- user: system
+- password: SYSTEM
+
+#### Error ORA-12541
+
+- [example sqlplus](https://dba.stackexchange.com/questions/13075/how-to-use-sqlplus-to-connect-to-an-oracle-database-located-on-another-host-with)
+- [hacer este ejercicio](https://www.dontesta.it/2020/03/15/how-to-setup-docker-container-oracle-database-19c-for-liferay-development-environment/)
+
+```sh
+tnsping (DESCRIPTION=(ADDRESS_LIST=(ADDRESS=(HOST="0.0.0.0")(PORT="1523")))(CONNECT_DATA=(SID="ORCLCDB")))
+
+
+apt-get update && apt-get install -y iputils-ping
+ping cclp-svc-lab-oracle
+
+sqlplus system/SYSTEM@ORCLCDB
+
+sqlplus CCLP_PARTIES/CCLP_PARTIES@ORCLCDB@cclp-svc-lab-oracle:1523 ;
+
+sqlplus CCLP_PARTIES/CCLP_PARTIES@ORCLCDB@172.23.0.4:1523 ;
+
+ sqlplus 'CCLP_PARTIES/CCLP_PARTIES@(DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(Host=cclp-svc-lab-oracle)(Port=1523))(CONNECT_DATA=(SID=ORCLCDB)))'
+
+  sqlplus 'CCLP_PARTIES/CCLP_PARTIES@(DESCRIPTION = (ADDRESS = (PROTOCOL = tcp)(HOST = cclp-svc-lab-oracle)(PORT = 1523)) (CONNECT_DATA = (SERVER = DEDICATED) (SERVICE_NAME = ORCLCDB)))'
+
+   sqlplus 'CCLP_PARTIES/CCLP_PARTIES@(DESCRIPTION = (ADDRESS = (PROTOCOL = tcp)(HOST = cclp-svc-lab-oracle)(PORT = 1523)) (CONNECT_DATA = (SERVICE_NAME = ORCLCDB)))'
+
+
+```
+
+#### Create users
+
+```sql
+--https://www.discoduroderoer.es/solucion-a-ora-65096-invalid-common-user-or-role-name-en-oracle/
+alter session set "_ORACLE_SCRIPT"=true;
+
+create user CCLP_LOCATIONS identified by CCLP_LOCATIONS;
+create user CCLP_PARTIES identified by CCLP_PARTIES;
+create user CCLP_PARTY_ROLES identified by CCLP_PARTY_ROLES;
+create user CCLP_LEDGER_ACCOUNTS identified by CCLP_LEDGER_ACCOUNTS;
+create user CCLP_DEBTORS identified by CCLP_DEBTORS;
+```
+
+#### Permissions
+
+```sql
+GRANT create session,create table,create view,create sequence TO CCLP_LOCATIONS;
+GRANT create session,create table,create view,create sequence TO CCLP_PARTIES;
+GRANT create session,create table,create view,create sequence TO CCLP_PARTY_ROLES;
+GRANT create session,create table,create view,create sequence TO CCLP_LEDGER_ACCOUNTS;
+GRANT create session,create table,create view,create sequence TO CCLP_DEBTORS;
+
+ALTER USER CCLP_LOCATIONS quota unlimited on USERS;
+ALTER USER CCLP_PARTIES quota unlimited on USERS;
+ALTER USER CCLP_PARTY_ROLES quota unlimited on USERS;
+ALTER USER CCLP_LEDGER_ACCOUNTS quota unlimited on USERS;
+ALTER USER CCLP_DEBTORS quota unlimited on USERS;
+```
+
+### Test
 
 - [swagger](http://localhost:9291/docs)
 - [metrics](http://localhost:9291/metrics)
