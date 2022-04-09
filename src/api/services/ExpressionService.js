@@ -7,10 +7,10 @@ const { orm } = require('lambdaorm')
 * query String
 * returns MetadataConstraint
 * */
-const constraints = ({ query }) => new Promise(
+const constraints = ({ queryRequest }) => new Promise(
 	(resolve, reject) => {
 		try {
-			resolve(Service.successResponse(orm.constraints(query)))
+			resolve(Service.successResponse(orm.constraints(queryRequest.expression)))
 		} catch (e) {
 			reject(Service.rejectResponse(
 				e.message || 'Invalid input',
@@ -26,11 +26,11 @@ const constraints = ({ query }) => new Promise(
 * body oas_any_type_not_mapped  (optional)
 * returns oas_any_type_not_mapped
 * */
-const execute = ({ query, stage, body }) => new Promise(
+const execute = ({ queryRequest, stage }) => new Promise(
 	// eslint-disable-next-line no-async-promise-executor
 	async (resolve, reject) => {
 		try {
-			const result = await orm.execute(query, body, undefined, stage)
+			const result = await orm.execute(queryRequest.expression, queryRequest.data, undefined, stage)
 			resolve(Service.successResponse(result))
 		} catch (e) {
 			reject(Service.rejectResponse(
@@ -45,10 +45,10 @@ const execute = ({ query, stage, body }) => new Promise(
 * query String
 * returns Metadata
 * */
-const metadata = ({ query }) => new Promise(
+const metadata = ({ queryRequest }) => new Promise(
 	(resolve, reject) => {
 		try {
-			resolve(Service.successResponse(orm.metadata(query)))
+			resolve(Service.successResponse(orm.metadata(queryRequest.expression)))
 		} catch (e) {
 			reject(Service.rejectResponse(
 				e.message || 'Invalid input',
@@ -62,10 +62,10 @@ const metadata = ({ query }) => new Promise(
 * query String
 * returns List
 * */
-const model = ({ query }) => new Promise(
+const model = ({ queryRequest }) => new Promise(
 	(resolve, reject) => {
 		try {
-			resolve(Service.successResponse(orm.model(query)))
+			resolve(Service.successResponse(orm.model(queryRequest.expression)))
 		} catch (e) {
 			reject(Service.rejectResponse(
 				e.message || 'Invalid input',
@@ -79,10 +79,10 @@ const model = ({ query }) => new Promise(
 * query String
 * returns List
 * */
-const parameters = ({ query }) => new Promise(
+const parameters = ({ queryRequest }) => new Promise(
 	(resolve, reject) => {
 		try {
-			resolve(Service.successResponse(orm.parameters(query)))
+			resolve(Service.successResponse(orm.parameters(queryRequest.expression)))
 		} catch (e) {
 			reject(Service.rejectResponse(
 				e.message || 'Invalid input',
@@ -97,10 +97,10 @@ const parameters = ({ query }) => new Promise(
 * stage String  (optional)
 * returns MetadataSentence
 * */
-const sentence = ({ query, stage }) => new Promise(
+const sentence = ({ queryRequest, stage }) => new Promise(
 	(resolve, reject) => {
 		try {
-			resolve(Service.successResponse(orm.sentence(query, undefined, stage)))
+			resolve(Service.successResponse(orm.sentence(queryRequest.expression, undefined, stage)))
 		} catch (e) {
 			reject(Service.rejectResponse(
 				e.message || 'Invalid input',

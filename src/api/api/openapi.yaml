@@ -2,7 +2,7 @@ openapi: 3.0.0
 info:
   contact:
     email: flaviolrita@hotmail.com
-    name: "Flavio Lionel Rita "
+    name: 'Flavio Lionel Rita '
   description: service of lambda orm
   license:
     name: Apache-2.0
@@ -13,17 +13,19 @@ externalDocs:
   description: Find out more about λORM
   url: https://www.npmjs.com/package/lambdaorm
 servers:
-  - description: localhost
-    url: "http://localhost:9291"
+- description: localhost
+  url: http://localhost:9291
+- description: docker-compose
+  url: http://localhost:9292
 tags:
-  - description: Expression methods
-    name: expression
-  - description: General methods
-    name: general
-  - description: Schema methods
-    name: schema
-  - description: Stage methods
-    name: stage
+- description: Expression methods
+  name: expression
+- description: General methods
+  name: general
+- description: Schema methods
+  name: schema
+- description: Stage methods
+  name: stage
 paths:
   /ping:
     get:
@@ -34,11 +36,11 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/Ping"
+                $ref: '#/components/schemas/Ping'
           description: Ok
-      # security: []
+      security: []
       tags:
-        - general
+      - general
       x-eov-operation-handler: controllers/GeneralController
   /health:
     get:
@@ -49,11 +51,11 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/Health"
+                $ref: '#/components/schemas/Health'
           description: Ok
-      # security: []
+      security: []
       tags:
-        - general
+      - general
       x-eov-operation-handler: controllers/GeneralController
   /metrics:
     get:
@@ -65,173 +67,157 @@ paths:
             application/json:
               schema: {}
           description: Ok
-      # security: []
+      security: []
       tags:
-        - general
+      - general
       x-eov-operation-handler: controllers/GeneralController
-  # expression
   /expression/metadata:
-    get:
+    post:
       operationId: metadata
-      parameters:
-        - explode: true
-          in: query
-          name: query
-          required: true
-          schema:
-            type: string
-          style: form
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/QueryRequest'
       responses:
         "200":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/Metadata"
+                $ref: '#/components/schemas/Metadata'
           description: Ok
-      # security:
-      #   - auth: [lambdaorm:expression:read]
+      security:
+      - auth:
+        - lambdaorm:expression:read
       tags:
-        - expression
+      - expression
       x-eov-operation-handler: controllers/ExpressionController
   /expression/model:
-    get:
+    post:
       operationId: model
-      parameters:
-        - explode: true
-          in: query
-          name: query
-          required: true
-          schema:
-            type: string
-          style: form
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/QueryRequest'
       responses:
         "200":
           content:
             application/json:
               schema:
                 items:
-                  $ref: "#/components/schemas/MetadataModel"
+                  $ref: '#/components/schemas/MetadataModel'
                 type: array
           description: Ok
-      # security:
-      #   - auth: [lambdaorm:expression:read]
+      security:
+      - auth:
+        - lambdaorm:expression:read
       tags:
-        - expression
+      - expression
       x-eov-operation-handler: controllers/ExpressionController
   /expression/parameters:
-    get:
+    post:
       operationId: parameters
-      parameters:
-        - explode: true
-          in: query
-          name: query
-          required: true
-          schema:
-            type: string
-          style: form
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/QueryRequest'
       responses:
         "200":
           content:
             application/json:
               schema:
                 items:
-                  $ref: "#/components/schemas/MetadataParameter"
+                  $ref: '#/components/schemas/MetadataParameter'
                 type: array
           description: Ok
-      # security:
-      #   - auth: [lambdaorm:expression:read]
+      security:
+      - auth:
+        - lambdaorm:expression:read
       tags:
-        - expression
+      - expression
       x-eov-operation-handler: controllers/ExpressionController
   /expression/constraints:
-    get:
+    post:
       operationId: constraints
-      parameters:
-        - explode: true
-          in: query
-          name: query
-          required: true
-          schema:
-            type: string
-          style: form
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/QueryRequest'
       responses:
         "200":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/MetadataConstraint"
+                $ref: '#/components/schemas/MetadataConstraint'
           description: Ok
-      # security:
-      #   - auth: [lambdaorm:expression:read]
+      security:
+      - auth:
+        - lambdaorm:expression:read
       tags:
-        - expression
+      - expression
       x-eov-operation-handler: controllers/ExpressionController
   /expression/sentence:
-    get:
+    post:
       operationId: sentence
       parameters:
-        - explode: true
-          in: query
-          name: query
-          required: true
-          schema:
-            type: string
-          style: form
-        - explode: true
-          in: query
-          name: stage
-          required: false
-          schema:
-            type: string
-          style: form
+      - explode: true
+        in: query
+        name: stage
+        required: false
+        schema:
+          type: string
+        style: form
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/QueryRequest'
+        required: true
       responses:
         "200":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/MetadataSentence"
+                $ref: '#/components/schemas/MetadataSentence'
           description: Ok
-      # security:
-      #   - auth: [lambdaorm:expression:read]
+      security:
+      - auth:
+        - lambdaorm:expression:read
       tags:
-        - expression
+      - expression
       x-eov-operation-handler: controllers/ExpressionController
   /expression/execute:
     post:
       operationId: execute
       parameters:
-        - explode: true
-          in: query
-          name: query
-          required: true
-          schema:
-            type: string
-          style: form
-        - explode: true
-          in: query
-          name: stage
-          required: false
-          schema:
-            type: string
-          style: form
+      - explode: true
+        in: query
+        name: stage
+        required: false
+        schema:
+          type: string
+        style: form
       requestBody:
         content:
           application/json:
             schema:
-              type: object
-        required: false
+              $ref: '#/components/schemas/QueryRequest'
+        required: true
       responses:
         "200":
           content:
             application/json:
               schema: {}
           description: Ok
-      # security:
-      #   - auth: [lambdaorm:expression:execute]
+      security:
+      - auth:
+        - lambdaorm:expression:execute
       tags:
-        - expression
+      - expression
       x-eov-operation-handler: controllers/ExpressionController
-  # schema
   /schema/entities:
     get:
       operationId: entities
@@ -242,13 +228,14 @@ paths:
             application/json:
               schema:
                 items:
-                  $ref: "#/components/schemas/Entity"
+                  $ref: '#/components/schemas/Entity'
                 type: array
           description: Ok
-      # security:
-      #   - auth: [lambdaorm:schema:read]
+      security:
+      - auth:
+        - lambdaorm:schema:read
       tags:
-        - schema
+      - schema
       x-eov-operation-handler: controllers/SchemaController
   /schema/enums:
     get:
@@ -260,13 +247,14 @@ paths:
             application/json:
               schema:
                 items:
-                  $ref: "#/components/schemas/Enum"
+                  $ref: '#/components/schemas/Enum'
                 type: array
           description: Ok
-      # security:
-      #   - auth: [lambdaorm:schema:read]
+      security:
+      - auth:
+        - lambdaorm:schema:read
       tags:
-        - schema
+      - schema
       x-eov-operation-handler: controllers/SchemaController
   /schema/datasources:
     get:
@@ -278,13 +266,14 @@ paths:
             application/json:
               schema:
                 items:
-                  $ref: "#/components/schemas/DataSource"
+                  $ref: '#/components/schemas/DataSource'
                 type: array
           description: Ok
-      # security:
-      #   - auth: [lambdaorm:schema:read]
+      security:
+      - auth:
+        - lambdaorm:schema:read
       tags:
-        - schema
+      - schema
       x-eov-operation-handler: controllers/SchemaController
   /schema/mappings:
     get:
@@ -296,13 +285,14 @@ paths:
             application/json:
               schema:
                 items:
-                  $ref: "#/components/schemas/Mapping"
+                  $ref: '#/components/schemas/Mapping'
                 type: array
           description: Ok
-      # security:
-      #   - auth: [lambdaorm:schema:read]
+      security:
+      - auth:
+        - lambdaorm:schema:read
       tags:
-        - schema
+      - schema
       x-eov-operation-handler: controllers/SchemaController
   /schema/stages:
     get:
@@ -314,15 +304,15 @@ paths:
             application/json:
               schema:
                 items:
-                  $ref: "#/components/schemas/Stage"
+                  $ref: '#/components/schemas/Stage'
                 type: array
           description: Ok
-      # security:
-      #   - auth: [lambdaorm:schema:read]
+      security:
+      - auth:
+        - lambdaorm:schema:read
       tags:
-        - schema
+      - schema
       x-eov-operation-handler: controllers/SchemaController
-  # stage
   /stage:
     get:
       operationId: list
@@ -336,22 +326,23 @@ paths:
                   type: string
                 type: array
           description: Ok
-      # security:
-      #   - auth: [lambdaorm:stage:read]
+      security:
+      - auth:
+        - lambdaorm:stage:read
       tags:
-        - stage
+      - stage
       x-eov-operation-handler: controllers/StageController
   /stage/{stage}/exists:
     get:
       operationId: exists
       parameters:
-        - explode: false
-          in: path
-          name: stage
-          required: true
-          schema:
-            type: string
-          style: simple
+      - explode: false
+        in: path
+        name: stage
+        required: true
+        schema:
+          type: string
+        style: simple
       responses:
         "200":
           content:
@@ -359,50 +350,52 @@ paths:
               schema:
                 type: boolean
           description: Ok
-      # security:
-      #   - auth: [lambdaorm:stage:read]
+      security:
+      - auth:
+        - lambdaorm:stage:read
       tags:
-        - stage
+      - stage
       x-eov-operation-handler: controllers/StageController
   /stage/{stage}/export:
     get:
       operationId: _export
       parameters:
-        - explode: false
-          in: path
-          name: stage
-          required: true
-          schema:
-            type: string
-          style: simple
+      - explode: false
+        in: path
+        name: stage
+        required: true
+        schema:
+          type: string
+        style: simple
       responses:
         "200":
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/SchemaData"
+                $ref: '#/components/schemas/SchemaData'
           description: Ok
-      # security:
-      #   - auth: [lambdaorm:stage:export]
+      security:
+      - auth:
+        - lambdaorm:stage:export
       tags:
-        - stage
+      - stage
       x-eov-operation-handler: controllers/StageController
   /stage/{stage}/import:
     post:
       operationId: _import
       parameters:
-        - explode: false
-          in: path
-          name: stage
-          required: true
-          schema:
-            type: string
-          style: simple
+      - explode: false
+        in: path
+        name: stage
+        required: true
+        schema:
+          type: string
+        style: simple
       requestBody:
         content:
           application/json:
             schema:
-              $ref: "#/components/schemas/SchemaData"
+              $ref: '#/components/schemas/SchemaData'
         required: true
       responses:
         "200":
@@ -410,10 +403,11 @@ paths:
             application/json:
               schema: {}
           description: Ok
-      # security:
-      #   - auth: [lambdaorm:stage:import]
+      security:
+      - auth:
+        - lambdaorm:stage:import
       tags:
-        - stage
+      - stage
       x-eov-operation-handler: controllers/StageController
 components:
   examples: {}
@@ -428,40 +422,40 @@ components:
         sentence: sentence
         number: 6.027456183070403
         children:
-          - null
-          - null
+        - null
+        - null
         name: name
         property: property
         alias: alias
         type: type
         fields:
-          - readValue: readValue
-            default: default
-            nullable: true
-            autoincrement: true
-            name: name
-            length: 0.8008281904610115
-            type: type
-            writeValue: writeValue
-            enum: enum
-            primaryKey: true
-          - readValue: readValue
-            default: default
-            nullable: true
-            autoincrement: true
-            name: name
-            length: 0.8008281904610115
-            type: type
-            writeValue: writeValue
-            enum: enum
-            primaryKey: true
+        - readValue: readValue
+          default: default
+          nullable: true
+          autoincrement: true
+          name: name
+          length: 0.8008281904610115
+          type: type
+          writeValue: writeValue
+          enum: enum
+          primaryKey: true
+        - readValue: readValue
+          default: default
+          nullable: true
+          autoincrement: true
+          name: name
+          length: 0.8008281904610115
+          type: type
+          writeValue: writeValue
+          enum: enum
+          primaryKey: true
         parameters:
-          - name: name
-            type: type
-            value: ""
-          - name: name
-            type: type
-            value: ""
+        - name: name
+          type: type
+          value: ""
+        - name: name
+          type: type
+          value: ""
         entity: entity
         relation:
           composite: true
@@ -481,20 +475,20 @@ components:
           type: string
         children:
           items:
-            $ref: "#/components/schemas/Metadata"
+            $ref: '#/components/schemas/Metadata'
           type: array
         fields:
           items:
-            $ref: "#/components/schemas/Property"
+            $ref: '#/components/schemas/Property'
           type: array
         property:
           type: string
         parameters:
           items:
-            $ref: "#/components/schemas/Parameter"
+            $ref: '#/components/schemas/Parameter'
           type: array
         relation:
-          $ref: "#/components/schemas/Relation"
+          $ref: '#/components/schemas/Relation'
         sentence:
           type: string
         alias:
@@ -503,8 +497,8 @@ components:
           format: double
           type: number
       required:
-        - name
-        - type
+      - name
+      - type
       type: object
     Property:
       additionalProperties: false
@@ -542,8 +536,8 @@ components:
         enum:
           type: string
       required:
-        - name
-        - type
+      - name
+      - type
       type: object
     Parameter:
       additionalProperties: false
@@ -558,14 +552,14 @@ components:
           type: string
         value: {}
       required:
-        - name
-        - type
+      - name
+      - type
       type: object
     RelationType:
       enum:
-        - oneToMany
-        - manyToOne
-        - oneToOne
+      - oneToMany
+      - manyToOne
+      - oneToOne
       type: string
     Relation:
       additionalProperties: false
@@ -582,7 +576,7 @@ components:
         name:
           type: string
         type:
-          $ref: "#/components/schemas/RelationType"
+          $ref: '#/components/schemas/RelationType'
         composite:
           type: boolean
         from:
@@ -598,11 +592,11 @@ components:
         targetComposite:
           type: boolean
       required:
-        - entity
-        - from
-        - name
-        - to
-        - type
+      - entity
+      - from
+      - name
+      - to
+      - type
       type: object
     MetadataModel:
       additionalProperties: false
@@ -610,8 +604,8 @@ components:
         name: name
         type: type
         childs:
-          - null
-          - null
+        - null
+        - null
       properties:
         name:
           type: string
@@ -619,11 +613,11 @@ components:
           type: string
         childs:
           items:
-            $ref: "#/components/schemas/MetadataModel"
+            $ref: '#/components/schemas/MetadataModel'
           type: array
       required:
-        - name
-        - type
+      - name
+      - type
       type: object
     MetadataParameter:
       additionalProperties: false
@@ -631,8 +625,8 @@ components:
         name: name
         type: type
         childs:
-          - null
-          - null
+        - null
+        - null
       properties:
         name:
           type: string
@@ -640,11 +634,11 @@ components:
           type: string
         childs:
           items:
-            $ref: "#/components/schemas/MetadataParameter"
+            $ref: '#/components/schemas/MetadataParameter'
           type: array
       required:
-        - name
-        - type
+      - name
+      - type
       type: object
     Constraint:
       additionalProperties: false
@@ -657,35 +651,35 @@ components:
         condition:
           type: string
       required:
-        - condition
-        - message
+      - condition
+      - message
       type: object
     MetadataConstraint:
       additionalProperties: false
       example:
         constraints:
-          - condition: condition
-            message: message
-          - condition: condition
-            message: message
+        - condition: condition
+          message: message
+        - condition: condition
+          message: message
         childs:
-          - null
-          - null
+        - null
+        - null
         entity: entity
       properties:
         entity:
           type: string
         constraints:
           items:
-            $ref: "#/components/schemas/Constraint"
+            $ref: '#/components/schemas/Constraint'
           type: array
         childs:
           items:
-            $ref: "#/components/schemas/MetadataConstraint"
+            $ref: '#/components/schemas/MetadataConstraint'
           type: array
       required:
-        - constraints
-        - entity
+      - constraints
+      - entity
       type: object
     MetadataSentence:
       additionalProperties: false
@@ -694,8 +688,8 @@ components:
         dialect: dialect
         dataSource: dataSource
         childs:
-          - null
-          - null
+        - null
+        - null
         entity: entity
       properties:
         entity:
@@ -708,13 +702,13 @@ components:
           type: string
         childs:
           items:
-            $ref: "#/components/schemas/MetadataSentence"
+            $ref: '#/components/schemas/MetadataSentence'
           type: array
       required:
-        - dataSource
-        - dialect
-        - entity
-        - sentence
+      - dataSource
+      - dialect
+      - entity
+      - sentence
       type: object
     Ping:
       additionalProperties: false
@@ -727,8 +721,8 @@ components:
         time:
           type: string
       required:
-        - message
-        - time
+      - message
+      - time
       type: object
     Health:
       additionalProperties: false
@@ -745,17 +739,17 @@ components:
           format: double
           type: number
       required:
-        - message
-        - time
-        - uptime
+      - message
+      - time
+      - uptime
       type: object
     Index:
       additionalProperties: false
       example:
         name: name
         fields:
-          - fields
-          - fields
+        - fields
+        - fields
       properties:
         name:
           type: string
@@ -764,8 +758,8 @@ components:
             type: string
           type: array
       required:
-        - fields
-        - name
+      - fields
+      - name
       type: object
     Dependent:
       additionalProperties: false
@@ -784,97 +778,97 @@ components:
         entity:
           type: string
         relation:
-          $ref: "#/components/schemas/Relation"
+          $ref: '#/components/schemas/Relation'
       required:
-        - entity
-        - relation
+      - entity
+      - relation
       type: object
     Entity:
       additionalProperties: false
       example:
         extends: extends
         indexes:
-          - name: name
-            fields:
-              - fields
-              - fields
-          - name: name
-            fields:
-              - fields
-              - fields
+        - name: name
+          fields:
+          - fields
+          - fields
+        - name: name
+          fields:
+          - fields
+          - fields
         uniqueKey:
-          - uniqueKey
-          - uniqueKey
+        - uniqueKey
+        - uniqueKey
         name: name
         dependents:
-          - entity: entity
-            relation:
-              composite: true
-              name: name
-              from: from
-              to: to
-              targetComposite: true
-              entity: entity
-              weak: true
-              target: target
-          - entity: entity
-            relation:
-              composite: true
-              name: name
-              from: from
-              to: to
-              targetComposite: true
-              entity: entity
-              weak: true
-              target: target
+        - entity: entity
+          relation:
+            composite: true
+            name: name
+            from: from
+            to: to
+            targetComposite: true
+            entity: entity
+            weak: true
+            target: target
+        - entity: entity
+          relation:
+            composite: true
+            name: name
+            from: from
+            to: to
+            targetComposite: true
+            entity: entity
+            weak: true
+            target: target
         abstract: true
         singular: singular
         relations:
-          - composite: true
-            name: name
-            from: from
-            to: to
-            targetComposite: true
-            entity: entity
-            weak: true
-            target: target
-          - composite: true
-            name: name
-            from: from
-            to: to
-            targetComposite: true
-            entity: entity
-            weak: true
-            target: target
+        - composite: true
+          name: name
+          from: from
+          to: to
+          targetComposite: true
+          entity: entity
+          weak: true
+          target: target
+        - composite: true
+          name: name
+          from: from
+          to: to
+          targetComposite: true
+          entity: entity
+          weak: true
+          target: target
         constraints:
-          - condition: condition
-            message: message
-          - condition: condition
-            message: message
+        - condition: condition
+          message: message
+        - condition: condition
+          message: message
         properties:
-          - readValue: readValue
-            default: default
-            nullable: true
-            autoincrement: true
-            name: name
-            length: 0.8008281904610115
-            type: type
-            writeValue: writeValue
-            enum: enum
-            primaryKey: true
-          - readValue: readValue
-            default: default
-            nullable: true
-            autoincrement: true
-            name: name
-            length: 0.8008281904610115
-            type: type
-            writeValue: writeValue
-            enum: enum
-            primaryKey: true
+        - readValue: readValue
+          default: default
+          nullable: true
+          autoincrement: true
+          name: name
+          length: 0.8008281904610115
+          type: type
+          writeValue: writeValue
+          enum: enum
+          primaryKey: true
+        - readValue: readValue
+          default: default
+          nullable: true
+          autoincrement: true
+          name: name
+          length: 0.8008281904610115
+          type: type
+          writeValue: writeValue
+          enum: enum
+          primaryKey: true
         primaryKey:
-          - primaryKey
-          - primaryKey
+        - primaryKey
+        - primaryKey
       properties:
         name:
           type: string
@@ -890,7 +884,7 @@ components:
           type: array
         indexes:
           items:
-            $ref: "#/components/schemas/Index"
+            $ref: '#/components/schemas/Index'
           type: array
         primaryKey:
           items:
@@ -898,28 +892,28 @@ components:
           type: array
         properties:
           items:
-            $ref: "#/components/schemas/Property"
+            $ref: '#/components/schemas/Property'
           type: array
         relations:
           items:
-            $ref: "#/components/schemas/Relation"
+            $ref: '#/components/schemas/Relation'
           type: array
         dependents:
           items:
-            $ref: "#/components/schemas/Dependent"
+            $ref: '#/components/schemas/Dependent'
           type: array
         constraints:
           items:
-            $ref: "#/components/schemas/Constraint"
+            $ref: '#/components/schemas/Constraint'
           type: array
       required:
-        - dependents
-        - indexes
-        - name
-        - primaryKey
-        - properties
-        - relations
-        - uniqueKey
+      - dependents
+      - indexes
+      - name
+      - primaryKey
+      - properties
+      - relations
+      - uniqueKey
       type: object
     EnumValue:
       additionalProperties: false
@@ -931,28 +925,28 @@ components:
           type: string
         value: {}
       required:
-        - name
-        - value
+      - name
+      - value
       type: object
     Enum:
       additionalProperties: false
       example:
         values:
-          - name: name
-            value: ""
-          - name: name
-            value: ""
+        - name: name
+          value: ""
+        - name: name
+          value: ""
         name: name
       properties:
         name:
           type: string
         values:
           items:
-            $ref: "#/components/schemas/EnumValue"
+            $ref: '#/components/schemas/EnumValue'
           type: array
       required:
-        - name
-        - values
+      - name
+      - values
       type: object
     DataSource:
       additionalProperties: false
@@ -970,10 +964,10 @@ components:
           type: string
         connection: {}
       required:
-        - connection
-        - dialect
-        - mapping
-        - name
+      - connection
+      - dialect
+      - mapping
+      - name
       type: object
     PropertyMapping:
       additionalProperties: false
@@ -1017,9 +1011,9 @@ components:
         key:
           type: string
       required:
-        - mapping
-        - name
-        - type
+      - mapping
+      - name
+      - type
       type: object
     EntityMapping:
       additionalProperties: false
@@ -1027,91 +1021,91 @@ components:
         mapping: mapping
         extends: extends
         indexes:
-          - name: name
-            fields:
-              - fields
-              - fields
-          - name: name
-            fields:
-              - fields
-              - fields
+        - name: name
+          fields:
+          - fields
+          - fields
+        - name: name
+          fields:
+          - fields
+          - fields
         uniqueKey:
-          - uniqueKey
-          - uniqueKey
+        - uniqueKey
+        - uniqueKey
         name: name
         dependents:
-          - entity: entity
-            relation:
-              composite: true
-              name: name
-              from: from
-              to: to
-              targetComposite: true
-              entity: entity
-              weak: true
-              target: target
-          - entity: entity
-            relation:
-              composite: true
-              name: name
-              from: from
-              to: to
-              targetComposite: true
-              entity: entity
-              weak: true
-              target: target
+        - entity: entity
+          relation:
+            composite: true
+            name: name
+            from: from
+            to: to
+            targetComposite: true
+            entity: entity
+            weak: true
+            target: target
+        - entity: entity
+          relation:
+            composite: true
+            name: name
+            from: from
+            to: to
+            targetComposite: true
+            entity: entity
+            weak: true
+            target: target
         abstract: true
         singular: singular
         relations:
-          - composite: true
-            name: name
-            from: from
-            to: to
-            targetComposite: true
-            entity: entity
-            weak: true
-            target: target
-          - composite: true
-            name: name
-            from: from
-            to: to
-            targetComposite: true
-            entity: entity
-            weak: true
-            target: target
+        - composite: true
+          name: name
+          from: from
+          to: to
+          targetComposite: true
+          entity: entity
+          weak: true
+          target: target
+        - composite: true
+          name: name
+          from: from
+          to: to
+          targetComposite: true
+          entity: entity
+          weak: true
+          target: target
         constraints:
-          - condition: condition
-            message: message
-          - condition: condition
-            message: message
+        - condition: condition
+          message: message
+        - condition: condition
+          message: message
         properties:
-          - readValue: readValue
-            default: default
-            mapping: mapping
-            nullable: true
-            autoincrement: true
-            name: name
-            length: 0.8008281904610115
-            type: type
-            writeValue: writeValue
-            enum: enum
-            key: key
-            primaryKey: true
-          - readValue: readValue
-            default: default
-            mapping: mapping
-            nullable: true
-            autoincrement: true
-            name: name
-            length: 0.8008281904610115
-            type: type
-            writeValue: writeValue
-            enum: enum
-            key: key
-            primaryKey: true
+        - readValue: readValue
+          default: default
+          mapping: mapping
+          nullable: true
+          autoincrement: true
+          name: name
+          length: 0.8008281904610115
+          type: type
+          writeValue: writeValue
+          enum: enum
+          key: key
+          primaryKey: true
+        - readValue: readValue
+          default: default
+          mapping: mapping
+          nullable: true
+          autoincrement: true
+          name: name
+          length: 0.8008281904610115
+          type: type
+          writeValue: writeValue
+          enum: enum
+          key: key
+          primaryKey: true
         primaryKey:
-          - primaryKey
-          - primaryKey
+        - primaryKey
+        - primaryKey
       properties:
         name:
           type: string
@@ -1127,7 +1121,7 @@ components:
           type: array
         indexes:
           items:
-            $ref: "#/components/schemas/Index"
+            $ref: '#/components/schemas/Index'
           type: array
         primaryKey:
           items:
@@ -1135,31 +1129,31 @@ components:
           type: array
         properties:
           items:
-            $ref: "#/components/schemas/PropertyMapping"
+            $ref: '#/components/schemas/PropertyMapping'
           type: array
         relations:
           items:
-            $ref: "#/components/schemas/Relation"
+            $ref: '#/components/schemas/Relation'
           type: array
         dependents:
           items:
-            $ref: "#/components/schemas/Dependent"
+            $ref: '#/components/schemas/Dependent'
           type: array
         constraints:
           items:
-            $ref: "#/components/schemas/Constraint"
+            $ref: '#/components/schemas/Constraint'
           type: array
         mapping:
           type: string
       required:
-        - dependents
-        - indexes
-        - mapping
-        - name
-        - primaryKey
-        - properties
-        - relations
-        - uniqueKey
+      - dependents
+      - indexes
+      - mapping
+      - name
+      - primaryKey
+      - properties
+      - relations
+      - uniqueKey
       type: object
     Mapping:
       additionalProperties: false
@@ -1167,182 +1161,182 @@ components:
         mapping: mapping
         extends: extends
         entities:
-          - mapping: mapping
-            extends: extends
-            indexes:
-              - name: name
-                fields:
-                  - fields
-                  - fields
-              - name: name
-                fields:
-                  - fields
-                  - fields
-            uniqueKey:
-              - uniqueKey
-              - uniqueKey
+        - mapping: mapping
+          extends: extends
+          indexes:
+          - name: name
+            fields:
+            - fields
+            - fields
+          - name: name
+            fields:
+            - fields
+            - fields
+          uniqueKey:
+          - uniqueKey
+          - uniqueKey
+          name: name
+          dependents:
+          - entity: entity
+            relation:
+              composite: true
+              name: name
+              from: from
+              to: to
+              targetComposite: true
+              entity: entity
+              weak: true
+              target: target
+          - entity: entity
+            relation:
+              composite: true
+              name: name
+              from: from
+              to: to
+              targetComposite: true
+              entity: entity
+              weak: true
+              target: target
+          abstract: true
+          singular: singular
+          relations:
+          - composite: true
             name: name
-            dependents:
-              - entity: entity
-                relation:
-                  composite: true
-                  name: name
-                  from: from
-                  to: to
-                  targetComposite: true
-                  entity: entity
-                  weak: true
-                  target: target
-              - entity: entity
-                relation:
-                  composite: true
-                  name: name
-                  from: from
-                  to: to
-                  targetComposite: true
-                  entity: entity
-                  weak: true
-                  target: target
-            abstract: true
-            singular: singular
-            relations:
-              - composite: true
-                name: name
-                from: from
-                to: to
-                targetComposite: true
-                entity: entity
-                weak: true
-                target: target
-              - composite: true
-                name: name
-                from: from
-                to: to
-                targetComposite: true
-                entity: entity
-                weak: true
-                target: target
-            constraints:
-              - condition: condition
-                message: message
-              - condition: condition
-                message: message
-            properties:
-              - readValue: readValue
-                default: default
-                mapping: mapping
-                nullable: true
-                autoincrement: true
-                name: name
-                length: 0.8008281904610115
-                type: type
-                writeValue: writeValue
-                enum: enum
-                key: key
-                primaryKey: true
-              - readValue: readValue
-                default: default
-                mapping: mapping
-                nullable: true
-                autoincrement: true
-                name: name
-                length: 0.8008281904610115
-                type: type
-                writeValue: writeValue
-                enum: enum
-                key: key
-                primaryKey: true
-            primaryKey:
-              - primaryKey
-              - primaryKey
-          - mapping: mapping
-            extends: extends
-            indexes:
-              - name: name
-                fields:
-                  - fields
-                  - fields
-              - name: name
-                fields:
-                  - fields
-                  - fields
-            uniqueKey:
-              - uniqueKey
-              - uniqueKey
+            from: from
+            to: to
+            targetComposite: true
+            entity: entity
+            weak: true
+            target: target
+          - composite: true
             name: name
-            dependents:
-              - entity: entity
-                relation:
-                  composite: true
-                  name: name
-                  from: from
-                  to: to
-                  targetComposite: true
-                  entity: entity
-                  weak: true
-                  target: target
-              - entity: entity
-                relation:
-                  composite: true
-                  name: name
-                  from: from
-                  to: to
-                  targetComposite: true
-                  entity: entity
-                  weak: true
-                  target: target
-            abstract: true
-            singular: singular
-            relations:
-              - composite: true
-                name: name
-                from: from
-                to: to
-                targetComposite: true
-                entity: entity
-                weak: true
-                target: target
-              - composite: true
-                name: name
-                from: from
-                to: to
-                targetComposite: true
-                entity: entity
-                weak: true
-                target: target
-            constraints:
-              - condition: condition
-                message: message
-              - condition: condition
-                message: message
-            properties:
-              - readValue: readValue
-                default: default
-                mapping: mapping
-                nullable: true
-                autoincrement: true
-                name: name
-                length: 0.8008281904610115
-                type: type
-                writeValue: writeValue
-                enum: enum
-                key: key
-                primaryKey: true
-              - readValue: readValue
-                default: default
-                mapping: mapping
-                nullable: true
-                autoincrement: true
-                name: name
-                length: 0.8008281904610115
-                type: type
-                writeValue: writeValue
-                enum: enum
-                key: key
-                primaryKey: true
-            primaryKey:
-              - primaryKey
-              - primaryKey
+            from: from
+            to: to
+            targetComposite: true
+            entity: entity
+            weak: true
+            target: target
+          constraints:
+          - condition: condition
+            message: message
+          - condition: condition
+            message: message
+          properties:
+          - readValue: readValue
+            default: default
+            mapping: mapping
+            nullable: true
+            autoincrement: true
+            name: name
+            length: 0.8008281904610115
+            type: type
+            writeValue: writeValue
+            enum: enum
+            key: key
+            primaryKey: true
+          - readValue: readValue
+            default: default
+            mapping: mapping
+            nullable: true
+            autoincrement: true
+            name: name
+            length: 0.8008281904610115
+            type: type
+            writeValue: writeValue
+            enum: enum
+            key: key
+            primaryKey: true
+          primaryKey:
+          - primaryKey
+          - primaryKey
+        - mapping: mapping
+          extends: extends
+          indexes:
+          - name: name
+            fields:
+            - fields
+            - fields
+          - name: name
+            fields:
+            - fields
+            - fields
+          uniqueKey:
+          - uniqueKey
+          - uniqueKey
+          name: name
+          dependents:
+          - entity: entity
+            relation:
+              composite: true
+              name: name
+              from: from
+              to: to
+              targetComposite: true
+              entity: entity
+              weak: true
+              target: target
+          - entity: entity
+            relation:
+              composite: true
+              name: name
+              from: from
+              to: to
+              targetComposite: true
+              entity: entity
+              weak: true
+              target: target
+          abstract: true
+          singular: singular
+          relations:
+          - composite: true
+            name: name
+            from: from
+            to: to
+            targetComposite: true
+            entity: entity
+            weak: true
+            target: target
+          - composite: true
+            name: name
+            from: from
+            to: to
+            targetComposite: true
+            entity: entity
+            weak: true
+            target: target
+          constraints:
+          - condition: condition
+            message: message
+          - condition: condition
+            message: message
+          properties:
+          - readValue: readValue
+            default: default
+            mapping: mapping
+            nullable: true
+            autoincrement: true
+            name: name
+            length: 0.8008281904610115
+            type: type
+            writeValue: writeValue
+            enum: enum
+            key: key
+            primaryKey: true
+          - readValue: readValue
+            default: default
+            mapping: mapping
+            nullable: true
+            autoincrement: true
+            name: name
+            length: 0.8008281904610115
+            type: type
+            writeValue: writeValue
+            enum: enum
+            key: key
+            primaryKey: true
+          primaryKey:
+          - primaryKey
+          - primaryKey
         name: name
       properties:
         extends:
@@ -1353,11 +1347,11 @@ components:
           type: string
         entities:
           items:
-            $ref: "#/components/schemas/EntityMapping"
+            $ref: '#/components/schemas/EntityMapping'
           type: array
       required:
-        - entities
-        - name
+      - entities
+      - name
       type: object
     RuleDataSource:
       additionalProperties: false
@@ -1370,34 +1364,34 @@ components:
         condition:
           type: string
       required:
-        - name
+      - name
       type: object
     Stage:
       additionalProperties: false
       example:
         name: name
         dataSources:
-          - condition: condition
-            name: name
-          - condition: condition
-            name: name
+        - condition: condition
+          name: name
+        - condition: condition
+          name: name
       properties:
         name:
           type: string
         dataSources:
           items:
-            $ref: "#/components/schemas/RuleDataSource"
+            $ref: '#/components/schemas/RuleDataSource'
           type: array
       required:
-        - dataSources
-        - name
+      - dataSources
+      - name
       type: object
     SchemaDataEntity:
       additionalProperties: false
       example:
         rows:
-          - ""
-          - ""
+        - ""
+        - ""
         entity: entity
       properties:
         entity:
@@ -1406,40 +1400,58 @@ components:
           items: {}
           type: array
       required:
-        - entity
-        - rows
+      - entity
+      - rows
       type: object
     SchemaData:
       additionalProperties: false
       example:
         entities:
-          - rows:
-              - ""
-              - ""
-            entity: entity
-          - rows:
-              - ""
-              - ""
-            entity: entity
+        - rows:
+          - ""
+          - ""
+          entity: entity
+        - rows:
+          - ""
+          - ""
+          entity: entity
       properties:
         entities:
           items:
-            $ref: "#/components/schemas/SchemaDataEntity"
+            $ref: '#/components/schemas/SchemaDataEntity'
           type: array
       required:
-        - entities
+      - entities
       type: object
-  # securitySchemes:
-  #   auth:
-  #     type: oauth2
-  #     flows:
-  #       authorizationCode:
-  #         authorizationUrl: http://localhost:8180/auth/realms/cclp/protocol/openid-connect/auth
-  #         tokenUrl: http://localhost:8180/auth/realms/cclp/protocol/openid-connect/token
-  #         scopes:
-  #           lambdaorm:expression:read: read expression
-  #           lambdaorm:expression:execute: execute expression
-  #           lambdaorm:schema:read: read schema
-  #           lambdaorm:stage:read: read stage
-  #           lambdaorm:stage:import: import stage
-  #           lambdaorm:stage:export: export stage
+    QueryRequest:
+      additionalProperties: false
+      example:
+        expression: expression
+        data: {}
+      properties:
+        expression:
+          type: string
+        data: {}
+      required:
+      - expression
+      type: object
+    QueryResponse:
+      properties:
+        result: {}
+      required:
+      - result
+      type: object
+  securitySchemes:
+    auth:
+      flows:
+        authorizationCode:
+          authorizationUrl: http://localhost:8180/auth/realms/devicenet-dev/protocol/openid-connect/auth
+          scopes:
+            lambdaorm:expression:read: read expression
+            lambdaorm:expression:execute: execute expression
+            lambdaorm:schema:read: read schema
+            lambdaorm:stage:read: read stage
+            lambdaorm:stage:import: import stage
+            lambdaorm:stage:export: export stage
+          tokenUrl: http://localhost:8180/auth/realms/devicenet-dev/protocol/openid-connect/token
+      type: oauth2

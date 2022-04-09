@@ -1,5 +1,4 @@
-@host = http://localhost:9291
-# @host = http://localhost:9292
+@host = http://localhost:9292
 @keycloaHost = http://localhost:8180
 @locStage = local
 # @locStage = localOracle
@@ -59,15 +58,19 @@ content-type: application/json
 }
 
 ### Execute
-POST {{host}}/expression/execute?query=LocCountries&stage={{locStage}} HTTP/1.1
+POST {{host}}/expression/sentence?stage={{locStage}} HTTP/1.1
 content-type: application/json
 
 {
+	"expression": "LocAreaTypes.include(p => p.areas)",
+	"data":{}
 }
 
 ### Execute
-POST {{host}}/expression/execute?query=LocAreaTypes.include(p => p.areas)&stage={{locStage}} HTTP/1.1
+POST {{host}}/expression/execute?stage={{locStage}} HTTP/1.1
 content-type: application/json
 
 {
+	"expression": "LocAreaTypes.include(p => p.areas)",
+	"data":{}
 }

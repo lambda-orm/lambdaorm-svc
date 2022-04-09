@@ -73,16 +73,13 @@ paths:
       x-eov-operation-handler: controllers/GeneralController
   # expression
   /expression/metadata:
-    get:
+    post:
       operationId: metadata
-      parameters:
-        - explode: true
-          in: query
-          name: query
-          required: true
-          schema:
-            type: string
-          style: form
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/QueryRequest"
       responses:
         "200":
           content:
@@ -96,16 +93,13 @@ paths:
         - expression
       x-eov-operation-handler: controllers/ExpressionController
   /expression/model:
-    get:
+    post:
       operationId: model
-      parameters:
-        - explode: true
-          in: query
-          name: query
-          required: true
-          schema:
-            type: string
-          style: form
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/QueryRequest"
       responses:
         "200":
           content:
@@ -121,16 +115,13 @@ paths:
         - expression
       x-eov-operation-handler: controllers/ExpressionController
   /expression/parameters:
-    get:
+    post:
       operationId: parameters
-      parameters:
-        - explode: true
-          in: query
-          name: query
-          required: true
-          schema:
-            type: string
-          style: form
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/QueryRequest"
       responses:
         "200":
           content:
@@ -146,16 +137,13 @@ paths:
         - expression
       x-eov-operation-handler: controllers/ExpressionController
   /expression/constraints:
-    get:
+    post:
       operationId: constraints
-      parameters:
-        - explode: true
-          in: query
-          name: query
-          required: true
-          schema:
-            type: string
-          style: form
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/QueryRequest"
       responses:
         "200":
           content:
@@ -169,16 +157,9 @@ paths:
         - expression
       x-eov-operation-handler: controllers/ExpressionController
   /expression/sentence:
-    get:
+    post:
       operationId: sentence
       parameters:
-        - explode: true
-          in: query
-          name: query
-          required: true
-          schema:
-            type: string
-          style: form
         - explode: true
           in: query
           name: stage
@@ -186,6 +167,12 @@ paths:
           schema:
             type: string
           style: form
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/QueryRequest"
+        required: true
       responses:
         "200":
           content:
@@ -204,13 +191,6 @@ paths:
       parameters:
         - explode: true
           in: query
-          name: query
-          required: true
-          schema:
-            type: string
-          style: form
-        - explode: true
-          in: query
           name: stage
           required: false
           schema:
@@ -220,8 +200,8 @@ paths:
         content:
           application/json:
             schema:
-              type: object
-        required: false
+              $ref: "#/components/schemas/QueryRequest"
+        required: true
       responses:
         "200":
           content:
@@ -1430,6 +1410,24 @@ components:
           type: array
       required:
         - entities
+      type: object
+    QueryRequest:
+      additionalProperties: false
+      example:
+        expression: expression
+        data: {}
+      properties:
+        expression:
+          type: string
+        data: {}
+      required:
+        - expression
+      type: object
+    QueryResponse:
+      properties:
+        result: {}
+      required:
+        - result
       type: object
   securitySchemes:
     auth:
