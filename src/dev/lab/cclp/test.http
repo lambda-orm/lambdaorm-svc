@@ -1,4 +1,4 @@
-@host = http://localhost:9292
+@host = http://localhost:9291
 @keycloaHost = http://localhost:8180
 @locStage = local
 # @locStage = localOracle
@@ -57,7 +57,7 @@ content-type: application/json
 {
 }
 
-### Execute
+### Sentence
 POST {{host}}/expression/sentence?stage={{locStage}} HTTP/1.1
 content-type: application/json
 
