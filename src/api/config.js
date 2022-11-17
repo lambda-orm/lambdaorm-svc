@@ -4,7 +4,7 @@ const config = {
 	ROOT_DIR: __dirname,
 	URL_PORT: process.env.PORT || '9289',
 	URL_PATH: process.env.HOST || 'http://localhost',
-	WORKSAPCE: process.env.WORKSPACE || '/workspace',
+	WORKSPACE: process.env.WORKSPACE || '/workspace',
 	BASE_VERSION: '',
 	CONTROLLER_DIRECTORY: path.join(__dirname, 'controllers'),
 	PROJECT_DIR: __dirname

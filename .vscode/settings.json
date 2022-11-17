@@ -7,9 +7,15 @@
 	"editor.insertSpaces": false,
 	"cSpell.words": [
 		"camelcase",
+		"findstr",
 		"Flavio",
+		"flaviorita",
 		"lambdaorm",
 		"openapi",
-		"oracledb"
+		"openapitools",
+		"oracledb",
+		"proot",
+		"taskkill",
+		"uroot"
 	]
 }

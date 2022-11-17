@@ -1,6 +1,6 @@
 # Lambda ORM service
 
-service of lambda orm
+service of lambda ORM
 
 ## OpenId
 
@@ -56,9 +56,7 @@ pull
 docker pull flaviorita/lambdaorm-svc:0.0.14
 ```
 
-## docker compose
-
-### linux
+## Docker
 
 ``` sh
 docker-compose up -d
@@ -68,12 +66,6 @@ uninstall
 
 ``` sh
 docker-compose down --remove-orphans
-```
-
-### windows
-
-``` sh
-docker-compose -f ./docker-compose-win.yaml up -d 
 ```
 
 create user:

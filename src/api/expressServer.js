@@ -75,7 +75,7 @@ class ExpressServer {
 				})
 
 				this.server = http.createServer(this.app).listen(config.URL_PORT, async () => {
-					await orm.init(config.WORKSAPCE)
+					await orm.init(config.WORKSPACE)
 					console.log('Server running at: ' + config.URL_PATH + ':' + config.URL_PORT + '/api-docs')
 				})
 				// http.createServer(this.app).listen(this.port)

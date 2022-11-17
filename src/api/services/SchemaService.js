@@ -30,7 +30,8 @@ const dataSources = () => new Promise(
 const entities = () => new Promise(
 	(resolve, reject) => {
 		try {
-			resolve(Service.successResponse(orm.schema.model.entities))
+			const result = orm.schema.model.entities
+			resolve(Service.successResponse(result))
 		} catch (e) {
 			reject(Service.rejectResponse(
 				e.message || 'Invalid input',
