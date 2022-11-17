@@ -5,6 +5,16 @@
 	"version": "0.2.0",
 	"configurations": [
 		{
+			"name": "collections",
+			"type": "node",
+			"request": "launch",
+			"skipFiles": [
+				"<node_internals>/**"
+			],
+			"program": "${workspaceFolder}/src/api/index.js",
+			"envFile": "${workspaceFolder}/src/dev/lab/collections/workspace/.env"
+		},
+		{
 			"name": "cclp",
 			"type": "node",
 			"request": "launch",
