@@ -4,8 +4,6 @@
 # @locStage = localOracle
 @realm = cclp
 
-
-
 ### General -------------------------------------------------------------------------------------------------------------------------
 
 ### ping
@@ -17,9 +15,9 @@ GET {{host}}/health HTTP/1.1
 ### metrics
 GET {{host}}/metrics HTTP/1.1
 
-### Metadata -------------------------------------------------------------------------------------------------------------------------
+### Schema  -------------------------------------------------------------------------------------------------------------------------
 
-### Schema.entities
+### entities
 GET {{host}}/schema/entities HTTP/1.1
 content-type: application/json
 
@@ -33,6 +31,8 @@ content-type: application/json
 {
 }
 
+### Metadata -------------------------------------------------------------------------------------------------------------------------
+
 ### Sentence
 POST {{host}}/expression/sentence?stage={{locStage}} HTTP/1.1
 content-type: application/json
@@ -42,11 +42,13 @@ content-type: application/json
 	"data":{}
 }
 
+### Execute -------------------------------------------------------------------------------------------------------------------------
+
 ### Execute
 POST {{host}}/expression/execute?stage={{locStage}} HTTP/1.1
 content-type: application/json
 
 {
-	"expression": "LocAreaTypes.include(p => p.areas)",
+	"expression": "PmIndividuals.include(p->p.party)",
 	"data":{}
 }

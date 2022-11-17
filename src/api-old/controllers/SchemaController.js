@@ -6,33 +6,32 @@
  * parameters are extracted and sent to the service, and where response is handled.
  */
 
-const Controller = require('./Controller');
-const service = require('../services/SchemaService');
+const Controller = require('./Controller')
+const service = require('../services/SchemaService')
 const dataSources = async (request, response) => {
-  await Controller.handleRequest(request, response, service.dataSources);
-};
+	await Controller.handleRequest(request, response, service.dataSources)
+}
 
 const entities = async (request, response) => {
-  await Controller.handleRequest(request, response, service.entities);
-};
+	await Controller.handleRequest(request, response, service.entities)
+}
 
 const enums = async (request, response) => {
-  await Controller.handleRequest(request, response, service.enums);
-};
+	await Controller.handleRequest(request, response, service.enums)
+}
 
 const mappings = async (request, response) => {
-  await Controller.handleRequest(request, response, service.mappings);
-};
+	await Controller.handleRequest(request, response, service.mappings)
+}
 
 const stages = async (request, response) => {
-  await Controller.handleRequest(request, response, service.stages);
-};
-
+	await Controller.handleRequest(request, response, service.stages)
+}
 
 module.exports = {
-  dataSources,
-  entities,
-  enums,
-  mappings,
-  stages,
-};
+	dataSources,
+	entities,
+	enums,
+	mappings,
+	stages
+}

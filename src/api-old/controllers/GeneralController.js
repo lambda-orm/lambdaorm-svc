@@ -6,13 +6,13 @@
  * parameters are extracted and sent to the service, and where response is handled.
  */
 
-const Controller = require('./Controller');
-const service = require('../services/GeneralService');
+const Controller = require('./Controller')
+const service = require('../services/GeneralService')
 const Metrics = require('../services/Metrics')
 
 const health = async (request, response) => {
-  await Controller.handleRequest(request, response, service.health);
-};
+	await Controller.handleRequest(request, response, service.health)
+}
 
 const metrics = async (request, response) => {
 	response.setHeader('Content-Type', Metrics.register.contentType)
@@ -20,12 +20,11 @@ const metrics = async (request, response) => {
 }
 
 const ping = async (request, response) => {
-  await Controller.handleRequest(request, response, service.ping);
-};
-
+	await Controller.handleRequest(request, response, service.ping)
+}
 
 module.exports = {
-  health,
-  metrics,
-  ping,
-};
+	health,
+	metrics,
+	ping
+}

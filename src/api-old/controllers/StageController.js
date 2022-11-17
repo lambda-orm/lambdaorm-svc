@@ -6,28 +6,27 @@
  * parameters are extracted and sent to the service, and where response is handled.
  */
 
-const Controller = require('./Controller');
-const service = require('../services/StageService');
+const Controller = require('./Controller')
+const service = require('../services/StageService')
+const exists = async (request, response) => {
+	await Controller.handleRequest(request, response, service.exists)
+}
+
 const _export = async (request, response) => {
-  await Controller.handleRequest(request, response, service._export);
-};
+	await Controller.handleRequest(request, response, service._export)
+}
 
 const _import = async (request, response) => {
-  await Controller.handleRequest(request, response, service._import);
-};
-
-const exists = async (request, response) => {
-  await Controller.handleRequest(request, response, service.exists);
-};
+	await Controller.handleRequest(request, response, service._import)
+}
 
 const list = async (request, response) => {
-  await Controller.handleRequest(request, response, service.list);
-};
-
+	await Controller.handleRequest(request, response, service.list)
+}
 
 module.exports = {
-  _export,
-  _import,
-  exists,
-  list,
-};
+	exists,
+	_export,
+	_import,
+	list
+}

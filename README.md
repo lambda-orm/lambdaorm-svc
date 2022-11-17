@@ -5,6 +5,7 @@ service of lambda ORM
 ## OpenId
 
 - [openapi generator](https://openapi-generator.tech/)
+- [installation](https://openapi-generator.tech/docs/installation)
 
 install openapi-generator:
 
@@ -15,7 +16,7 @@ npm install @openapitools/openapi-generator-cli -g
 generate api:
 
 ```sh
-npx @openapitools/openapi-generator-cli generate -i src/dev/config/lambda-svc.yaml -g nodejs-express-server -o src/api
+npx @openapitools/openapi-generator-cli generate -i src/dev/config/lambda-svc.yaml -g nodejs-express-server -o src/api2
 ```
 
 ## Dev Scripts

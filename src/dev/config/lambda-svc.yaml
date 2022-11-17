@@ -131,8 +131,6 @@ paths:
                   $ref: "#/components/schemas/MetadataParameter"
                 type: array
           description: Ok
-      security:
-        - auth: [lambdaorm:expression:read]
       tags:
         - expression
       x-eov-operation-handler: controllers/ExpressionController
@@ -151,22 +149,12 @@ paths:
               schema:
                 $ref: "#/components/schemas/MetadataConstraint"
           description: Ok
-      security:
-        - auth: [lambdaorm:expression:read]
       tags:
         - expression
       x-eov-operation-handler: controllers/ExpressionController
   /expression/sentence:
     post:
       operationId: sentence
-      parameters:
-        - explode: true
-          in: query
-          name: stage
-          required: false
-          schema:
-            type: string
-          style: form
       requestBody:
         content:
           application/json:
@@ -180,22 +168,12 @@ paths:
               schema:
                 $ref: "#/components/schemas/MetadataSentence"
           description: Ok
-      security:
-        - auth: [lambdaorm:expression:read]
       tags:
         - expression
       x-eov-operation-handler: controllers/ExpressionController
   /expression/execute:
     post:
       operationId: execute
-      parameters:
-        - explode: true
-          in: query
-          name: stage
-          required: false
-          schema:
-            type: string
-          style: form
       requestBody:
         content:
           application/json:
@@ -208,8 +186,6 @@ paths:
             application/json:
               schema: {}
           description: Ok
-      security:
-        - auth: [lambdaorm:expression:execute]
       tags:
         - expression
       x-eov-operation-handler: controllers/ExpressionController
@@ -227,8 +203,6 @@ paths:
                   $ref: "#/components/schemas/Entity"
                 type: array
           description: Ok
-      security:
-        - auth: [lambdaorm:schema:read]
       tags:
         - schema
       x-eov-operation-handler: controllers/SchemaController
@@ -245,8 +219,6 @@ paths:
                   $ref: "#/components/schemas/Enum"
                 type: array
           description: Ok
-      security:
-        - auth: [lambdaorm:schema:read]
       tags:
         - schema
       x-eov-operation-handler: controllers/SchemaController
@@ -263,8 +235,6 @@ paths:
                   $ref: "#/components/schemas/DataSource"
                 type: array
           description: Ok
-      security:
-        - auth: [lambdaorm:schema:read]
       tags:
         - schema
       x-eov-operation-handler: controllers/SchemaController
@@ -281,8 +251,6 @@ paths:
                   $ref: "#/components/schemas/Mapping"
                 type: array
           description: Ok
-      security:
-        - auth: [lambdaorm:schema:read]
       tags:
         - schema
       x-eov-operation-handler: controllers/SchemaController
@@ -299,8 +267,6 @@ paths:
                   $ref: "#/components/schemas/Stage"
                 type: array
           description: Ok
-      security:
-        - auth: [lambdaorm:schema:read]
       tags:
         - schema
       x-eov-operation-handler: controllers/SchemaController
@@ -318,8 +284,6 @@ paths:
                   type: string
                 type: array
           description: Ok
-      security:
-        - auth: [lambdaorm:stage:read]
       tags:
         - stage
       x-eov-operation-handler: controllers/StageController
@@ -341,8 +305,6 @@ paths:
               schema:
                 type: boolean
           description: Ok
-      security:
-        - auth: [lambdaorm:stage:read]
       tags:
         - stage
       x-eov-operation-handler: controllers/StageController
@@ -364,8 +326,6 @@ paths:
               schema:
                 $ref: "#/components/schemas/SchemaData"
           description: Ok
-      security:
-        - auth: [lambdaorm:stage:export]
       tags:
         - stage
       x-eov-operation-handler: controllers/StageController
@@ -392,8 +352,6 @@ paths:
             application/json:
               schema: {}
           description: Ok
-      security:
-        - auth: [lambdaorm:stage:import]
       tags:
         - stage
       x-eov-operation-handler: controllers/StageController
@@ -1417,11 +1375,30 @@ components:
         expression: expression
         data: {}
       properties:
+        options:
+          $ref: "#/components/schemas/QueryOptions"  
         expression:
           type: string
         data: {}
       required:
         - expression
+      type: object
+    QueryOptions:
+      additionalProperties: false
+      example:
+        stage: default
+        view: default
+        chunkSize: 1000
+        tryAllCan: true
+      properties:
+        stage:
+          type: string
+        view:
+          type: string
+        chunkSize:
+          type: integer    
+        tryAllCan:
+          type: boolean 
       type: object
     QueryResponse:
       properties:
@@ -1429,50 +1406,5 @@ components:
       required:
         - result
       type: object
-  securitySchemes:
-    auth:
-      type: oauth2
-      flows:
-        authorizationCode:
-          authorizationUrl: http://localhost:8180/auth/realms/devicenet-dev/protocol/openid-connect/auth
-          tokenUrl: http://localhost:8180/auth/realms/devicenet-dev/protocol/openid-connect/token
-          scopes:
-            lambdaorm:expression:read: read expression
-            lambdaorm:expression:execute: execute expression
-            lambdaorm:schema:read: read schema
-            lambdaorm:stage:read: read stage
-            lambdaorm:stage:import: import stage
-            lambdaorm:stage:export: export stage
-    # openid:
-    #   type: openIdConnect
-    #   openIdConnectUrl: http://localhost:8180/auth/realms/devicenet-dev/.well-known/openid-configuration
-    # auth:
-    #   type: oauth2
-    #   flows:
-    #     password:
-    #       tokenUrl: http://localhost:8180/auth/realms/devicenet-dev/protocol/openid-connect/token
-    #       scopes:
-    #         lambdaorm:expression:read: read expression
-    #         lambdaorm:expression:execute: execute expression
-    #         lambdaorm:schema:read: read schema
-    #         lambdaorm:stage:read: read stage
-    #         lambdaorm:stage:import: import stage
-    #         lambdaorm:stage:export: export stage
-    #     authorizationCode:
-    #       authorizationUrl: http://localhost:8180/auth/realms/devicenet-dev/protocol/openid-connect/auth
-    #       tokenUrl: http://localhost:8180/auth/realms/devicenet-dev/protocol/openid-connect/token
-    #       scopes:
-    #         lambdaorm:expression:read: read expression
-    #         lambdaorm:expression:execute: execute expression
-    #         lambdaorm:schema:read: read schema
-    #         lambdaorm:stage:read: read stage
-    #         lambdaorm:stage:import: import stage
-    #         lambdaorm:stage:export: export stage
-    # auth: # arbitrary name for the security scheme
-    #   type: http
-    #   scheme: bearer
-    #   bearerFormat: JWT
-    # api_key:
-    #   in: header
-    #   name: api_key
-    #   type: apiKey
+
+

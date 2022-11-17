@@ -9,35 +9,35 @@
 const Controller = require('./Controller');
 const service = require('../services/ExpressionService');
 const constraints = async (request, response) => {
-  await Controller.handleRequest(request, response, service.constraints);
+	await Controller.handleRequest(request, response, service.constraints);
 };
 
 const execute = async (request, response) => {
-  await Controller.handleRequest(request, response, service.execute);
+	await Controller.handleRequest(request, response, service.execute);
 };
 
 const metadata = async (request, response) => {
-  await Controller.handleRequest(request, response, service.metadata);
+	await Controller.handleRequest(request, response, service.metadata);
 };
 
 const model = async (request, response) => {
-  await Controller.handleRequest(request, response, service.model);
+	await Controller.handleRequest(request, response, service.model);
 };
 
 const parameters = async (request, response) => {
-  await Controller.handleRequest(request, response, service.parameters);
+	await Controller.handleRequest(request, response, service.parameters);
 };
 
 const sentence = async (request, response) => {
-  await Controller.handleRequest(request, response, service.sentence);
+	await Controller.handleRequest(request, response, service.sentence);
 };
 
 
 module.exports = {
-  constraints,
-  execute,
-  metadata,
-  model,
-  parameters,
-  sentence,
+	constraints,
+	execute,
+	metadata,
+	model,
+	parameters,
+	sentence,
 };
