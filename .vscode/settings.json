@@ -7,10 +7,12 @@
 	"editor.insertSpaces": false,
 	"cSpell.words": [
 		"camelcase",
+		"datasource",
 		"datasources",
 		"findstr",
 		"Flavio",
 		"flaviorita",
+		"kong",
 		"lambdaorm",
 		"openapi",
 		"openapitools",

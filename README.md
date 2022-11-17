@@ -16,7 +16,7 @@ npm install @openapitools/openapi-generator-cli -g
 generate api:
 
 ```sh
-npx @openapitools/openapi-generator-cli generate -i src/dev/config/lambda-svc.yaml -g nodejs-express-server -o src/api2
+npx @openapitools/openapi-generator-cli generate -i src/dev/config/lambda-svc.yaml -g nodejs-express-server -o src/api
 ```
 
 ## Dev Scripts
@@ -90,3 +90,7 @@ docker-compose -f ./docker-compose-win.yaml down --remove-orphans
 netstat -ano | findstr :9291
 taskkill /PID 4500 /F
 ```
+
+## Security
+
+- [kong](https://konghq.com/products/api-gateway-platform)

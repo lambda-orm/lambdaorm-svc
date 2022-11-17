@@ -1,8 +1,7 @@
 @host = http://localhost:9291
 @keycloaHost = http://localhost:8180
-@locStage = PostgreSQL
-# @locStage = localOracle
-@realm = cclp
+@stage = PostgreSQL
+
 
 ### General -------------------------------------------------------------------------------------------------------------------------
 
@@ -18,37 +17,61 @@ GET {{host}}/metrics HTTP/1.1
 ### Schema  -------------------------------------------------------------------------------------------------------------------------
 
 ### entities
-GET {{host}}/schema/entities HTTP/1.1
+GET {{host}}/entities HTTP/1.1
 content-type: application/json
 
-{
-}
+### entity
+GET {{host}}/entities/PmParties HTTP/1.1
+content-type: application/json
 
 ### stages
-GET {{host}}/stage HTTP/1.1
+GET {{host}}/stages HTTP/1.1
 content-type: application/json
 
 {
 }
 
-### Metadata -------------------------------------------------------------------------------------------------------------------------
+### Expressions -------------------------------------------------------------------------------------------------------------------------
+
+### Model
+POST {{host}}/model HTTP/1.1
+content-type: application/json
+
+{	
+	"expression": "PmIndividuals.filter(p=> p.gender == gender).include(p->p.party)"
+}
+
+### Parameters
+POST {{host}}/parameters HTTP/1.1
+content-type: application/json
+
+{	
+	"expression": "PmIndividuals.filter(p=> p.gender == gender).include(p->p.party)"
+}
+
+### Constraints
+POST {{host}}/constraints HTTP/1.1
+content-type: application/json
+
+{	
+	"expression": "PmIndividuals.bulkInsert().include(p=>p.party.include(p=> [p.identifications,p.contactMediums]))"
+}
 
 ### Sentence
-POST {{host}}/expression/sentence?stage={{locStage}} HTTP/1.1
+POST {{host}}/sentence HTTP/1.1
 content-type: application/json
 
 {
-	"expression": "PmIndividuals.include(p->p.party)",
-	"data":{}
+	"options": { "stage": "{{stage}}" },
+	"expression": "PmIndividuals.filter(p=> p.gender == gender).include(p=>p.party)"
 }
 
-### Execute -------------------------------------------------------------------------------------------------------------------------
-
 ### Execute
-POST {{host}}/expression/execute?stage={{locStage}} HTTP/1.1
+POST {{host}}/execute HTTP/1.1
 content-type: application/json
 
 {
-	"expression": "PmIndividuals.include(p->p.party)",
-	"data":{}
+	"options": { "stage": "{{stage}}" },
+	"expression": "PmIndividuals.filter(p=> p.gender == gender).include(p->p.party)",
+	"data":{"gender":"F"}
 }

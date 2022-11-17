@@ -1,6 +1,6 @@
 const promClient = require('prom-client')
 
-// metrics
+// metricts
 // https://www.npmjs.com/package/prom-client
 // https://stackabuse.com/nodejs-application-monitoring-with-prometheus-and-grafana/
 const register = new promClient.Registry()

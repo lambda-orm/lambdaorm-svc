@@ -8,7 +8,7 @@ info:
     name: Apache-2.0
     url: https://www.apache.org/licenses/LICENSE-2.0.html
   title: λORM Service
-  version: 0.1.16
+  version: 0.3.0
 externalDocs:
   description: Find out more about λORM
   url: https://www.npmjs.com/package/lambdaorm
@@ -72,7 +72,7 @@ paths:
         - general
       x-eov-operation-handler: controllers/GeneralController
   # expression
-  /expression/metadata:
+  /metadata:
     post:
       operationId: metadata
       requestBody:
@@ -87,12 +87,10 @@ paths:
               schema:
                 $ref: "#/components/schemas/Metadata"
           description: Ok
-      security:
-        - auth: [lambdaorm:expression:read]
       tags:
         - expression
       x-eov-operation-handler: controllers/ExpressionController
-  /expression/model:
+  /model:
     post:
       operationId: model
       requestBody:
@@ -109,12 +107,10 @@ paths:
                   $ref: "#/components/schemas/MetadataModel"
                 type: array
           description: Ok
-      security:
-        - auth: [lambdaorm:expression:read]
       tags:
         - expression
       x-eov-operation-handler: controllers/ExpressionController
-  /expression/parameters:
+  /parameters:
     post:
       operationId: parameters
       requestBody:
@@ -134,7 +130,7 @@ paths:
       tags:
         - expression
       x-eov-operation-handler: controllers/ExpressionController
-  /expression/constraints:
+  /constraints:
     post:
       operationId: constraints
       requestBody:
@@ -152,7 +148,7 @@ paths:
       tags:
         - expression
       x-eov-operation-handler: controllers/ExpressionController
-  /expression/sentence:
+  /sentence:
     post:
       operationId: sentence
       requestBody:
@@ -171,7 +167,7 @@ paths:
       tags:
         - expression
       x-eov-operation-handler: controllers/ExpressionController
-  /expression/execute:
+  /execute:
     post:
       operationId: execute
       requestBody:
@@ -190,7 +186,7 @@ paths:
         - expression
       x-eov-operation-handler: controllers/ExpressionController
   # schema
-  /schema/entities:
+  /entities:
     get:
       operationId: entities
       parameters: []
@@ -206,7 +202,28 @@ paths:
       tags:
         - schema
       x-eov-operation-handler: controllers/SchemaController
-  /schema/enums:
+  /entities/{entity}:
+    get:
+      operationId: entity
+      parameters:
+        - explode: false
+          in: path
+          name: entity
+          required: true
+          schema:
+            type: string
+          style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Entity"
+          description: Ok
+      tags:
+        - schema
+      x-eov-operation-handler: controllers/SchemaController    
+  /enums:
     get:
       operationId: enums
       parameters: []
@@ -222,7 +239,28 @@ paths:
       tags:
         - schema
       x-eov-operation-handler: controllers/SchemaController
-  /schema/datasources:
+  /enums/{enum}:
+    get:
+      operationId: _enum
+      parameters:
+        - explode: false
+          in: path
+          name: enum
+          required: true
+          schema:
+            type: string
+          style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Enum"
+          description: Ok
+      tags:
+        - schema
+      x-eov-operation-handler: controllers/SchemaController    
+  /datasources:
     get:
       operationId: dataSources
       parameters: []
@@ -238,7 +276,28 @@ paths:
       tags:
         - schema
       x-eov-operation-handler: controllers/SchemaController
-  /schema/mappings:
+  /datasources/{datasource}:
+    get:
+      operationId: datasource
+      parameters:
+        - explode: false
+          in: path
+          name: datasource
+          required: true
+          schema:
+            type: string
+          style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/DataSource"
+          description: Ok
+      tags:
+        - schema
+      x-eov-operation-handler: controllers/SchemaController     
+  /mappings:
     get:
       operationId: mappings
       parameters: []
@@ -254,7 +313,56 @@ paths:
       tags:
         - schema
       x-eov-operation-handler: controllers/SchemaController
-  /schema/stages:
+  /mappings/{mapping}:
+    get:
+      operationId: mapping
+      parameters:
+        - explode: false
+          in: path
+          name: mapping
+          required: true
+          schema:
+            type: string
+          style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Mapping"
+          description: Ok
+      tags:
+        - schema
+      x-eov-operation-handler: controllers/SchemaController 
+  /mappings/{mapping}/{entity}:
+    get:
+      operationId: entityMapping
+      parameters:
+        - explode: false
+          in: path
+          name: mapping
+          required: true
+          schema:
+            type: string
+          style: simple
+        - explode: false
+          in: path
+          name: entity
+          required: true
+          schema:
+            type: string
+          style: simple  
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/EntityMapping"
+          description: Ok
+      tags:
+        - schema
+      x-eov-operation-handler: controllers/SchemaController        
+  /stages:
     get:
       operationId: stages
       parameters: []
@@ -270,24 +378,29 @@ paths:
       tags:
         - schema
       x-eov-operation-handler: controllers/SchemaController
-  # stage
-  /stage:
+  /stages/{stage}:
     get:
-      operationId: list
-      parameters: []
+      operationId: stage
+      parameters:
+        - explode: false
+          in: path
+          name: stage
+          required: true
+          schema:
+            type: string
+          style: simple
       responses:
         "200":
           content:
             application/json:
               schema:
-                items:
-                  type: string
-                type: array
+                $ref: "#/components/schemas/Stage"
           description: Ok
       tags:
-        - stage
-      x-eov-operation-handler: controllers/StageController
-  /stage/{stage}/exists:
+        - schema
+      x-eov-operation-handler: controllers/SchemaController     
+  # stage
+  /stages/{stage}/exists:
     get:
       operationId: exists
       parameters:
@@ -308,7 +421,7 @@ paths:
       tags:
         - stage
       x-eov-operation-handler: controllers/StageController
-  /stage/{stage}/export:
+  /stages/{stage}/export:
     get:
       operationId: _export
       parameters:
@@ -329,7 +442,7 @@ paths:
       tags:
         - stage
       x-eov-operation-handler: controllers/StageController
-  /stage/{stage}/import:
+  /stages/{stage}/import:
     post:
       operationId: _import
       parameters:

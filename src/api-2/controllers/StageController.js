@@ -20,9 +20,14 @@ const exists = async (request, response) => {
   await Controller.handleRequest(request, response, service.exists);
 };
 
+const list = async (request, response) => {
+  await Controller.handleRequest(request, response, service.list);
+};
+
 
 module.exports = {
   _export,
   _import,
   exists,
+  list,
 };
