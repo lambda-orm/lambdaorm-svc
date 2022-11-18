@@ -28,8 +28,9 @@ content-type: application/json
 GET {{host}}/stages HTTP/1.1
 content-type: application/json
 
-{
-}
+### stage
+GET {{host}}/stages/PostgreSQL HTTP/1.1
+content-type: application/json
 
 ### Expressions -------------------------------------------------------------------------------------------------------------------------
 
