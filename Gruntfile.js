@@ -4,6 +4,11 @@ module.exports = function (grunt) {
 	// Load the plugins
 	require('load-grunt-tasks')(grunt)
 	grunt.initConfig({
+		exec: {
+			lint: { cmd: 'npx eslint src ' },
+			release: { cmd: './release.sh' },
+			to_develop: { cmd: './to_develop.sh' }
+		},
 		clean: {
 			dist: ['dist']
 		},
@@ -26,5 +31,7 @@ module.exports = function (grunt) {
 		fs.writeFileSync('dist/package.json', JSON.stringify(data, null, 2), 'utf8')
 	})
 	grunt.registerTask('dist', ['clean:dist', 'copy:api', 'copy:readme', 'copy:license', 'create-package'])
+	grunt.registerTask('release', ['dist', 'exec:release'])
+	grunt.registerTask('to_develop', ['build', 'exec:to_develop'])
 	grunt.registerTask('default', [])
 }

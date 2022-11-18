@@ -21,12 +21,6 @@ npx @openapitools/openapi-generator-cli generate -i src/dev/config/lambda-svc.ya
 
 ## Dev Scripts
 
-build
-
-```sh
-npm run build
-```
-
 start
 
 ```sh
@@ -44,9 +38,9 @@ npm run dist
 - [repository](https://hub.docker.com/repository/docker/flaviorita/lambdaorm-svc)
 
 ```sh
-docker login -u flaviorita -p [PASSWORD]
-docker build -t flaviorita/lambdaorm-svc:0.0.14 .
-docker push flaviorita/lambdaorm-svc:0.0.14
+docker login -u flaviorita -p $DOCKER_IO_PWD
+docker build -t flaviorita/lambdaorm-svc:0.0.15 .
+docker push flaviorita/lambdaorm-svc:0.0.15
 ```
 
 ## use image

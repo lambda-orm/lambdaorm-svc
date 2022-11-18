@@ -62,7 +62,7 @@ class ExpressServer {
         message: err.message || err,
         errors: err.errors || '',
       });
-    }); 
+    });
   }
 
   launch() {
@@ -78,8 +78,8 @@ class ExpressServer {
     // }).install(this.app)
     //   .catch(e => console.log(e))
     //   .then(() => {
-		// 		this.app.use(Metrics.after)
-		// 	})
+    // 		this.app.use(Metrics.after)
+    // 	})
     //   .then(() => {
     //     // eslint-disable-next-line no-unused-vars
     //     this.app.use((err, req, res, next) => {
@@ -90,9 +90,9 @@ class ExpressServer {
     //       });
     //     });        
     //     this.server = http.createServer(this.app).listen(config.URL_PORT, async () => {
-		// 			await orm.init(config.WORKSPACE)
-		// 			console.log('Server running at: ' + config.URL_PATH + ':' + config.URL_PORT + '/api-docs')
-		// 		})
+    // 			await orm.init(config.WORKSPACE)
+    // 			console.log('Server running at: ' + config.URL_PATH + ':' + config.URL_PORT + '/api-docs')
+    // 		})
     //     // http.createServer(this.app).listen(this.port);
     //     // console.log(`Listening on port ${this.port}`);
     //   });

@@ -1,7 +1,6 @@
 const fs = require('fs');
 const path = require('path');
 const config = require('../config');
-const logger = require('../logger');
 
 class Controller {
   static sendResponse(response, payload) {
@@ -74,7 +73,7 @@ class Controller {
       if (content['application/json'] !== undefined) {
         // const requestBodyName = camelCase(this.getRequestBodyName(request));
         // const requestBodyName = this.getRequestBodyName(request);
-        requestParams["queryRequest"] = request.body        
+        requestParams["queryRequest"] = request.body
       } else if (content['multipart/form-data'] !== undefined) {
         Object.keys(content['multipart/form-data'].schema.properties).forEach(
           (property) => {
