@@ -1,14 +1,25 @@
 # Lambda ORM service
 
-service of lambda orm
+service of lambda ORM
 
-## Dev Scripts
+## OpenId
 
-build
+- [openapi generator](https://openapi-generator.tech/)
+- [installation](https://openapi-generator.tech/docs/installation)
+
+install openapi-generator:
 
 ```sh
-npm run build
+npm install @openapitools/openapi-generator-cli -g
 ```
+
+generate api:
+
+```sh
+npx @openapitools/openapi-generator-cli generate -i src/dev/config/lambda-svc.yaml -g nodejs-express-server -o src/api
+```
+
+## Dev Scripts
 
 start
 
@@ -27,9 +38,9 @@ npm run dist
 - [repository](https://hub.docker.com/repository/docker/flaviorita/lambdaorm-svc)
 
 ```sh
-docker login -u flaviorita -p [PASSWORD]
-docker build -t flaviorita/lambdaorm-svc:0.0.14 .
-docker push flaviorita/lambdaorm-svc:0.0.14
+docker login -u flaviorita -p $DOCKER_IO_PWD
+docker build -t flaviorita/lambdaorm-svc:0.0.15 .
+docker push flaviorita/lambdaorm-svc:0.0.15
 ```
 
 ## use image
@@ -40,9 +51,7 @@ pull
 docker pull flaviorita/lambdaorm-svc:0.0.14
 ```
 
-## docker compose
-
-### linux
+## Docker
 
 ``` sh
 docker-compose up -d
@@ -52,12 +61,6 @@ uninstall
 
 ``` sh
 docker-compose down --remove-orphans
-```
-
-### windows
-
-``` sh
-docker-compose -f ./docker-compose-win.yaml up -d 
 ```
 
 create user:
@@ -72,3 +75,16 @@ uninstall
 ``` sh
 docker-compose -f ./docker-compose-win.yaml down --remove-orphans
 ```
+
+## Kill Port
+
+- [data](https://stackoverflow.com/questions/39632667/how-do-i-kill-the-process-currently-using-a-port-on-localhost-in-windows)
+
+```sh
+netstat -ano | findstr :9291
+taskkill /PID 4500 /F
+```
+
+## Security
+
+- [kong](https://konghq.com/products/api-gateway-platform)

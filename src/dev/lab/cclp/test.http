@@ -1,0 +1,76 @@
+@host = http://localhost:9291
+@keycloaHost = http://localhost:8180
+@locStage = local
+# @locStage = localOracle
+@realm = cclp
+
+
+
+
+
+### Get Token in Devicenet WebApp
+POST {{keycloaHost}}/auth/realms/{{realm}}/protocol/openid-connect/token HTTP/1.1
+content-type: application/x-www-form-urlencoded
+
+client_id=lambdaorm
+&client_secret=tnXIvZBZRvIguADM6hQAEM9wO6PKSh0U
+&grant_type=password
+&username=flaviolrita
+&password=flaviolrita
+
+# Response
+# {
+#   "access_token": "eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJ0blQwdE1iRG1IRHN1Q3ZoYlNXUGFiOXNnUkhaR1ltdV9NeF8xSF8tUzBBIn0.eyJleHAiOjE2NDkxMTIyODMsImlhdCI6MTY0OTExMTk4MywianRpIjoiNmI0OGRlMzMtMGNhOS00Mzg4LWE4ODEtNjE0NzU2OTU2ODExIiwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo4MTgwL2F1dGgvcmVhbG1zL2NjbHAiLCJhdWQiOiJhY2NvdW50Iiwic3ViIjoiYjU1ZGVjMWUtMzgzYi00NGMxLWFiMmItOWE5YTJiNjYzOTZmIiwidHlwIjoiQmVhcmVyIiwiYXpwIjoibGFtYmRhb3JtIiwic2Vzc2lvbl9zdGF0ZSI6IjMzMzlmY2VlLTIxNGQtNGU1YS05ZWY5LWYxNGQyNGZhY2ZiOCIsImFjciI6IjEiLCJhbGxvd2VkLW9yaWdpbnMiOlsiaHR0cDovL2xvY2FsaG9zdDo5MjkxIl0sInJlYWxtX2FjY2VzcyI6eyJyb2xlcyI6WyJkZWZhdWx0LXJvbGVzLWNjbHAiLCJvZmZsaW5lX2FjY2VzcyIsInVtYV9hdXRob3JpemF0aW9uIl19LCJyZXNvdXJjZV9hY2Nlc3MiOnsiYWNjb3VudCI6eyJyb2xlcyI6WyJtYW5hZ2UtYWNjb3VudCIsIm1hbmFnZS1hY2NvdW50LWxpbmtzIiwidmlldy1wcm9maWxlIl19fSwic2NvcGUiOiJwcm9maWxlIGVtYWlsIiwic2lkIjoiMzMzOWZjZWUtMjE0ZC00ZTVhLTllZjktZjE0ZDI0ZmFjZmI4IiwiZW1haWxfdmVyaWZpZWQiOnRydWUsIm5hbWUiOiJGbGF2aW8gUml0YSIsInByZWZlcnJlZF91c2VybmFtZSI6ImZsYXZpb2xyaXRhIiwiZ2l2ZW5fbmFtZSI6IkZsYXZpbyIsImZhbWlseV9uYW1lIjoiUml0YSIsImVtYWlsIjoiZmxhdmlvbHJpdGFAaG90bWFpbC5jb20ifQ.MYBRSu5wdxn0m23AuR8ZK-2loh5L3cm-OEyINN7QsfNmIJUg7eyINCTDyp9uyAitYLUqZ8mzbRlHTquo2ZT-nV1e3WpW6QczHE6ZdXq908x0Zf1rRpXf0RzXHEQXHTZaT7IRKekrrDTpsYGq8vlOX52eHUscQ6k1Shm7CSvDQ0HuSzO94aeW6ln24A6-9V0u9t3cEM_qSoAOE_FOlZKD8cembh_cHrxuuZv79YFUDEpFHCY4R2uM7VSA_VgcKR7qp1f96NFGLHStBn93ERTh7U2NI98FWG6Ec8ieuZGdNQ7AOR4j6WL5GnTv93nb2xDZgCExa_D53g4TN98dZIG9wQ",
+#   "expires_in": 300,
+#   "refresh_expires_in": 1800,
+#   "refresh_token": "eyJhbGciOiJIUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICI2NTQ5YmRhOC05MmZkLTQ0MDEtYmVlZi00ZGY3ZDI1MDRjMTIifQ.eyJleHAiOjE2NDkxMTM3ODMsImlhdCI6MTY0OTExMTk4MywianRpIjoiOTdhMmY5M2UtYjNlNi00OTVlLWFjOTItMTBjOWJjNTdhN2I3IiwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo4MTgwL2F1dGgvcmVhbG1zL2NjbHAiLCJhdWQiOiJodHRwOi8vbG9jYWxob3N0OjgxODAvYXV0aC9yZWFsbXMvY2NscCIsInN1YiI6ImI1NWRlYzFlLTM4M2ItNDRjMS1hYjJiLTlhOWEyYjY2Mzk2ZiIsInR5cCI6IlJlZnJlc2giLCJhenAiOiJsYW1iZGFvcm0iLCJzZXNzaW9uX3N0YXRlIjoiMzMzOWZjZWUtMjE0ZC00ZTVhLTllZjktZjE0ZDI0ZmFjZmI4Iiwic2NvcGUiOiJwcm9maWxlIGVtYWlsIiwic2lkIjoiMzMzOWZjZWUtMjE0ZC00ZTVhLTllZjktZjE0ZDI0ZmFjZmI4In0.ts3JhNx6rPgKs4Flr5vy0GDyvHcEcxetwzeftO0J-Tg",
+#   "token_type": "Bearer",
+#   "not-before-policy": 0,
+#   "session_state": "3339fcee-214d-4e5a-9ef9-f14d24facfb8",
+#   "scope": "profile email"
+# }
+
+### General -------------------------------------------------------------------------------------------------------------------------
+
+### ping
+GET {{host}}/ping HTTP/1.1
+content-type: application/json
+
+### health
+GET {{host}}/health HTTP/1.1
+
+### metrics
+GET {{host}}/metrics HTTP/1.1
+
+
+### Schema.entities
+GET {{host}}/schema/entities HTTP/1.1
+content-type: application/json
+
+{
+}
+
+### stages
+GET {{host}}/stage HTTP/1.1
+content-type: application/json
+
+{
+}
+
+### Sentence
+POST {{host}}/expression/sentence?stage={{locStage}} HTTP/1.1
+content-type: application/json
+
+{
+	"expression": "LocAreaTypes.include(p => p.areas)",
+	"data":{}
+}
+
+### Execute
+POST {{host}}/expression/execute?stage={{locStage}} HTTP/1.1
+content-type: application/json
+
+{
+	"expression": "LocAreaTypes.include(p => p.areas)",
+	"data":{}
+}

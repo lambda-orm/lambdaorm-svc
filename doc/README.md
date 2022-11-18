@@ -4,16 +4,9 @@ Lambdaorm Service
 
 ## Table of contents
 
-### Variables
+### Modules
 
-- [default](README.md#default)
-
-## Variables
-
-### default
-
-• **default**: `Router`
-
-#### Defined in
-
-[index.ts:7](https://github.com/FlavioLionelRita/lambda-orm-svc/blob/4b62893/src/api/routes/index.ts#L7)
+- [expressions](modules/expressions.md)
+- [general](modules/general.md)
+- [schema](modules/schema.md)
+- [stage](modules/stage.md)

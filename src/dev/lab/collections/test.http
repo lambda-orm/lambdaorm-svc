@@ -1,0 +1,78 @@
+@host = http://localhost:9291
+@keycloaHost = http://localhost:8180
+@stage = PostgreSQL
+
+
+### General -------------------------------------------------------------------------------------------------------------------------
+
+### ping
+GET {{host}}/ping HTTP/1.1
+
+### health
+GET {{host}}/health HTTP/1.1
+
+### metrics
+GET {{host}}/metrics HTTP/1.1
+
+### Schema  -------------------------------------------------------------------------------------------------------------------------
+
+### entities
+GET {{host}}/entities HTTP/1.1
+content-type: application/json
+
+### entity
+GET {{host}}/entities/PmParties HTTP/1.1
+content-type: application/json
+
+### stages
+GET {{host}}/stages HTTP/1.1
+content-type: application/json
+
+### stage
+GET {{host}}/stages/PostgreSQL HTTP/1.1
+content-type: application/json
+
+### Expressions -------------------------------------------------------------------------------------------------------------------------
+
+### Model
+POST {{host}}/model HTTP/1.1
+content-type: application/json
+
+{	
+	"expression": "PmIndividuals.filter(p=> p.gender == gender).include(p->p.party)"
+}
+
+### Parameters
+POST {{host}}/parameters HTTP/1.1
+content-type: application/json
+
+{	
+	"expression": "PmIndividuals.filter(p=> p.gender == gender).include(p->p.party)"
+}
+
+### Constraints
+POST {{host}}/constraints HTTP/1.1
+content-type: application/json
+
+{	
+	"expression": "PmIndividuals.bulkInsert().include(p=>p.party.include(p=> [p.identifications,p.contactMediums]))"
+}
+
+### Sentence
+POST {{host}}/sentence HTTP/1.1
+content-type: application/json
+
+{
+	"options": { "stage": "{{stage}}" },
+	"expression": "PmIndividuals.filter(p=> p.gender == gender).include(p=>p.party)"
+}
+
+### Execute
+POST {{host}}/execute HTTP/1.1
+content-type: application/json
+
+{
+	"options": { "stage": "{{stage}}" },
+	"expression": "PmIndividuals.filter(p=> p.gender == gender).include(p->p.party)",
+	"data":{"gender":"F"}
+}

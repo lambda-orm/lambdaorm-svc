@@ -4,5 +4,21 @@
 	"eslint.format.enable": true,
 	"eslint.run": "onSave",
 	"editor.tabSize": 2,
-	"editor.insertSpaces": false
+	"editor.insertSpaces": false,
+	"cSpell.words": [
+		"camelcase",
+		"datasource",
+		"datasources",
+		"findstr",
+		"Flavio",
+		"flaviorita",
+		"kong",
+		"lambdaorm",
+		"openapi",
+		"openapitools",
+		"oracledb",
+		"proot",
+		"taskkill",
+		"uroot"
+	]
 }

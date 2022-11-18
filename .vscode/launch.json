@@ -5,24 +5,54 @@
 	"version": "0.2.0",
 	"configurations": [
 		{
-			"name": "nordwind lab",
+			"name": "collections",
 			"type": "node",
 			"request": "launch",
 			"skipFiles": [
 				"<node_internals>/**"
 			],
-			"program": "${workspaceFolder}/src/api/index.ts",
+			"program": "${workspaceFolder}/src/api/index.js",
+			"envFile": "${workspaceFolder}/src/dev/lab/collections/workspace/.env"
+		},
+		{
+			"name": "cclp",
+			"type": "node",
+			"request": "launch",
+			"skipFiles": [
+				"<node_internals>/**"
+			],
+			"program": "${workspaceFolder}/src/api/index.js",
+			"envFile": "${workspaceFolder}/src/dev/lab/cclp/workspace/.env"
+		},
+		{
+			"name": "cclp dist",
+			"type": "node",
+			"request": "launch",
+			"skipFiles": [
+				"<node_internals>/**"
+			],
+			"program": "${workspaceFolder}/dist/index.js",
+			"envFile": "${workspaceFolder}/src/dev/lab/cclp/workspace/.env"
+		},
+		{
+			"name": "nordwind",
+			"type": "node",
+			"request": "launch",
+			"skipFiles": [
+				"<node_internals>/**"
+			],
+			"program": "${workspaceFolder}/src/api/index.js",
 			"envFile": "${workspaceFolder}/src/dev/lab/nordwind/.env"
 		},
 		{
-			"name": "devicenet lab",
+			"name": "devicenet",
 			"type": "node",
 			"request": "launch",
 			"skipFiles": [
 				"<node_internals>/**"
 			],
-			"program": "${workspaceFolder}/src/api/index.ts",
-			"envFile": "${workspaceFolder}/src/dev/lab/devicenet/.env"
+			"program": "${workspaceFolder}/src/api/index.js",
+			"envFile": "${workspaceFolder}/src/dev/lab/devicenet-svc/workspace/.env"
 		}
 	]
 }
