@@ -178,7 +178,7 @@ entities:
         length: 3 
       - name: streetNrFirst
         length: 20
-      - name: postalCode
+      - name: zipCode
         length: 30
       - name: city
         length: 100
@@ -186,7 +186,7 @@ entities:
         length: 100
     relations:
       - name: country
-        from: countryId
+        from: countryCode
         entity: LocCountries
         to: iso3
       - name: area
@@ -400,8 +400,56 @@ mappings:
           - name: created
             mapping: CREATED
           - name: createdBy
-            mapping: CREATED_BY  
-      #  Party
+            mapping: CREATED_BY
+      # Loc
+      - name: LocCountries
+        mapping: TBL_LOC_COUNTRIES
+        properties:
+          - name: iso3
+            mapping: ISO3
+          - name: name
+            mapping: NAME
+          - name: iso
+            mapping: ISO
+          - name: numericCode
+            mapping: NUMERIC_CODE
+      - name: LocAreas
+        mapping: TBL_LOC_AREAS
+        properties:
+          - name: code
+            mapping: CODE
+          - name: parentCode
+            mapping: PARENT 
+          - name: countryCode
+            mapping: COUNTRY  
+          - name: type
+            mapping: TYPE             
+          - name: name
+            mapping: NAME
+      - name: LocAddresses
+        mapping: TBL_LOC_ADDRESSES
+        properties:
+          - name: id
+            mapping: ID
+          - name: countryCode
+            mapping: COUNTRY
+          - name: areaCode
+            mapping: AREA 
+          - name: streetName
+            mapping: STREET
+          - name: streetType
+            enum: StreetType
+            mapping: STREET_TYPE
+          - name: streetNrFirst
+            mapping: NRO
+          - name: zipCode
+            mapping: ZIP_CODE
+          - name: city
+            mapping: CITY
+          - name: additionalData
+            mapping: ADDITIONAL_DATA    
+
+      # Party
       - name: PmIndustryTypes
         mapping: TBL_PM_INDUSTRY_TYPE
         properties:
@@ -420,7 +468,7 @@ mappings:
           - name: status
             mapping: STATUS
           - name: registeredDate
-            mapping: REGISTER_DATE
+            mapping: REGISTERED_DATE
       - name: PmIdentifications
         extends: Basics
         mapping: TBL_PM_IDENTIFICATION
@@ -470,7 +518,7 @@ mappings:
           - name: deathDate
             mapping: DEATH_DATE
           - name: nationalityCode
-            mapping: NATIONALITY_CODE
+            mapping: NATIONALITY
           - name: givenNames
             mapping: GIVEN_NAMES
           - name: middleNames
@@ -490,7 +538,7 @@ mappings:
           - name: tradingName
             mapping: TRADING_NAME
           - name: industryTypeCode
-            mapping: INDUSTRY_TYPE_CODE
+            mapping: INDUSTRY_TYPE
           - name: commercialDescription
             mapping: COMMERCIAL_DESCRIPTION
   - name: oracle

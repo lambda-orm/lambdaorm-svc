@@ -33,22 +33,10 @@ dist
 npm run dist
 ```
 
-## publish image
-
-- [repository](https://hub.docker.com/repository/docker/flaviorita/lambdaorm-svc)
+release
 
 ```sh
-docker login -u flaviorita -p $DOCKER_IO_PWD
-docker build -t flaviorita/lambdaorm-svc:0.0.15 .
-docker push flaviorita/lambdaorm-svc:0.0.15
-```
-
-## use image
-
-pull
-
-``` sh
-docker pull flaviorita/lambdaorm-svc:0.0.14
+npm run release
 ```
 
 ## Docker
