@@ -77,7 +77,7 @@ const parameters = ({ queryRequest }) => new Promise(
 *
 * query String
 * stage String  (optional)
-* returns MetadataSentence
+* returns sentence
 * */
 const sentence = ({ queryRequest }) => new Promise(
 	(resolve, reject) => {
@@ -118,8 +118,8 @@ const execute = ({ queryRequest }) => new Promise(
 module.exports = {
 	model,
 	parameters,
-	constraints,	
-	metadata,	
+	constraints,
+	metadata,
 	sentence,
 	execute
 }

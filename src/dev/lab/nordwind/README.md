@@ -42,22 +42,14 @@ docker pull flaviorita/lambdaorm-svc:0.0.14
 
 ## docker compose
 
-### linux
-
 ``` sh
-docker-compose up -d
+docker-compose -p "lambdaorm-svc" up -d
 ```
 
 uninstall
 
 ``` sh
-docker-compose down --remove-orphans
-```
-
-### windows
-
-``` sh
-docker-compose -f ./docker-compose-win.yaml up -d 
+docker-compose -p "lambdaorm-svc" down --remove-orphans
 ```
 
 create user:

@@ -15,3 +15,5 @@
 {"level":"error","service":"user-service","timestamp":"2022-11-18T00:02:49.665Z"}
 {"level":"error","message":"Express Server failure","service":"user-service","timestamp":"2022-11-18T00:02:59.506Z"}
 {"level":"error","service":"user-service","timestamp":"2022-11-18T00:02:59.510Z"}
+{"level":"error","message":"failed to start Express Server","service":"user-service","timestamp":"2023-02-11T18:18:26.422Z"}
+{"level":"error","message":"failed to start Express Server","service":"user-service","timestamp":"2023-02-11T18:21:51.811Z"}

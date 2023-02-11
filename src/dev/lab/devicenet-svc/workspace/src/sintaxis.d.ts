@@ -221,19 +221,19 @@ declare function upper(value:string):string
 declare function concat(...values:string[]):string
 // function length(value:string):number
 
-// datetime:
+// dateTime:
 /** Get the current time */
 declare function curtime():Date
 /** Get the current date */
 declare function today():Date
-/** Get the current datetime */
+/** Get the current dateTime */
 declare function now():Date
 /**  */
 declare function time(value:any):Date
 /**  */
 declare function date(value:any):Date
 /**  */
-declare function datetime(value:any):Date
+declare function dateTime(value:any):Date
 /**  */
 declare function year(value:Date):number
 /**  */
@@ -272,7 +272,7 @@ declare function toString(value:any):string
 /**  */
 declare function toDate(value:any):Date
 /**  */
-declare function toDatetime(value:any):string
+declare function todateTime(value:any):string
 /**  */
 declare function toTime(value:any):string
 /**  */
