@@ -1,4 +1,3 @@
-// const { Middleware } = require('swagger-express-middleware');
 const http = require('http');
 const fs = require('fs');
 const path = require('path');
@@ -70,34 +69,7 @@ class ExpressServer {
       await orm.init(config.WORKSPACE)
       console.log('Server running at: ' + config.URL_PATH + ':' + config.URL_PORT + '/api-docs')
     })
-
-    // new OpenApiValidator({
-    //   apiSpec: this.openApiPath,
-    //   operationHandlers: path.join(__dirname),
-    //   fileUploader: { dest: config.FILE_UPLOAD_PATH },
-    // }).install(this.app)
-    //   .catch(e => console.log(e))
-    //   .then(() => {
-    // 		this.app.use(Metrics.after)
-    // 	})
-    //   .then(() => {
-    //     // eslint-disable-next-line no-unused-vars
-    //     this.app.use((err, req, res, next) => {
-    //       // format errors
-    //       res.status(err.status || 500).json({
-    //         message: err.message || err,
-    //         errors: err.errors || '',
-    //       });
-    //     });        
-    //     this.server = http.createServer(this.app).listen(config.URL_PORT, async () => {
-    // 			await orm.init(config.WORKSPACE)
-    // 			console.log('Server running at: ' + config.URL_PATH + ':' + config.URL_PORT + '/api-docs')
-    // 		})
-    //     // http.createServer(this.app).listen(this.port);
-    //     // console.log(`Listening on port ${this.port}`);
-    //   });
   }
-
 
   async close() {
     if (this.server !== undefined) {
