@@ -1,4 +1,3 @@
-// const { Middleware } = require('swagger-express-middleware');
 const http = require('http');
 const fs = require('fs');
 const path = require('path');
@@ -8,9 +7,11 @@ const express = require('express');
 const cors = require('cors');
 const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
-const { OpenApiValidator } = require('express-openapi-validator');
+const OpenApiValidator = require('express-openapi-validator');
 const logger = require('./logger');
 const config = require('./config');
+const { orm } = require('lambdaorm')
+const Metrics = require('./services/Metrics')
 
 class ExpressServer {
   constructor(port, openApiYaml) {
@@ -46,36 +47,36 @@ class ExpressServer {
       res.status(200);
       res.json(req.query);
     });
+    this.app.use(
+      OpenApiValidator.middleware({
+        apiSpec: this.openApiPath,
+        operationHandlers: path.join(__dirname),
+        fileUploader: { dest: config.FILE_UPLOAD_PATH },
+      }),
+    );
+    this.app.use(Metrics.after)
+    this.app.use((err, req, res, next) => {
+      // format errors
+      res.status(err.status || 500).json({
+        message: err.message || err,
+        errors: err.errors || '',
+      });
+    });
   }
 
   launch() {
-    new OpenApiValidator({
-      apiSpec: this.openApiPath,
-      operationHandlers: path.join(__dirname),
-      fileUploader: { dest: config.FILE_UPLOAD_PATH },
-    }).install(this.app)
-      .catch(e => console.log(e))
-      .then(() => {
-        // eslint-disable-next-line no-unused-vars
-        this.app.use((err, req, res, next) => {
-          // format errors
-          res.status(err.status || 500).json({
-            message: err.message || err,
-            errors: err.errors || '',
-          });
-        });
-
-        http.createServer(this.app).listen(this.port);
-        console.log(`Listening on port ${this.port}`);
-      });
+    this.server = http.createServer(this.app).listen(config.URL_PORT, async () => {
+      await orm.init(config.WORKSPACE)
+      console.log('Server running at: ' + config.URL_PATH + ':' + config.URL_PORT + '/api-docs')
+    })
   }
-
 
   async close() {
     if (this.server !== undefined) {
-      await this.server.close();
+      this.server.close();
       console.log(`Server on port ${this.port} shut down`);
     }
+    await orm.end()
   }
 }
 

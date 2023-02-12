@@ -2,8 +2,9 @@ const path = require('path');
 
 const config = {
   ROOT_DIR: __dirname,
-  URL_PORT: 8081,
-  URL_PATH: 'http://localhost',
+  URL_PORT: process.env.PORT || 8081,
+  URL_PATH: process.env.HOST || 'http://localhost',
+  WORKSPACE: process.env.WORKSPACE || '/workspace',
   BASE_VERSION: '',
   CONTROLLER_DIRECTORY: path.join(__dirname, 'controllers'),
   PROJECT_DIR: __dirname,
