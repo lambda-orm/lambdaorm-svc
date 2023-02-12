@@ -1,126 +1,125 @@
 /* eslint-disable no-unused-vars */
-const Service = require('./Service');
+const Service = require('./Service')
+const { orm } = require('lambdaorm')
 
 /**
 *
-* queryRequest QueryRequest  (optional)
+* query String
 * returns MetadataConstraint
 * */
 const constraints = ({ queryRequest }) => new Promise(
-  async (resolve, reject) => {
+  (resolve, reject) => {
     try {
-      resolve(Service.successResponse({
-        queryRequest,
-      }));
+      resolve(Service.successResponse(orm.constraints(queryRequest.expression)))
     } catch (e) {
       reject(Service.rejectResponse(
         e.message || 'Invalid input',
-        e.status || 405,
-      ));
+        e.status || 405
+      ))
     }
-  },
-);
+  }
+)
 /**
 *
-* queryRequest QueryRequest 
-* returns oas_any_type_not_mapped
-* */
-const execute = ({ queryRequest }) => new Promise(
-  async (resolve, reject) => {
-    try {
-      resolve(Service.successResponse({
-        queryRequest,
-      }));
-    } catch (e) {
-      reject(Service.rejectResponse(
-        e.message || 'Invalid input',
-        e.status || 405,
-      ));
-    }
-  },
-);
-/**
-*
-* queryRequest QueryRequest  (optional)
+* query String
 * returns Metadata
 * */
 const metadata = ({ queryRequest }) => new Promise(
-  async (resolve, reject) => {
+  (resolve, reject) => {
     try {
-      resolve(Service.successResponse({
-        queryRequest,
-      }));
+      const result = orm.metadata(queryRequest.expression)
+      resolve(Service.successResponse(result))
     } catch (e) {
       reject(Service.rejectResponse(
         e.message || 'Invalid input',
-        e.status || 405,
-      ));
+        e.status || 405
+      ))
     }
-  },
-);
+  }
+)
 /**
 *
-* queryRequest QueryRequest  (optional)
+* query String
 * returns List
 * */
 const model = ({ queryRequest }) => new Promise(
-  async (resolve, reject) => {
+  (resolve, reject) => {
     try {
-      resolve(Service.successResponse({
-        queryRequest,
-      }));
+      const result = orm.model(queryRequest.expression)
+      resolve(Service.successResponse(result))
     } catch (e) {
       reject(Service.rejectResponse(
         e.message || 'Invalid input',
-        e.status || 405,
-      ));
+        e.status || 405
+      ))
     }
-  },
-);
+  }
+)
 /**
 *
-* queryRequest QueryRequest  (optional)
+* query String
 * returns List
 * */
 const parameters = ({ queryRequest }) => new Promise(
-  async (resolve, reject) => {
+  (resolve, reject) => {
     try {
-      resolve(Service.successResponse({
-        queryRequest,
-      }));
+      const result = orm.parameters(queryRequest.expression)
+      resolve(Service.successResponse(result))
     } catch (e) {
       reject(Service.rejectResponse(
         e.message || 'Invalid input',
-        e.status || 405,
-      ));
+        e.status || 405
+      ))
     }
-  },
-);
+  }
+)
 /**
 *
-* queryRequest QueryRequest 
-* returns MetadataSentence
+* query String
+* stage String  (optional)
+* returns sentence
 * */
 const sentence = ({ queryRequest }) => new Promise(
-  async (resolve, reject) => {
+  (resolve, reject) => {
     try {
-      resolve(Service.successResponse({
-        queryRequest,
-      }));
+      const result = orm.sentence(queryRequest.expression, queryRequest.options)
+      resolve(Service.successResponse(result))
     } catch (e) {
       reject(Service.rejectResponse(
         e.message || 'Invalid input',
-        e.status || 405,
-      ));
+        e.status || 405
+      ))
     }
-  },
-);
+  }
+)
+
+/**
+*
+* query String
+* stage String  (optional)
+* body oas_any_type_not_mapped  (optional)
+* returns oas_any_type_not_mapped
+* */
+const execute = ({ queryRequest }) => new Promise(
+  // eslint-disable-next-line no-async-promise-executor
+  async (resolve, reject) => {
+    try {
+      const result = await orm.execute(queryRequest.expression, queryRequest.data, queryRequest.options)
+      resolve(Service.successResponse(result))
+    } catch (e) {
+      reject(Service.rejectResponse(
+        e.message || 'Invalid input',
+        e.status || 405
+      ))
+    }
+  }
+)
 
 module.exports = {
-  constraints,
-  execute,
-  metadata,
   model,
   parameters,
+  constraints,
+  metadata,
   sentence,
-};
+  execute
+}

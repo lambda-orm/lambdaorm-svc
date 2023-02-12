@@ -1,42 +1,28 @@
 /* eslint-disable no-unused-vars */
 const Service = require('./Service');
+const { orm } = require('lambdaorm')
 
-/**
-*
-* enum String 
-* returns Enum
-* */
-const _enum = ({ _enum }) => new Promise(
-  async (resolve, reject) => {
-    try {
-      resolve(Service.successResponse({
-        _enum,
-      }));
-    } catch (e) {
-      reject(Service.rejectResponse(
-        e.message || 'Invalid input',
-        e.status || 405,
-      ));
-    }
-  },
-);
 /**
 *
 * returns List
 * */
 const dataSources = () => new Promise(
-  async (resolve, reject) => {
+  (resolve, reject) => {
     try {
-      resolve(Service.successResponse({
-      }));
+      const result = []
+      const sources = orm.schema.dataSource.dataSources
+      for (const source of sources) {
+        result.push({ name: source.name, dialect: source.dialect, mapping: source.mapping, connection: '***' })
+      }
+      resolve(Service.successResponse(result))
     } catch (e) {
       reject(Service.rejectResponse(
         e.message || 'Invalid input',
-        e.status || 405,
-      ));
+        e.status || 405
+      ))
     }
-  },
-);
+  }
+)
 /**
 *
 * datasource String 
@@ -45,9 +31,8 @@ const dataSources = () => new Promise(
 const datasource = ({ datasource }) => new Promise(
   async (resolve, reject) => {
     try {
-      resolve(Service.successResponse({
-        datasource,
-      }));
+      const result = orm.schema.dataSource.dataSources.find(p => p.name === datasource)
+      resolve(Service.successResponse({ result }));
     } catch (e) {
       reject(Service.rejectResponse(
         e.message || 'Invalid input',
@@ -61,18 +46,18 @@ const datasource = ({ datasource }) => new Promise(
 * returns List
 * */
 const entities = () => new Promise(
-  async (resolve, reject) => {
+  (resolve, reject) => {
     try {
-      resolve(Service.successResponse({
-      }));
+      const result = orm.schema.model.entities
+      resolve(Service.successResponse(result))
     } catch (e) {
       reject(Service.rejectResponse(
         e.message || 'Invalid input',
-        e.status || 405,
-      ));
+        e.status || 405
+      ))
     }
-  },
-);
+  }
+)
 /**
 *
 * entity String 
@@ -81,9 +66,8 @@ const entities = () => new Promise(
 const entity = ({ entity }) => new Promise(
   async (resolve, reject) => {
     try {
-      resolve(Service.successResponse({
-        entity,
-      }));
+      const result = orm.schema.model.entities.find(p => p.name === entity)
+      resolve(Service.successResponse({ result }));
     } catch (e) {
       reject(Service.rejectResponse(
         e.message || 'Invalid input',
@@ -92,19 +76,17 @@ const entity = ({ entity }) => new Promise(
     }
   },
 );
+
 /**
 *
-* mapping String 
-* entity String 
-* returns EntityMapping
+* enum String 
+* returns Enum
 * */
-const entityMapping = ({ mapping, entity }) => new Promise(
+const _enum = ({ _enum }) => new Promise(
   async (resolve, reject) => {
     try {
-      resolve(Service.successResponse({
-        mapping,
-        entity,
-      }));
+      const result = orm.schema.model.enums.find(p => p.name === _enum)
+      resolve(Service.successResponse({ result }));
     } catch (e) {
       reject(Service.rejectResponse(
         e.message || 'Invalid input',
@@ -118,18 +100,17 @@ const entityMapping = ({ mapping, entity }) => new Promise(
 * returns List
 * */
 const enums = () => new Promise(
-  async (resolve, reject) => {
+  (resolve, reject) => {
     try {
-      resolve(Service.successResponse({
-      }));
+      resolve(Service.successResponse(orm.schema.model.enums))
     } catch (e) {
       reject(Service.rejectResponse(
         e.message || 'Invalid input',
-        e.status || 405,
-      ));
+        e.status || 405
+      ))
     }
-  },
-);
+  }
+)
 /**
 *
 * mapping String 
@@ -138,9 +119,8 @@ const enums = () => new Promise(
 const mapping = ({ mapping }) => new Promise(
   async (resolve, reject) => {
     try {
-      resolve(Service.successResponse({
-        mapping,
-      }));
+      const result = orm.schema.mapping.mappings.find(p => p.name === mapping)
+      resolve(Service.successResponse({ result }));
     } catch (e) {
       reject(Service.rejectResponse(
         e.message || 'Invalid input',
@@ -154,10 +134,29 @@ const mapping = ({ mapping }) => new Promise(
 * returns List
 * */
 const mappings = () => new Promise(
+  (resolve, reject) => {
+    try {
+      resolve(Service.successResponse(orm.schema.mapping.mappings))
+    } catch (e) {
+      reject(Service.rejectResponse(
+        e.message || 'Invalid input',
+        e.status || 405
+      ))
+    }
+  }
+)
+/**
+*
+* mapping String 
+* entity String 
+* returns EntityMapping
+* */
+const entityMapping = ({ mapping, entity }) => new Promise(
   async (resolve, reject) => {
     try {
-      resolve(Service.successResponse({
-      }));
+      const _mapping = orm.schema.mapping.mappings.find(p => p.name === mapping)
+      const result = _mapping ? _mapping.entities.find(p => p.name === entity) : {}
+      resolve(Service.successResponse({ result }));
     } catch (e) {
       reject(Service.rejectResponse(
         e.message || 'Invalid input',
@@ -190,26 +189,25 @@ const stage = ({ stage }) => new Promise(
 * returns List
 * */
 const stages = () => new Promise(
-  async (resolve, reject) => {
+  (resolve, reject) => {
     try {
-      resolve(Service.successResponse({
-      }));
+      resolve(Service.successResponse(orm.schema.stage.stages))
     } catch (e) {
       reject(Service.rejectResponse(
         e.message || 'Invalid input',
-        e.status || 405,
-      ));
+        e.status || 405
+      ))
     }
-  },
-);
+  }
+)
 
 module.exports = {
-  _enum,
   dataSources,
   datasource,
   entities,
   entity,
   entityMapping,
+  _enum,
   enums,
   mapping,
   mappings,
