@@ -8,10 +8,6 @@
 
 const Controller = require('./Controller');
 const service = require('../services/SchemaService');
-const _enum = async (request, response) => {
-  await Controller.handleRequest(request, response, service._enum);
-};
-
 const dataSources = async (request, response) => {
   await Controller.handleRequest(request, response, service.dataSources);
 };
@@ -30,6 +26,10 @@ const entity = async (request, response) => {
 
 const entityMapping = async (request, response) => {
   await Controller.handleRequest(request, response, service.entityMapping);
+};
+
+const _enum = async (request, response) => {
+  await Controller.handleRequest(request, response, service._enum);
 };
 
 const enums = async (request, response) => {
@@ -54,12 +54,12 @@ const stages = async (request, response) => {
 
 
 module.exports = {
-  _enum,
   dataSources,
   datasource,
   entities,
   entity,
   entityMapping,
+  _enum,
   enums,
   mapping,
   mappings,

@@ -1,8 +1,6 @@
 const fs = require('fs');
 const path = require('path');
-const camelCase = require('camelcase');
 const config = require('../config');
-const logger = require('../logger');
 
 class Controller {
   static sendResponse(response, payload) {
@@ -70,11 +68,12 @@ class Controller {
 
   static collectRequestParams(request) {
     const requestParams = {};
-    if (request.openapi.schema.requestBody !== undefined) {
+    if (request.openapi.schema.requestBody !== undefined && request.openapi.schema.requestBody !== null) {
       const { content } = request.openapi.schema.requestBody;
       if (content['application/json'] !== undefined) {
-        const requestBodyName = camelCase(this.getRequestBodyName(request));
-        requestParams[requestBodyName] = request.body;
+        // const requestBodyName = camelCase(this.getRequestBodyName(request));
+        // const requestBodyName = this.getRequestBodyName(request);
+        requestParams["queryRequest"] = request.body
       } else if (content['multipart/form-data'] !== undefined) {
         Object.keys(content['multipart/form-data'].schema.properties).forEach(
           (property) => {
@@ -88,22 +87,24 @@ class Controller {
         );
       }
     }
-
-    request.openapi.schema.parameters.forEach((param) => {
-      if (param.in === 'path') {
-        requestParams[param.name] = request.openapi.pathParams[param.name];
-      } else if (param.in === 'query') {
-        requestParams[param.name] = request.query[param.name];
-      } else if (param.in === 'header') {
-        requestParams[param.name] = request.headers[param.name];
-      }
-    });
+    if (request.openapi.schema.parameters) {
+      request.openapi.schema.parameters.forEach((param) => {
+        if (param.in === 'path') {
+          requestParams[param.name] = request.openapi.pathParams[param.name];
+        } else if (param.in === 'query') {
+          requestParams[param.name] = request.query[param.name];
+        } else if (param.in === 'header') {
+          requestParams[param.name] = request.headers[param.name];
+        }
+      });
+    }
     return requestParams;
   }
 
   static async handleRequest(request, response, serviceOperation) {
     try {
-      const serviceResponse = await serviceOperation(this.collectRequestParams(request));
+      const params = this.collectRequestParams(request)
+      const serviceResponse = await serviceOperation(params);
       Controller.sendResponse(response, serviceResponse);
     } catch (error) {
       Controller.sendError(response, error);
