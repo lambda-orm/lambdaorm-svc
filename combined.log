@@ -93,3 +93,10 @@
 {"level":"error","message":"failed to start Express Server","service":"user-service","timestamp":"2023-02-12T00:17:38.978Z"}
 {"level":"info","message":"Express server running","service":"user-service","timestamp":"2023-02-12T00:17:38.992Z"}
 {"level":"info","message":"Express server running","service":"user-service","timestamp":"2023-02-12T00:19:11.763Z"}
+{"level":"info","message":"Express server running","service":"user-service","timestamp":"2023-02-12T00:52:12.292Z"}
+{"level":"info","message":"Express server running","service":"user-service","timestamp":"2023-02-12T00:53:21.498Z"}
+{"level":"info","message":"Express server running","service":"user-service","timestamp":"2023-02-12T00:54:09.577Z"}
+{"level":"info","message":"Express server running","service":"user-service","timestamp":"2023-02-12T00:55:56.468Z"}
+{"level":"info","message":"Express server running","service":"user-service","timestamp":"2023-02-12T00:57:22.330Z"}
+{"level":"info","message":"Express server running","service":"user-service","timestamp":"2023-02-12T01:02:27.744Z"}
+{"level":"info","message":"Express server running","service":"user-service","timestamp":"2023-02-12T01:03:52.312Z"}

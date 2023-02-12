@@ -2,7 +2,9 @@ version: "3.2"
 services:
   lambdaorm:
     container_name: lambdaorm-svc
-    image: flaviorita/lambdaorm-svc:0.1.5
+    # image: flaviorita/lambdaorm-svc:0.1.5
+    build:
+      context: ./../../..
     restart: always
     environment:
       - HOST=http://localhost
@@ -19,11 +21,4 @@ services:
       - 9289:9289
     network_mode: "host"
     volumes:
-      - workspace-data:/workspace
-volumes:
-  workspace-data:
-    driver: local
-    driver_opts:
-      o: bind
-      type: none
-      device: ~/volumes/workspace
+      - ./workspace:/workspace

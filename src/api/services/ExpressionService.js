@@ -82,7 +82,7 @@ const parameters = ({ queryRequest }) => new Promise(
 const sentence = ({ queryRequest }) => new Promise(
   (resolve, reject) => {
     try {
-      const result = orm.sentence(queryRequest.expression, queryRequest.options)
+      const result = orm.getInfo(queryRequest.expression, queryRequest.options)
       resolve(Service.successResponse(result))
     } catch (e) {
       reject(Service.rejectResponse(
