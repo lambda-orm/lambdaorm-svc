@@ -2,17 +2,35 @@
 	"name": "orm-service",
 	"version": "0.4.0",
 	"description": "service of lambda orm",
-	"main": "index.js",
+	"main": "./dist/lib/index",
 	"scripts": {
-		"prestart": "npm install",
-		"start": "node index.js"
+		"lint": "npx eslint src",
+		"start": "node src/api/index.js",
+		"dist": "grunt dist",
+		"to_develop": "grunt to_develop",
+		"release": "grunt release"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/FlavioLionelRita/lambdaorm-svc.git"
 	},
 	"keywords": [
-		"openapi-generator",
-		"openapi"
+		"orm",
+		"lambdaorm",
+		"lambdaorm-svc",
+		"service",
+		"builder",
+		"expression",
+		"parser",
+		"database",
+		"data access"
 	],
-	"license": "Unlicense",
-	"private": true,
+	"author": "Flavio Lionel Rita <flaviolrita@hotmail.com>",
+	"license": "Apache-2.0",
+	"bugs": {
+		"url": "https://github.com/FlavioLionelRita/lambdaorm-svc/issues"
+	},
+	"homepage": "https://github.com/FlavioLionelRita/lambdaorm-svc#readme",
 	"dependencies": {
 		"body-parser": "^1.20.1",
 		"cookie-parser": "^1.4.6",
@@ -57,10 +75,5 @@
 		"grunt-contrib-uglify": "^5.0.1",
 		"grunt-exec": "^3.0.0",
 		"load-grunt-tasks": "^5.1.0"
-	},
-	"eslintConfig": {
-		"env": {
-			"node": true
-		}
 	}
 }
