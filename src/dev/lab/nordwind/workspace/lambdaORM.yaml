@@ -26,10 +26,10 @@ entities:
     properties:
       - name: id
         type: integer
-        nullable: false
-        autoincrement: true
+        required: true
+        autoIncrement: true
       - name: name
-        nullable: false
+        required: true
       - name: description
         length: 1000
   - name: Customers
@@ -41,18 +41,11 @@ entities:
     properties:
       - name: id
         length: 5
-        nullable: false
+        required: true
       - name: name
-        nullable: false
+        required: true
       - name: contact
       - name: phone
-    relations:
-      - name: orders
-        type: manyToOne
-        composite: true
-        from: id
-        entity: Orders
-        to: customerId
   - name: Employees
     extends: Address
     primaryKey: ["id"]
@@ -60,18 +53,18 @@ entities:
     properties:
       - name: id
         type: integer
-        nullable: false
-        autoincrement: true
+        required: true
+        autoIncrement: true
       - name: lastName
-        nullable: false
+        required: true
       - name: firstName
-        nullable: false
+        required: true
       - name: title
       - name: titleOfCourtesy
       - name: birthDate
-        type: datetime
+        type: dateTime
       - name: hireDate
-        type: datetime
+        type: dateTime
       - name: phone
       - name: reportsToId
         type: integer
@@ -86,10 +79,10 @@ entities:
     properties:
       - name: id
         type: integer
-        nullable: false
-        autoincrement: true
+        required: true
+        autoIncrement: true
       - name: name
-        nullable: false
+        required: true
       - name: phone
         length: 20
   - name: Suppliers
@@ -99,10 +92,10 @@ entities:
     properties:
       - name: id
         type: integer
-        nullable: false
-        autoincrement: true
+        required: true
+        autoIncrement: true
       - name: name
-        nullable: false
+        required: true
       - name: contact
       - name: phone
         length: 20
@@ -114,12 +107,12 @@ entities:
     properties:
       - name: id
         type: integer
-        nullable: false
-        autoincrement: true
+        required: true
+        autoIncrement: true
       - name: name
-        nullable: false
+        required: true
       - name: supplierId
-        nullable: false
+        required: true
         type: integer
       - name: categoryId
         type: integer
@@ -144,10 +137,12 @@ entities:
         from: supplierId
         entity: Suppliers
         to: id
+        target: products
       - name: category
         from: categoryId
         entity: Categories
         to: id
+        target: products
   - name: Orders
     primaryKey: ["id"]
     indexes:
@@ -158,20 +153,20 @@ entities:
     properties:
       - name: id
         type: integer
-        nullable: false
-        autoincrement: true
+        required: true
+        autoIncrement: true
       - name: customerId
-        nullable: false
+        required: true
         length: 5
       - name: employeeId
-        nullable: false
+        required: true
         type: integer
       - name: orderDate
-        type: datetime
+        type: dateTime
       - name: requiredDate
-        type: datetime
+        type: date
       - name: shippedDate
-        type: datetime
+        type: date
       - name: shipViaId
         type: integer
       - name: freight
@@ -188,24 +183,20 @@ entities:
         from: customerId
         entity: Customers
         to: id
+        target: orders
       - name: employee
         from: employeeId
         entity: Employees
         to: id
-      - name: details
-        type: manyToOne
-        composite: true
-        from: id
-        entity: OrderDetails
-        to: orderId
-  - name: OrderDetails
+        target: orders
+  - name: Orders.details
     primaryKey: ["orderId", "productId"]
     properties:
       - name: orderId
-        nullable: false
+        required: true
         type: integer
       - name: productId
-        nullable: false
+        required: true
         type: integer
       - name: unitPrice
         type: decimal
@@ -218,12 +209,17 @@ entities:
         from: orderId
         entity: Orders
         to: id
+        target: details
+        # targetComposite: true
       - name: product
         from: productId
         entity: Products
         to: id
+        target: orderDetails
+views:
+  - name: default
 mappings:
-  - name: northwind
+  - name: default
     entities:
       - name: Address
         abstract: true
@@ -358,7 +354,7 @@ mappings:
             mapping: ShipPostalCode
           - name: country
             mapping: ShipCountry
-      - name: OrderDetails
+      - name: Orders.details
         mapping: Order Details
         properties:
           - name: orderId
@@ -371,40 +367,113 @@ mappings:
             mapping: Quantity
           - name: discount
             mapping: Discount
-dataSources:
-  - name: source
-    mapping: northwind
-    dialect: mysql
-    connection: $ORM_CNN_SOURCE
-  - name: mysql
-    mapping: northwind
-    dialect: mysql
-    connection: $ORM_CNN_MYSQL
-  - name: mariadb
-    mapping: northwind
-    dialect: mariadb
-    connection: $ORM_CNN_MARIADB
-  - name: postgres
-    mapping: northwind
-    dialect: postgres
-    connection: $ORM_CNN_POSTGRES
-  - name: mssql
-    mapping: northwind
-    dialect: mssql
-    connection: $ORM_CNN_MSSQL
+  - name: Oracle
+    extends: default
+    entities:
+      - name: Address
+      - name: Categories
+        sequence: SQ_CATEGORIES
+      - name: Customers
+      - name: Employees
+        sequence: SQ_EMPLOYEES
+      - name: Shippers
+        sequence: SQ_SHIPPERS
+      - name: Suppliers
+        sequence: SQ_SUPPLIERS
+      - name: Products
+        sequence: SQ_PRODUCTS
+      - name: Orders
+        sequence: SQ_ORDERS
+      - name: Orders.details
+        # sequence: SQ_ORDER_DETAILS
+  - name: MongoDB
+    extends: default
+    entities:
+      - name: Address
+      - name: Categories
+        sequence: SQ_CATEGORIES
+        properties:
+          - name: id
+            mapping: _id
+      - name: Customers
+        properties:
+          - name: id
+            mapping: _id
+      - name: Employees
+        # extends: Address
+        sequence: SQ_EMPLOYEES
+        properties:
+          - name: id
+            mapping: _id
+      - name: Shippers
+        sequence: SQ_SHIPPERS
+        properties:
+          - name: id
+            mapping: _id
+      - name: Suppliers
+        # extends: Address
+        sequence: SQ_SUPPLIERS
+        properties:
+          - name: id
+            mapping: _id
+      - name: Products
+        sequence: SQ_PRODUCTS
+        properties:
+          - name: id
+            mapping: _id
+      - name: Orders
+        sequence: SQ_ORDERS
+        properties:
+          - name: id
+            mapping: _id
+sources:
+  - name: Source
+    mapping: default
+    dialect: MySQL
+    connection: ${ORM_CNN_SOURCE}
+  - name: MySQL
+    mapping: default
+    dialect: MySQL
+    connection: ${ORM_CNN_MYSQL}
+  - name: MariaDB
+    mapping: default
+    dialect: MariaDB
+    connection: ${ORM_CNN_MARIADB}
+  - name: PostgreSQL
+    mapping: default
+    dialect: PostgreSQL
+    connection: ${ORM_CNN_POSTGRES}
+  - name: SqlServer
+    mapping: default
+    dialect: SqlServer
+    connection: ${ORM_CNN_MSSQL}
+  - name: Oracle
+    mapping: Oracle
+    dialect: Oracle
+    connection: ${ORM_CNN_ORACLE}
+  - name: MongoDB
+    mapping: MongoDB
+    dialect: MongoDB
+    connection: ${ORM_CNN_MONGODB}
 stages:
-  - name: source
-    dataSources:
-      - name: source
-  - name: mysql
-    dataSources:
-      - name: mysql
-  - name: mariadb
-    dataSources:
-      - name: mariadb
-  - name: postgres
-    dataSources:
-      - name: postgres
-  - name: mssql
-    dataSources:
-      - name: mssql
+  - name: Source
+    sources:
+      - name: Source
+  - name: MySQL
+    sources:
+      - name: MySQL
+  - name: MariaDB
+    sources:
+      - name: MariaDB
+  - name: PostgreSQL
+    sources:
+      - name: PostgreSQL
+  - name: SqlServer
+    sources:
+      - name: SqlServer
+  - name: Oracle
+    sources:
+      - name: Oracle
+  - name: MongoDB
+    sources:
+      - name: MongoDB

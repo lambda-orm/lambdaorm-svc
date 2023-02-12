@@ -68,3 +68,36 @@
 {"level":"info","message":"Express server running","service":"user-service","timestamp":"2022-11-18T00:09:05.468Z"}
 {"level":"info","message":"Express server running","service":"user-service","timestamp":"2022-11-18T00:10:39.111Z"}
 {"level":"info","message":"Express server running","service":"user-service","timestamp":"2022-11-19T14:13:03.368Z"}
+{"level":"info","message":"Express server running","service":"user-service","timestamp":"2022-11-20T00:40:41.909Z"}
+{"level":"error","message":"failed to start Express Server","service":"user-service","timestamp":"2023-02-11T18:18:26.422Z"}
+{"level":"info","message":"Express server running","service":"user-service","timestamp":"2023-02-11T18:18:26.431Z"}
+{"level":"error","message":"failed to start Express Server","service":"user-service","timestamp":"2023-02-11T18:21:51.811Z"}
+{"level":"info","message":"Express server running","service":"user-service","timestamp":"2023-02-11T18:21:51.821Z"}
+{"level":"error","message":"failed to start Express Server","service":"user-service","timestamp":"2023-02-11T18:24:53.036Z"}
+{"level":"info","message":"Express server running","service":"user-service","timestamp":"2023-02-11T18:24:53.050Z"}
+{"level":"error","message":"failed to start Express Server","service":"user-service","timestamp":"2023-02-11T18:28:03.133Z"}
+{"level":"error","message":"Express Server failure","service":"user-service","timestamp":"2023-02-11T18:28:03.138Z"}
+{"level":"error","service":"user-service","timestamp":"2023-02-11T18:28:03.140Z"}
+{"level":"error","message":"failed to start Express Server","service":"user-service","timestamp":"2023-02-11T18:36:56.906Z"}
+{"level":"info","message":"Express server running","service":"user-service","timestamp":"2023-02-11T18:36:56.915Z"}
+{"level":"error","message":"failed to start Express Server","service":"user-service","timestamp":"2023-02-11T18:38:04.393Z"}
+{"level":"info","message":"Express server running","service":"user-service","timestamp":"2023-02-11T18:38:04.407Z"}
+{"level":"error","message":"failed to start Express Server","service":"user-service","timestamp":"2023-02-11T18:41:54.290Z"}
+{"level":"info","message":"Express server running","service":"user-service","timestamp":"2023-02-11T18:41:54.303Z"}
+{"level":"error","message":"failed to start Express Server","service":"user-service","timestamp":"2023-02-11T18:45:06.891Z"}
+{"level":"info","message":"Express server running","service":"user-service","timestamp":"2023-02-11T18:45:06.902Z"}
+{"level":"error","message":"failed to start Express Server","service":"user-service","timestamp":"2023-02-11T18:47:24.450Z"}
+{"level":"info","message":"Express server running","service":"user-service","timestamp":"2023-02-11T18:47:24.459Z"}
+{"level":"error","message":"failed to start Express Server","service":"user-service","timestamp":"2023-02-11T18:47:29.359Z"}
+{"level":"info","message":"Express server running","service":"user-service","timestamp":"2023-02-11T18:47:29.369Z"}
+{"level":"error","message":"failed to start Express Server","service":"user-service","timestamp":"2023-02-12T00:17:38.978Z"}
+{"level":"info","message":"Express server running","service":"user-service","timestamp":"2023-02-12T00:17:38.992Z"}
+{"level":"info","message":"Express server running","service":"user-service","timestamp":"2023-02-12T00:19:11.763Z"}
+{"level":"info","message":"Express server running","service":"user-service","timestamp":"2023-02-12T00:52:12.292Z"}
+{"level":"info","message":"Express server running","service":"user-service","timestamp":"2023-02-12T00:53:21.498Z"}
+{"level":"info","message":"Express server running","service":"user-service","timestamp":"2023-02-12T00:54:09.577Z"}
+{"level":"info","message":"Express server running","service":"user-service","timestamp":"2023-02-12T00:55:56.468Z"}
+{"level":"info","message":"Express server running","service":"user-service","timestamp":"2023-02-12T00:57:22.330Z"}
+{"level":"info","message":"Express server running","service":"user-service","timestamp":"2023-02-12T01:02:27.744Z"}
+{"level":"info","message":"Express server running","service":"user-service","timestamp":"2023-02-12T01:03:52.312Z"}
+{"level":"info","message":"Express server running","service":"user-service","timestamp":"2023-02-12T01:11:59.995Z"}

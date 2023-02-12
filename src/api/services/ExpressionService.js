@@ -8,16 +8,16 @@ const { orm } = require('lambdaorm')
 * returns MetadataConstraint
 * */
 const constraints = ({ queryRequest }) => new Promise(
-	(resolve, reject) => {
-		try {
-			resolve(Service.successResponse(orm.constraints(queryRequest.expression)))
-		} catch (e) {
-			reject(Service.rejectResponse(
-				e.message || 'Invalid input',
-				e.status || 405
-			))
-		}
-	}
+  (resolve, reject) => {
+    try {
+      resolve(Service.successResponse(orm.constraints(queryRequest.expression)))
+    } catch (e) {
+      reject(Service.rejectResponse(
+        e.message || 'Invalid input',
+        e.status || 405
+      ))
+    }
+  }
 )
 /**
 *
@@ -25,17 +25,17 @@ const constraints = ({ queryRequest }) => new Promise(
 * returns Metadata
 * */
 const metadata = ({ queryRequest }) => new Promise(
-	(resolve, reject) => {
-		try {
-			const result = orm.metadata(queryRequest.expression)
-			resolve(Service.successResponse(result))
-		} catch (e) {
-			reject(Service.rejectResponse(
-				e.message || 'Invalid input',
-				e.status || 405
-			))
-		}
-	}
+  (resolve, reject) => {
+    try {
+      const result = orm.metadata(queryRequest.expression)
+      resolve(Service.successResponse(result))
+    } catch (e) {
+      reject(Service.rejectResponse(
+        e.message || 'Invalid input',
+        e.status || 405
+      ))
+    }
+  }
 )
 /**
 *
@@ -43,17 +43,17 @@ const metadata = ({ queryRequest }) => new Promise(
 * returns List
 * */
 const model = ({ queryRequest }) => new Promise(
-	(resolve, reject) => {
-		try {
-			const result = orm.model(queryRequest.expression)
-			resolve(Service.successResponse(result))
-		} catch (e) {
-			reject(Service.rejectResponse(
-				e.message || 'Invalid input',
-				e.status || 405
-			))
-		}
-	}
+  (resolve, reject) => {
+    try {
+      const result = orm.model(queryRequest.expression)
+      resolve(Service.successResponse(result))
+    } catch (e) {
+      reject(Service.rejectResponse(
+        e.message || 'Invalid input',
+        e.status || 405
+      ))
+    }
+  }
 )
 /**
 *
@@ -61,36 +61,36 @@ const model = ({ queryRequest }) => new Promise(
 * returns List
 * */
 const parameters = ({ queryRequest }) => new Promise(
-	(resolve, reject) => {
-		try {
-			const result = orm.parameters(queryRequest.expression)
-			resolve(Service.successResponse(result))
-		} catch (e) {
-			reject(Service.rejectResponse(
-				e.message || 'Invalid input',
-				e.status || 405
-			))
-		}
-	}
+  (resolve, reject) => {
+    try {
+      const result = orm.parameters(queryRequest.expression)
+      resolve(Service.successResponse(result))
+    } catch (e) {
+      reject(Service.rejectResponse(
+        e.message || 'Invalid input',
+        e.status || 405
+      ))
+    }
+  }
 )
 /**
 *
 * query String
 * stage String  (optional)
-* returns MetadataSentence
+* returns sentence
 * */
 const sentence = ({ queryRequest }) => new Promise(
-	(resolve, reject) => {
-		try {
-			const result = orm.sentence(queryRequest.expression, queryRequest.options)
-			resolve(Service.successResponse(result))
-		} catch (e) {
-			reject(Service.rejectResponse(
-				e.message || 'Invalid input',
-				e.status || 405
-			))
-		}
-	}
+  (resolve, reject) => {
+    try {
+      const result = orm.getInfo(queryRequest.expression, queryRequest.options)
+      resolve(Service.successResponse(result))
+    } catch (e) {
+      reject(Service.rejectResponse(
+        e.message || 'Invalid input',
+        e.status || 405
+      ))
+    }
+  }
 )
 
 /**
@@ -101,25 +101,25 @@ const sentence = ({ queryRequest }) => new Promise(
 * returns oas_any_type_not_mapped
 * */
 const execute = ({ queryRequest }) => new Promise(
-	// eslint-disable-next-line no-async-promise-executor
-	async (resolve, reject) => {
-		try {
-			const result = await orm.execute(queryRequest.expression, queryRequest.data, queryRequest.options)
-			resolve(Service.successResponse(result))
-		} catch (e) {
-			reject(Service.rejectResponse(
-				e.message || 'Invalid input',
-				e.status || 405
-			))
-		}
-	}
+  // eslint-disable-next-line no-async-promise-executor
+  async (resolve, reject) => {
+    try {
+      const result = await orm.execute(queryRequest.expression, queryRequest.data, queryRequest.options)
+      resolve(Service.successResponse(result))
+    } catch (e) {
+      reject(Service.rejectResponse(
+        e.message || 'Invalid input',
+        e.status || 405
+      ))
+    }
+  }
 )
 
 module.exports = {
-	model,
-	parameters,
-	constraints,	
-	metadata,	
-	sentence,
-	execute
+  model,
+  parameters,
+  constraints,
+  metadata,
+  sentence,
+  execute
 }

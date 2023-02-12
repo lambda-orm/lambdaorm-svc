@@ -108,7 +108,7 @@ entities:
     abstract: true
     properties:
       - name: created
-        type: datetime
+        type: dateTime
         default: now()
       - name: createdBy
         length: 50  
@@ -220,7 +220,7 @@ entities:
         length: 12
         required: true
       - name: registeredDate
-        type: datetime
+        type: dateTime
         required: true
         default: now()
   - name: PmIdentifications
@@ -301,9 +301,9 @@ entities:
       #   enum: MaritalStatus
       #   length: 16 
       - name: birthDate
-        type: datetime
+        type: dateTime
       - name: deathDate
-        type: datetime
+        type: dateTime
       - name: nationalityCode
         type: string
         length: 3
@@ -350,7 +350,7 @@ entities:
       - name: parentId
         type: integer     
       - name: legalPeriodFrom
-        type: datetime
+        type: dateTime
       - name: industryTypeCode
         length: 30
       - name: commercialDescription
@@ -475,7 +475,7 @@ mappings:
         properties:
           - name: id
             mapping: ID
-          - name: type
+          - name: typeRepository
             mapping: TYPE
           - name: value
             mapping: VALUE  

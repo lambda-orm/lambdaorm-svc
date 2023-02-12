@@ -15,8 +15,8 @@ externalDocs:
 servers:
   - description: localhost
     url: "http://localhost:9291"
-  - description: docker-compose
-    url: "http://localhost:9292"
+  - description: docker-local
+    url: "http://0.0.0.0:9291"
 tags:
   - description: Expression methods
     name: expression

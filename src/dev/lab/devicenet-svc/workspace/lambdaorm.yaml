@@ -39,7 +39,7 @@ entities:
     abstract: true
     properties:
       - name: created
-        type: datetime
+        type: dateTime
         default: now()
   - name: Positions
     abstract: true
@@ -211,7 +211,7 @@ entities:
         length: 32
         nullable: false
       - name: time
-        type: datetime
+        type: dateTime
     relations:
       - name: device
         from: deviceId
@@ -276,10 +276,10 @@ entities:
       - name: componentId
         length: 50
       - name: startDate
-        type: datetime
+        type: dateTime
         nullable: false
       - name: endDate
-        type: datetime
+        type: dateTime
         nullable: false
     relations:
       - name: device
