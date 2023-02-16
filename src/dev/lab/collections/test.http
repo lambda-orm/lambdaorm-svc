@@ -1,6 +1,6 @@
-@host = http://localhost:9291
+@host = http://localhost:8081
 @keycloaHost = http://localhost:8180
-@stage = PostgreSQL
+@stage = default
 
 
 ### General -------------------------------------------------------------------------------------------------------------------------

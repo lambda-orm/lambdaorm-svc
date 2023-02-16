@@ -49,7 +49,15 @@ enums:
       - name: CE
         value: CE
       - name: CDI
-        value: CDI                   
+        value: CDI
+      - name: CTM
+        value: CTM
+      - name: CPP
+        value: CPP
+      - name: CIE
+        value: CIE
+      - name: CIRE
+        value: CIRE                          
   - name: Gender
     values:
       - name: Male
@@ -210,7 +218,6 @@ entities:
     properties:
       - name: id
         type: integer
-        required: true
         autoIncrement: true
       - name: type
         enum: PartyType
@@ -221,7 +228,6 @@ entities:
         required: true
       - name: registeredDate
         type: dateTime
-        required: true
         default: now()
   - name: PmIdentifications
     extends: Basics
@@ -285,15 +291,10 @@ entities:
   - name: PmIndividuals
     extends: Basics
     primaryKey: [partyId]
-    uniqueKey:  [code]
     properties:
       - name: partyId
         type: integer
         required: true
-      - name: code
-        length: 32
-        required: true
-        default: 'lpad(toString(partyId),16,"0")'    
       - name: gender
         enum: Gender
         length: 16
@@ -336,15 +337,10 @@ entities:
   - name: PmOrganizations
     extends: Basics
     primaryKey: [partyId]
-    uniqueKey:  [code]
     properties:
       - name: partyId
         type: integer
         required: true
-      - name: code
-        length: 32
-        required: true
-        default: 'lpad(toString(partyId),16,"0")'   
       - name: rootId
         type: integer
       - name: parentId
@@ -447,8 +443,7 @@ mappings:
           - name: city
             mapping: CITY
           - name: additionalData
-            mapping: ADDITIONAL_DATA    
-
+            mapping: ADDITIONAL_DATA
       # Party
       - name: PmIndustryTypes
         mapping: TBL_PM_INDUSTRY_TYPE
@@ -475,7 +470,7 @@ mappings:
         properties:
           - name: id
             mapping: ID
-          - name: typeRepository
+          - name: type
             mapping: TYPE
           - name: value
             mapping: VALUE  
@@ -559,78 +554,37 @@ mappings:
       - name: PmOrganizations
         sequence: SQ_PM_ORGANIZATION
 sources:
-  # Postgres sources
   - name: locations
-    mapping: default
-    dialect: PostgreSQL
-    connection: ${PSG_LOCATIONS}
-  - name: parties
-    mapping: default
-    dialect: PostgreSQL
-    connection: ${PSG_PARTIES}
-  - name: partyRoles
-    mapping: default
-    dialect: PostgreSQL
-    connection: ${PSG_PARTY_ROLES}
-  - name: ledgerAccounts
-    mapping: default
-    dialect: PostgreSQL
-    connection: ${PSG_LEDGER_ACCOUNTS}
-  - name: debtors
-    mapping: default
-    dialect: PostgreSQL
-    connection: ${PSG_DEBTORS}
-    # Oracle sources
-  - name: oraLocations
     mapping: oracle
     dialect: Oracle
     connection: ${ORA_LOCATIONS}
-  - name: oraParties
+  - name: parties
     mapping: oracle
     dialect: Oracle
     connection: ${ORA_PARTIES}
-  - name: oraPartyRoles
-    mapping: oracle
-    dialect: Oracle
-    connection: ${ORA_PARTY_ROLES}
-  - name: oraLedgerAccounts
+  - name: ledgerAccounts
     mapping: oracle
     dialect: Oracle
     connection: ${ORA_LEDGER_ACCOUNTS}
-  - name: oraDebtors
+  - name: debtors
     mapping: oracle
     dialect: Oracle
     connection: ${ORA_DEBTORS}
-  # Insight source
   - name: insights
     mapping: default
     dialect: PostgreSQL
     connection: ${PSG_INSIGHTS}
 stages:
-  - name: PostgreSQL
+  - name: default
     sources:
       - name: locations
         condition: substring(entity,0,3)=="Loc"
       - name: parties
         condition: substring(entity,0,2)=="Pm"
-      - name: partyRoles
-        condition: substring(entity,0,2)=="Pr"
       - name: ledgerAccounts
         condition: substring(entity,0,3)=="Lam"
       - name: debtors
         condition: substring(entity,0,2)=="Db"
-  - name: Oracle
-    sources:
-      - name: oraLocations
-        condition: substring(entity,0,3)=="Loc"
-      - name: oraParties
-        condition: substring(entity,0,2)=="Pm"
-      - name: oraPartyRoles
-        condition: substring(entity,0,2)=="Pr"
-      - name: oraLedgerAccounts
-        condition: substring(entity,0,3)=="Lam"
-      - name: oraDebtors
-        condition: substring(entity,0,2)=="Db"
-  - name: Insight
+  - name: insights
     sources:
       - name: insights
