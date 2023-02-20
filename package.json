@@ -47,7 +47,7 @@
 		"prom-client": "^14.0.1",
 		"reflect-metadata": "^0.1.13",
 		"h3lp": "1.2.3",
-		"lambdaorm": "0.4.10-beta",
+		"lambdaorm": "0.4.11-beta",
 		"yargs": "^17.6.2",
 		"dotenv": "^16.0.3",
 		"mongodb": "^4.13.0",

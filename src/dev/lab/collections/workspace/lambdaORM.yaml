@@ -387,7 +387,7 @@ entities:
 views:
   - name: default
 mappings:
-  - name: default
+  - name: Default
     entities:
       # Abstracts 
       - name: Basics
@@ -536,8 +536,10 @@ mappings:
             mapping: INDUSTRY_TYPE
           - name: commercialDescription
             mapping: COMMERCIAL_DESCRIPTION
-  - name: oracle
-    extends: default
+  - name: PostgreSQL
+    extends: Default
+  - name: Oracle
+    extends: Default
     entities:
       #  Party
       - name: PmIndustryTypes
@@ -555,25 +557,25 @@ mappings:
         sequence: SQ_PM_ORGANIZATION
 sources:
   - name: locations
-    mapping: oracle
-    dialect: Oracle
-    connection: ${ORA_LOCATIONS}
+    mapping: ${DEFAULT_DIALECT}
+    dialect: ${DEFAULT_DIALECT}
+    connection: ${CNX_LOCATIONS}
   - name: parties
-    mapping: oracle
-    dialect: Oracle
-    connection: ${ORA_PARTIES}
+    mapping: ${DEFAULT_DIALECT}
+    dialect: ${DEFAULT_DIALECT}
+    connection: ${CNX_PARTIES}
   - name: ledgerAccounts
-    mapping: oracle
-    dialect: Oracle
-    connection: ${ORA_LEDGER_ACCOUNTS}
+    mapping: ${DEFAULT_DIALECT}
+    dialect: ${DEFAULT_DIALECT}
+    connection: ${CNX_LEDGER_ACCOUNTS}
   - name: debtors
-    mapping: oracle
-    dialect: Oracle
-    connection: ${ORA_DEBTORS}
+    mapping: ${DEFAULT_DIALECT}
+    dialect: ${DEFAULT_DIALECT}
+    connection: ${CNX_DEBTORS}
   - name: insights
-    mapping: default
-    dialect: PostgreSQL
-    connection: ${PSG_INSIGHTS}
+    mapping: ${INSIGHTS_DIALECT}
+    dialect: ${INSIGHTS_DIALECT}
+    connection: ${CNX_INSIGHTS}
 stages:
   - name: default
     sources:
