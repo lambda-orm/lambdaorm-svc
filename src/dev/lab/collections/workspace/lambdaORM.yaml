@@ -387,7 +387,7 @@ entities:
 views:
   - name: default
 mappings:
-  - name: Default
+  - name: default
     entities:
       # Abstracts 
       - name: Basics
@@ -537,9 +537,9 @@ mappings:
           - name: commercialDescription
             mapping: COMMERCIAL_DESCRIPTION
   - name: PostgreSQL
-    extends: Default
+    extends: default
   - name: Oracle
-    extends: Default
+    extends: default
     entities:
       #  Party
       - name: PmIndustryTypes
@@ -557,24 +557,24 @@ mappings:
         sequence: SQ_PM_ORGANIZATION
 sources:
   - name: locations
-    mapping: ${DEFAULT_DIALECT}
-    dialect: ${DEFAULT_DIALECT}
+    mapping: Oracle
+    dialect: Oracle
     connection: ${CNX_LOCATIONS}
   - name: parties
-    mapping: ${DEFAULT_DIALECT}
-    dialect: ${DEFAULT_DIALECT}
+    mapping: Oracle
+    dialect: Oracle
     connection: ${CNX_PARTIES}
   - name: ledgerAccounts
-    mapping: ${DEFAULT_DIALECT}
-    dialect: ${DEFAULT_DIALECT}
+    mapping: Oracle
+    dialect: Oracle
     connection: ${CNX_LEDGER_ACCOUNTS}
   - name: debtors
-    mapping: ${DEFAULT_DIALECT}
-    dialect: ${DEFAULT_DIALECT}
+    mapping: Oracle
+    dialect: Oracle
     connection: ${CNX_DEBTORS}
   - name: insights
-    mapping: ${INSIGHTS_DIALECT}
-    dialect: ${INSIGHTS_DIALECT}
+    mapping: PostgreSQL
+    dialect: PostgreSQL
     connection: ${CNX_INSIGHTS}
 stages:
   - name: default
@@ -590,3 +590,13 @@ stages:
   - name: insights
     sources:
       - name: insights
+listeners:
+  - name: test
+    actions: [select]
+    condition: 'options.stage === "default"'
+    before: console(expression)
+    after: console(stringify(result))
+  - name: applyOnInsights
+    actions: [insert, bulkInsert, update, delete]
+    condition: 'options.stage === "default"'
+    after: sendMessage("apply-on-insights",[{expression:expression,data:data}])

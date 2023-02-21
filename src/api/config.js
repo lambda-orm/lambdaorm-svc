@@ -5,6 +5,8 @@ const config = {
   URL_PORT: process.env.PORT || 8081,
   URL_PATH: process.env.HOST || 'http://localhost',
   WORKSPACE: process.env.WORKSPACE || '/workspace',
+  KAFKA_CLIENT_ID: process.env.KAFKA_CLIENT_ID,
+  KAFKA_BROKERS: process.env.KAFKA_BROKERS,
   BASE_VERSION: '',
   CONTROLLER_DIRECTORY: path.join(__dirname, 'controllers'),
   PROJECT_DIR: __dirname,
