@@ -13,27 +13,7 @@
 			],
 			"program": "${workspaceFolder}/src/api/index.js",
 			"envFile": "${workspaceFolder}/src/dev/lab/collections/workspace/.env"
-		},
-		{
-			"name": "cclp",
-			"type": "node",
-			"request": "launch",
-			"skipFiles": [
-				"<node_internals>/**"
-			],
-			"program": "${workspaceFolder}/src/api/index.js",
-			"envFile": "${workspaceFolder}/src/dev/lab/cclp/workspace/.env"
-		},
-		{
-			"name": "cclp dist",
-			"type": "node",
-			"request": "launch",
-			"skipFiles": [
-				"<node_internals>/**"
-			],
-			"program": "${workspaceFolder}/dist/index.js",
-			"envFile": "${workspaceFolder}/src/dev/lab/cclp/workspace/.env"
-		},
+		},		
 		{
 			"name": "nordwind",
 			"type": "node",
