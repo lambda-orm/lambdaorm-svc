@@ -80,6 +80,7 @@ class ExpressServer {
           "message.max.bytes": 15728640,
           "max.request.size": 15728640,
           "replica.fetch.max.bytes": 15728640
+
         })
         new KafkaLibrary(orm.expressions.model, producer).load()
       }
