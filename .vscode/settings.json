@@ -21,8 +21,11 @@
 		"openapi",
 		"openapitools",
 		"oracledb",
+		"Partitioner",
 		"Partitioners",
 		"proot",
+		"sasl",
+		"SASL",
 		"taskkill",
 		"uroot"
 	]

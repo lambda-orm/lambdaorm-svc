@@ -11,7 +11,7 @@ const OpenApiValidator = require('express-openapi-validator');
 const logger = require('./logger');
 const config = require('./config');
 const { orm } = require('lambdaorm')
-const { Kafka, Partitioners } = require('kafkajs')
+const { Kafka } = require('kafkajs')
 const { KafkaLibrary } = require('./manager/library')
 const Metrics = require('./services/Metrics')
 
@@ -66,26 +66,20 @@ class ExpressServer {
     });
   }
 
-  launch() {
+  async launch() {
     this.server = http.createServer(this.app).listen(config.URL_PORT, async () => {
       await orm.init(config.WORKSPACE)
-      if (config.KAFKA_CLIENT_ID && config.KAFKA_BROKERS) {
-        const kafka = new Kafka({
-          clientId: config.KAFKA_CLIENT_ID,
-          brokers: config.KAFKA_BROKERS.split(',')
-        })
-        const producer = kafka.producer({
-          allowAutoTopicCreation: true,
-          createPartitioner: Partitioners.DefaultPartitioner,
-          "message.max.bytes": 15728640,
-          "max.request.size": 15728640,
-          "replica.fetch.max.bytes": 15728640
-
-        })
-        new KafkaLibrary(orm.expressions.model, producer).load()
+      if (config.KAFKA_CONFIG) {
+        await this.kafkaInit(JSON.parse(config.KAFKA_CONFIG))
       }
       console.log('Server running at: ' + config.URL_PATH + ':' + config.URL_PORT + '/api-docs')
     })
+  }
+
+  async kafkaInit(config) {
+    // https://kafka.js.org/docs/configuration
+    const kafka = new Kafka(config)
+    new KafkaLibrary(orm.expressions.model, kafka).load()
   }
 
   async close() {

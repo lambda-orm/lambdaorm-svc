@@ -599,10 +599,10 @@ app:
       condition: 'options.stage === "default"'
       before: console(expression)
       after: console(stringify(result))
-    - name: applyOnInsights
+    - name: syncInsights
       actions: [insert, bulkInsert, update, delete]
       condition: 'options.stage === "default"'
-      after: sendMessage("apply-on-insights",[{expression:expression,data:data}])
+      after: sendMessage("sync-insights",[{expression:expression,data:data}])
     # - name: applyOnInsights
     #   actions: [insert, bulkInsert, update, delete]
     #   condition: 'options.stage === "default"'
