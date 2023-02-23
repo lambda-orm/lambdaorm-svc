@@ -78,8 +78,10 @@ class ExpressServer {
 
   async kafkaInit(config) {
     // https://kafka.js.org/docs/configuration
+    console.log(`kafka config: ${JSON.stringify(config)}`)
     const kafka = new Kafka(config)
     new KafkaLibrary(orm.expressions.model, kafka).load()
+
   }
 
   async close() {
