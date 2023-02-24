@@ -55,6 +55,7 @@
 		"sql.js": "^1.8.0",
 		"swagger-ui-express": "^4.0.2",
 		"tedious": "^15.1.2",
+		"uuid": "^9.0.0",
 		"winston": "^3.2.1",
 		"yargs": "^17.6.2"
 	},

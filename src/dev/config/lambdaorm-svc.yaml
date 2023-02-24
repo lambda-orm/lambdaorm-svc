@@ -1503,6 +1503,7 @@ components:
         view: default
         chunkSize: 1000
         tryAllCan: true
+        headers: {key:'value'}
       properties:
         stage:
           type: string
@@ -1511,7 +1512,9 @@ components:
         chunkSize:
           type: integer    
         tryAllCan:
-          type: boolean 
+          type: boolean
+        headers:
+          type: object    
       type: object
     QueryResponse:
       properties:

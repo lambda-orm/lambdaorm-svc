@@ -27,6 +27,7 @@
 		"sasl",
 		"SASL",
 		"taskkill",
-		"uroot"
+		"uroot",
+		"uuidv"
 	]
 }

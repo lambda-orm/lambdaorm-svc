@@ -76,3 +76,15 @@ content-type: application/json
 	"expression": "PmIndividuals.filter(p=> p.gender == gender).include(p->p.party)",
 	"data":{"gender":"F"}
 }
+
+### Queue Execute
+POST {{host}}/execute HTTP/1.1
+content-type: application/json
+
+{
+	"options": { "stage": "{{stage}}" ,
+							 "headers": { "queue": { "topic":"test-execute", "chunk": 10 } } 
+						},
+	"expression": "PmIndividuals.filter(p=> p.gender == gender).include(p->p.party)",
+	"data":{"gender":"F"}
+}

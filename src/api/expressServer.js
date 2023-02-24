@@ -28,6 +28,17 @@ class ExpressServer {
     this.setupMiddleware();
   }
 
+  /**
+ * Singleton
+ */
+  static _instance = null
+  static get instance() {
+    if (!this._instance) {
+      this._instance = new ExpressServer(config.URL_PORT, config.OPENAPI_YAML)
+    }
+    return this._instance
+  }
+
   setupMiddleware() {
     // this.setupAllowedMedia();
     this.app.use(cors());
@@ -70,7 +81,7 @@ class ExpressServer {
     this.server = http.createServer(this.app).listen(config.URL_PORT, async () => {
       await orm.init(config.WORKSPACE)
       if (config.KAFKA_CONFIG) {
-        await this.kafkaInit(JSON.parse(config.KAFKA_CONFIG))
+        this.kafka = await this.kafkaInit(JSON.parse(config.KAFKA_CONFIG))
       }
       console.log('Server running at: ' + config.URL_PATH + ':' + config.URL_PORT + '/api-docs')
     })
@@ -81,6 +92,7 @@ class ExpressServer {
     console.log(`kafka config: ${JSON.stringify(config)}`)
     const kafka = new Kafka(config)
     new KafkaLibrary(orm.expressions.model, kafka).load()
+    return kafka
 
   }
 
