@@ -347,10 +347,10 @@ data:
       mapping: keycloak
       dialect: Postgres
       connection: $$CNN_KEYCLOAK
-stages:
-  - name: default
-    dataSources:
-      - name: main
-        condition: entity != "Users"
-      - name: keycloak
-        condition: entity == "Users"
+  stages:
+    - name: default
+      dataSources:
+        - name: main
+          condition: entity != "Users"
+        - name: keycloak
+          condition: entity == "Users"

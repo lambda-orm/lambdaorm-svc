@@ -578,32 +578,41 @@ data:
       mapping: PostgreSQL
       dialect: PostgreSQL
       connection: ${CNX_INSIGHTS}
-stages:
-  - name: default
-    sources:
-      - name: locations
-        condition: substring(entity,0,3)=="Loc"
-      - name: parties
-        condition: substring(entity,0,2)=="Pm"
-      - name: ledgerAccounts
-        condition: substring(entity,0,3)=="Lam"
-      - name: debtors
-        condition: substring(entity,0,2)=="Db"
-  - name: insights
-    sources:
-      - name: insights
+  stages:
+    - name: default
+      sources:
+        - name: locations
+          condition: substring(entity,0,3)=="Loc"
+        - name: parties
+          condition: substring(entity,0,2)=="Pm"
+        - name: ledgerAccounts
+          condition: substring(entity,0,3)=="Lam"
+        - name: debtors
+          condition: substring(entity,0,2)=="Db"
+    - name: insights
+      sources:
+        - name: insights
+    - name: cqrs
+      sources:
+        - name: insights
+          condition: action == "select"
+        - name: locations
+          condition: action != "select" && substring(entity,0,3)=="Loc"
+        - name: parties
+          condition: action != "select" && substring(entity,0,2)=="Pm"
+        - name: ledgerAccounts
+          condition: action != "select" && substring(entity,0,3)=="Lam"
+        - name: debtors
+          condition: action != "select" && substring(entity,0,2)=="Db"    
 app:
   listeners:
-    - name: test
-      actions: [select]
-      condition: 'options.stage === "default"'
-      before: console(expression)
-      after: console(stringify(result))
+    # - name: test
+    #   actions: [select]
+    #   condition: 'options.stage === "default"'
+    #   before: console(expression)
+    #   after: console(stringify(result))
     - name: syncInsights
       actions: [insert, bulkInsert, update, delete]
       condition: 'options.stage === "default"'
       after: sendMessage("sync-insights",[{expression:expression,data:data}])
-    # - name: applyOnInsights
-    #   actions: [insert, bulkInsert, update, delete]
-    #   condition: 'options.stage === "default"'
-    #   after: ormExecute(expression,data,{stage:"insights"})  
+    
