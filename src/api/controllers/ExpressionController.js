@@ -15,6 +15,10 @@ const execute = async (request, response) => {
   await Controller.handleRequest(request, response, service.execute);
 };
 
+const executeQueued = async (request, response) => {
+  await Controller.handleRequest(request, response, service.executeQueued);
+};
+
 const metadata = async (request, response) => {
   await Controller.handleRequest(request, response, service.metadata);
 };
@@ -35,6 +39,7 @@ const sentence = async (request, response) => {
 module.exports = {
   constraints,
   execute,
+  executeQueued,
   metadata,
   model,
   parameters,

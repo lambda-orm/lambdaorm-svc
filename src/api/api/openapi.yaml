@@ -184,6 +184,24 @@ paths:
       tags:
       - expression
       x-eov-operation-handler: controllers/ExpressionController
+  /execute-queued:
+    post:
+      operationId: executeQueued
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/QueryQueuedRequest'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema: {}
+          description: Ok
+      tags:
+      - expression
+      x-eov-operation-handler: controllers/ExpressionController    
   /entities:
     get:
       operationId: entities
@@ -1493,6 +1511,27 @@ components:
       required:
       - expression
       type: object
+    QueryQueuedRequest:
+      additionalProperties: false
+      example:
+        expression: expression
+        data: {}
+        topic: topic-test
+        chunk: 1000
+      properties:
+        options:
+          $ref: '#/components/schemas/QueryOptions'
+        expression:
+          type: string
+        data: {}
+        topic:
+          type: string
+        chunk:
+          type: number  
+      required:
+      - expression
+      - topic
+      type: object  
     QueryOptions:
       additionalProperties: false
       example:
