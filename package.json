@@ -1,6 +1,6 @@
 {
 	"name": "orm-service",
-	"version": "0.4.14",
+	"version": "0.4.15",
 	"description": "service of lambda orm",
 	"main": "./dist/lib/index",
 	"scripts": {
@@ -42,7 +42,7 @@
 		"h3lp": "1.2.4",
 		"js-yaml": "^3.3.0",
 		"kafkajs": "^2.2.3",
-		"lambdaorm": "0.4.19-beta",
+		"lambdaorm": "0.4.20-beta",
 		"mongodb": "^4.13.0",
 		"morgan": "^1.10.0",
 		"mysql2": "^3.0.1",

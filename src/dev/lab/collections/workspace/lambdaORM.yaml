@@ -538,9 +538,7 @@ data:
               mapping: INDUSTRY_TYPE
             - name: commercialDescription
               mapping: COMMERCIAL_DESCRIPTION
-    - name: PostgreSQL
-      extends: default
-    - name: Oracle
+    - name: oracle
       extends: default
       entities:
         #  Party
@@ -559,23 +557,23 @@ data:
           sequence: SQ_PM_ORGANIZATION
   sources:
     - name: locations
-      mapping: Oracle
-      dialect: Oracle
+      mapping: default
+      dialect: MySQL
       connection: ${CNX_LOCATIONS}
     - name: parties
-      mapping: Oracle
-      dialect: Oracle
+      mapping: default
+      dialect: MySQL
       connection: ${CNX_PARTIES}
     - name: ledgerAccounts
-      mapping: Oracle
-      dialect: Oracle
+      mapping: default
+      dialect: MySQL
       connection: ${CNX_LEDGER_ACCOUNTS}
     - name: debtors
-      mapping: Oracle
-      dialect: Oracle
+      mapping: default
+      dialect: MySQL
       connection: ${CNX_DEBTORS}
     - name: insights
-      mapping: PostgreSQL
+      mapping: default
       dialect: PostgreSQL
       connection: ${CNX_INSIGHTS}
   stages:
@@ -606,11 +604,6 @@ data:
           condition: action != "select" && substring(entity,0,2)=="Db"    
 app:
   listeners:
-    # - name: test
-    #   actions: [select]
-    #   condition: 'options.stage === "default"'
-    #   before: console(expression)
-    #   after: console(stringify(result))
     - name: syncInsights
       actions: [insert, bulkInsert, update, delete]
       condition: 'options.stage === "default"'
