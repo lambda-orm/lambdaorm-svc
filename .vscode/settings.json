@@ -7,6 +7,7 @@
 	"editor.insertSpaces": false,
 	"cSpell.words": [
 		"camelcase",
+		"cqrs",
 		"datasource",
 		"datasources",
 		"findstr",
@@ -18,12 +19,20 @@
 		"kong",
 		"lambdaorm",
 		"lastname",
+		"MARIADB",
+		"MONGODB",
+		"MSSQL",
+		"MYSQL",
 		"openapi",
 		"openapitools",
 		"oracledb",
+		"Partitioner",
 		"Partitioners",
 		"proot",
+		"sasl",
+		"SASL",
 		"taskkill",
-		"uroot"
+		"uroot",
+		"uuidv"
 	]
 }

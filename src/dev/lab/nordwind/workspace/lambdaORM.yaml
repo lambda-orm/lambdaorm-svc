@@ -453,25 +453,25 @@ data:
       mapping: MongoDB
       dialect: MongoDB
       connection: ${ORM_CNN_MONGODB}
-stages:
-  - name: Source
-    sources:
-      - name: Source
-  - name: MySQL
-    sources:
-      - name: MySQL
-  - name: MariaDB
-    sources:
-      - name: MariaDB
-  - name: PostgreSQL
-    sources:
-      - name: PostgreSQL
-  - name: SqlServer
-    sources:
-      - name: SqlServer
-  - name: Oracle
-    sources:
-      - name: Oracle
-  - name: MongoDB
-    sources:
-      - name: MongoDB
+  stages:
+    - name: Source
+      sources:
+        - name: Source
+    - name: MySQL
+      sources:
+        - name: MySQL
+    - name: MariaDB
+      sources:
+        - name: MariaDB
+    - name: PostgreSQL
+      sources:
+        - name: PostgreSQL
+    - name: SqlServer
+      sources:
+        - name: SqlServer
+    - name: Oracle
+      sources:
+        - name: Oracle
+    - name: MongoDB
+      sources:
+        - name: MongoDB

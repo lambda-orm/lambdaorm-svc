@@ -1,6 +1,10 @@
 /* eslint-disable no-unused-vars */
 const Service = require('./Service')
+const { v4: uuidv4 } = require('uuid');
+const { h3lp } = require('h3lp')
+const ExpressServer = require('./../expressServer')
 const { orm } = require('lambdaorm')
+const { Partitioners } = require('kafkajs')
 
 /**
 *
@@ -115,11 +119,69 @@ const execute = ({ queryRequest }) => new Promise(
   }
 )
 
+
+
+const executeQueued = ({ queryRequest }) => new Promise(
+  // eslint-disable-next-line no-async-promise-executor
+  async (resolve, reject) => {
+    try {
+      if (!ExpressServer.instance.kafka) {
+        reject(Service.rejectResponse('kafka undefined', 405))
+      }
+      if (!queryRequest.topic) {
+        reject(Service.rejectResponse('topic undefined', 405))
+      }
+      const queueId = uuidv4()
+      resolve(Service.successResponse({ queueId: queueId }))
+      const call = async (queryRequest, queueId) => {
+        try {
+          const result = await orm.execute(queryRequest.expression, queryRequest.data, queryRequest.options)
+          const headers = {}
+          if (queryRequest.options.headers) {
+            for (const entry of Object.entries(queryRequest.options.headers)) {
+              headers[entry[0]] = JSON.stringify(entry[1])
+            }
+          }
+          const messages = []
+          const chunks = h3lp.array.chunks(result, queryRequest.chunk || result.length)
+          for (let i = 0; i < chunks.length; i++) {
+            headers.chunkNro = i.toString()
+            messages.push({
+              key: `${queueId}-${i}`
+              , value: JSON.stringify(chunks[i])
+              , headers: headers
+            })
+          }
+          const producer = ExpressServer.instance.kafka.producer({
+            allowAutoTopicCreation: true,
+            createPartitioner: Partitioners.DefaultPartitioner
+          })
+          await producer.connect()
+          await producer.send({ topic: queryRequest.topic, messages: messages })
+          await producer.disconnect()
+        } catch (e) {
+          console.log(`executed.queued: ${queueId} error: ${e.message || ' undefined'}`)
+        }
+      }
+      //execute in background
+      call(queryRequest, queueId)
+    } catch (e) {
+      reject(Service.rejectResponse(
+        e.message || 'Invalid input',
+        e.status || 405
+      ))
+    }
+  }
+)
+
+
+
 module.exports = {
   model,
   parameters,
   constraints,
   metadata,
   sentence,
-  execute
+  execute,
+  executeQueued
 }
