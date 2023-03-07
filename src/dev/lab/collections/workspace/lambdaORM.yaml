@@ -605,5 +605,5 @@ app:
     - name: syncInsights
       actions: [insert, bulkInsert, update, delete]
       condition: 'options.stage === "default"'
-      after: sendMessage("sync-insights",[{expression:expression,data:data}])
+      after: sendMessage("insights-sync",[{expression:expression,data:data}])
     
