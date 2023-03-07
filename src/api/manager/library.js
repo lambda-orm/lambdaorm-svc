@@ -1,24 +1,13 @@
-const { Partitioners } = require('kafkajs')
-const KafkaLibrary = class KafkaLibrary {
-	constructor(model, kafka) {
-		this.model = model
-		this.kafka = kafka
+const Library = class Library {
+	constructor(orm) {
+		this.orm = orm
 	}
 
 	load() {
-		this.model.addFunction('sendMessage(topic:string,messages:any[]):void', async (topic, messages) => {
+		// TODO: solve async expression
+		this.model.addFunction('ormExecute(expression:string,data:any,options:any):any', async (expression, data, options) => {
 			try {
-				const producer = this.kafka.producer({
-					allowAutoTopicCreation: true,
-					createPartitioner: Partitioners.DefaultPartitioner
-				})
-				const _messages = []
-				for (const message of messages) {
-					_messages.push({ value: JSON.stringify(message) })
-				}
-				await producer.connect()
-				await producer.send({ topic: topic, messages: _messages })
-				await producer.disconnect()
+				return await this.orm.execute(expression, data, options)
 			} catch (error) {
 				console.log(error)
 			}
@@ -27,5 +16,5 @@ const KafkaLibrary = class KafkaLibrary {
 }
 
 module.exports = {
-	KafkaLibrary
+	Library
 }

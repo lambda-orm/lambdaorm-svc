@@ -12,7 +12,8 @@ const logger = require('./logger');
 const config = require('./config');
 const { orm } = require('lambdaorm')
 const { Kafka } = require('kafkajs')
-const { KafkaLibrary } = require('./manager/library')
+const { KafkaLibrary } = require('./manager/kafkaLibrary')
+const { Library } = require('./manager/library')
 const Metrics = require('./services/Metrics')
 
 class ExpressServer {
@@ -80,6 +81,7 @@ class ExpressServer {
   async launch() {
     this.server = http.createServer(this.app).listen(config.URL_PORT, async () => {
       await orm.init(config.WORKSPACE)
+      new Library(orm).load()
       if (config.KAFKA_CONFIG) {
         this.kafka = await this.kafkaInit(JSON.parse(config.KAFKA_CONFIG))
       }
