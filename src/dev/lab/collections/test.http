@@ -1,6 +1,7 @@
+# @host = http://localhost:9291
 @host = http://localhost:8081
 @keycloaHost = http://localhost:8180
-@stage = default
+
 
 
 ### General -------------------------------------------------------------------------------------------------------------------------
@@ -34,12 +35,16 @@ content-type: application/json
 
 ### Expressions -------------------------------------------------------------------------------------------------------------------------
 
+@options = {"stage":"default"}
+@expression=PmIndividuals.filter(p=> p.gender == gender).include(p->p.party)
+@data={"gender":"F"}
+
 ### Model
 POST {{host}}/model HTTP/1.1
 content-type: application/json
 
 {	
-	"expression": "PmIndividuals.filter(p=> p.gender == gender).include(p->p.party)"
+	"expression": "{{expression}}"
 }
 
 ### Parameters
@@ -47,7 +52,7 @@ POST {{host}}/parameters HTTP/1.1
 content-type: application/json
 
 {	
-	"expression": "PmIndividuals.filter(p=> p.gender == gender).include(p->p.party)"
+	"expression": "{{expression}}"
 }
 
 ### Constraints
@@ -63,8 +68,8 @@ POST {{host}}/sentence HTTP/1.1
 content-type: application/json
 
 {
-	"options": { "stage": "{{stage}}" },
-	"expression": "PmIndividuals.filter(p=> p.gender == gender).include(p=>p.party)"
+	"options": {{options}},
+	"expression": "{{expression}}"
 }
 
 ### Execute
@@ -72,9 +77,9 @@ POST {{host}}/execute HTTP/1.1
 content-type: application/json
 
 {
-	"options": { "stage": "{{stage}}" },
-	"expression": "PmIndividuals.filter(p=> p.gender == gender).include(p->p.party)",
-	"data":{"gender":"F"}
+	"options": {{options}},
+	"expression": "{{expression}}",
+	"data":{{data}}
 }
 
 ### Execute Queued
@@ -82,9 +87,9 @@ POST {{host}}/execute-queued HTTP/1.1
 content-type: application/json
 
 {
-	"options": { "stage": "{{stage}}" },
-	"expression": "PmIndividuals.filter(p=> p.gender == gender).include(p->p.party)",
-	"data":{"gender":"F"},
+	"options":{{options}},
+	"expression": "{{expression}}",
+	"data":{{data}},
 	"topic":"test-execute",
 	"chunk": 10 
 }

@@ -593,13 +593,13 @@ data:
         - name: insights
           condition: action == "select"
         - name: locations
-          condition: action != "select" && substring(entity,0,3)=="Loc"
+          condition: substring(entity,0,3)=="Loc"
         - name: parties
-          condition: action != "select" && substring(entity,0,2)=="Pm"
+          condition: substring(entity,0,2)=="Pm"
         - name: ledgerAccounts
-          condition: action != "select" && substring(entity,0,3)=="Lam"
+          condition: substring(entity,0,3)=="Lam"
         - name: debtors
-          condition: action != "select" && substring(entity,0,2)=="Db"    
+          condition: substring(entity,0,2)=="Db"    
 app:
   listeners:
     - name: syncInsights

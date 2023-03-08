@@ -1,6 +1,6 @@
 {
 	"name": "orm-service",
-	"version": "0.4.19",
+	"version": "0.4.20",
 	"description": "service of lambda orm",
 	"main": "./dist/lib/index",
 	"scripts": {
