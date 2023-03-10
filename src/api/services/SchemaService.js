@@ -32,7 +32,7 @@ const datasource = ({ datasource }) => new Promise(
   async (resolve, reject) => {
     try {
       const result = orm.schema.dataSource.dataSources.find(p => p.name === datasource)
-      resolve(Service.successResponse({ result }));
+      resolve(Service.successResponse(result));
     } catch (e) {
       reject(Service.rejectResponse(
         e.message || 'Invalid input',
@@ -67,7 +67,7 @@ const entity = ({ entity }) => new Promise(
   async (resolve, reject) => {
     try {
       const result = orm.schema.model.entities.find(p => p.name === entity)
-      resolve(Service.successResponse({ result }));
+      resolve(Service.successResponse(result));
     } catch (e) {
       reject(Service.rejectResponse(
         e.message || 'Invalid input',
@@ -86,7 +86,7 @@ const _enum = ({ _enum }) => new Promise(
   async (resolve, reject) => {
     try {
       const result = orm.schema.model.enums.find(p => p.name === _enum)
-      resolve(Service.successResponse({ result }));
+      resolve(Service.successResponse(result));
     } catch (e) {
       reject(Service.rejectResponse(
         e.message || 'Invalid input',
@@ -120,7 +120,7 @@ const mapping = ({ mapping }) => new Promise(
   async (resolve, reject) => {
     try {
       const result = orm.schema.mapping.mappings.find(p => p.name === mapping)
-      resolve(Service.successResponse({ result }));
+      resolve(Service.successResponse(result));
     } catch (e) {
       reject(Service.rejectResponse(
         e.message || 'Invalid input',
@@ -156,7 +156,7 @@ const entityMapping = ({ mapping, entity }) => new Promise(
     try {
       const _mapping = orm.schema.mapping.mappings.find(p => p.name === mapping)
       const result = _mapping ? _mapping.entities.find(p => p.name === entity) : {}
-      resolve(Service.successResponse({ result }));
+      resolve(Service.successResponse(result));
     } catch (e) {
       reject(Service.rejectResponse(
         e.message || 'Invalid input',
