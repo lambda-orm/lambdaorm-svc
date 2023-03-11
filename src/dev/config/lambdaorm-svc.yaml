@@ -79,7 +79,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: "#/components/schemas/QueryRequest"
+              $ref: "#/components/schemas/MetadataRequest"
       responses:
         "200":
           content:
@@ -97,7 +97,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: "#/components/schemas/QueryRequest"
+              $ref: "#/components/schemas/MetadataRequest"
       responses:
         "200":
           content:
@@ -117,7 +117,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: "#/components/schemas/QueryRequest"
+              $ref: "#/components/schemas/MetadataRequest"
       responses:
         "200":
           content:
@@ -137,7 +137,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: "#/components/schemas/QueryRequest"
+              $ref: "#/components/schemas/MetadataRequest"
       responses:
         "200":
           content:
@@ -155,7 +155,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: "#/components/schemas/QueryRequest"
+              $ref: "#/components/schemas/SentenceRequest"
         required: true
       responses:
         "200":
@@ -1500,27 +1500,55 @@ components:
       required:
         - entities
       type: object
-    QueryRequest:
+    MetadataRequest:
       additionalProperties: false
       example:
         expression: expression
-        data: {}
+      properties:        
+        expression:
+          type: string
+      required:
+      - expression
+      type: object
+    SentenceRequest:
+      additionalProperties: false
+      example:
+        expression: expression
+        options: { stage: "default"}
       properties:
         options:
-          $ref: "#/components/schemas/QueryOptions"  
+          $ref: '#/components/schemas/QueryOptions'
         expression:
           type: string
         data: {}
       required:
-        - expression
+      - expression
+      - options
+      type: object    
+    QueryRequest:
+      additionalProperties: false
+      example:
+        expression: expression
+        options: { stage: "default"}
+        data: {}
+      properties:
+        options:
+          $ref: '#/components/schemas/QueryOptions'
+        expression:
+          type: string
+        data: {}
+      required:
+      - expression
+      - options
       type: object
     QueryQueuedRequest:
       additionalProperties: false
-      example:
+      example:        
         expression: expression
         data: {}
         topic: topic-test
         chunk: 1000
+        options: { stage: "default"}
       properties:
         options:
           $ref: '#/components/schemas/QueryOptions'
@@ -1533,8 +1561,9 @@ components:
           type: number  
       required:
       - expression
+      - options
       - topic
-      type: object   
+      type: object  
     QueryOptions:
       additionalProperties: false
       example:
@@ -1549,11 +1578,13 @@ components:
         view:
           type: string
         chunkSize:
-          type: integer    
+          type: integer
         tryAllCan:
           type: boolean
         headers:
-          type: object    
+          type: object
+      required:
+      - options    
       type: object
     QueryResponse:
       properties:

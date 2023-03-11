@@ -11,10 +11,10 @@ const { Partitioners } = require('kafkajs')
 * query String
 * returns MetadataConstraint
 * */
-const constraints = ({ queryRequest }) => new Promise(
+const constraints = ({ metadataRequest }) => new Promise(
   (resolve, reject) => {
     try {
-      resolve(Service.successResponse(orm.constraints(queryRequest.expression)))
+      resolve(Service.successResponse(orm.constraints(metadataRequest.expression)))
     } catch (e) {
       reject(Service.rejectResponse(
         e.message || 'Invalid input',
@@ -28,10 +28,10 @@ const constraints = ({ queryRequest }) => new Promise(
 * query String
 * returns Metadata
 * */
-const metadata = ({ queryRequest }) => new Promise(
+const metadata = ({ metadataRequest }) => new Promise(
   (resolve, reject) => {
     try {
-      const result = orm.metadata(queryRequest.expression)
+      const result = orm.metadata(metadataRequest.expression)
       resolve(Service.successResponse(result))
     } catch (e) {
       reject(Service.rejectResponse(
@@ -46,10 +46,10 @@ const metadata = ({ queryRequest }) => new Promise(
 * query String
 * returns List
 * */
-const model = ({ queryRequest }) => new Promise(
+const model = ({ metadataRequest }) => new Promise(
   (resolve, reject) => {
     try {
-      const result = orm.model(queryRequest.expression)
+      const result = orm.model(metadataRequest.expression)
       resolve(Service.successResponse(result))
     } catch (e) {
       reject(Service.rejectResponse(
@@ -64,10 +64,10 @@ const model = ({ queryRequest }) => new Promise(
 * query String
 * returns List
 * */
-const parameters = ({ queryRequest }) => new Promise(
+const parameters = ({ metadataRequest }) => new Promise(
   (resolve, reject) => {
     try {
-      const result = orm.parameters(queryRequest.expression)
+      const result = orm.parameters(metadataRequest.expression)
       resolve(Service.successResponse(result))
     } catch (e) {
       reject(Service.rejectResponse(
@@ -83,10 +83,10 @@ const parameters = ({ queryRequest }) => new Promise(
 * stage String  (optional)
 * returns sentence
 * */
-const sentence = ({ queryRequest }) => new Promise(
+const sentence = ({ sentenceRequest }) => new Promise(
   (resolve, reject) => {
     try {
-      const result = orm.getInfo(queryRequest.expression, queryRequest.options)
+      const result = orm.getInfo(sentenceRequest.expression, sentenceRequest.options)
       resolve(Service.successResponse(result))
     } catch (e) {
       reject(Service.rejectResponse(
