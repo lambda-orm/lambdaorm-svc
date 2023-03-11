@@ -1,4 +1,3 @@
-# @host = http://localhost:9291
 @host = http://localhost:8081
 @keycloaHost = http://localhost:8180
 
@@ -30,12 +29,12 @@ GET {{host}}/stages HTTP/1.1
 content-type: application/json
 
 ### stage
-GET {{host}}/stages/PostgreSQL HTTP/1.1
+GET {{host}}/stages/default HTTP/1.1
 content-type: application/json
 
 ### Expressions -------------------------------------------------------------------------------------------------------------------------
 
-@options = {"stage":"default"}
+@options = {"stage":"default" }
 @expression=PmIndividuals.filter(p=> p.gender == gender).include(p->p.party)
 @data={"gender":"F"}
 

@@ -173,9 +173,8 @@ const entityMapping = ({ mapping, entity }) => new Promise(
 const stage = ({ stage }) => new Promise(
   async (resolve, reject) => {
     try {
-      resolve(Service.successResponse({
-        stage,
-      }));
+      const result = orm.schema.stage.stages.find(p => p.name === stage)
+      resolve(Service.successResponse(result));
     } catch (e) {
       reject(Service.rejectResponse(
         e.message || 'Invalid input',
