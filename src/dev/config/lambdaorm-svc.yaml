@@ -1514,7 +1514,8 @@ components:
       additionalProperties: false
       example:
         expression: expression
-        options: { stage: "default"}
+        options: 
+          stage: "default"
       properties:
         options:
           $ref: '#/components/schemas/QueryOptions'
@@ -1523,7 +1524,6 @@ components:
         data: {}
       required:
       - expression
-      - options
       type: object    
     QueryRequest:
       additionalProperties: false
@@ -1561,7 +1561,6 @@ components:
           type: number  
       required:
       - expression
-      - options
       - topic
       type: object  
     QueryOptions:
@@ -1584,7 +1583,7 @@ components:
         headers:
           type: object
       required:
-      - options    
+      - stage    
       type: object
     QueryResponse:
       properties:

@@ -16,7 +16,7 @@ npm install @openapitools/openapi-generator-cli -g
 generate api:
 
 ```sh
-npx @openapitools/openapi-generator-cli generate -i src/dev/config/lambda-svc.yaml -g nodejs-express-server -o src/api
+npx @openapitools/openapi-generator-cli generate -i src/dev/config/lambdaorm-svc.yaml -g nodejs-express-server -o src/api
 
 npx @openapitools/openapi-generator-cli generate -i petstore.yaml -g nodejs-express-server -o test
 npx @openapitools/openapi-generator-cli generate -i lambdaorm-svc.yaml -g nodejs-express-server -o api

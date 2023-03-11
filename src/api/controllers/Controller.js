@@ -72,8 +72,8 @@ class Controller {
       const { content } = request.openapi.schema.requestBody;
       if (content['application/json'] !== undefined) {
         // const requestBodyName = camelCase(this.getRequestBodyName(request));
-        // const requestBodyName = this.getRequestBodyName(request);
-        requestParams["queryRequest"] = request.body
+        // requestParams[requestBodyName] = request.body;
+        requestParams["body"] = request.body
       } else if (content['multipart/form-data'] !== undefined) {
         Object.keys(content['multipart/form-data'].schema.properties).forEach(
           (property) => {

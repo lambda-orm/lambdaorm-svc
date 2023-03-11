@@ -201,7 +201,7 @@ paths:
           description: Ok
       tags:
       - expression
-      x-eov-operation-handler: controllers/ExpressionController    
+      x-eov-operation-handler: controllers/ExpressionController
   /entities:
     get:
       operationId: entities
@@ -1501,7 +1501,7 @@ components:
       additionalProperties: false
       example:
         expression: expression
-      properties:        
+      properties:
         expression:
           type: string
       required:
@@ -1511,7 +1511,8 @@ components:
       additionalProperties: false
       example:
         expression: expression
-        options: { stage: "default"}
+        options:
+          stage: default
       properties:
         options:
           $ref: '#/components/schemas/QueryOptions'
@@ -1521,12 +1522,13 @@ components:
       required:
       - expression
       - options
-      type: object    
+      type: object
     QueryRequest:
       additionalProperties: false
       example:
         expression: expression
-        options: { stage: "default"}
+        options:
+          stage: default
         data: {}
       properties:
         options:
@@ -1540,12 +1542,13 @@ components:
       type: object
     QueryQueuedRequest:
       additionalProperties: false
-      example:        
+      example:
         expression: expression
         data: {}
         topic: topic-test
         chunk: 1000
-        options: { stage: "default"}
+        options:
+          stage: default
       properties:
         options:
           $ref: '#/components/schemas/QueryOptions'
@@ -1555,12 +1558,12 @@ components:
         topic:
           type: string
         chunk:
-          type: number  
+          type: number
       required:
       - expression
       - options
       - topic
-      type: object  
+      type: object
     QueryOptions:
       additionalProperties: false
       example:
@@ -1568,7 +1571,8 @@ components:
         view: default
         chunkSize: 1000
         tryAllCan: true
-        headers: {key:'value'}
+        headers:
+          key:'value': null
       properties:
         stage:
           type: string
@@ -1581,7 +1585,7 @@ components:
         headers:
           type: object
       required:
-      - options    
+      - stage
       type: object
     QueryResponse:
       properties:
