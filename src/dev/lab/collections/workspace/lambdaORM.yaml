@@ -611,7 +611,7 @@ app:
     - name: syncInsights2
       actions: [insert, bulkInsert, update, delete]
       condition: 'options.stage === "default" || options.stage === "cqrs"'
-      after: sendMessage("insights-sync-2",[{expression:expression,data:data,options:{stage:insights}}])
+      after: sendMessage("insights-sync-3",[{expression:expression,data:data,options:{stage:"insights"}}])
       # - name: syncInsights
       #   # In this option the same updates are executed in the insights base (not transactional).
       #   # If there is an error in updating the insights database, a message is generated
@@ -628,12 +628,12 @@ app:
       #   transactional: true
   kafka:
     config: $KAFKA_CONFIG
-    listeners:
+    consumers:
       - name: syncInsights
-        consumer:
+        config:
           groupId: group1
         subscribe:
-          topic: insights-sync-2
+          topic: insights-sync-3
           fromBeginning: true 
 
     

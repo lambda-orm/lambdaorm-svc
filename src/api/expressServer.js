@@ -109,9 +109,9 @@ class ExpressServer {
       logger.info(`kafka config: ${JSON.stringify(this.config.app.kafka.config)}`)
       this.kafka = new Kafka(this.config.app.kafka.config)
       new KafkaLibrary(orm.expressions.model, this.kafka).load()
-      if (this.config.app.kafka.listeners) {
+      if (this.config.app.kafka.consumers) {
         this.kafkaConsumers = new KafkaConsumers(this.kafka)
-        this.kafkaConsumers.start(this.config.app.kafka.listeners)
+        this.kafkaConsumers.start(this.config.app.kafka.consumers)
       }
     }
   }

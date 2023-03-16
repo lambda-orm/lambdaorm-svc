@@ -258,3 +258,39 @@
 {"level":"info","message":"orm initialized","service":"user-service","timestamp":"2023-03-16T15:38:37.747Z"}
 {"level":"info","message":"kafka config: {\"clientId\":\"collections\",\"brokers\":[\"localhost:9093\"]}","service":"user-service","timestamp":"2023-03-16T15:38:37.748Z"}
 {"level":"info","message":"Server running at: http://localhost:8081/api-docs","service":"user-service","timestamp":"2023-03-16T15:38:37.756Z"}
+{"level":"info","message":"orm initializing...","service":"user-service","timestamp":"2023-03-16T15:45:08.968Z"}
+{"level":"info","message":"orm initialized","service":"user-service","timestamp":"2023-03-16T15:45:09.225Z"}
+{"level":"info","message":"kafka config: {\"clientId\":\"collections\",\"brokers\":[\"localhost:9093\"]}","service":"user-service","timestamp":"2023-03-16T15:45:09.227Z"}
+{"level":"info","message":"Server running at: http://localhost:8081/api-docs","service":"user-service","timestamp":"2023-03-16T15:45:09.231Z"}
+{"level":"info","message":"orm initializing...","service":"user-service","timestamp":"2023-03-16T15:45:51.678Z"}
+{"level":"info","message":"orm initialized","service":"user-service","timestamp":"2023-03-16T15:45:51.936Z"}
+{"level":"info","message":"kafka config: {\"clientId\":\"collections\",\"brokers\":[\"localhost:9093\"]}","service":"user-service","timestamp":"2023-03-16T15:45:51.937Z"}
+{"level":"info","message":"Server running at: http://localhost:8081/api-docs","service":"user-service","timestamp":"2023-03-16T15:45:57.749Z"}
+{"level":"info","message":"orm initializing...","service":"user-service","timestamp":"2023-03-16T16:23:27.851Z"}
+{"level":"info","message":"orm initialized","service":"user-service","timestamp":"2023-03-16T16:23:28.149Z"}
+{"level":"info","message":"kafka config: {\"clientId\":\"collections\",\"brokers\":[\"localhost:9093\"]}","service":"user-service","timestamp":"2023-03-16T16:23:28.150Z"}
+{"level":"info","message":"Server running at: http://localhost:8081/api-docs","service":"user-service","timestamp":"2023-03-16T16:23:35.995Z"}
+{"level":"info","message":"orm initializing...","service":"user-service","timestamp":"2023-03-16T16:24:47.218Z"}
+{"level":"info","message":"orm initialized","service":"user-service","timestamp":"2023-03-16T16:24:47.450Z"}
+{"level":"info","message":"kafka config: {\"clientId\":\"collections\",\"brokers\":[\"localhost:9093\"]}","service":"user-service","timestamp":"2023-03-16T16:24:47.452Z"}
+{"level":"info","message":"Server running at: http://localhost:8081/api-docs","service":"user-service","timestamp":"2023-03-16T16:24:47.464Z"}
+{"level":"info","message":"orm initializing...","service":"user-service","timestamp":"2023-03-16T16:25:08.178Z"}
+{"level":"info","message":"orm initialized","service":"user-service","timestamp":"2023-03-16T16:25:08.423Z"}
+{"level":"info","message":"kafka config: {\"clientId\":\"collections\",\"brokers\":[\"localhost:9093\"]}","service":"user-service","timestamp":"2023-03-16T16:25:08.424Z"}
+{"level":"info","message":"Server running at: http://localhost:8081/api-docs","service":"user-service","timestamp":"2023-03-16T16:25:08.432Z"}
+{"level":"info","message":"orm initializing...","service":"user-service","timestamp":"2023-03-16T16:26:43.194Z"}
+{"level":"info","message":"orm initialized","service":"user-service","timestamp":"2023-03-16T16:26:43.428Z"}
+{"level":"info","message":"kafka config: {\"clientId\":\"collections\",\"brokers\":[\"localhost:9093\"]}","service":"user-service","timestamp":"2023-03-16T16:26:43.429Z"}
+{"level":"info","message":"Server running at: http://localhost:8081/api-docs","service":"user-service","timestamp":"2023-03-16T16:26:43.437Z"}
+{"level":"info","message":"orm initializing...","service":"user-service","timestamp":"2023-03-16T16:28:13.468Z"}
+{"level":"info","message":"orm initialized","service":"user-service","timestamp":"2023-03-16T16:28:13.695Z"}
+{"level":"info","message":"kafka config: {\"clientId\":\"collections\",\"brokers\":[\"localhost:9093\"]}","service":"user-service","timestamp":"2023-03-16T16:28:13.697Z"}
+{"level":"info","message":"Server running at: http://localhost:8081/api-docs","service":"user-service","timestamp":"2023-03-16T16:28:13.705Z"}
+{"level":"info","message":"orm initializing...","service":"user-service","timestamp":"2023-03-16T16:30:07.638Z"}
+{"level":"info","message":"orm initialized","service":"user-service","timestamp":"2023-03-16T16:30:07.867Z"}
+{"level":"info","message":"kafka config: {\"clientId\":\"collections\",\"brokers\":[\"localhost:9093\"]}","service":"user-service","timestamp":"2023-03-16T16:30:07.869Z"}
+{"level":"info","message":"Server running at: http://localhost:8081/api-docs","service":"user-service","timestamp":"2023-03-16T16:30:07.881Z"}
+{"level":"info","message":"orm initializing...","service":"user-service","timestamp":"2023-03-16T16:31:42.051Z"}
+{"level":"info","message":"orm initialized","service":"user-service","timestamp":"2023-03-16T16:31:42.288Z"}
+{"level":"info","message":"kafka config: {\"clientId\":\"collections\",\"brokers\":[\"localhost:9093\"]}","service":"user-service","timestamp":"2023-03-16T16:31:42.289Z"}
+{"level":"info","message":"Server running at: http://localhost:8081/api-docs","service":"user-service","timestamp":"2023-03-16T16:31:42.298Z"}

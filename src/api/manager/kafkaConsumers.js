@@ -1,36 +1,35 @@
 const { orm } = require('lambdaorm')
+const { h3lp } = require('lambdaorm')
 const KafkaConsumers = class KafkaConsumers {
 	constructor(kafka) {
 		this.kafka = kafka
 	}
 
-	async start(listeners) {
+	async start(consumers) {
 		const promises = []
-		for (const listener of listeners) {
-			promises.push(this.createConsumer(listener))
+		for (const consumer of consumers) {
+			promises.push(this.createConsumer(consumer))
 		}
-		Promise.all(promises).then((consumers) => {
-			this.consumers = consumers
+		Promise.all(promises).then((instances) => {
+			this.consumers = instances
 		})
 	}
 
-	async createConsumer(listener) {
-		const consumer = this.kafka.consumer(listener.consumer)
-		await consumer.connect()
-		await consumer.subscribe(listener.subscribe)
-		await consumer.run({
+	async createConsumer(consumer) {
+		const _consumer = this.kafka.consumer(consumer.config)
+		await _consumer.connect()
+		await _consumer.subscribe(consumer.subscribe)
+		await _consumer.run({
 			eachMessage: async ({ topic, partition, message }) => {
-				const msg = message.value
-				const query = { expression: msg.expression, data: msg.data, options: msg.options }
-				await orm.execute(query)
-				// console.log({
-				// 	partition,
-				// 	offset: message.offset,
-				// 	value: message.value.toString(),
-				// })
+				try {
+					const msg = JSON.parse(message.value.toString())
+					await orm.execute(msg.expression, msg.data, msg.options)
+				} catch (error) {
+					console.error(error)
+				}
 			}
 		})
-		return consumer
+		return _consumer
 	}
 }
 
