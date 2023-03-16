@@ -1,4 +1,12 @@
 const { transports, createLogger, format } = require('winston');
+// https://reflectoring.io/node-logging-winston/
+// const logger = createLogger({
+//   level: "debug",
+//   format: format.json(),
+//   transports: [new transports.Console()],
+// });
+
+// module.exports = logger;
 
 const logger = createLogger({
   level: 'info',
@@ -13,7 +21,6 @@ const logger = createLogger({
     new transports.File({ filename: 'combined.log', timestamp: true }),
   ],
 });
-
 if (process.env.NODE_ENV !== 'production') {
   logger.add(new transports.Console({ format: format.simple() }));
 }

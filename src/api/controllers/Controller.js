@@ -1,6 +1,5 @@
 const fs = require('fs');
 const path = require('path');
-const config = require('../config');
 
 class Controller {
   static sendResponse(response, payload) {
@@ -40,6 +39,7 @@ class Controller {
   */
   static collectFile(request, fieldName) {
     let uploadedFileName = '';
+    const fileUploadPath = path.join(__dirname, 'uploaded_files');
     if (request.files && request.files.length > 0) {
       const fileObject = request.files.find(file => file.fieldname === fieldName);
       if (fileObject) {
@@ -47,8 +47,8 @@ class Controller {
         const extension = fileArray.pop();
         fileArray.push(`_${Date.now()}`);
         uploadedFileName = `${fileArray.join('')}.${extension}`;
-        fs.renameSync(path.join(config.FILE_UPLOAD_PATH, fileObject.filename),
-          path.join(config.FILE_UPLOAD_PATH, uploadedFileName));
+        fs.renameSync(path.join(fileUploadPath, fileObject.filename),
+          path.join(fileUploadPath, uploadedFileName));
       }
     }
     return uploadedFileName;

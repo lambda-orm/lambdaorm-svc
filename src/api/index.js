@@ -5,7 +5,6 @@ const launchServer = async () => {
   try {
     this.expressServer = ExpressServer.instance
     await this.expressServer.launch()
-    logger.info('Express server running')
   } catch (error) {
     logger.error('Express Server failure', error.message)
     await this.close()

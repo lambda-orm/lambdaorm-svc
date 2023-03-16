@@ -9,20 +9,21 @@ const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
 const OpenApiValidator = require('express-openapi-validator');
 const logger = require('./logger');
-const config = require('./config');
 const { orm } = require('lambdaorm')
 const { Kafka } = require('kafkajs')
 const { KafkaLibrary } = require('./manager/kafkaLibrary')
+const { KafkaConsumers } = require('./manager/kafkaConsumers')
+
+
 const { Library } = require('./manager/library')
 const Metrics = require('./services/Metrics')
 
 class ExpressServer {
-  constructor(port, openApiYaml) {
-    this.port = port;
+  constructor() {
     this.app = express();
-    this.openApiPath = openApiYaml;
+    this.openApiPath = path.join(__dirname, 'api', 'openapi.yaml');
     try {
-      this.schema = jsYaml.safeLoad(fs.readFileSync(openApiYaml));
+      this.schema = jsYaml.safeLoad(fs.readFileSync(this.openApiPath));
     } catch (e) {
       logger.error('failed to start Express Server', e.message);
     }
@@ -35,7 +36,7 @@ class ExpressServer {
   static _instance = null
   static get instance() {
     if (!this._instance) {
-      this._instance = new ExpressServer(config.URL_PORT, config.OPENAPI_YAML)
+      this._instance = new ExpressServer()
     }
     return this._instance
   }
@@ -65,7 +66,7 @@ class ExpressServer {
       OpenApiValidator.middleware({
         apiSpec: this.openApiPath,
         operationHandlers: path.join(__dirname),
-        fileUploader: { dest: config.FILE_UPLOAD_PATH },
+        fileUploader: { dest: path.join(__dirname, 'uploaded_files') },
       }),
     );
     this.app.use(Metrics.after)
@@ -79,29 +80,46 @@ class ExpressServer {
   }
 
   async launch() {
-    this.server = http.createServer(this.app).listen(config.URL_PORT, async () => {
-      await orm.init(config.WORKSPACE)
-      new Library(orm).load()
-      if (config.KAFKA_CONFIG) {
-        this.kafka = await this.kafkaInit(JSON.parse(config.KAFKA_CONFIG))
-      }
-      console.log('Server running at: ' + config.URL_PATH + ':' + config.URL_PORT + '/api-docs')
+    this.config = await this.ormInit()
+    await this.kafkaInit()
+    this.server = http.createServer(this.app).listen(this.config.app.port, async () => {
+      const message = 'Server running at: ' + this.config.app.host + ':' + this.config.app.port + '/api-docs'
+      logger.info(message)
+      console.log(message)
     })
   }
 
-  async kafkaInit(config) {
-    // https://kafka.js.org/docs/configuration
-    console.log(`kafka config: ${JSON.stringify(config)}`)
-    const kafka = new Kafka(config)
-    new KafkaLibrary(orm.expressions.model, kafka).load()
-    return kafka
+  async ormInit() {
+    logger.info('orm initializing...')
+    const config = await orm.init(process.env.WORKSPACE || '/workspace')
+    new Library(orm).load()
+    if (!config.app.host) {
+      config.app.host = 'http://localhost'
+    }
+    if (!config.app.port) {
+      config.app.port = 8081
+    }
+    logger.info('orm initialized')
+    return config
+  }
 
+  async kafkaInit() {
+    if (this.config.app.kafka && this.config.app.kafka.config) {
+      // https://kafka.js.org/docs/configuration
+      logger.info(`kafka config: ${JSON.stringify(this.config.app.kafka.config)}`)
+      this.kafka = new Kafka(this.config.app.kafka.config)
+      new KafkaLibrary(orm.expressions.model, this.kafka).load()
+      if (this.config.app.kafka.listeners) {
+        this.kafkaConsumers = new KafkaConsumers(this.kafka)
+        this.kafkaConsumers.start(this.config.app.kafka.listeners)
+      }
+    }
   }
 
   async close() {
     if (this.server !== undefined) {
       this.server.close();
-      console.log(`Server on port ${this.port} shut down`);
+      logger.info(`Server on port ${this.config.app.port} shut down`);
     }
     await orm.end()
   }
