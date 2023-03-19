@@ -606,7 +606,7 @@ app:
   listeners:    
     - name: syncInsights
       actions: [insert, bulkInsert, update, delete]
-      condition: 'options.stage === "default" || options.stage === "cqrs"'
+      condition: 'options.stage.in("default","cqrs")'
       after: sendMessage("insights-sync",[{expression:expression,data:data}])
     - name: syncInsights2
       actions: [insert, bulkInsert, update, delete]

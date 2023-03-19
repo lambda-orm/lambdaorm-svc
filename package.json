@@ -1,6 +1,6 @@
 {
 	"name": "orm-service",
-	"version": "0.4.30",
+	"version": "0.4.31",
 	"description": "service of lambda orm",
 	"main": "./dist/lib/index",
 	"scripts": {
@@ -32,6 +32,8 @@
 	},
 	"homepage": "https://github.com/FlavioLionelRita/lambdaorm-svc#readme",
 	"dependencies": {
+		"lambdaorm": "0.4.22-beta",
+		"h3lp": "1.2.4",
 		"body-parser": "^1.20.1",
 		"camelcase": "^5.3.1",
 		"cookie-parser": "^1.4.6",
@@ -39,10 +41,8 @@
 		"dotenv": "^16.0.3",
 		"express": "^4.18.2",
 		"express-openapi-validator": "^4.13.8",
-		"h3lp": "1.2.4",
 		"js-yaml": "^3.3.0",
 		"kafkajs": "^2.2.3",
-		"lambdaorm": "0.4.21-beta",
 		"mongodb": "^4.13.0",
 		"morgan": "^1.10.0",
 		"mysql2": "^3.0.1",
