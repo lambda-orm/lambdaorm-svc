@@ -17,8 +17,8 @@ const constraints = ({ body }) => new Promise(
       resolve(Service.successResponse(orm.constraints(body.expression)))
     } catch (e) {
       reject(Service.rejectResponse(
-        e.message || 'Invalid input',
-        e.status || 405
+        e.message || 'Internal Server',
+        e.status || 500
       ))
     }
   }
@@ -35,8 +35,8 @@ const metadata = ({ body }) => new Promise(
       resolve(Service.successResponse(result))
     } catch (e) {
       reject(Service.rejectResponse(
-        e.message || 'Invalid input',
-        e.status || 405
+        e.message || 'Internal Server',
+        e.status || 500
       ))
     }
   }
@@ -53,8 +53,8 @@ const model = ({ body }) => new Promise(
       resolve(Service.successResponse(result))
     } catch (e) {
       reject(Service.rejectResponse(
-        e.message || 'Invalid input',
-        e.status || 405
+        e.message || 'Internal Server',
+        e.status || 500
       ))
     }
   }
@@ -71,8 +71,8 @@ const parameters = ({ body }) => new Promise(
       resolve(Service.successResponse(result))
     } catch (e) {
       reject(Service.rejectResponse(
-        e.message || 'Invalid input',
-        e.status || 405
+        e.message || 'Internal Server',
+        e.status || 500
       ))
     }
   }
@@ -90,8 +90,8 @@ const sentence = ({ body }) => new Promise(
       resolve(Service.successResponse(result))
     } catch (e) {
       reject(Service.rejectResponse(
-        e.message || 'Invalid input',
-        e.status || 405
+        e.message || 'Internal Server',
+        e.status || 500
       ))
     }
   }
@@ -112,8 +112,8 @@ const execute = ({ body }) => new Promise(
       resolve(Service.successResponse(result))
     } catch (e) {
       reject(Service.rejectResponse(
-        e.message || 'Invalid input',
-        e.status || 405
+        e.message || 'Internal Server',
+        e.status || 500
       ))
     }
   }
@@ -167,8 +167,8 @@ const executeQueued = ({ body }) => new Promise(
       call(body, queueId)
     } catch (e) {
       reject(Service.rejectResponse(
-        e.message || 'Invalid input',
-        e.status || 405
+        e.message || 'Internal Server',
+        e.status || 500
       ))
     }
   }

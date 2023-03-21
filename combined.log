@@ -294,3 +294,16 @@
 {"level":"info","message":"orm initialized","service":"user-service","timestamp":"2023-03-16T16:31:42.288Z"}
 {"level":"info","message":"kafka config: {\"clientId\":\"collections\",\"brokers\":[\"localhost:9093\"]}","service":"user-service","timestamp":"2023-03-16T16:31:42.289Z"}
 {"level":"info","message":"Server running at: http://localhost:8081/api-docs","service":"user-service","timestamp":"2023-03-16T16:31:42.298Z"}
+{"level":"info","message":"orm initializing...","service":"user-service","timestamp":"2023-03-21T14:33:04.862Z"}
+{"level":"info","message":"orm initialized","service":"user-service","timestamp":"2023-03-21T14:33:05.144Z"}
+{"level":"info","message":"kafka config: {\"clientId\":\"collections\",\"brokers\":[\"localhost:9093\"]}","service":"user-service","timestamp":"2023-03-21T14:33:05.146Z"}
+{"level":"info","message":"Server running at: http://localhost:8081/api-docs","service":"user-service","timestamp":"2023-03-21T14:33:05.157Z"}
+{"level":"info","message":"orm initializing...","service":"user-service","timestamp":"2023-03-21T14:39:15.156Z"}
+{"level":"info","message":"orm initialized","service":"user-service","timestamp":"2023-03-21T14:39:15.404Z"}
+{"level":"info","message":"kafka config: {\"clientId\":\"collections\",\"brokers\":[\"localhost:9093\"]}","service":"user-service","timestamp":"2023-03-21T14:39:15.405Z"}
+{"level":"info","message":"Server running at: http://localhost:8081/api-docs","service":"user-service","timestamp":"2023-03-21T14:39:15.408Z"}
+{"level":"info","message":"orm initializing...","service":"user-service","timestamp":"2023-03-21T14:45:50.064Z"}
+{"level":"info","message":"orm initialized","service":"user-service","timestamp":"2023-03-21T14:45:50.296Z"}
+{"level":"info","message":"kafka config: {\"clientId\":\"collections\",\"brokers\":[\"localhost:9093\"]}","service":"user-service","timestamp":"2023-03-21T14:45:50.298Z"}
+{"level":"info","message":"Server running at: http://localhost:8081/api-docs","service":"user-service","timestamp":"2023-03-21T14:45:50.300Z"}
+{"level":"error","message":"500: Stage: insights2 not found","service":"user-service","timestamp":"2023-03-21T14:47:05.328Z"}

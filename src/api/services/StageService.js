@@ -13,8 +13,8 @@ const exists = ({ stage }) => new Promise(
       resolve(Service.successResponse(await orm.stage.exists(stage)))
     } catch (e) {
       reject(Service.rejectResponse(
-        e.message || 'Invalid input',
-        e.status || 405
+        e.message || 'Internal Server',
+        e.status || 500
       ))
     }
   }
@@ -30,8 +30,8 @@ const _export = ({ stage }) => new Promise(
       resolve(Service.successResponse(await orm.stage.export(stage).execute()))
     } catch (e) {
       reject(Service.rejectResponse(
-        e.message || 'Invalid input',
-        e.status || 405
+        e.message || 'Internal Server',
+        e.status || 500
       ))
     }
   }
@@ -48,8 +48,8 @@ const _import = ({ stage, schemaData }) => new Promise(
       resolve(Service.successResponse(await orm.stage.import(stage).execute(schemaData)))
     } catch (e) {
       reject(Service.rejectResponse(
-        e.message || 'Invalid input',
-        e.status || 405
+        e.message || 'Internal Server',
+        e.status || 500
       ))
     }
   }
@@ -64,8 +64,8 @@ const list = () => new Promise(
       resolve(Service.successResponse(orm.schema.stage.stages.map(p => p.name)))
     } catch (e) {
       reject(Service.rejectResponse(
-        e.message || 'Invalid input',
-        e.status || 405
+        e.message || 'Internal Server',
+        e.status || 500
       ))
     }
   }

@@ -584,7 +584,7 @@ data:
         - name: ledgerAccounts
           condition: entity.startWith("Lam")
         - name: debtors
-          condition: entity.substring("Db")   
+          condition: entity.startWith("Db")   
     - name: insights
       sources:
         - name: insights
@@ -599,19 +599,19 @@ data:
         - name: ledgerAccounts
           condition: entity.startWith("Lam")
         - name: debtors
-          condition: entity.substring("Db")   
+          condition: entity.startWith("Db")   
 app:
   host: $HOST
   port: $PORT  
   listeners:    
     - name: syncInsights
       actions: [insert, bulkInsert, update, delete]
-      condition: 'options.stage.in("default","cqrs")'
+      condition: options.stage.in("default","cqrs")
       after: sendMessage("insights-sync",[{expression:expression,data:data}])
-    - name: syncInsights2
-      actions: [insert, bulkInsert, update, delete]
-      condition: 'options.stage === "default" || options.stage === "cqrs"'
-      after: sendMessage("insights-sync-3",[{expression:expression,data:data,options:{stage:"insights"}}])
+    # - name: syncInsights2
+    #   actions: [insert, bulkInsert, update, delete]
+    #   condition: options.stage.in("default","cqrs")
+    #   after: sendMessage("insights-sync-3",[{expression:expression,data:data,options:{stage:"insights"}}])
       # - name: syncInsights
       #   # In this option the same updates are executed in the insights base (not transactional).
       #   # If there is an error in updating the insights database, a message is generated
@@ -628,12 +628,12 @@ app:
       #   transactional: true
   kafka:
     config: $KAFKA_CONFIG
-    consumers:
-      - name: syncInsights
-        config:
-          groupId: group1
-        subscribe:
-          topic: insights-sync-3
-          fromBeginning: true 
+    # consumers:
+    #   - name: syncInsights
+    #     config:
+    #       groupId: group1
+    #     subscribe:
+    #       topic: insights-sync-3
+    #       fromBeginning: true 
 
     

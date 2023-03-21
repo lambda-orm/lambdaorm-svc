@@ -17,8 +17,8 @@ const dataSources = () => new Promise(
       resolve(Service.successResponse(result))
     } catch (e) {
       reject(Service.rejectResponse(
-        e.message || 'Invalid input',
-        e.status || 405
+        e.message || 'Internal Server',
+        e.status || 500
       ))
     }
   }
@@ -35,8 +35,8 @@ const datasource = ({ datasource }) => new Promise(
       resolve(Service.successResponse(result));
     } catch (e) {
       reject(Service.rejectResponse(
-        e.message || 'Invalid input',
-        e.status || 405,
+        e.message || 'Internal Server',
+        e.status || 500,
       ));
     }
   },
@@ -52,8 +52,8 @@ const entities = () => new Promise(
       resolve(Service.successResponse(result))
     } catch (e) {
       reject(Service.rejectResponse(
-        e.message || 'Invalid input',
-        e.status || 405
+        e.message || 'Internal Server',
+        e.status || 500
       ))
     }
   }
@@ -70,8 +70,8 @@ const entity = ({ entity }) => new Promise(
       resolve(Service.successResponse(result));
     } catch (e) {
       reject(Service.rejectResponse(
-        e.message || 'Invalid input',
-        e.status || 405,
+        e.message || 'Internal Server',
+        e.status || 500,
       ));
     }
   },
@@ -89,8 +89,8 @@ const _enum = ({ _enum }) => new Promise(
       resolve(Service.successResponse(result));
     } catch (e) {
       reject(Service.rejectResponse(
-        e.message || 'Invalid input',
-        e.status || 405,
+        e.message || 'Internal Server',
+        e.status || 500,
       ));
     }
   },
@@ -105,8 +105,8 @@ const enums = () => new Promise(
       resolve(Service.successResponse(orm.schema.model.enums))
     } catch (e) {
       reject(Service.rejectResponse(
-        e.message || 'Invalid input',
-        e.status || 405
+        e.message || 'Internal Server',
+        e.status || 500
       ))
     }
   }
@@ -123,8 +123,8 @@ const mapping = ({ mapping }) => new Promise(
       resolve(Service.successResponse(result));
     } catch (e) {
       reject(Service.rejectResponse(
-        e.message || 'Invalid input',
-        e.status || 405,
+        e.message || 'Internal Server',
+        e.status || 500,
       ));
     }
   },
@@ -139,8 +139,8 @@ const mappings = () => new Promise(
       resolve(Service.successResponse(orm.schema.mapping.mappings))
     } catch (e) {
       reject(Service.rejectResponse(
-        e.message || 'Invalid input',
-        e.status || 405
+        e.message || 'Internal Server',
+        e.status || 500
       ))
     }
   }
@@ -159,8 +159,8 @@ const entityMapping = ({ mapping, entity }) => new Promise(
       resolve(Service.successResponse(result));
     } catch (e) {
       reject(Service.rejectResponse(
-        e.message || 'Invalid input',
-        e.status || 405,
+        e.message || 'Internal Server',
+        e.status || 500,
       ));
     }
   },
@@ -177,8 +177,8 @@ const stage = ({ stage }) => new Promise(
       resolve(Service.successResponse(result));
     } catch (e) {
       reject(Service.rejectResponse(
-        e.message || 'Invalid input',
-        e.status || 405,
+        e.message || 'Internal Server',
+        e.status || 500,
       ));
     }
   },
@@ -193,8 +193,8 @@ const stages = () => new Promise(
       resolve(Service.successResponse(orm.schema.stage.stages))
     } catch (e) {
       reject(Service.rejectResponse(
-        e.message || 'Invalid input',
-        e.status || 405
+        e.message || 'Internal Server',
+        e.status || 500
       ))
     }
   }
