@@ -578,13 +578,13 @@ data:
     - name: default
       sources:
         - name: locations
-          condition: substring(entity,0,3)=="Loc"
+          condition: entity.startWith("Loc")
         - name: parties
-          condition: substring(entity,0,2)=="Pm"
+          condition: entity.startWith("Pm")
         - name: ledgerAccounts
-          condition: substring(entity,0,3)=="Lam"
+          condition: entity.startWith("Lam")
         - name: debtors
-          condition: substring(entity,0,2)=="Db"
+          condition: entity.startWith("Db")   
     - name: insights
       sources:
         - name: insights
@@ -593,17 +593,47 @@ data:
         - name: insights
           condition: action == "select"
         - name: locations
-          condition: action != "select" && substring(entity,0,3)=="Loc"
+          condition: entity.startWith("Loc")
         - name: parties
-          condition: action != "select" && substring(entity,0,2)=="Pm"
+          condition: entity.startWith("Pm")
         - name: ledgerAccounts
-          condition: action != "select" && substring(entity,0,3)=="Lam"
+          condition: entity.startWith("Lam")
         - name: debtors
-          condition: action != "select" && substring(entity,0,2)=="Db"    
+          condition: entity.startWith("Db")   
 app:
-  listeners:
+  host: $HOST
+  port: $PORT  
+  listeners:    
     - name: syncInsights
       actions: [insert, bulkInsert, update, delete]
-      condition: 'options.stage === "default"'
+      condition: options.stage.in("default","cqrs")
       after: sendMessage("insights-sync",[{expression:expression,data:data}])
+    # - name: syncInsights2
+    #   actions: [insert, bulkInsert, update, delete]
+    #   condition: options.stage.in("default","cqrs")
+    #   after: sendMessage("insights-sync-3",[{expression:expression,data:data,options:{stage:"insights"}}])
+      # - name: syncInsights
+      #   # In this option the same updates are executed in the insights base (not transactional).
+      #   # If there is an error in updating the insights database, a message is generated
+      #   actions: [insert, bulkInsert, update, delete]
+      #   condition: 'options.stage === "default" || options.stage === "cqrs"'
+      #   after: execute(expression,data,{stage:"insights"})
+      #   error: sendMessage("insights-sync-error",[{expression:expression,data:data}])
+      # - name: syncInsights
+      #   # In this case, the update will be executed transactional in the insights database
+      #   # In the event that the update in insights fails, it will not be applied to the other databases either.
+      #   actions: [insert, bulkInsert, update, delete]
+      #   condition: 'options.stage === "default" || options.stage === "cqrs"'
+      #   after: execute(expression,data,{stage:insights})
+      #   transactional: true
+  kafka:
+    config: $KAFKA_CONFIG
+    # consumers:
+    #   - name: syncInsights
+    #     config:
+    #       groupId: group1
+    #     subscribe:
+    #       topic: insights-sync-3
+    #       fromBeginning: true 
+
     

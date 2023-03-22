@@ -1,5 +1,7 @@
+const logger = require('./../logger');
 class Service {
   static rejectResponse(error, code = 500) {
+    logger.error(`${code}: ${error}`);
     return { error, code };
   }
 

@@ -17,8 +17,8 @@ const dataSources = () => new Promise(
       resolve(Service.successResponse(result))
     } catch (e) {
       reject(Service.rejectResponse(
-        e.message || 'Invalid input',
-        e.status || 405
+        e.message || 'Internal Server',
+        e.status || 500
       ))
     }
   }
@@ -32,11 +32,11 @@ const datasource = ({ datasource }) => new Promise(
   async (resolve, reject) => {
     try {
       const result = orm.schema.dataSource.dataSources.find(p => p.name === datasource)
-      resolve(Service.successResponse({ result }));
+      resolve(Service.successResponse(result));
     } catch (e) {
       reject(Service.rejectResponse(
-        e.message || 'Invalid input',
-        e.status || 405,
+        e.message || 'Internal Server',
+        e.status || 500,
       ));
     }
   },
@@ -52,8 +52,8 @@ const entities = () => new Promise(
       resolve(Service.successResponse(result))
     } catch (e) {
       reject(Service.rejectResponse(
-        e.message || 'Invalid input',
-        e.status || 405
+        e.message || 'Internal Server',
+        e.status || 500
       ))
     }
   }
@@ -67,11 +67,11 @@ const entity = ({ entity }) => new Promise(
   async (resolve, reject) => {
     try {
       const result = orm.schema.model.entities.find(p => p.name === entity)
-      resolve(Service.successResponse({ result }));
+      resolve(Service.successResponse(result));
     } catch (e) {
       reject(Service.rejectResponse(
-        e.message || 'Invalid input',
-        e.status || 405,
+        e.message || 'Internal Server',
+        e.status || 500,
       ));
     }
   },
@@ -86,11 +86,11 @@ const _enum = ({ _enum }) => new Promise(
   async (resolve, reject) => {
     try {
       const result = orm.schema.model.enums.find(p => p.name === _enum)
-      resolve(Service.successResponse({ result }));
+      resolve(Service.successResponse(result));
     } catch (e) {
       reject(Service.rejectResponse(
-        e.message || 'Invalid input',
-        e.status || 405,
+        e.message || 'Internal Server',
+        e.status || 500,
       ));
     }
   },
@@ -105,8 +105,8 @@ const enums = () => new Promise(
       resolve(Service.successResponse(orm.schema.model.enums))
     } catch (e) {
       reject(Service.rejectResponse(
-        e.message || 'Invalid input',
-        e.status || 405
+        e.message || 'Internal Server',
+        e.status || 500
       ))
     }
   }
@@ -120,11 +120,11 @@ const mapping = ({ mapping }) => new Promise(
   async (resolve, reject) => {
     try {
       const result = orm.schema.mapping.mappings.find(p => p.name === mapping)
-      resolve(Service.successResponse({ result }));
+      resolve(Service.successResponse(result));
     } catch (e) {
       reject(Service.rejectResponse(
-        e.message || 'Invalid input',
-        e.status || 405,
+        e.message || 'Internal Server',
+        e.status || 500,
       ));
     }
   },
@@ -139,8 +139,8 @@ const mappings = () => new Promise(
       resolve(Service.successResponse(orm.schema.mapping.mappings))
     } catch (e) {
       reject(Service.rejectResponse(
-        e.message || 'Invalid input',
-        e.status || 405
+        e.message || 'Internal Server',
+        e.status || 500
       ))
     }
   }
@@ -156,11 +156,11 @@ const entityMapping = ({ mapping, entity }) => new Promise(
     try {
       const _mapping = orm.schema.mapping.mappings.find(p => p.name === mapping)
       const result = _mapping ? _mapping.entities.find(p => p.name === entity) : {}
-      resolve(Service.successResponse({ result }));
+      resolve(Service.successResponse(result));
     } catch (e) {
       reject(Service.rejectResponse(
-        e.message || 'Invalid input',
-        e.status || 405,
+        e.message || 'Internal Server',
+        e.status || 500,
       ));
     }
   },
@@ -173,13 +173,12 @@ const entityMapping = ({ mapping, entity }) => new Promise(
 const stage = ({ stage }) => new Promise(
   async (resolve, reject) => {
     try {
-      resolve(Service.successResponse({
-        stage,
-      }));
+      const result = orm.schema.stage.stages.find(p => p.name === stage)
+      resolve(Service.successResponse(result));
     } catch (e) {
       reject(Service.rejectResponse(
-        e.message || 'Invalid input',
-        e.status || 405,
+        e.message || 'Internal Server',
+        e.status || 500,
       ));
     }
   },
@@ -194,8 +193,8 @@ const stages = () => new Promise(
       resolve(Service.successResponse(orm.schema.stage.stages))
     } catch (e) {
       reject(Service.rejectResponse(
-        e.message || 'Invalid input',
-        e.status || 405
+        e.message || 'Internal Server',
+        e.status || 500
       ))
     }
   }

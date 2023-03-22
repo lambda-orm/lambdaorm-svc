@@ -28,3 +28,6 @@
 {"level":"error","message":"failed to start Express Server","service":"user-service","timestamp":"2023-02-11T18:47:24.450Z"}
 {"level":"error","message":"failed to start Express Server","service":"user-service","timestamp":"2023-02-11T18:47:29.359Z"}
 {"level":"error","message":"failed to start Express Server","service":"user-service","timestamp":"2023-02-12T00:17:38.978Z"}
+{"level":"error","message":"Express Server failure","service":"user-service","timestamp":"2023-03-16T09:23:49.301Z"}
+{"level":"error","service":"user-service","timestamp":"2023-03-16T09:23:49.304Z"}
+{"level":"error","message":"500: Stage: insights2 not found","service":"user-service","timestamp":"2023-03-21T14:47:05.328Z"}

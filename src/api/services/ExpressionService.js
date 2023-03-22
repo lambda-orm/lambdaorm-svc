@@ -11,14 +11,14 @@ const { Partitioners } = require('kafkajs')
 * query String
 * returns MetadataConstraint
 * */
-const constraints = ({ queryRequest }) => new Promise(
+const constraints = ({ body }) => new Promise(
   (resolve, reject) => {
     try {
-      resolve(Service.successResponse(orm.constraints(queryRequest.expression)))
+      resolve(Service.successResponse(orm.constraints(body.expression)))
     } catch (e) {
       reject(Service.rejectResponse(
-        e.message || 'Invalid input',
-        e.status || 405
+        e.message || 'Internal Server',
+        e.status || 500
       ))
     }
   }
@@ -28,15 +28,15 @@ const constraints = ({ queryRequest }) => new Promise(
 * query String
 * returns Metadata
 * */
-const metadata = ({ queryRequest }) => new Promise(
+const metadata = ({ body }) => new Promise(
   (resolve, reject) => {
     try {
-      const result = orm.metadata(queryRequest.expression)
+      const result = orm.metadata(body.expression)
       resolve(Service.successResponse(result))
     } catch (e) {
       reject(Service.rejectResponse(
-        e.message || 'Invalid input',
-        e.status || 405
+        e.message || 'Internal Server',
+        e.status || 500
       ))
     }
   }
@@ -46,15 +46,15 @@ const metadata = ({ queryRequest }) => new Promise(
 * query String
 * returns List
 * */
-const model = ({ queryRequest }) => new Promise(
+const model = ({ body }) => new Promise(
   (resolve, reject) => {
     try {
-      const result = orm.model(queryRequest.expression)
+      const result = orm.model(body.expression)
       resolve(Service.successResponse(result))
     } catch (e) {
       reject(Service.rejectResponse(
-        e.message || 'Invalid input',
-        e.status || 405
+        e.message || 'Internal Server',
+        e.status || 500
       ))
     }
   }
@@ -64,15 +64,15 @@ const model = ({ queryRequest }) => new Promise(
 * query String
 * returns List
 * */
-const parameters = ({ queryRequest }) => new Promise(
+const parameters = ({ body }) => new Promise(
   (resolve, reject) => {
     try {
-      const result = orm.parameters(queryRequest.expression)
+      const result = orm.parameters(body.expression)
       resolve(Service.successResponse(result))
     } catch (e) {
       reject(Service.rejectResponse(
-        e.message || 'Invalid input',
-        e.status || 405
+        e.message || 'Internal Server',
+        e.status || 500
       ))
     }
   }
@@ -83,15 +83,15 @@ const parameters = ({ queryRequest }) => new Promise(
 * stage String  (optional)
 * returns sentence
 * */
-const sentence = ({ queryRequest }) => new Promise(
+const sentence = ({ body }) => new Promise(
   (resolve, reject) => {
     try {
-      const result = orm.getInfo(queryRequest.expression, queryRequest.options)
+      const result = orm.getInfo(body.expression, body.options)
       resolve(Service.successResponse(result))
     } catch (e) {
       reject(Service.rejectResponse(
-        e.message || 'Invalid input',
-        e.status || 405
+        e.message || 'Internal Server',
+        e.status || 500
       ))
     }
   }
@@ -104,16 +104,16 @@ const sentence = ({ queryRequest }) => new Promise(
 * body oas_any_type_not_mapped  (optional)
 * returns oas_any_type_not_mapped
 * */
-const execute = ({ queryRequest }) => new Promise(
+const execute = ({ body }) => new Promise(
   // eslint-disable-next-line no-async-promise-executor
   async (resolve, reject) => {
     try {
-      const result = await orm.execute(queryRequest.expression, queryRequest.data, queryRequest.options)
+      const result = await orm.execute(body.expression, body.data, body.options)
       resolve(Service.successResponse(result))
     } catch (e) {
       reject(Service.rejectResponse(
-        e.message || 'Invalid input',
-        e.status || 405
+        e.message || 'Internal Server',
+        e.status || 500
       ))
     }
   }
@@ -121,29 +121,29 @@ const execute = ({ queryRequest }) => new Promise(
 
 
 
-const executeQueued = ({ queryRequest }) => new Promise(
+const executeQueued = ({ body }) => new Promise(
   // eslint-disable-next-line no-async-promise-executor
   async (resolve, reject) => {
     try {
       if (!ExpressServer.instance.kafka) {
         reject(Service.rejectResponse('kafka undefined', 405))
       }
-      if (!queryRequest.topic) {
+      if (!body.topic) {
         reject(Service.rejectResponse('topic undefined', 405))
       }
       const queueId = uuidv4()
       resolve(Service.successResponse({ queueId: queueId }))
-      const call = async (queryRequest, queueId) => {
+      const call = async (body, queueId) => {
         try {
-          const result = await orm.execute(queryRequest.expression, queryRequest.data, queryRequest.options)
+          const result = await orm.execute(body.expression, body.data, body.options)
           const headers = {}
-          if (queryRequest.options.headers) {
-            for (const entry of Object.entries(queryRequest.options.headers)) {
+          if (body.options.headers) {
+            for (const entry of Object.entries(body.options.headers)) {
               headers[entry[0]] = JSON.stringify(entry[1])
             }
           }
           const messages = []
-          const chunks = h3lp.array.chunks(result, queryRequest.chunk || result.length)
+          const chunks = h3lp.array.chunks(result, body.chunk || result.length)
           for (let i = 0; i < chunks.length; i++) {
             headers.chunkNro = i.toString()
             messages.push({
@@ -157,18 +157,18 @@ const executeQueued = ({ queryRequest }) => new Promise(
             createPartitioner: Partitioners.DefaultPartitioner
           })
           await producer.connect()
-          await producer.send({ topic: queryRequest.topic, messages: messages })
+          await producer.send({ topic: body.topic, messages: messages })
           await producer.disconnect()
         } catch (e) {
           console.log(`executed.queued: ${queueId} error: ${e.message || ' undefined'}`)
         }
       }
       //execute in background
-      call(queryRequest, queueId)
+      call(body, queueId)
     } catch (e) {
       reject(Service.rejectResponse(
-        e.message || 'Invalid input',
-        e.status || 405
+        e.message || 'Internal Server',
+        e.status || 500
       ))
     }
   }

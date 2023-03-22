@@ -5,7 +5,7 @@ const Library = class Library {
 
 	load() {
 		// TODO: solve async expression
-		this.model.addFunction('ormExecute(expression:string,data:any,options:any):any', async (expression, data, options) => {
+		this.orm.expressions.model.addFunction('execute(expression:string,data:any,options:any):any', async (expression, data, options) => {
 			try {
 				return await this.orm.execute(expression, data, options)
 			} catch (error) {

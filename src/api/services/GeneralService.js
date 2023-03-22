@@ -17,8 +17,8 @@ const health = () => new Promise(
       }))
     } catch (e) {
       reject(Service.rejectResponse(
-        e.message || 'Invalid input',
-        e.status || 405
+        e.message || 'Internal Server',
+        e.status || 500
       ))
     }
   }
@@ -34,8 +34,8 @@ const metrics = () => new Promise(
       resolve(Service.successResponse(metrics))
     } catch (e) {
       reject(Service.rejectResponse(
-        e.message || 'Invalid input',
-        e.status || 405
+        e.message || 'Internal Server',
+        e.status || 500
       ))
     }
   }
@@ -53,8 +53,8 @@ const ping = () => new Promise(
       }))
     } catch (e) {
       reject(Service.rejectResponse(
-        e.message || 'Invalid input',
-        e.status || 405
+        e.message || 'Internal Server',
+        e.status || 500
       ))
     }
   }
