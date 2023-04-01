@@ -13,19 +13,19 @@ RUN /bin/bash -c 'npm config set loglevel warn \
 # Oracle instanclient
 RUN apt-get update
 RUN apt-get install libaio1 unzip
-COPY oracle/instantclient-basic-linux.x64-19.17.0.0.0dbru.zip instantclient.zip
+COPY oracle/instantclient-basic-linux.x64-19.18.0.0.0dbru.zip instantclient.zip
 RUN unzip instantclient.zip
 RUN rm instantclient.zip
 
-COPY oracle/instantclient-sqlplus-linux.x64-19.17.0.0.0dbru.zip instantclient-sqlplus.zip
+COPY oracle/instantclient-sqlplus-linux.x64-19.18.0.0.0dbru.zip instantclient-sqlplus.zip
 RUN unzip instantclient-sqlplus.zip
 RUN rm instantclient-sqlplus.zip
 
 RUN mkdir -p /opt/oracle
-RUN mv instantclient_19_17 /opt/oracle
+RUN mv instantclient_19_18 /opt/oracle
 
-ENV LD_LIBRARY_PATH=/opt/oracle/instantclient_19_17:$LD_LIBRARY_PATH \
-	PATH=/opt/oracle/instantclient_19_17:$PATH
+ENV LD_LIBRARY_PATH=/opt/oracle/instantclient_19_18:$LD_LIBRARY_PATH \
+	PATH=/opt/oracle/instantclient_19_18:$PATH
 
 RUN /bin/bash -c 'echo "node version" && node --version'
 RUN /bin/bash -c 'cat /etc/os-release'
