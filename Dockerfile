@@ -1,4 +1,4 @@
-FROM node:14.19.1-slim
+FROM node:16.20-slim
 
 # PM2 will be used as PID 1 process
 # RUN /bin/bash -c 'npm install -g pm2@4.2.3'
