@@ -23,7 +23,7 @@ class ExpressServer {
     this.app = express();
     this.openApiPath = path.join(__dirname, 'api', 'openapi.yaml');
     try {
-      this.schema = jsYaml.safeLoad(fs.readFileSync(this.openApiPath));
+      this.schema = jsYaml.load(fs.readFileSync(this.openApiPath));
     } catch (e) {
       logger.error('failed to start Express Server', e.message);
     }
@@ -82,8 +82,8 @@ class ExpressServer {
   async launch() {
     this.config = await this.ormInit()
     await this.kafkaInit()
-    this.server = http.createServer(this.app).listen(this.config.app.port, async () => {
-      const message = 'Server running at: ' + this.config.app.host + ':' + this.config.app.port + '/api-docs'
+    this.server = http.createServer(this.app).listen(this.config.infrastructure.rest.port, async () => {
+      const message = 'Server running at: ' + this.config.infrastructure.rest.host + ':' + this.config.infrastructure.rest.port + '/api-docs'
       logger.info(message)
       console.log(message)
     })
@@ -93,25 +93,28 @@ class ExpressServer {
     logger.info('orm initializing...')
     const config = await orm.init(process.env.WORKSPACE || '/workspace')
     new Library(orm).load()
-    if (!config.app.host) {
-      config.app.host = 'http://localhost'
+    if(!config.infrastructure.rest) {
+      config.infrastructure.rest= {}
     }
-    if (!config.app.port) {
-      config.app.port = 8081
+    if (!config.infrastructure.rest.host) {
+      config.infrastructure.rest.host = 'http://localhost'
+    }
+    if (!config.infrastructure.rest.port) {
+      config.infrastructure.rest.port = 8081
     }
     logger.info('orm initialized')
     return config
   }
 
   async kafkaInit() {
-    if (this.config.app.kafka && this.config.app.kafka.config) {
+    if (this.config.infrastructure.kafka && this.config.infrastructure.kafka.config) {
       // https://kafka.js.org/docs/configuration
-      logger.info(`kafka config: ${JSON.stringify(this.config.app.kafka.config)}`)
-      this.kafka = new Kafka(this.config.app.kafka.config)
+      logger.info(`kafka config: ${JSON.stringify(this.config.infrastructure.kafka.config)}`)
+      this.kafka = new Kafka(this.config.infrastructure.kafka.config)
       new KafkaLibrary(orm.expressions.model, this.kafka).load()
-      if (this.config.app.kafka.consumers) {
+      if (this.config.infrastructure.kafka.consumers) {
         this.kafkaConsumers = new KafkaConsumers(this.kafka)
-        this.kafkaConsumers.start(this.config.app.kafka.consumers)
+        this.kafkaConsumers.start(this.config.infrastructure.kafka.consumers)
       }
     }
   }
@@ -119,7 +122,7 @@ class ExpressServer {
   async close() {
     if (this.server !== undefined) {
       this.server.close();
-      logger.info(`Server on port ${this.config.app.port} shut down`);
+      logger.info(`Server on port ${this.config.infrastructure.rest.port} shut down`);
     }
     await orm.end()
   }

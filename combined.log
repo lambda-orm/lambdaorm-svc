@@ -307,3 +307,49 @@
 {"level":"info","message":"kafka config: {\"clientId\":\"collections\",\"brokers\":[\"localhost:9093\"]}","service":"user-service","timestamp":"2023-03-21T14:45:50.298Z"}
 {"level":"info","message":"Server running at: http://localhost:8081/api-docs","service":"user-service","timestamp":"2023-03-21T14:45:50.300Z"}
 {"level":"error","message":"500: Stage: insights2 not found","service":"user-service","timestamp":"2023-03-21T14:47:05.328Z"}
+{"level":"error","message":"failed to start Express Server","service":"user-service","timestamp":"2023-07-04T22:46:30.183Z"}
+{"level":"info","message":"orm initializing...","service":"user-service","timestamp":"2023-07-04T22:46:30.194Z"}
+{"level":"error","message":"Express Server failure","service":"user-service","timestamp":"2023-07-04T22:46:30.756Z"}
+{"level":"error","service":"user-service","timestamp":"2023-07-04T22:46:30.757Z"}
+{"level":"error","message":"failed to start Express Server","service":"user-service","timestamp":"2023-07-04T22:47:13.239Z"}
+{"level":"info","message":"orm initializing...","service":"user-service","timestamp":"2023-07-04T22:47:13.251Z"}
+{"level":"error","message":"Express Server failure","service":"user-service","timestamp":"2023-07-04T22:47:13.758Z"}
+{"level":"error","service":"user-service","timestamp":"2023-07-04T22:47:13.759Z"}
+{"level":"error","message":"failed to start Express Server","service":"user-service","timestamp":"2023-07-04T22:48:55.703Z"}
+{"level":"info","message":"orm initializing...","service":"user-service","timestamp":"2023-07-04T22:49:02.195Z"}
+{"level":"error","message":"Express Server failure","service":"user-service","timestamp":"2023-07-04T22:49:17.041Z"}
+{"level":"error","service":"user-service","timestamp":"2023-07-04T22:49:18.579Z"}
+{"level":"error","message":"failed to start Express Server","service":"user-service","timestamp":"2023-07-04T22:51:14.182Z"}
+{"level":"info","message":"orm initializing...","service":"user-service","timestamp":"2023-07-04T22:51:48.107Z"}
+{"level":"error","message":"Express Server failure","service":"user-service","timestamp":"2023-07-04T22:52:59.131Z"}
+{"level":"error","service":"user-service","timestamp":"2023-07-04T22:52:59.135Z"}
+{"level":"error","message":"failed to start Express Server","service":"user-service","timestamp":"2023-07-04T22:57:43.217Z"}
+{"level":"info","message":"orm initializing...","service":"user-service","timestamp":"2023-07-04T22:57:52.497Z"}
+{"level":"error","message":"failed to start Express Server","service":"user-service","timestamp":"2023-07-04T23:31:36.821Z"}
+{"level":"info","message":"orm initializing...","service":"user-service","timestamp":"2023-07-04T23:31:38.907Z"}
+{"level":"error","message":"Express Server failure","service":"user-service","timestamp":"2023-07-04T23:31:40.624Z"}
+{"level":"error","service":"user-service","timestamp":"2023-07-04T23:31:40.625Z"}
+{"level":"error","message":"failed to start Express Server","service":"user-service","timestamp":"2023-07-04T23:36:09.515Z"}
+{"level":"info","message":"orm initializing...","service":"user-service","timestamp":"2023-07-04T23:36:11.652Z"}
+{"level":"info","message":"orm initialized","service":"user-service","timestamp":"2023-07-04T23:36:33.596Z"}
+{"level":"error","message":"Express Server failure","service":"user-service","timestamp":"2023-07-04T23:36:33.600Z"}
+{"level":"error","service":"user-service","timestamp":"2023-07-04T23:36:33.603Z"}
+{"level":"error","message":"failed to start Express Server","service":"user-service","timestamp":"2023-07-04T23:37:10.589Z"}
+{"level":"info","message":"orm initializing...","service":"user-service","timestamp":"2023-07-04T23:37:16.460Z"}
+{"level":"info","message":"orm initialized","service":"user-service","timestamp":"2023-07-04T23:37:19.508Z"}
+{"level":"error","message":"failed to start Express Server","service":"user-service","timestamp":"2023-07-04T23:38:45.782Z"}
+{"level":"info","message":"orm initializing...","service":"user-service","timestamp":"2023-07-04T23:38:47.716Z"}
+{"level":"info","message":"orm initialized","service":"user-service","timestamp":"2023-07-04T23:38:49.611Z"}
+{"level":"info","message":"Server running at: http://localhost:8081/api-docs","service":"user-service","timestamp":"2023-07-04T23:38:50.792Z"}
+{"level":"error","message":"failed to start Express Server","service":"user-service","timestamp":"2023-07-04T23:45:47.302Z"}
+{"level":"info","message":"orm initializing...","service":"user-service","timestamp":"2023-07-04T23:45:52.107Z"}
+{"level":"info","message":"orm initialized","service":"user-service","timestamp":"2023-07-04T23:45:52.541Z"}
+{"level":"info","message":"Server running at: http://localhost:8081/api-docs","service":"user-service","timestamp":"2023-07-04T23:45:55.603Z"}
+{"level":"error","message":"500: Cannot read properties of undefined (reading 'entities')","service":"user-service","timestamp":"2023-07-04T23:47:15.784Z"}
+{"level":"error","message":"failed to start Express Server","service":"user-service","timestamp":"2023-07-04T23:52:37.251Z"}
+{"level":"info","message":"orm initializing...","service":"user-service","timestamp":"2023-07-04T23:52:37.261Z"}
+{"level":"info","message":"orm initialized","service":"user-service","timestamp":"2023-07-04T23:52:37.713Z"}
+{"level":"info","message":"Server running at: http://localhost:8081/api-docs","service":"user-service","timestamp":"2023-07-04T23:52:37.716Z"}
+{"level":"info","message":"orm initializing...","service":"user-service","timestamp":"2023-07-04T23:59:31.484Z"}
+{"level":"info","message":"orm initialized","service":"user-service","timestamp":"2023-07-04T23:59:31.909Z"}
+{"level":"info","message":"Server running at: http://localhost:8081/api-docs","service":"user-service","timestamp":"2023-07-04T23:59:31.911Z"}

@@ -48,7 +48,7 @@ const datasource = ({ datasource }) => new Promise(
 const entities = () => new Promise(
   (resolve, reject) => {
     try {
-      const result = orm.schema.model.entities
+      const result = orm.schema.domain.entities
       resolve(Service.successResponse(result))
     } catch (e) {
       reject(Service.rejectResponse(
@@ -66,7 +66,7 @@ const entities = () => new Promise(
 const entity = ({ entity }) => new Promise(
   async (resolve, reject) => {
     try {
-      const result = orm.schema.model.entities.find(p => p.name === entity)
+      const result = orm.schema.domain.entities.find(p => p.name === entity)
       resolve(Service.successResponse(result));
     } catch (e) {
       reject(Service.rejectResponse(
@@ -85,7 +85,7 @@ const entity = ({ entity }) => new Promise(
 const _enum = ({ _enum }) => new Promise(
   async (resolve, reject) => {
     try {
-      const result = orm.schema.model.enums.find(p => p.name === _enum)
+      const result = orm.schema.domain.enums.find(p => p.name === _enum)
       resolve(Service.successResponse(result));
     } catch (e) {
       reject(Service.rejectResponse(
@@ -102,7 +102,7 @@ const _enum = ({ _enum }) => new Promise(
 const enums = () => new Promise(
   (resolve, reject) => {
     try {
-      resolve(Service.successResponse(orm.schema.model.enums))
+      resolve(Service.successResponse(orm.schema.domain.enums))
     } catch (e) {
       reject(Service.rejectResponse(
         e.message || 'Internal Server',

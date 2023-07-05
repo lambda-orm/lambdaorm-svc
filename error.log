@@ -31,3 +31,27 @@
 {"level":"error","message":"Express Server failure","service":"user-service","timestamp":"2023-03-16T09:23:49.301Z"}
 {"level":"error","service":"user-service","timestamp":"2023-03-16T09:23:49.304Z"}
 {"level":"error","message":"500: Stage: insights2 not found","service":"user-service","timestamp":"2023-03-21T14:47:05.328Z"}
+{"level":"error","message":"failed to start Express Server","service":"user-service","timestamp":"2023-07-04T22:46:30.183Z"}
+{"level":"error","message":"Express Server failure","service":"user-service","timestamp":"2023-07-04T22:46:30.756Z"}
+{"level":"error","service":"user-service","timestamp":"2023-07-04T22:46:30.757Z"}
+{"level":"error","message":"failed to start Express Server","service":"user-service","timestamp":"2023-07-04T22:47:13.239Z"}
+{"level":"error","message":"Express Server failure","service":"user-service","timestamp":"2023-07-04T22:47:13.758Z"}
+{"level":"error","service":"user-service","timestamp":"2023-07-04T22:47:13.759Z"}
+{"level":"error","message":"failed to start Express Server","service":"user-service","timestamp":"2023-07-04T22:48:55.703Z"}
+{"level":"error","message":"Express Server failure","service":"user-service","timestamp":"2023-07-04T22:49:17.041Z"}
+{"level":"error","service":"user-service","timestamp":"2023-07-04T22:49:18.579Z"}
+{"level":"error","message":"failed to start Express Server","service":"user-service","timestamp":"2023-07-04T22:51:14.182Z"}
+{"level":"error","message":"Express Server failure","service":"user-service","timestamp":"2023-07-04T22:52:59.131Z"}
+{"level":"error","service":"user-service","timestamp":"2023-07-04T22:52:59.135Z"}
+{"level":"error","message":"failed to start Express Server","service":"user-service","timestamp":"2023-07-04T22:57:43.217Z"}
+{"level":"error","message":"failed to start Express Server","service":"user-service","timestamp":"2023-07-04T23:31:36.821Z"}
+{"level":"error","message":"Express Server failure","service":"user-service","timestamp":"2023-07-04T23:31:40.624Z"}
+{"level":"error","service":"user-service","timestamp":"2023-07-04T23:31:40.625Z"}
+{"level":"error","message":"failed to start Express Server","service":"user-service","timestamp":"2023-07-04T23:36:09.515Z"}
+{"level":"error","message":"Express Server failure","service":"user-service","timestamp":"2023-07-04T23:36:33.600Z"}
+{"level":"error","service":"user-service","timestamp":"2023-07-04T23:36:33.603Z"}
+{"level":"error","message":"failed to start Express Server","service":"user-service","timestamp":"2023-07-04T23:37:10.589Z"}
+{"level":"error","message":"failed to start Express Server","service":"user-service","timestamp":"2023-07-04T23:38:45.782Z"}
+{"level":"error","message":"failed to start Express Server","service":"user-service","timestamp":"2023-07-04T23:45:47.302Z"}
+{"level":"error","message":"500: Cannot read properties of undefined (reading 'entities')","service":"user-service","timestamp":"2023-07-04T23:47:15.784Z"}
+{"level":"error","message":"failed to start Express Server","service":"user-service","timestamp":"2023-07-04T23:52:37.251Z"}
