@@ -1,4 +1,4 @@
-model:
+domain:
   enums:
   entities:
     - name: Address
@@ -213,9 +213,27 @@ model:
           entity: Products
           to: id
           target: orderDetails
-  views:
-    - name: default
-data:    
+application:  
+  start:
+    - name: test
+      expression: console("App started")
+  end:
+    - name: test
+      expression: console("App ended")          
+  listeners:
+    - name: tests
+      actions: [select]
+      condition: 'options.stage === "MySQL" && query.entity=="Orders"'
+      before: console(args.expression)
+      after: console(stringify(args.result))
+infrastructure:
+  paths:
+    src: src
+    data: data
+    model: model
+  rest:      
+    host: $HOST
+    port: $PORT
   mappings:
     - name: default
       entities:
@@ -424,54 +442,14 @@ data:
           properties:
             - name: id
               mapping: _id
-  sources:
-    - name: Source
-      mapping: default
-      dialect: MySQL
-      connection: ${ORM_CNN_SOURCE}
-    - name: MySQL
-      mapping: default
-      dialect: MySQL
-      connection: ${ORM_CNN_MYSQL}
-    - name: MariaDB
-      mapping: default
-      dialect: MariaDB
-      connection: ${ORM_CNN_MARIADB}
-    - name: PostgreSQL
+  sources:    
+    - name: default
       mapping: default
       dialect: PostgreSQL
-      connection: ${ORM_CNN_POSTGRES}
-    - name: SqlServer
-      mapping: default
-      dialect: SqlServer
-      connection: ${ORM_CNN_MSSQL}
-    - name: Oracle
-      mapping: Oracle
-      dialect: Oracle
-      connection: ${ORM_CNN_ORACLE}
-    - name: MongoDB
-      mapping: MongoDB
-      dialect: MongoDB
-      connection: ${ORM_CNN_MONGODB}
+      connection: ${CNN_POSTGRES}    
   stages:
-    - name: Source
-      sources:
-        - name: Source
-    - name: MySQL
-      sources:
-        - name: MySQL
-    - name: MariaDB
-      sources:
-        - name: MariaDB
-    - name: PostgreSQL
-      sources:
-        - name: PostgreSQL
-    - name: SqlServer
-      sources:
-        - name: SqlServer
-    - name: Oracle
-      sources:
-        - name: Oracle
-    - name: MongoDB
-      sources:
-        - name: MongoDB
+  - name: default
+    sources:
+      - name: default   
+  views:
+    - name: default

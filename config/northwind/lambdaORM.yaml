@@ -232,8 +232,8 @@ infrastructure:
     data: data
     model: model
   rest:      
-    host: http://localhost
-    port: 8081
+    host: $HOST
+    port: $PORT
   mappings:
     - name: default
       entities:

@@ -1,6 +1,6 @@
-@host = http://localhost:8081
-@stage = PostgreSQL
-@expression= Orders.filter(p => p.id === id).include(p => [p.customer.map(p => p.name), p.details.include(p => p.product.include(p => p.category.map(p => p.name)).map(p => p.name)).map(p => [p.quantity, p.unitPrice])])
+@host = http://localhost:9292
+@stage = default
+@expression=Orders.filter(p => p.id === id).include(p => [p.customer.map(p => p.name), p.details.include(p => p.product.include(p => p.category.map(p => p.name)).map(p => p.name)).map(p => [p.quantity, p.unitPrice])])
 @data={"id": 2 }
 
 

@@ -35,6 +35,7 @@
     "ORCLCDB",
     "Partitioner",
     "Partitioners",
+    "postgres",
     "proot",
     "Roadmap",
     "sasl",

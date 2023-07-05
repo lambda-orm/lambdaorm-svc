@@ -353,3 +353,6 @@
 {"level":"info","message":"orm initializing...","service":"user-service","timestamp":"2023-07-04T23:59:31.484Z"}
 {"level":"info","message":"orm initialized","service":"user-service","timestamp":"2023-07-04T23:59:31.909Z"}
 {"level":"info","message":"Server running at: http://localhost:8081/api-docs","service":"user-service","timestamp":"2023-07-04T23:59:31.911Z"}
+{"level":"info","message":"orm initializing...","service":"user-service","timestamp":"2023-07-05T06:49:53.523Z"}
+{"level":"info","message":"orm initialized","service":"user-service","timestamp":"2023-07-05T06:49:54.050Z"}
+{"level":"info","message":"Server running at: http://localhost:8081/api-docs","service":"user-service","timestamp":"2023-07-05T06:49:54.052Z"}

@@ -1,49 +1,47 @@
 version: "3.2"
 networks:
-  svc:
+  lambdaorm-svc:
     driver: bridge
 
 services:
   postgres:
     container_name: lambdaorm-svc-postgres
-    image: postgres:10
+    image: postgres:12-alpine
     restart: always
     environment:
-      - POSTGRES_DB=northwind
-      - POSTGRES_USER=northwind
-      - POSTGRES_PASSWORD=northwind
+      - POSTGRES_USER=admin
+      - POSTGRES_PASSWORD=admin
     volumes:
       - ./volume/postgres-data:/var/lib/postgresql/data
+      - ./db/postgres/startup.sql:/docker-entrypoint-initdb.d/init.sql
     ports:
       - '5436:5432'
-    expose:
-      - 5436  
     healthcheck:
       test: [ "CMD", "pg_isready", "-U", "test" ]
       interval: 3s
       timeout: 1s
       retries: 10
     networks:
-      - svc
+      - lambdaorm-svc
   lambdaorm-api:
     depends_on:
       - postgres
     container_name: lambdaorm-svc-api
     # image: flaviorita/lambdaorm-svc:0.4.40
     build:
-      context: ./../../..
+      context: ./../../../../
     restart: always  
     environment:
       - HOST=http://localhost
       - PORT=9292
       - WORKSPACE=/workspace
-      - 'CNN_POSTGRES={"host":"lambdaorm-svc-postgres","port":5436,"user":"northwind","password":"northwind","database":"northwind"}'
+      - CNN_POSTGRES={"host":"postgres","port":5436,"user":"northwind","password":"northwind","database":"northwind"}
     ports:
       - 9292:9292
     expose:
       - 9292
     # network_mode: "host"
     networks:
-      - svc
+      - lambdaorm-svc
     volumes:
-      - ./volume/workspace:/workspace  
+      - ./workspace:/workspace  
