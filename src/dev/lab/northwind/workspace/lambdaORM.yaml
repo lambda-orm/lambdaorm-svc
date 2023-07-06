@@ -443,20 +443,13 @@ infrastructure:
             - name: id
               mapping: _id
   sources:    
-    - name: postgres
+    - name: default
       mapping: default
       dialect: PostgreSQL
-      connection: ${CNN_POSTGRES}
-    - name: mySql
-      mapping: default
-      dialect: MySQL
-      connection: ${CNN_MYSQL}      
+      connection: ${CNN_POSTGRES}    
   stages:
-    - name: postgres
+    - name: default
       sources:
-        - name: postgres
-    - name: mySql
-      sources:
-        - name: mySql       
+        - name: default
   views:
     - name: default
