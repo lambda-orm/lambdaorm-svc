@@ -1,8 +1,5 @@
 FROM node:16.20-slim
 
-# PM2 will be used as PID 1 process
-# RUN /bin/bash -c 'npm install -g pm2@4.2.3'
-
 # Install packages
 RUN /bin/bash -c 'npm config set loglevel warn \
 	# To mitigate issues with npm saturating the network interface we limit the number of concurrent connections
