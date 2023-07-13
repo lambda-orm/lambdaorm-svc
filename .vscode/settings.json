@@ -46,8 +46,10 @@
     "SASL",
     "slowloris",
     "Slowloris",
+    "sqlmap",
     "taskkill",
     "uroot",
-    "uuidv"
+    "uuidv",
+    "wireshark"
   ]
 }
