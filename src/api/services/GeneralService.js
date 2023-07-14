@@ -1,4 +1,5 @@
 /* eslint-disable no-unused-vars */
+'use strict'
 const Service = require('./Service')
 const Metrics = require('./Metrics')
 
