@@ -14,8 +14,6 @@ const { orm } = require('lambdaorm')
 const { Kafka } = require('kafkajs')
 const { KafkaLibrary } = require('./manager/kafkaLibrary')
 const { KafkaConsumers } = require('./manager/kafkaConsumers')
-
-
 const { Library } = require('./manager/library')
 const Metrics = require('./services/Metrics')
 
@@ -28,7 +26,8 @@ class ExpressServer {
     } catch (e) {
       logger.error('failed to start Express Server', e.message);
     }
-    this.initializeConfiguration()
+    this.port = process.env.PORT || 9291
+    this.host = process.env.HOST || 'http://0.0.0.0'
     this.setupMiddleware()
   }
 
@@ -43,22 +42,16 @@ class ExpressServer {
     return this._instance
   }
 
-  initializeConfiguration(){
-    this.port = process.env.PORT || 9291
-    this.host = process.env.HOST || 'http://0.0.0.0'
-    this.limit = {}
-    this.limit.windowMs =  process.env.LIMIT_WINDOWS_MS || (30 * 1000) // 30 seconds
-    this.limit.max =  process.env.LIMIT_MAX || 30  // Limit each IP to 30 requests per `window` (here, per 30 seconds)
-  }
-
   setupMiddleware() {
     // this.setupAllowedMedia();
-    this.app.use(limiter({
-      windowMs: this.limit.windowMs,
-      max: this.limit.max, 
-      standardHeaders: true, // Return rate limit info in the `RateLimit-*` headers
-      legacyHeaders: false, // Disable the `X-RateLimit-*` headers
-    }))
+    if( process.env.LIMIT_WINDOWS_MS || process.env.LIMIT_MAX ){
+      this.app.use(limiter({
+        windowMs: process.env.LIMIT_WINDOWS_MS || (30 * 1000), // 30 seconds,
+        max: process.env.LIMIT_MAX || 30,  // Limit each IP to 30 requests per `window` (here, per 30 seconds)
+        standardHeaders: true, // Return rate limit info in the `RateLimit-*` headers
+        legacyHeaders: false, // Disable the `X-RateLimit-*` headers
+      }))
+    }
     this.app.use(cors());
     this.app.use(bodyParser.json({ limit: '14MB' }));
     this.app.use(express.json());
@@ -96,9 +89,6 @@ class ExpressServer {
   }
 
   async launch() {
-    
-
-
     this.config = await this.ormInit()
     await this.kafkaInit()
     this.server = http.createServer(this.app).listen(this.port, async () => {
