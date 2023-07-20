@@ -5,7 +5,7 @@ services:
     image: postgres:12-alpine
     restart: always
     environment:
-      - POSTGRES_DB=northwind    
+      - POSTGRES_DB=northwind
       - POSTGRES_USER=northwind
       - POSTGRES_PASSWORD=northwind
     volumes:
@@ -13,10 +13,10 @@ services:
     networks:
       - backend
     healthcheck:
-      test: [ "CMD", "pg_isready", "-U", "northwind" ]
+      test: ["CMD", "pg_isready", "-U", "northwind"]
       interval: 3s
       timeout: 1s
-      retries: 10  
+      retries: 10
   orm:
     depends_on:
       - postgres
@@ -27,13 +27,13 @@ services:
     restart: always
     deploy:
       replicas: 3
-      resources:        
+      resources:
         limits:
-          cpus: '0.25'
+          cpus: "0.25"
           memory: 1G
         reservations:
-          cpus: '0.1'
-          memory: 500M  
+          cpus: "0.1"
+          memory: 500M
     environment:
       - NODE_ENV=production
       - HOST=http://0.0.0.0
@@ -51,7 +51,7 @@ services:
       interval: 10s
       retries: 3
       start_period: 30s
-      timeout: 5s 
+      timeout: 5s
   prometheus:
     depends_on:
       - orm
@@ -59,7 +59,7 @@ services:
     container_name: prometheus
     volumes:
       - prometheus_data:/prometheus
-      - ./prometheus:/etc/prometheus      
+      - ./prometheus:/etc/prometheus
     ports:
       - 9090:9090
     expose:
@@ -71,14 +71,14 @@ services:
     depends_on:
       - prometheus
     image: grafana/grafana:7.1.5
-    container_name: grafana    
+    container_name: grafana
     environment:
       - GF_AUTH_DISABLE_LOGIN_FORM=true
       - GF_AUTH_ANONYMOUS_ENABLED=true
       - GF_AUTH_ANONYMOUS_ORG_ROLE=Admin
-    volumes:      
+    volumes:
       - ./grafana/provisioning:/etc/grafana/provisioning
-      - grafana_data:/var/lib/grafana  
+      - grafana_data:/var/lib/grafana
     ports:
       - 3000:3000
     expose:
@@ -89,17 +89,17 @@ services:
     container_name: nginx
     image: nginx:latest
     depends_on:
-      - orm    
+      - orm
     volumes:
       - ./nginx/nginx.conf:/etc/nginx/nginx.conf:ro
-      - ./nginx/log:/var/log/nginx   
+      - ./nginx/log:/var/log/nginx
     ports:
       - 9200:9200
     expose:
-      - 9200  
+      - 9200
     networks:
       - backend
-      - frontend    
+      - frontend
 networks:
   backend:
   frontend:
@@ -107,4 +107,3 @@ volumes:
   prometheus_data: {}
   grafana_data: {}
   postgres_data: {}
-
