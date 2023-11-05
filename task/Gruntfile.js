@@ -36,13 +36,11 @@ module.exports = function (grunt) {
 		data.main = 'index.js'
 		fs.writeFileSync('dist/package.json', JSON.stringify(data, null, 2), 'utf8')
 	})
-
 	grunt.registerTask('lint', ['exec:lint'])
 	grunt.registerTask('build', ['lint', 'clean:build', 'exec:tsc', 'copy:swagger'])
 	grunt.registerTask('test', ['build', 'exec:test'])
 	grunt.registerTask('doc', ['exec:doc'])
 	grunt.registerTask('dist', ['test', 'clean:dist', 'copy:lib', 'copy:readme', 'copy:license', 'create-package'])
-	grunt.registerTask('to-develop', ['test', 'exec:to_develop'])
 	grunt.registerTask('release', ['dist', 'doc', 'exec:release'])
 	grunt.registerTask('default', [])
 }

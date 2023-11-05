@@ -1,24 +1,25 @@
-name: Publish
+name: Release
 on:
-  release:
-    types: [published]
+  push:
+    branches: [release/*]
+  pull_request:
+    branches: [release/*]
+  workflow_dispatch:
 jobs:
   publish:
+    name: Publish
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
         with:
-          ref: ${{ github.event.release.target_commitish }}
-      - name: Use Node.js 14
-        uses: actions/setup-node@v1
-        with:
-          node-version: 14
-      - run: yarn install
-      - run: git config --global user.name "FlavioLionelRita"
-      - run: git config --global user.email "flaviolrita@gmail.com"
-      - run: npm version ${{ github.event.release.tag_name }}
-      - name: Lint
-        run: npm run lint
+          node-version: 20
+      - name: Install global dependencies
+        run: npm install -g grunt-cli husky standard-version
+      - name: Install dependencies
+        run: npm install
+      - name: Set Version
+        run: export VERSION=$(jq -r '.version' ./package.jso)
       - name: Build dist
         run: npm run dist
       - name: Login to Docker Hub
@@ -26,18 +27,10 @@ jobs:
         with:
           username: ${{ secrets.DOCKER_HUB_USERNAME }}
           password: ${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}
-      - name: Set up Docker Buildx
-        uses: docker/setup-buildx-action@v1
       - name: Build and push
         uses: docker/build-push-action@v2
         with:
           context: .
           file: ./Dockerfile
           push: true
-          tags: ${{ secrets.DOCKER_HUB_USERNAME }}/lambdaorm-svc:${{ github.event.release.tag_name }}
-      # push the version changes to GitHub
-      - name: Push
-        run: git push
-        env:
-          # The secret is passed automatically. Nothing to configure.
-          github-token: ${{ secrets.GH_TOKEN }}
+          tags: ${{ secrets.DOCKER_HUB_USERNAME }}/lambdaorm-svc:${{ env.VERSION }}

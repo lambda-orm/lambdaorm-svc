@@ -11,7 +11,8 @@
     "dist": "grunt --base . --gruntfile task/Gruntfile.js dist",
     "to-develop": "grunt --base . --gruntfile task/Gruntfile.js to-develop",
     "release": "grunt --base . --gruntfile task/Gruntfile.js release",
-    "start": "node dist/index.js"
+    "start": "node dist/index.js",
+    "prepare": "husky install"
   },
   "repository": {
     "type": "git",
