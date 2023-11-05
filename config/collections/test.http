@@ -1,0 +1,104 @@
+@host = http://localhost:9293
+@keycloaHost = http://localhost:8180
+
+
+### General -------------------------------------------------------------------------------------------------------------------------
+
+### ping
+GET {{host}}/ping HTTP/1.1
+
+### health
+GET {{host}}/health HTTP/1.1
+
+### metrics
+GET {{host}}/metrics HTTP/1.1
+
+### metrics prometheus
+GET {{host}}/actuator/prometheus HTTP/1.1
+
+### Schema  -------------------------------------------------------------------------------------------------------------------------
+
+### entities
+GET {{host}}/entities HTTP/1.1
+content-type: application/json
+
+### entity
+GET {{host}}/entities/PmParties HTTP/1.1
+content-type: application/json
+
+### stages
+GET {{host}}/stages HTTP/1.1
+content-type: application/json
+
+### stage
+GET {{host}}/stages/default HTTP/1.1
+content-type: application/json
+
+### Expressions -------------------------------------------------------------------------------------------------------------------------
+
+@options = {"stage":"default" }
+@expression=PmIndividuals.filter(p=> p.gender == gender).include(p->p.party)
+@data={"gender":"F"}
+
+### Model
+POST {{host}}/model HTTP/1.1
+content-type: application/json
+
+{	
+	"expression": "{{expression}}"
+}
+
+### Parameters
+POST {{host}}/parameters HTTP/1.1
+content-type: application/json
+
+{	
+	"expression": "{{expression}}"
+}
+
+### Metadata
+POST {{host}}/metadata HTTP/1.1
+content-type: application/json
+
+{	
+	"expression": "{{expression}}"
+}
+
+### Constraints
+POST {{host}}/constraints HTTP/1.1
+content-type: application/json
+
+{	
+	"expression": "PmIndividuals.bulkInsert().include(p=>p.party.include(p=> [p.identifications,p.contactMediums]))"
+}
+
+### Sentence
+POST {{host}}/sentence HTTP/1.1
+content-type: application/json
+
+{
+	"options": {{options}},
+	"expression": "{{expression}}"
+}
+
+### Execute
+POST {{host}}/execute HTTP/1.1
+content-type: application/json
+
+{
+	"options": {{options}},
+	"expression": "{{expression}}",
+	"data":{{data}}
+}
+
+### Execute Queued
+POST {{host}}/execute-queued HTTP/1.1
+content-type: application/json
+
+{
+	"options":{{options}},
+	"expression": "{{expression}}",
+	"data":{{data}},
+	"topic":"test-execute",
+	"chunk": 10 
+}

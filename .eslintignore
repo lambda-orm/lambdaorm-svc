@@ -2,3 +2,6 @@ dist/
 doc/
 public/
 test/
+build/
+labs/
+node_modules/
