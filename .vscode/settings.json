@@ -37,6 +37,7 @@
 		"instantclient",
 		"jexp",
 		"JEXP",
+		"kafkajs",
 		"keycloak",
 		"kong",
 		"ksqldb",

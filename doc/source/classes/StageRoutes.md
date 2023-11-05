@@ -30,7 +30,7 @@
 
 #### Defined in
 
-[infrastructure/routes/stageRoutes.ts:7](https://github.com/FlavioLionelRita/lambdaorm/blob/1f5c1aaa/svc/src/lib/infrastructure/routes/stageRoutes.ts#L7)
+[infrastructure/routes/stageRoutes.ts:7](https://github.com/FlavioLionelRita/lambdaorm-svc/blob/d465c5e/src/lib/infrastructure/routes/stageRoutes.ts#L7)
 
 ## Properties
 
@@ -40,7 +40,7 @@
 
 #### Defined in
 
-[infrastructure/routes/stageRoutes.ts:6](https://github.com/FlavioLionelRita/lambdaorm/blob/1f5c1aaa/svc/src/lib/infrastructure/routes/stageRoutes.ts#L6)
+[infrastructure/routes/stageRoutes.ts:6](https://github.com/FlavioLionelRita/lambdaorm-svc/blob/d465c5e/src/lib/infrastructure/routes/stageRoutes.ts#L6)
 
 ## Methods
 
@@ -54,4 +54,4 @@
 
 #### Defined in
 
-[infrastructure/routes/stageRoutes.ts:11](https://github.com/FlavioLionelRita/lambdaorm/blob/1f5c1aaa/svc/src/lib/infrastructure/routes/stageRoutes.ts#L11)
+[infrastructure/routes/stageRoutes.ts:11](https://github.com/FlavioLionelRita/lambdaorm-svc/blob/d465c5e/src/lib/infrastructure/routes/stageRoutes.ts#L11)
