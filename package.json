@@ -1,6 +1,6 @@
 {
   "name": "orm-service",
-  "version": "0.7.20",
+  "version": "0.7.21",
   "description": "service of lambda orm",
   "main": "./dist/lib/index",
   "scripts": {
@@ -9,7 +9,6 @@
     "test": "grunt --base . --gruntfile task/Gruntfile.js test",
     "doc": "grunt --base . --gruntfile task/Gruntfile.js doc ",
     "dist": "grunt --base . --gruntfile task/Gruntfile.js dist",
-    "to-develop": "grunt --base . --gruntfile task/Gruntfile.js to-develop",
     "release": "grunt --base . --gruntfile task/Gruntfile.js release",
     "start": "node dist/index.js",
     "prepare": "husky install"
