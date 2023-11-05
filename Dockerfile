@@ -31,5 +31,5 @@ COPY ./dist .
 RUN npm install --omit=dev
 VOLUME ["/workspace"]
 CMD ["npm","run","start"]
-# USER 1000
+USER 1000
 LABEL maintainer="flaviolrita@hotmail.com"

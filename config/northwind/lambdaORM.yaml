@@ -494,6 +494,7 @@ infrastructure:
     sources:
       - name: MongoDB    
   views:
+<<<<<<< HEAD
     - name: default
   service:
     host: $HOST
@@ -510,3 +511,6 @@ infrastructure:
   #       subscribe:
   #         topic: insights-sync-3
   #         fromBeginning: true  
+=======
+    - name: default
+>>>>>>> release
