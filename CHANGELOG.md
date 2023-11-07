@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.8.5](https://github.com/FlavioLionelRita/lambdaorm-svc/compare/v0.8.4...v0.8.5) (2023-11-07)
+
+
+### Features
+
+* **release:** update workflow ([63954b7](https://github.com/FlavioLionelRita/lambdaorm-svc/commit/63954b7c1b340a3f5a8cc05abe9c45d80ecf22e1)), closes [#176](https://github.com/FlavioLionelRita/lambdaorm-svc/issues/176)
+
 ### [0.8.4](https://github.com/FlavioLionelRita/lambdaorm-svc/compare/v0.8.3...v0.8.4) (2023-11-06)
 
 
