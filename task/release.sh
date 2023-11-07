@@ -19,7 +19,7 @@ if [ $SOURCE_BRANCH == 'develop' ]; then
     git checkout develop
     git merge release/${VERSION} -m "chore(release): release ${VERSION}"
     git push --follow-tags origin develop
-    sleep 1m
+    sleep 2m
     git branch -d release/${VERSION}
     git push origin --delete release/${VERSION}
 else
