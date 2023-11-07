@@ -31,7 +31,7 @@
 
 #### Defined in
 
-[application/services/generalService.ts:4](https://github.com/FlavioLionelRita/lambdaorm-svc/blob/63954b7/src/lib/application/services/generalService.ts#L4)
+[application/services/generalService.ts:4](https://github.com/FlavioLionelRita/lambdaorm-svc/blob/c5b2d99/src/lib/application/services/generalService.ts#L4)
 
 ## Properties
 
@@ -41,7 +41,7 @@
 
 #### Defined in
 
-[application/services/generalService.ts:4](https://github.com/FlavioLionelRita/lambdaorm-svc/blob/63954b7/src/lib/application/services/generalService.ts#L4)
+[application/services/generalService.ts:4](https://github.com/FlavioLionelRita/lambdaorm-svc/blob/c5b2d99/src/lib/application/services/generalService.ts#L4)
 
 ## Methods
 
@@ -55,7 +55,7 @@
 
 #### Defined in
 
-[application/services/generalService.ts:6](https://github.com/FlavioLionelRita/lambdaorm-svc/blob/63954b7/src/lib/application/services/generalService.ts#L6)
+[application/services/generalService.ts:6](https://github.com/FlavioLionelRita/lambdaorm-svc/blob/c5b2d99/src/lib/application/services/generalService.ts#L6)
 
 ___
 
@@ -69,4 +69,4 @@ ___
 
 #### Defined in
 
-[application/services/generalService.ts:24](https://github.com/FlavioLionelRita/lambdaorm-svc/blob/63954b7/src/lib/application/services/generalService.ts#L24)
+[application/services/generalService.ts:24](https://github.com/FlavioLionelRita/lambdaorm-svc/blob/c5b2d99/src/lib/application/services/generalService.ts#L24)
