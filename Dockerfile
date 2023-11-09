@@ -4,13 +4,11 @@ RUN npm config set maxsockets 5
 RUN npm config set progress false 
 RUN npm install lambdaorm-cli -g
 RUN apt-get update
-RUN apt install libaio1 unzip
-RUN apt install curl -y
-# Oracle instanclient
-COPY oracle/instantclient-basic-linux.x64-19.18.0.0.0dbru.zip instantclient.zip
+RUN apt install -y libaio1 unzip wget curl 
+RUN wget https://download.oracle.com/otn_software/linux/instantclient/1918000/instantclient-basic-linux.x64-19.18.0.0.0dbru.zip -O instantclient.zip
 RUN unzip instantclient.zip
 RUN rm instantclient.zip
-COPY oracle/instantclient-sqlplus-linux.x64-19.18.0.0.0dbru.zip instantclient-sqlplus.zip
+RUN wget https://download.oracle.com/otn_software/linux/instantclient/1918000/instantclient-sqlplus-linux.x64-19.18.0.0.0dbru.zip -O instantclient-sqlplus.zip
 RUN unzip instantclient-sqlplus.zip
 RUN rm instantclient-sqlplus.zip
 RUN mkdir -p /opt/oracle

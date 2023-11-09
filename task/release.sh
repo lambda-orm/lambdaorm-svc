@@ -1,15 +1,13 @@
 #!/usr/bin/env bash
 SOURCE_BRANCH=$(git branch | sed -n -e 's/^\* \(.*\)/\1/p')
-# Only execute release from develop branch
 if [ $SOURCE_BRANCH == 'develop' ]; then
-    # tag and push to develop
     standard-version
     VERSION=$(jq -r '.version' ./package.json )
     git add .
     git commit -m "ci(release): release ${VERSION} 
     
     #0"
-    git push --follow-tags origin develop
+    git push
     # create branch release
     git checkout -b release/${VERSION}
     git push --set-upstream origin release/${VERSION}
@@ -19,7 +17,7 @@ if [ $SOURCE_BRANCH == 'develop' ]; then
     git checkout develop
     git merge release/${VERSION} -m "chore(release): release ${VERSION}"
     git push --follow-tags origin develop
-    sleep 2m
+    sleep 1m
     git branch -d release/${VERSION}
     git push origin --delete release/${VERSION}
 else
