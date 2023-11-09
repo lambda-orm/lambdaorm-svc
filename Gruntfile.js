@@ -9,7 +9,7 @@ module.exports = function (grunt) {
 			tsc: { cmd: 'npx tsc ' },
 			test: { cmd: 'npx jest --config jest-config.json' },
 			doc: { cmd: 'npx typedoc --plugin typedoc-plugin-markdown --out doc/source src/lib/doc.index.ts' },
-			release: { cmd: './task/release.sh' }
+			release: { cmd: './release.sh' }
 		},
 		clean: {
 			build: ['build'],
@@ -25,7 +25,7 @@ module.exports = function (grunt) {
 		}
 	})
 	grunt.registerTask('create-package', 'create package.json for dist', function () {
-		const data = require('../package.json')
+		const data = require('./package.json')
 		delete data.devDependencies
 		delete data.private
 		delete data.scripts
