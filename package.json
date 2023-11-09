@@ -1,6 +1,6 @@
 {
   "name": "orm-service",
-  "version": "0.8.8",
+  "version": "0.8.9",
   "description": "service of lambda orm",
   "main": "./dist/lib/index",
   "scripts": {
@@ -16,6 +16,9 @@
   "repository": {
     "type": "git",
     "url": "git+https://github.com/FlavioLionelRita/lambdaorm-svc.git"
+  },
+  "standard-version": {
+    "header": "# Changelog\n\nAll notable changes to this project will be documented in this file.\n\n## Versions\n"
   },
   "keywords": [
     "orm",
