@@ -24,7 +24,7 @@ RUN apt-get clean
 # Node
 RUN npm install -g npm@10.2.1
 # App
-# WORKDIR /usr/src/app
+WORKDIR /usr/src/app
 COPY ./dist .
 RUN npm install --omit=dev
 VOLUME ["/workspace"]

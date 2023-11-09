@@ -22,15 +22,15 @@ jobs:
         run: npm install -g grunt-cli husky
       - name: Install dependencies
         run: npm install
+      - name: Checkout
+        uses: actions/checkout@v3  
       - name: Extract version from package.json
         uses: sergeysova/jq-action@v2
         id: version
         with:
           cmd: 'jq .version package.json -r'
       - name: Build dist
-        run: npm run dist      
-      - name: Checkout
-        uses: actions/checkout@v3
+        run: npm run dist
       - uses: mr-smithers-excellent/docker-build-push@v6
         name: Build & push Docker image
         with:
