@@ -4,6 +4,8 @@ All notable changes to this project will be documented in this file.
 
 ## Versions
 
+### [0.8.25](https://github.com/FlavioLionelRita/lambdaorm-svc/compare/v0.8.24...v0.8.25) (2023-11-09)
+
 ### [0.8.24](https://github.com/FlavioLionelRita/lambdaorm-svc/compare/v0.8.23...v0.8.24) (2023-11-09)
 
 ### [0.8.23](https://github.com/FlavioLionelRita/lambdaorm-svc/compare/v0.8.22...v0.8.23) (2023-11-09)
