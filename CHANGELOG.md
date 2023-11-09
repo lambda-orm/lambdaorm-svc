@@ -4,6 +4,13 @@ All notable changes to this project will be documented in this file.
 
 ## Versions
 
+### [0.8.34](https://github.com/FlavioLionelRita/lambdaorm-svc/compare/v0.8.33...v0.8.34) (2023-11-09)
+
+
+### Features
+
+* **dependenpies:** add dependabot ([76094ff](https://github.com/FlavioLionelRita/lambdaorm-svc/commit/76094ff62964f0483a7f7d7f7ce1c643796df1bc)), closes [#176](https://github.com/FlavioLionelRita/lambdaorm-svc/issues/176)
+
 ### [0.8.33](https://github.com/FlavioLionelRita/lambdaorm-svc/compare/v0.8.32...v0.8.33) (2023-11-09)
 
 
