@@ -25,7 +25,7 @@ RUN apt-get clean
 RUN npm install -g npm@10.2.1
 # App
 WORKDIR /usr/src/app
-COPY dist .
+COPY ./dist .
 RUN npm install --omit=dev
 VOLUME ["/workspace"]
 CMD ["npm","run","start"]
