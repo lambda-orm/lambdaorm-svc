@@ -31,7 +31,7 @@
 
 #### Defined in
 
-[infrastructure/routes/expressionRoutes.ts:7](https://github.com/FlavioLionelRita/lambdaorm-svc/blob/51e234a/src/lib/infrastructure/routes/expressionRoutes.ts#L7)
+[infrastructure/routes/expressionRoutes.ts:7](https://github.com/FlavioLionelRita/lambdaorm-svc/blob/7a2e3ba/src/lib/infrastructure/routes/expressionRoutes.ts#L7)
 
 ## Properties
 
@@ -41,7 +41,7 @@
 
 #### Defined in
 
-[infrastructure/routes/expressionRoutes.ts:6](https://github.com/FlavioLionelRita/lambdaorm-svc/blob/51e234a/src/lib/infrastructure/routes/expressionRoutes.ts#L6)
+[infrastructure/routes/expressionRoutes.ts:6](https://github.com/FlavioLionelRita/lambdaorm-svc/blob/7a2e3ba/src/lib/infrastructure/routes/expressionRoutes.ts#L6)
 
 ## Methods
 
@@ -55,4 +55,4 @@
 
 #### Defined in
 
-[infrastructure/routes/expressionRoutes.ts:11](https://github.com/FlavioLionelRita/lambdaorm-svc/blob/51e234a/src/lib/infrastructure/routes/expressionRoutes.ts#L11)
+[infrastructure/routes/expressionRoutes.ts:11](https://github.com/FlavioLionelRita/lambdaorm-svc/blob/7a2e3ba/src/lib/infrastructure/routes/expressionRoutes.ts#L11)
