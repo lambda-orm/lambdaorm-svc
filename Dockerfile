@@ -2,7 +2,6 @@ FROM node:18.18-slim
 RUN npm config set loglevel warn
 RUN npm config set maxsockets 5 
 RUN npm config set progress false 
-RUN npm install lambdaorm-cli -g
 RUN apt-get update
 RUN apt install -y libaio1 unzip wget curl 
 RUN wget https://download.oracle.com/otn_software/linux/instantclient/1918000/instantclient-basic-linux.x64-19.18.0.0.0dbru.zip -O instantclient.zip
@@ -23,6 +22,7 @@ RUN apt-get autoremove -y
 RUN apt-get clean
 # Node
 RUN npm install -g npm@10.2.1
+RUN npm install -g lambdaorm-cli
 # App
 WORKDIR /usr/src/app
 COPY ./dist .
