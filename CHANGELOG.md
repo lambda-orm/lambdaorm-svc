@@ -4,6 +4,13 @@ All notable changes to this project will be documented in this file.
 
 ## Versions
 
+### [0.8.35](https://github.com/FlavioLionelRita/lambdaorm-svc/compare/v0.8.34...v0.8.35) (2023-11-15)
+
+
+### Features
+
+* **licence:** change licence to MIT and update email ([8b4298f](https://github.com/FlavioLionelRita/lambdaorm-svc/commit/8b4298f1da7e262e9059302f8183a55ae6023f0e)), closes [#189](https://github.com/FlavioLionelRita/lambdaorm-svc/issues/189)
+
 ### [0.8.34](https://github.com/FlavioLionelRita/lambdaorm-svc/compare/v0.8.33...v0.8.34) (2023-11-09)
 
 
