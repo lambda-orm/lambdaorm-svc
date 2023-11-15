@@ -57,7 +57,7 @@ module.exports = function (grunt) {
 	})
 
 	grunt.registerTask('create-package', 'create package.json for dist', function () {
-		const data = require('../package.json')
+		const data = require('./package.json')
 		delete data.devDependencies
 		delete data.private
 		delete data.scripts
