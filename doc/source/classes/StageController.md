@@ -47,7 +47,7 @@ Controller.constructor
 
 #### Defined in
 
-[infrastructure/controllers/stageController.ts:6](https://github.com/FlavioLionelRita/lambdaorm-svc/blob/c29e40c/src/lib/infrastructure/controllers/stageController.ts#L6)
+[infrastructure/controllers/stageController.ts:6](https://github.com/FlavioLionelRita/lambdaorm-svc/blob/23b40c5/src/lib/infrastructure/controllers/stageController.ts#L6)
 
 ## Properties
 
@@ -57,7 +57,7 @@ Controller.constructor
 
 #### Defined in
 
-[infrastructure/controllers/stageController.ts:6](https://github.com/FlavioLionelRita/lambdaorm-svc/blob/c29e40c/src/lib/infrastructure/controllers/stageController.ts#L6)
+[infrastructure/controllers/stageController.ts:6](https://github.com/FlavioLionelRita/lambdaorm-svc/blob/23b40c5/src/lib/infrastructure/controllers/stageController.ts#L6)
 
 ## Methods
 
@@ -81,7 +81,7 @@ Controller.collectRequestParams
 
 #### Defined in
 
-[infrastructure/controllers/Controller.ts:21](https://github.com/FlavioLionelRita/lambdaorm-svc/blob/c29e40c/src/lib/infrastructure/controllers/Controller.ts#L21)
+[infrastructure/controllers/Controller.ts:21](https://github.com/FlavioLionelRita/lambdaorm-svc/blob/23b40c5/src/lib/infrastructure/controllers/Controller.ts#L21)
 
 ___
 
@@ -102,7 +102,7 @@ ___
 
 #### Defined in
 
-[infrastructure/controllers/stageController.ts:14](https://github.com/FlavioLionelRita/lambdaorm-svc/blob/c29e40c/src/lib/infrastructure/controllers/stageController.ts#L14)
+[infrastructure/controllers/stageController.ts:14](https://github.com/FlavioLionelRita/lambdaorm-svc/blob/23b40c5/src/lib/infrastructure/controllers/stageController.ts#L14)
 
 ___
 
@@ -123,7 +123,7 @@ ___
 
 #### Defined in
 
-[infrastructure/controllers/stageController.ts:18](https://github.com/FlavioLionelRita/lambdaorm-svc/blob/c29e40c/src/lib/infrastructure/controllers/stageController.ts#L18)
+[infrastructure/controllers/stageController.ts:18](https://github.com/FlavioLionelRita/lambdaorm-svc/blob/23b40c5/src/lib/infrastructure/controllers/stageController.ts#L18)
 
 ___
 
@@ -149,7 +149,7 @@ Controller.handleRequest
 
 #### Defined in
 
-[infrastructure/controllers/Controller.ts:44](https://github.com/FlavioLionelRita/lambdaorm-svc/blob/c29e40c/src/lib/infrastructure/controllers/Controller.ts#L44)
+[infrastructure/controllers/Controller.ts:44](https://github.com/FlavioLionelRita/lambdaorm-svc/blob/23b40c5/src/lib/infrastructure/controllers/Controller.ts#L44)
 
 ___
 
@@ -170,7 +170,7 @@ ___
 
 #### Defined in
 
-[infrastructure/controllers/stageController.ts:22](https://github.com/FlavioLionelRita/lambdaorm-svc/blob/c29e40c/src/lib/infrastructure/controllers/stageController.ts#L22)
+[infrastructure/controllers/stageController.ts:22](https://github.com/FlavioLionelRita/lambdaorm-svc/blob/23b40c5/src/lib/infrastructure/controllers/stageController.ts#L22)
 
 ___
 
@@ -191,7 +191,7 @@ ___
 
 #### Defined in
 
-[infrastructure/controllers/stageController.ts:10](https://github.com/FlavioLionelRita/lambdaorm-svc/blob/c29e40c/src/lib/infrastructure/controllers/stageController.ts#L10)
+[infrastructure/controllers/stageController.ts:10](https://github.com/FlavioLionelRita/lambdaorm-svc/blob/23b40c5/src/lib/infrastructure/controllers/stageController.ts#L10)
 
 ___
 
@@ -216,7 +216,7 @@ Controller.sendError
 
 #### Defined in
 
-[infrastructure/controllers/Controller.ts:12](https://github.com/FlavioLionelRita/lambdaorm-svc/blob/c29e40c/src/lib/infrastructure/controllers/Controller.ts#L12)
+[infrastructure/controllers/Controller.ts:12](https://github.com/FlavioLionelRita/lambdaorm-svc/blob/23b40c5/src/lib/infrastructure/controllers/Controller.ts#L12)
 
 ___
 
@@ -241,4 +241,4 @@ Controller.sendResponse
 
 #### Defined in
 
-[infrastructure/controllers/Controller.ts:2](https://github.com/FlavioLionelRita/lambdaorm-svc/blob/c29e40c/src/lib/infrastructure/controllers/Controller.ts#L2)
+[infrastructure/controllers/Controller.ts:2](https://github.com/FlavioLionelRita/lambdaorm-svc/blob/23b40c5/src/lib/infrastructure/controllers/Controller.ts#L2)
