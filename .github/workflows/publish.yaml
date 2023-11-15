@@ -25,8 +25,8 @@ jobs:
         id: version
         with:
           cmd: 'jq .version package.json -r'
-      - uses: mr-smithers-excellent/docker-build-push@v6
-        name: Build & push Docker image
+      - name: Build & push Docker image
+        uses: mr-smithers-excellent/docker-build-push@v6        
         with:
           image: ${{ secrets.DOCKER_HUB_USERNAME }}/lambdaorm-svc
           tags: ${{ steps.version.outputs.value }}
@@ -34,3 +34,7 @@ jobs:
           dockerfile: Dockerfile
           username: ${{ secrets.DOCKER_HUB_USERNAME }}
           password: ${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}
+      - name: Delete branch
+        run: |
+          git push origin --delete ${{ github.ref_name }} --no-verify
+          echo "Branch ${{ github.ref_name }} deleted"    
