@@ -1,39 +1,48 @@
-version: "3.2"  
+version: "3.2"
+networks:
+  northwind:
+    driver: bridge  
 services:
-  postgres:
-    container_name: lambdaorm-svc-postgres
-    image: postgres:12-alpine
+  mysql:
+    container_name: lambdaorm-svc-mysql
+    image: mysql:5.7
     restart: always
     environment:
-      - POSTGRES_DB=northwind    
-      - POSTGRES_USER=northwind
-      - POSTGRES_PASSWORD=northwind
-    volumes:
-      - ./volume/postgres-data:/var/lib/postgresql/data
+      - MYSQL_DATABASE=northwind
+      - MYSQL_USER=northwind
+      - MYSQL_PASSWORD=northwind
+      - MYSQL_ROOT_PASSWORD=northwind
     ports:
-      - '5436:5432'
+      - '3308:3306'
     expose:
-      - 5436  
-    healthcheck:
-      test: [ "CMD", "pg_isready", "-U", "northwind" ]
-      interval: 3s
-      timeout: 1s
-      retries: 10 
+      - 3308
+    networks:
+      - northwind
+    volumes:
+      - mysql-data:/var/lib/mysql
+      - mysql-log:/var/log/mysql  
   lambdaorm-api:
     depends_on:
-      - postgres
+      - mysql
     container_name: lambdaorm-svc-api
-    image: flaviorita/lambdaorm-svc:0.6.2
-    # build:
-    #   context: ./../../../../
+    image: flaviorita/lambdaorm-svc:0.8.36
     restart: always  
     environment:
-      - HOST=http://localhost
-      - PORT=9292
-      - WORKSPACE=/workspace
-      - CNN_POSTGRES={"host":"0.0.0.0","port":5436,"user":"northwind","password":"northwind","database":"northwind"}
-    # Se configuro network mode host por que cuando se intentaba conectar desde este contenedor al postgress, daba error de conexion
-    # TODO: configurar nuevamente como network y resolver el problema.
-    network_mode: host  
+      HOST: http://0.0.0.0
+      PORT: 9292
+      REQUEST_BODY_SIZE: 100mb
+      RATE_LIMIT_WINDOWS_MS: 60000
+      RATE_LIMIT_MAX: 1000
+      WORKSPACE: /workspace
+      MYSQL_CNX: '{"host":"http://mysql","port":3308,"user":"northwind","password":"northwind","database":"northwind","multipleStatements": true ,"waitForConnections": true }'
+    ports:
+      - '9292:9292'
+    expose:
+      - 9292  
+    networks:
+      - northwind
     volumes:
-      - ./workspace:/workspace  
+      - ./workspace:/workspace    
+volumes:
+  mysql-data:
+  mysql-log: 

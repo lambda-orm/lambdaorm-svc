@@ -1,3 +1,4 @@
+import { Request } from 'express'
 export abstract class Controller {
 	protected sendResponse (response:any, payload:any) {
 		response.status(payload.code || 200)
@@ -18,7 +19,7 @@ export abstract class Controller {
 		}
 	}
 
-	protected collectRequestParams (request:any):any {
+	protected collectRequestParams (request:Request):any {
 		const requestParams:any = {}
 		if (request.body && Object.keys(request.body).length > 0) {
 			requestParams.body = request.body
@@ -33,9 +34,9 @@ export abstract class Controller {
 				requestParams[name] = request.query[name]
 			}
 		}
-		if (request.header) {
-			for (const name in request.header) {
-				requestParams[name] = request.header[name]
+		if (request.headers) {
+			for (const name in request.headers) {
+				requestParams[name] = request.headers[name]
 			}
 		}
 		return requestParams

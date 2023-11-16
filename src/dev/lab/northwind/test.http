@@ -3,40 +3,39 @@
 @expression=Orders.filter(p => p.id === id).include(p => [p.customer.map(p => p.name), p.details.include(p => p.product.include(p => p.category.map(p => p.name)).map(p => p.name)).map(p => [p.quantity, p.unitPrice])])
 @data={"id": 2 }
 
-
 ### General -------------------------------------------------------------------------------------------------------------------------
 
 ### ping
-GET {{host}}/ping HTTP/1.1
+GET {{host}}/api/ping HTTP/1.1
 
 ### health
-GET {{host}}/health HTTP/1.1
+GET {{host}}/api/health HTTP/1.1
 
 ### metrics
-GET {{host}}/metrics HTTP/1.1
+GET {{host}}/api/metrics HTTP/1.1
 
 ### Schema  -------------------------------------------------------------------------------------------------------------------------
 
 ### entities
-GET {{host}}/entities HTTP/1.1
+GET {{host}}/api/entities HTTP/1.1
 content-type: application/json
 
 ### entity
-GET {{host}}/entities/Orders HTTP/1.1
+GET {{host}}/api/entities/Orders HTTP/1.1
 content-type: application/json
 
 ### stages
-GET {{host}}/stages HTTP/1.1
+GET {{host}}/api/stages HTTP/1.1
 content-type: application/json
 
 ### stage
-GET {{host}}/stages/PostgreSQL HTTP/1.1
+GET {{host}}/api/stages/PostgreSQL HTTP/1.1
 content-type: application/json
 
 ### Expressions -------------------------------------------------------------------------------------------------------------------------
 
 ### Model
-POST {{host}}/model HTTP/1.1
+POST {{host}}/api/model HTTP/1.1
 content-type: application/json
 
 {	
@@ -44,7 +43,7 @@ content-type: application/json
 }
 
 ### Parameters
-POST {{host}}/parameters HTTP/1.1
+POST {{host}}/api/parameters HTTP/1.1
 content-type: application/json
 
 {	
@@ -52,7 +51,7 @@ content-type: application/json
 }
 
 ### Constraints
-POST {{host}}/constraints HTTP/1.1
+POST {{host}}/api/constraints HTTP/1.1
 content-type: application/json
 
 {	
@@ -60,7 +59,7 @@ content-type: application/json
 }
 
 ### Sentence
-POST {{host}}/sentence HTTP/1.1
+POST {{host}}/api/sentence HTTP/1.1
 content-type: application/json
 
 {
@@ -69,7 +68,7 @@ content-type: application/json
 }
 
 ### ExecutePmIndividuals.filter(p=> p.gender == gender).include(p->p.party)
-POST {{host}}/execute HTTP/1.1
+POST {{host}}/api/execute HTTP/1.1
 content-type: application/json
 
 {

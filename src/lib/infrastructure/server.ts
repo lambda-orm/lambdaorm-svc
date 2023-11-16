@@ -35,34 +35,39 @@ export class Server {
 				this.queue = new QueueBuilder().build(this.orm, this.logger)
 				this.queue.start(this.schema.infrastructure.queue)
 			}
-			// TODO: solver metrics
-			// this.app.use(metric.after)
+			const port = this.config?.port || process.env.PORT || 80
+			const host = this.config?.host || process.env.HOST || 'http://localhost'
+			const requestBodySize = this.config.requestBodySize || process.env.REQUEST_BODY_SIZE
+			const rateLimitWindowMs = parseInt(this.config.rateLimitWindowMs || process.env.RATE_LIMIT_WINDOWS_MS || '30000')
+			const rateLimitMax = parseInt(this.config.rateLimitMax || process.env.RATE_LIMIT_MAX || '30')
+			const swagger = YAML.load(await h3lp.fs.read(path.join(__dirname, './swagger.yaml')))
+			swagger.servers = [{ description: 'default', url: `${host}:${port}` }]
+			this.app.use(bodyParser.json({ limit: requestBodySize || '14MB' }))
+			this.app.use(bodyParser.json())
+			this.app.use(bodyParser.urlencoded({ extended: true }))
+			this.app.use(cors())
+			this.app.use(this.rateLimit(rateLimitWindowMs || 3000, rateLimitMax || 30))
+			this.app.use(express.json())
+			this.app.use(express.urlencoded({ extended: false }))
+			this.app.use((req, res, next) => {
+				console.log('Incoming Request:', req.method, req.url)
+				console.log('Request Body:', req.body)
+				next()
+			})
+			this.app.use(cookieParser())
+			const metric = new MetricBuilder().build()
+			this.app.use('/api', new GeneralRoutes(new GeneralService(this.orm), metric).getRoutes())
 			this.app.use('/api', new ExpressionRoutes(new ExpressionService(this.orm), this.queue).getRoutes())
 			this.app.use('/api', new SchemaRoutes(new SchemaService(this.orm)).getRoutes())
 			this.app.use('/api', new StageRoutes(new StageService(this.orm)).getRoutes())
+			this.app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swagger))
+			this.app.use('/', swaggerUi.serve, swaggerUi.setup(swagger))
+			this.server = http.createServer(this.app).listen(port, async () => {
+				this.logger.info(`Server running at: ${host}:${port}/api-docs`)
+			})
 		} catch (error: any) {
 			this.logger.error(error.message)
 		}
-		const port = this.config?.port || process.env.PORT || 80
-		const host = this.config?.host || process.env.HOST || 'http://localhost'
-		const requestBodySize = this.config?.requestBodySize || process.env.REQUEST_BODY_SIZE || '14MB'
-		const rateLimitWindowMs = parseInt(this.config?.rateLimitWindowMs || process.env.RATE_LIMIT_WINDOWS_MS || '30000')
-		const rateLimitMax = parseInt(this.config?.rateLimitMax || process.env.RATE_LIMIT_MAX || '30')
-		const swagger = YAML.load(await h3lp.fs.read(path.join(__dirname, './swagger.yaml')))
-		swagger.servers = [{ description: 'default', url: `${host}:${port}` }]
-		this.app.use(bodyParser.json({ limit: requestBodySize }))
-		this.app.use(cors())
-		this.app.use(this.rateLimit(rateLimitWindowMs, rateLimitMax))
-		this.app.use(express.json())
-		this.app.use(express.urlencoded({ extended: false }))
-		this.app.use(cookieParser())
-		const metric = new MetricBuilder().build()
-		this.app.use('/api', new GeneralRoutes(new GeneralService(this.orm), metric).getRoutes())
-		this.app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swagger))
-		this.app.use('/', swaggerUi.serve, swaggerUi.setup(swagger))
-		this.server = http.createServer(this.app).listen(port, async () => {
-			this.logger.info(`Server running at: ${host}:${port}/api-docs`)
-		})
 	}
 
 	private rateLimit (rateLimitWindowMs:number, rateLimitMax:number) {

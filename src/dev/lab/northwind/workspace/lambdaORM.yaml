@@ -1,5 +1,4 @@
 domain:
-  enums:
   entities:
     - name: Address
       abstract: true
@@ -216,10 +215,10 @@ domain:
 application:  
   start:
     - name: test
-      expression: console("App started")
+      expression: console("λORM service started")
   end:
     - name: test
-      expression: console("App ended")          
+      expression: console("λORM service stopped")          
   listeners:
     - name: tests
       actions: [select]
@@ -227,13 +226,6 @@ application:
       before: console(args.expression)
       after: console(stringify(args.result))
 infrastructure:
-  paths:
-    src: src
-    data: data
-    model: model
-  rest:      
-    host: $HOST
-    port: $PORT
   mappings:
     - name: default
       entities:
@@ -383,73 +375,20 @@ infrastructure:
               mapping: Quantity
             - name: discount
               mapping: Discount
-    - name: Oracle
-      extends: default
-      entities:
-        - name: Address
-        - name: Categories
-          sequence: SQ_CATEGORIES
-        - name: Customers
-        - name: Employees
-          sequence: SQ_EMPLOYEES
-        - name: Shippers
-          sequence: SQ_SHIPPERS
-        - name: Suppliers
-          sequence: SQ_SUPPLIERS
-        - name: Products
-          sequence: SQ_PRODUCTS
-        - name: Orders
-          sequence: SQ_ORDERS
-        - name: Orders.details
-          # sequence: SQ_ORDER_DETAILS
-    - name: MongoDB
-      extends: default
-      entities:
-        - name: Address
-        - name: Categories
-          sequence: SQ_CATEGORIES
-          properties:
-            - name: id
-              mapping: _id
-        - name: Customers
-          properties:
-            - name: id
-              mapping: _id
-        - name: Employees
-          # extends: Address
-          sequence: SQ_EMPLOYEES
-          properties:
-            - name: id
-              mapping: _id
-        - name: Shippers
-          sequence: SQ_SHIPPERS
-          properties:
-            - name: id
-              mapping: _id
-        - name: Suppliers
-          # extends: Address
-          sequence: SQ_SUPPLIERS
-          properties:
-            - name: id
-              mapping: _id
-        - name: Products
-          sequence: SQ_PRODUCTS
-          properties:
-            - name: id
-              mapping: _id
-        - name: Orders
-          sequence: SQ_ORDERS
-          properties:
-            - name: id
-              mapping: _id
-  sources:    
+  sources: 
     - name: default
       mapping: default
-      dialect: PostgreSQL
-      connection: ${CNN_POSTGRES}    
+      dialect: MySQL
+      connection: $MYSQL_CNX       
   stages:
     - name: default
       sources:
         - name: default
   views:
     - name: default
+  service:
+    host: $HOST
+    port: $PORT
+    requestBodySize: $REQUEST_BODY_SIZE
+    rateLimitWindowMs: $RATE_LIMIT_WINDOWS_MS
+    rateLimitMax: $RATE_LIMIT_MAX  

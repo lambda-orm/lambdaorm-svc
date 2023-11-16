@@ -20,7 +20,7 @@
 			"skipFiles": [
 				"<node_internals>/**"
 			],
-			"program": "${workspaceFolder}/src/api/index.js",
+			"program": "${workspaceFolder}/build/index.js",
 			"envFile": "${workspaceFolder}/src/dev/lab/collections/workspace/.env"
 		},		
 		{
@@ -30,7 +30,7 @@
 			"skipFiles": [
 				"<node_internals>/**"
 			],
-			"program": "${workspaceFolder}/src/api/index.js",
+			"program": "${workspaceFolder}/build/index.js",
 			"envFile": "${workspaceFolder}/config/northwind/.env"
 		},
 		{
@@ -40,7 +40,7 @@
 			"skipFiles": [
 				"<node_internals>/**"
 			],
-			"program": "${workspaceFolder}/src/api/index.js",
+			"program": "${workspaceFolder}/build/index.js",
 			"envFile": "${workspaceFolder}/src/dev/lab/devicenet-svc/workspace/.env"
 		}
 	]
