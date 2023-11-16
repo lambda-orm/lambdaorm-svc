@@ -4,6 +4,13 @@ All notable changes to this project will be documented in this file.
 
 ## Versions
 
+### [0.8.37](https://github.com/FlavioLionelRita/lambdaorm-svc/compare/v0.8.36...v0.8.37) (2023-11-16)
+
+
+### Bug Fixes
+
+* solve bug on body parameters ([647df0d](https://github.com/FlavioLionelRita/lambdaorm-svc/commit/647df0d11112e47861fd859125b572f47a8f5da9)), closes [#189](https://github.com/FlavioLionelRita/lambdaorm-svc/issues/189)
+
 ### [0.8.36](https://github.com/FlavioLionelRita/lambdaorm-svc/compare/v0.8.35...v0.8.36) (2023-11-15)
 
 ### [0.8.35](https://github.com/FlavioLionelRita/lambdaorm-svc/compare/v0.8.34...v0.8.35) (2023-11-15)
