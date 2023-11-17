@@ -35,7 +35,7 @@
 
 #### Defined in
 
-[application/services/expressionService.ts:10](https://github.com/FlavioLionelRita/lambdaorm-svc/blob/8b4c881/src/lib/application/services/expressionService.ts#L10)
+[application/services/expressionService.ts:4](https://github.com/FlavioLionelRita/lambdaorm-svc/blob/6a99932/src/lib/application/services/expressionService.ts#L4)
 
 ## Properties
 
@@ -45,7 +45,7 @@
 
 #### Defined in
 
-[application/services/expressionService.ts:10](https://github.com/FlavioLionelRita/lambdaorm-svc/blob/8b4c881/src/lib/application/services/expressionService.ts#L10)
+[application/services/expressionService.ts:4](https://github.com/FlavioLionelRita/lambdaorm-svc/blob/6a99932/src/lib/application/services/expressionService.ts#L4)
 
 ## Methods
 
@@ -67,7 +67,7 @@
 
 #### Defined in
 
-[application/services/expressionService.ts:12](https://github.com/FlavioLionelRita/lambdaorm-svc/blob/8b4c881/src/lib/application/services/expressionService.ts#L12)
+[application/services/expressionService.ts:6](https://github.com/FlavioLionelRita/lambdaorm-svc/blob/6a99932/src/lib/application/services/expressionService.ts#L6)
 
 ___
 
@@ -91,7 +91,7 @@ ___
 
 #### Defined in
 
-[application/services/expressionService.ts:32](https://github.com/FlavioLionelRita/lambdaorm-svc/blob/8b4c881/src/lib/application/services/expressionService.ts#L32)
+[application/services/expressionService.ts:26](https://github.com/FlavioLionelRita/lambdaorm-svc/blob/6a99932/src/lib/application/services/expressionService.ts#L26)
 
 ___
 
@@ -113,7 +113,7 @@ ___
 
 #### Defined in
 
-[application/services/expressionService.ts:16](https://github.com/FlavioLionelRita/lambdaorm-svc/blob/8b4c881/src/lib/application/services/expressionService.ts#L16)
+[application/services/expressionService.ts:10](https://github.com/FlavioLionelRita/lambdaorm-svc/blob/6a99932/src/lib/application/services/expressionService.ts#L10)
 
 ___
 
@@ -135,7 +135,7 @@ ___
 
 #### Defined in
 
-[application/services/expressionService.ts:20](https://github.com/FlavioLionelRita/lambdaorm-svc/blob/8b4c881/src/lib/application/services/expressionService.ts#L20)
+[application/services/expressionService.ts:14](https://github.com/FlavioLionelRita/lambdaorm-svc/blob/6a99932/src/lib/application/services/expressionService.ts#L14)
 
 ___
 
@@ -157,7 +157,7 @@ ___
 
 #### Defined in
 
-[application/services/expressionService.ts:24](https://github.com/FlavioLionelRita/lambdaorm-svc/blob/8b4c881/src/lib/application/services/expressionService.ts#L24)
+[application/services/expressionService.ts:18](https://github.com/FlavioLionelRita/lambdaorm-svc/blob/6a99932/src/lib/application/services/expressionService.ts#L18)
 
 ___
 
@@ -180,4 +180,4 @@ ___
 
 #### Defined in
 
-[application/services/expressionService.ts:28](https://github.com/FlavioLionelRita/lambdaorm-svc/blob/8b4c881/src/lib/application/services/expressionService.ts#L28)
+[application/services/expressionService.ts:22](https://github.com/FlavioLionelRita/lambdaorm-svc/blob/6a99932/src/lib/application/services/expressionService.ts#L22)
