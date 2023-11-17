@@ -4,6 +4,13 @@ All notable changes to this project will be documented in this file.
 
 ## Versions
 
+### [0.8.43](https://github.com/FlavioLionelRita/lambdaorm-svc/compare/v0.8.42...v0.8.43) (2023-11-17)
+
+
+### Features
+
+* remove /api prefix on endpoints, refactorize folders and complete readme ([bc575cc](https://github.com/FlavioLionelRita/lambdaorm-svc/commit/bc575cce24063411a59f7d1db30f7fa0c7eb15e4)), closes [#189](https://github.com/FlavioLionelRita/lambdaorm-svc/issues/189)
+
 ### [0.8.42](https://github.com/FlavioLionelRita/lambdaorm-svc/compare/v0.8.41...v0.8.42) (2023-11-17)
 
 
