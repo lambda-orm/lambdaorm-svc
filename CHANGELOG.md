@@ -4,6 +4,13 @@ All notable changes to this project will be documented in this file.
 
 ## Versions
 
+### [0.8.39](https://github.com/FlavioLionelRita/lambdaorm-svc/compare/v0.8.38...v0.8.39) (2023-11-17)
+
+
+### Features
+
+* add beatiful format on endpoints ([6a99932](https://github.com/FlavioLionelRita/lambdaorm-svc/commit/6a99932ba30592584ec77df266fc5913634898fa)), closes [#189](https://github.com/FlavioLionelRita/lambdaorm-svc/issues/189)
+
 ### [0.8.38](https://github.com/FlavioLionelRita/lambdaorm-svc/compare/v0.8.37...v0.8.38) (2023-11-17)
 
 ### [0.8.37](https://github.com/FlavioLionelRita/lambdaorm-svc/compare/v0.8.36...v0.8.37) (2023-11-16)
