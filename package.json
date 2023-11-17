@@ -1,7 +1,7 @@
 {
   "name": "orm-service",
   "version": "0.8.41",
-  "description": "service of lambda orm",
+  "description": "Service that exposes the functionality of the LambdaOrm library",
   "main": "./dist/lib/index",
   "scripts": {
     "lint": "grunt lint",
