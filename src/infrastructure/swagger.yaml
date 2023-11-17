@@ -3,14 +3,14 @@ info:
   contact:
     email: flaviolrita@hotmail.com
     name: 'Flavio Lionel Rita'
-  description: service of lambda orm
+  description: Service that exposes the functionality of the [lambdaorm](https://github.com/FlavioLionelRita/lambdaorm) npm library
   license:
-    name: Apache-2.0
-    url: https://www.apache.org/licenses/LICENSE-2.0.html
+    name: MIT
+    url: https://opensource.org/license/mit/
   title: λORM Service
   version: 0.3.0
 externalDocs:
-  description: Find out more about λORM
+  description: Find out more about lambdaorm npm library
   url: https://www.npmjs.com/package/lambdaorm
 tags:
 - description: Expression methods
@@ -22,7 +22,7 @@ tags:
 - description: Stage methods
   name: stage
 paths:
-  /api/ping:
+  /ping:
     get:
       operationId: ping
       parameters: []
@@ -37,7 +37,7 @@ paths:
       tags:
       - general
       x-eov-operation-handler: controllers/GeneralController
-  /api/health:
+  /health:
     get:
       operationId: health
       parameters: []
@@ -52,7 +52,7 @@ paths:
       tags:
       - general
       x-eov-operation-handler: controllers/GeneralController
-  /api/metrics:
+  /metrics:
     get:
       operationId: metrics
       parameters: []
@@ -66,7 +66,7 @@ paths:
       tags:
       - general
       x-eov-operation-handler: controllers/GeneralController
-  /api/metadata:
+  /metadata:
     post:
       operationId: metadata
       requestBody:
@@ -84,7 +84,7 @@ paths:
       tags:
       - expression
       x-eov-operation-handler: controllers/ExpressionController
-  /api/model:
+  /model:
     post:
       operationId: model
       requestBody:
@@ -104,7 +104,7 @@ paths:
       tags:
       - expression
       x-eov-operation-handler: controllers/ExpressionController
-  /api/parameters:
+  /parameters:
     post:
       operationId: parameters
       requestBody:
@@ -124,7 +124,7 @@ paths:
       tags:
       - expression
       x-eov-operation-handler: controllers/ExpressionController
-  /api/constraints:
+  /constraints:
     post:
       operationId: constraints
       requestBody:
@@ -142,7 +142,7 @@ paths:
       tags:
       - expression
       x-eov-operation-handler: controllers/ExpressionController
-  /api/sentence:
+  /sentence:
     post:
       operationId: sentence
       requestBody:
@@ -161,7 +161,7 @@ paths:
       tags:
       - expression
       x-eov-operation-handler: controllers/ExpressionController
-  /api/execute:
+  /execute:
     post:
       operationId: execute
       requestBody:
@@ -179,7 +179,7 @@ paths:
       tags:
       - expression
       x-eov-operation-handler: controllers/ExpressionController
-  /api/execute-queued:
+  /execute-queued:
     post:
       operationId: executeQueued
       requestBody:
@@ -197,7 +197,7 @@ paths:
       tags:
       - expression
       x-eov-operation-handler: controllers/ExpressionController
-  /api/entities:
+  /entities:
     get:
       operationId: entities
       parameters: []
@@ -213,7 +213,7 @@ paths:
       tags:
       - schema
       x-eov-operation-handler: controllers/SchemaController
-  /api/entities/{entity}:
+  /entities/{entity}:
     get:
       operationId: entity
       parameters:
@@ -234,7 +234,7 @@ paths:
       tags:
       - schema
       x-eov-operation-handler: controllers/SchemaController
-  /api/enums:
+  /enums:
     get:
       operationId: enums
       parameters: []
@@ -250,7 +250,7 @@ paths:
       tags:
       - schema
       x-eov-operation-handler: controllers/SchemaController
-  /api/enums/{enum}:
+  /enums/{enum}:
     get:
       operationId: _enum
       parameters:
@@ -271,7 +271,7 @@ paths:
       tags:
       - schema
       x-eov-operation-handler: controllers/SchemaController
-  /api/datasources:
+  /datasources:
     get:
       operationId: dataSources
       parameters: []
@@ -287,7 +287,7 @@ paths:
       tags:
       - schema
       x-eov-operation-handler: controllers/SchemaController
-  /api/datasources/{datasource}:
+  /datasources/{datasource}:
     get:
       operationId: datasource
       parameters:
@@ -308,7 +308,7 @@ paths:
       tags:
       - schema
       x-eov-operation-handler: controllers/SchemaController
-  /api/mappings:
+  /mappings:
     get:
       operationId: mappings
       parameters: []
@@ -324,7 +324,7 @@ paths:
       tags:
       - schema
       x-eov-operation-handler: controllers/SchemaController
-  /api/mappings/{mapping}:
+  /mappings/{mapping}:
     get:
       operationId: mapping
       parameters:
@@ -345,7 +345,7 @@ paths:
       tags:
       - schema
       x-eov-operation-handler: controllers/SchemaController
-  /api/mappings/{mapping}/{entity}:
+  /mappings/{mapping}/{entity}:
     get:
       operationId: entityMapping
       parameters:
@@ -373,7 +373,7 @@ paths:
       tags:
       - schema
       x-eov-operation-handler: controllers/SchemaController
-  /api/stages:
+  /stages:
     get:
       operationId: stages
       parameters: []
@@ -389,7 +389,7 @@ paths:
       tags:
       - schema
       x-eov-operation-handler: controllers/SchemaController
-  /api/stages/{stage}:
+  /stages/{stage}:
     get:
       operationId: stage
       parameters:
@@ -410,7 +410,7 @@ paths:
       tags:
       - schema
       x-eov-operation-handler: controllers/SchemaController
-  /api/stages/{stage}/exists:
+  /stages/{stage}/exists:
     get:
       operationId: exists
       parameters:
@@ -431,7 +431,7 @@ paths:
       tags:
       - stage
       x-eov-operation-handler: controllers/StageController
-  /api/stages/{stage}/export:
+  /stages/{stage}/export:
     get:
       operationId: _export
       parameters:
@@ -452,7 +452,7 @@ paths:
       tags:
       - stage
       x-eov-operation-handler: controllers/StageController
-  /api/stages/{stage}/import:
+  /stages/{stage}/import:
     post:
       operationId: _import
       parameters:

@@ -4,7 +4,7 @@
 
 ```sh
 docker-compose -p lambdaorm-svc up -d
-mysql -h 0.0.0.0 -P 3308 -u northwind -pnorthwind northwind < northwind-mysql.sql
+mysql -h 0.0.0.0 -P 3306 -u northwind -pnorthwind northwind < northwind-mysql.sql
 ```
 
 ## Test
@@ -12,31 +12,31 @@ mysql -h 0.0.0.0 -P 3308 -u northwind -pnorthwind northwind < northwind-mysql.sq
 **Model:**
 
 ```sh
-curl -X POST "http://localhost:9291/api/model?format=beautiful" -H "Content-Type: application/json" -d '{"expression": "Orders.filter(p=>p.id==id).include(p=>p.details)"}'
+curl -X POST "http://localhost:9291/model?format=beautiful" -H "Content-Type: application/json" -d '{"expression": "Orders.filter(p=>p.id==id).include(p=>p.details)"}'
 ```
 
 **Parameters:**
 
 ```sh
-curl -X POST "http://localhost:9291/api/parameters?format=beautiful" -H "Content-Type: application/json" -d '{"expression": "Orders.filter(p=>p.id==id).include(p=>p.details)"}'
+curl -X POST "http://localhost:9291/parameters?format=beautiful" -H "Content-Type: application/json" -d '{"expression": "Orders.filter(p=>p.id==id).include(p=>p.details)"}'
 ```
 
 **Constraints:**
 
 ```sh
-curl -X POST "http://localhost:9291/api/constraints?format=beautifu" -H "Content-Type: application/json" -d '{"expression": "Orders.filter(p=>p.id==id).include(p=>p.details)"}'
+curl -X POST "http://localhost:9291/constraints?format=beautifu" -H "Content-Type: application/json" -d '{"expression": "Orders.filter(p=>p.id==id).include(p=>p.details)"}'
 ```
 
 **Sentence:**
 
 ```sh
-curl -X POST "http://localhost:9291/api/sentence?format=beautiful" -H "Content-Type: application/json" -d '{"expression": "Orders.filter(p=>p.id==id).include(p=>p.details)"}'
+curl -X POST "http://localhost:9291/sentence?format=beautiful" -H "Content-Type: application/json" -d '{"expression": "Orders.filter(p=>p.id==id).include(p=>p.details)"}'
 ```
 
 **Execute:**
 
 ```sh
-curl -X POST "http://localhost:9291/api/execute?format=beautiful" -H "Content-Type: application/json" -d '{"expression": "Orders.filter(p=>p.id==id).include(p=>p.details)", "data": "{\"id\": 10248}" }'
+curl -X POST "http://localhost:9291/execute?format=beautiful" -H "Content-Type: application/json" -d '{"expression": "Orders.filter(p=>p.id==id).include(p=>p.details)", "data": "{\"id\": 10248}" }'
 ```
 
 ## End

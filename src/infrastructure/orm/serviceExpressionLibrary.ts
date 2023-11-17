@@ -1,4 +1,4 @@
-import { Logger } from './../../../lib/application'
+import { Logger } from './../../application'
 import { IOrm } from 'lambdaorm'
 
 export class ServiceExpressionLibrary {

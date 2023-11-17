@@ -7,7 +7,7 @@ module.exports = function (grunt) {
 			lint: { cmd: 'npx eslint src ' },
 			tsc: { cmd: 'npx tsc ' },
 			test: { cmd: 'npx jest --config jest-config.json' },
-			doc: { cmd: 'npx typedoc --plugin typedoc-plugin-markdown --out doc/source src/lib/doc.index.ts' },
+			doc: { cmd: 'npx typedoc --plugin typedoc-plugin-markdown --out doc/source src/doc.index.ts' },
 			getOriginalBranch: {
 				cmd: 'git branch | sed -n -e \'s/^\\* \\(.*\\)/\\1/p\'',
 				callback: function (error, stdout, stderr) {
@@ -42,7 +42,7 @@ module.exports = function (grunt) {
 			dist: ['dist']
 		},
 		copy: {
-			swagger: { expand: true, cwd: './src/lib/infrastructure', src: './swagger.yaml', dest: 'build/infrastructure' },
+			swagger: { expand: true, cwd: './src/infrastructure', src: './swagger.yaml', dest: 'build/infrastructure' },
 			lib: { expand: true, cwd: 'build/', src: '**', dest: 'dist/' },
 			readme: { expand: true, src: './README.md', dest: 'dist/' },
 			changeLog: { expand: true, src: './CHANGELOG.md', dest: 'dist/' },

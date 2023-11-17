@@ -21,7 +21,7 @@
 				"<node_internals>/**"
 			],
 			"program": "${workspaceFolder}/build/index.js",
-			"envFile": "${workspaceFolder}/src/dev/lab/collections/workspace/.env"
+			"envFile": "${workspaceFolder}/config/collections/workspace/.env"
 		},		
 		{
 			"name": "northwind",
@@ -32,16 +32,6 @@
 			],
 			"program": "${workspaceFolder}/build/index.js",
 			"envFile": "${workspaceFolder}/config/northwind/.env"
-		},
-		{
-			"name": "devicenet",
-			"type": "node",
-			"request": "launch",
-			"skipFiles": [
-				"<node_internals>/**"
-			],
-			"program": "${workspaceFolder}/build/index.js",
-			"envFile": "${workspaceFolder}/src/dev/lab/devicenet-svc/workspace/.env"
-		}
+		}		
 	]
 }

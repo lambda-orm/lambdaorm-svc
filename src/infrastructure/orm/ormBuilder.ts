@@ -1,6 +1,6 @@
 import { IOrm, Orm } from 'lambdaorm'
 import { ServiceExpressionLibrary } from './serviceExpressionLibrary'
-import { Logger } from 'lib/application'
+import { Logger } from '../../application'
 
 export class OrmBuilder {
 	public build (logger: Logger): IOrm {
