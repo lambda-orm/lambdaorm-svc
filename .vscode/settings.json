@@ -75,6 +75,7 @@
 		"oracledb",
 		"ORCLCDB",
 		"padmin",
+		"Partitioners",
 		"pnorthwind",
 		"postgresql",
 		"proot",
@@ -101,6 +102,7 @@
 		"upsert",
 		"uroot",
 		"USERENV",
+		"uuidv",
 		"VARCHAR"
 	]
 }

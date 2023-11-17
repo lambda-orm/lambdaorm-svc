@@ -13,6 +13,7 @@ import path from 'path'
 import http from 'http'
 import { IOrm } from 'lambdaorm'
 import { ServiceSchema, ServiceConfig } from '../domain'
+import { beautifyJsonMiddleware } from './middleware/beautifyJsonMiddleware'
 const YAML = require('js-yaml')
 
 export class Server {
@@ -49,11 +50,7 @@ export class Server {
 			this.app.use(this.rateLimit(rateLimitWindowMs || 3000, rateLimitMax || 30))
 			this.app.use(express.json())
 			this.app.use(express.urlencoded({ extended: false }))
-			this.app.use((req, res, next) => {
-				console.log('Incoming Request:', req.method, req.url)
-				console.log('Request Body:', req.body)
-				next()
-			})
+			this.app.use(beautifyJsonMiddleware)
 			this.app.use(cookieParser())
 			const metric = new MetricBuilder().build()
 			this.app.use('/api', new GeneralRoutes(new GeneralService(this.orm), metric).getRoutes())

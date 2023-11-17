@@ -4,7 +4,7 @@ networks:
     driver: bridge  
 services:
   mysql:
-    container_name: lambdaorm-svc-mysql
+    container_name: mysql
     image: mysql:5.7
     restart: always
     environment:
@@ -13,9 +13,9 @@ services:
       - MYSQL_PASSWORD=northwind
       - MYSQL_ROOT_PASSWORD=northwind
     ports:
-      - '3308:3306'
+      - '3306:3306'
     expose:
-      - 3308
+      - 3306
     networks:
       - northwind
     volumes:
