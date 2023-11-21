@@ -11,27 +11,30 @@
 ### Properties
 
 - [orm](GeneralService.md#orm)
+- [packageVersion](GeneralService.md#packageversion)
 
 ### Methods
 
 - [health](GeneralService.md#health)
 - [ping](GeneralService.md#ping)
+- [version](GeneralService.md#version)
 
 ## Constructors
 
 ### constructor
 
-• **new GeneralService**(`orm?`)
+• **new GeneralService**(`packageVersion`, `orm?`)
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
+| `packageVersion` | `string` |
 | `orm?` | `IOrm` |
 
 #### Defined in
 
-[application/services/generalService.ts:4](https://github.com/FlavioLionelRita/lambdaorm-svc/blob/bc575cc/src/application/services/generalService.ts#L4)
+[application/services/generalService.ts:4](https://github.com/FlavioLionelRita/lambdaorm-svc/blob/439b45b/src/application/services/generalService.ts#L4)
 
 ## Properties
 
@@ -41,7 +44,17 @@
 
 #### Defined in
 
-[application/services/generalService.ts:4](https://github.com/FlavioLionelRita/lambdaorm-svc/blob/bc575cc/src/application/services/generalService.ts#L4)
+[application/services/generalService.ts:4](https://github.com/FlavioLionelRita/lambdaorm-svc/blob/439b45b/src/application/services/generalService.ts#L4)
+
+___
+
+### packageVersion
+
+• `Private` `Readonly` **packageVersion**: `string`
+
+#### Defined in
+
+[application/services/generalService.ts:4](https://github.com/FlavioLionelRita/lambdaorm-svc/blob/439b45b/src/application/services/generalService.ts#L4)
 
 ## Methods
 
@@ -55,7 +68,7 @@
 
 #### Defined in
 
-[application/services/generalService.ts:6](https://github.com/FlavioLionelRita/lambdaorm-svc/blob/bc575cc/src/application/services/generalService.ts#L6)
+[application/services/generalService.ts:10](https://github.com/FlavioLionelRita/lambdaorm-svc/blob/439b45b/src/application/services/generalService.ts#L10)
 
 ___
 
@@ -69,4 +82,18 @@ ___
 
 #### Defined in
 
-[application/services/generalService.ts:24](https://github.com/FlavioLionelRita/lambdaorm-svc/blob/bc575cc/src/application/services/generalService.ts#L24)
+[application/services/generalService.ts:28](https://github.com/FlavioLionelRita/lambdaorm-svc/blob/439b45b/src/application/services/generalService.ts#L28)
+
+___
+
+### version
+
+▸ **version**(): `Promise`<{ `version`: `string`  }\>
+
+#### Returns
+
+`Promise`<{ `version`: `string`  }\>
+
+#### Defined in
+
+[application/services/generalService.ts:6](https://github.com/FlavioLionelRita/lambdaorm-svc/blob/439b45b/src/application/services/generalService.ts#L6)

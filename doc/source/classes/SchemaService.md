@@ -16,6 +16,7 @@
 
 - [dataSource](SchemaService.md#datasource)
 - [dataSources](SchemaService.md#datasources)
+- [domain](SchemaService.md#domain)
 - [entities](SchemaService.md#entities)
 - [entity](SchemaService.md#entity)
 - [entityMapping](SchemaService.md#entitymapping)
@@ -25,6 +26,8 @@
 - [mappings](SchemaService.md#mappings)
 - [stage](SchemaService.md#stage)
 - [stages](SchemaService.md#stages)
+- [version](SchemaService.md#version)
+- [views](SchemaService.md#views)
 
 ## Constructors
 
@@ -40,7 +43,7 @@
 
 #### Defined in
 
-[application/services/schemaService.ts:4](https://github.com/FlavioLionelRita/lambdaorm-svc/blob/bc575cc/src/application/services/schemaService.ts#L4)
+[application/services/schemaService.ts:4](https://github.com/FlavioLionelRita/lambdaorm-svc/blob/439b45b/src/application/services/schemaService.ts#L4)
 
 ## Properties
 
@@ -50,7 +53,7 @@
 
 #### Defined in
 
-[application/services/schemaService.ts:4](https://github.com/FlavioLionelRita/lambdaorm-svc/blob/bc575cc/src/application/services/schemaService.ts#L4)
+[application/services/schemaService.ts:4](https://github.com/FlavioLionelRita/lambdaorm-svc/blob/439b45b/src/application/services/schemaService.ts#L4)
 
 ## Methods
 
@@ -71,7 +74,7 @@
 
 #### Defined in
 
-[application/services/schemaService.ts:11](https://github.com/FlavioLionelRita/lambdaorm-svc/blob/bc575cc/src/application/services/schemaService.ts#L11)
+[application/services/schemaService.ts:19](https://github.com/FlavioLionelRita/lambdaorm-svc/blob/439b45b/src/application/services/schemaService.ts#L19)
 
 ___
 
@@ -85,7 +88,21 @@ ___
 
 #### Defined in
 
-[application/services/schemaService.ts:6](https://github.com/FlavioLionelRita/lambdaorm-svc/blob/bc575cc/src/application/services/schemaService.ts#L6)
+[application/services/schemaService.ts:14](https://github.com/FlavioLionelRita/lambdaorm-svc/blob/439b45b/src/application/services/schemaService.ts#L14)
+
+___
+
+### domain
+
+▸ **domain**(): `Promise`<`DomainSchema`\>
+
+#### Returns
+
+`Promise`<`DomainSchema`\>
+
+#### Defined in
+
+[application/services/schemaService.ts:10](https://github.com/FlavioLionelRita/lambdaorm-svc/blob/439b45b/src/application/services/schemaService.ts#L10)
 
 ___
 
@@ -99,7 +116,7 @@ ___
 
 #### Defined in
 
-[application/services/schemaService.ts:17](https://github.com/FlavioLionelRita/lambdaorm-svc/blob/bc575cc/src/application/services/schemaService.ts#L17)
+[application/services/schemaService.ts:25](https://github.com/FlavioLionelRita/lambdaorm-svc/blob/439b45b/src/application/services/schemaService.ts#L25)
 
 ___
 
@@ -120,7 +137,7 @@ ___
 
 #### Defined in
 
-[application/services/schemaService.ts:21](https://github.com/FlavioLionelRita/lambdaorm-svc/blob/bc575cc/src/application/services/schemaService.ts#L21)
+[application/services/schemaService.ts:29](https://github.com/FlavioLionelRita/lambdaorm-svc/blob/439b45b/src/application/services/schemaService.ts#L29)
 
 ___
 
@@ -142,7 +159,7 @@ ___
 
 #### Defined in
 
-[application/services/schemaService.ts:41](https://github.com/FlavioLionelRita/lambdaorm-svc/blob/bc575cc/src/application/services/schemaService.ts#L41)
+[application/services/schemaService.ts:49](https://github.com/FlavioLionelRita/lambdaorm-svc/blob/439b45b/src/application/services/schemaService.ts#L49)
 
 ___
 
@@ -163,7 +180,7 @@ ___
 
 #### Defined in
 
-[application/services/schemaService.ts:29](https://github.com/FlavioLionelRita/lambdaorm-svc/blob/bc575cc/src/application/services/schemaService.ts#L29)
+[application/services/schemaService.ts:37](https://github.com/FlavioLionelRita/lambdaorm-svc/blob/439b45b/src/application/services/schemaService.ts#L37)
 
 ___
 
@@ -177,7 +194,7 @@ ___
 
 #### Defined in
 
-[application/services/schemaService.ts:25](https://github.com/FlavioLionelRita/lambdaorm-svc/blob/bc575cc/src/application/services/schemaService.ts#L25)
+[application/services/schemaService.ts:33](https://github.com/FlavioLionelRita/lambdaorm-svc/blob/439b45b/src/application/services/schemaService.ts#L33)
 
 ___
 
@@ -198,7 +215,7 @@ ___
 
 #### Defined in
 
-[application/services/schemaService.ts:37](https://github.com/FlavioLionelRita/lambdaorm-svc/blob/bc575cc/src/application/services/schemaService.ts#L37)
+[application/services/schemaService.ts:45](https://github.com/FlavioLionelRita/lambdaorm-svc/blob/439b45b/src/application/services/schemaService.ts#L45)
 
 ___
 
@@ -212,7 +229,7 @@ ___
 
 #### Defined in
 
-[application/services/schemaService.ts:33](https://github.com/FlavioLionelRita/lambdaorm-svc/blob/bc575cc/src/application/services/schemaService.ts#L33)
+[application/services/schemaService.ts:41](https://github.com/FlavioLionelRita/lambdaorm-svc/blob/439b45b/src/application/services/schemaService.ts#L41)
 
 ___
 
@@ -233,7 +250,7 @@ ___
 
 #### Defined in
 
-[application/services/schemaService.ts:50](https://github.com/FlavioLionelRita/lambdaorm-svc/blob/bc575cc/src/application/services/schemaService.ts#L50)
+[application/services/schemaService.ts:58](https://github.com/FlavioLionelRita/lambdaorm-svc/blob/439b45b/src/application/services/schemaService.ts#L58)
 
 ___
 
@@ -247,4 +264,32 @@ ___
 
 #### Defined in
 
-[application/services/schemaService.ts:46](https://github.com/FlavioLionelRita/lambdaorm-svc/blob/bc575cc/src/application/services/schemaService.ts#L46)
+[application/services/schemaService.ts:54](https://github.com/FlavioLionelRita/lambdaorm-svc/blob/439b45b/src/application/services/schemaService.ts#L54)
+
+___
+
+### version
+
+▸ **version**(): `Promise`<{ `version`: `string`  }\>
+
+#### Returns
+
+`Promise`<{ `version`: `string`  }\>
+
+#### Defined in
+
+[application/services/schemaService.ts:6](https://github.com/FlavioLionelRita/lambdaorm-svc/blob/439b45b/src/application/services/schemaService.ts#L6)
+
+___
+
+### views
+
+▸ **views**(): `Promise`<`string`[]\>
+
+#### Returns
+
+`Promise`<`string`[]\>
+
+#### Defined in
+
+[application/services/schemaService.ts:62](https://github.com/FlavioLionelRita/lambdaorm-svc/blob/439b45b/src/application/services/schemaService.ts#L62)
