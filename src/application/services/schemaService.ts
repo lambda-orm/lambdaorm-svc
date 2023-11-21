@@ -1,7 +1,11 @@
-import { Entity, EntityMapping, Enum, IOrm, Mapping, Stage } from 'lambdaorm'
+import { Entity, EntityMapping, Enum, IOrm, Mapping, Stage, DomainSchema } from 'lambdaorm'
 export class SchemaService {
 	// eslint-disable-next-line no-useless-constructor
 	constructor (private readonly orm: IOrm) { }
+
+	public async domain (): Promise<DomainSchema> {
+		return this.orm.schema.schema.domain
+	}
 
 	public async dataSources (): Promise<{name:string, dialect:string}[]> {
 		return this.orm.schema.schema.infrastructure.sources
@@ -49,5 +53,9 @@ export class SchemaService {
 
 	public async stage ({ stage }:{ stage:string }): Promise<Stage|undefined> {
 		return this.orm.schema.stage.stages.find(p => p.name === stage)
+	}
+
+	public async views (): Promise<string[]> {
+		return this.orm.schema.schema.infrastructure.views.map(p => p.name)
 	}
 }

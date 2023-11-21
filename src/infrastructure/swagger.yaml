@@ -197,6 +197,20 @@ paths:
       tags:
       - expression
       x-eov-operation-handler: controllers/ExpressionController
+  /domain:
+    get:
+      operationId: domain
+      parameters: []
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Domain'
+          description: Ok
+      tags:
+      - schema
+      x-eov-operation-handler: controllers/SchemaController
   /entities:
     get:
       operationId: entities
@@ -373,6 +387,22 @@ paths:
       tags:
       - schema
       x-eov-operation-handler: controllers/SchemaController
+  /views:
+    get:
+      operationId: views
+      parameters: []
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  type: string
+                type: array
+          description: Ok
+      tags:
+      - schema
+      x-eov-operation-handler: controllers/SchemaController    
   /stages:
     get:
       operationId: stages
@@ -852,6 +882,16 @@ components:
       - entity
       - relation
       type: object
+    Domain:
+      type: object
+      additionalProperties: false
+      properties:
+        entities:
+          items:
+            $ref: '#/components/schemas/Entity'
+        enums:
+          items:
+            $ref: '#/components/schemas/Enum'
     Entity:
       additionalProperties: false
       example:

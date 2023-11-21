@@ -10,6 +10,7 @@ export class SchemaRoutes {
 
 	public getRoutes ():express.Router {
 		const router = express.Router()
+		router.get('/domain', this.controller.domain.bind(this.controller))
 		router.get('/dataSource/:dataSource', this.controller.dataSource.bind(this.controller))
 		router.get('/dataSources', this.controller.dataSources.bind(this.controller))
 		router.get('/entities', this.controller.entities.bind(this.controller))
@@ -21,6 +22,7 @@ export class SchemaRoutes {
 		router.get('/mappings/:mapping', this.controller.mapping.bind(this.controller))
 		router.get('/stages', this.controller.stages.bind(this.controller))
 		router.get('/stages/:stage', this.controller.stage.bind(this.controller))
+		router.get('/views', this.controller.views.bind(this.controller))
 		return router
 	}
 }

@@ -7,6 +7,10 @@ export class SchemaController extends Controller {
 		super()
 	}
 
+	public async domain (request: Request, response: Response) {
+		await this.handleRequest(request, response, this.service.domain.bind(this.service))
+	}
+
 	public async dataSource (request: Request, response: Response) {
 		await this.handleRequest(request, response, this.service.dataSource.bind(this.service))
 	}
@@ -49,5 +53,9 @@ export class SchemaController extends Controller {
 
 	public async stage (request: Request, response: Response) {
 		await this.handleRequest(request, response, this.service.stage.bind(this.service))
+	}
+
+	public async views (request: Request, response: Response) {
+		await this.handleRequest(request, response, this.service.views.bind(this.service))
 	}
 }

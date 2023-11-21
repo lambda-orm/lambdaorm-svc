@@ -32,7 +32,7 @@ export class Server {
 			this.orm = new OrmBuilder().build(this.logger)
 			this.schema = await this.orm.init() as ServiceSchema
 			this.config = this.schema.infrastructure.service || {}
-			if (this.schema.infrastructure.queue) {
+			if (h3lp.val.isNotNull(this.schema.infrastructure.queue)) {
 				this.queue = new QueueBuilder().build(this.orm, this.logger)
 				this.queue.start(this.schema.infrastructure.queue)
 			}

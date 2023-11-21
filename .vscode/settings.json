@@ -24,6 +24,8 @@
 		"CREATEDB",
 		"CREATEROLE",
 		"Cypher",
+		"datasource",
+		"datasources",
 		"DATEDIFF",
 		"dateTime",
 		"DATETIME",
