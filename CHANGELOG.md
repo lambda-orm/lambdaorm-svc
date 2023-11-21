@@ -4,6 +4,13 @@ All notable changes to this project will be documented in this file.
 
 ## Versions
 
+### [0.8.45](https://github.com/FlavioLionelRita/lambdaorm-svc/compare/v0.8.44...v0.8.45) (2023-11-21)
+
+
+### Features
+
+* **schema:** add schema endpoint ([24d7055](https://github.com/FlavioLionelRita/lambdaorm-svc/commit/24d7055ea3a01070954c8d00eb2e3006f5069ba7)), closes [#202](https://github.com/FlavioLionelRita/lambdaorm-svc/issues/202)
+
 ### [0.8.44](https://github.com/FlavioLionelRita/lambdaorm-svc/compare/v0.8.43...v0.8.44) (2023-11-21)
 
 
