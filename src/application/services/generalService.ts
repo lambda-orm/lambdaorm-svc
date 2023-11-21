@@ -1,7 +1,11 @@
 import { IOrm } from 'lambdaorm'
 export class GeneralService {
 	// eslint-disable-next-line no-useless-constructor
-	constructor (private readonly orm?: IOrm) { }
+	constructor (private readonly packageVersion:string, private readonly orm?: IOrm) { }
+
+	public async version (): Promise<{version:string}> {
+		return { version: this.packageVersion }
+	}
 
 	public async health ():Promise<any> {
 		// TODO: add health on ORM

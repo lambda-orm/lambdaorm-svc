@@ -3,6 +3,10 @@ export class SchemaService {
 	// eslint-disable-next-line no-useless-constructor
 	constructor (private readonly orm: IOrm) { }
 
+	public async version (): Promise<{version:string}> {
+		return { version: this.orm.schema.schema.version || '0.0.0' }
+	}
+
 	public async domain (): Promise<DomainSchema> {
 		return this.orm.schema.schema.domain
 	}

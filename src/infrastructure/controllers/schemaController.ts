@@ -7,6 +7,10 @@ export class SchemaController extends Controller {
 		super()
 	}
 
+	public async version (request: Request, response: Response) {
+		await this.handleRequest(request, response, this.service.version.bind(this.service))
+	}
+
 	public async domain (request: Request, response: Response) {
 		await this.handleRequest(request, response, this.service.domain.bind(this.service))
 	}

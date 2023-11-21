@@ -54,7 +54,7 @@ export class Server {
 			this.app.use(beautifyJsonMiddleware)
 			this.app.use(cookieParser())
 			const metric = new MetricBuilder().build()
-			this.app.use('', new GeneralRoutes(new GeneralService(this.orm), metric).getRoutes())
+			this.app.use('', new GeneralRoutes(new GeneralService(await this.getVersion(), this.orm), metric).getRoutes())
 			this.app.use('', new ExpressionRoutes(new ExpressionService(this.orm), this.queue).getRoutes())
 			this.app.use('', new SchemaRoutes(new SchemaService(this.orm)).getRoutes())
 			this.app.use('', new StageRoutes(new StageService(this.orm)).getRoutes())
@@ -66,6 +66,16 @@ export class Server {
 			})
 		} catch (error: any) {
 			this.logger.error(error.message)
+		}
+	}
+
+	private async getVersion (): Promise<string> {
+		if (await h3lp.fs.exists(path.join(__dirname, '../package.json'))) {
+			return require('../package.json').version
+		} else if (await h3lp.fs.exists(path.join(__dirname, '../../package.json'))) {
+			return require('../../package.json').version
+		} else {
+			return '0.0.0'
 		}
 	}
 

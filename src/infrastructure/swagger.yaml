@@ -52,6 +52,21 @@ paths:
       tags:
       - general
       x-eov-operation-handler: controllers/GeneralController
+  /version:
+    get:
+      operationId: version
+      parameters: []
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                type: string
+          description: Ok
+      security: []
+      tags:
+      - general
+      x-eov-operation-handler: controllers/GeneralController    
   /metrics:
     get:
       operationId: metrics
@@ -197,6 +212,23 @@ paths:
       tags:
       - expression
       x-eov-operation-handler: controllers/ExpressionController
+  /schema/version:
+    get:
+      operationId: version
+      parameters: []
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  version:
+                    type: string
+          description: version of schema
+      tags:
+      - schema
+      x-eov-operation-handler: controllers/SchemaController
   /domain:
     get:
       operationId: domain
@@ -386,7 +418,7 @@ paths:
           description: Ok
       tags:
       - schema
-      x-eov-operation-handler: controllers/SchemaController
+      x-eov-operation-handler: controllers/SchemaController  
   /views:
     get:
       operationId: views

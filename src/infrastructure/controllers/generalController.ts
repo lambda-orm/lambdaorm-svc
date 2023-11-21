@@ -7,6 +7,10 @@ export class GeneralController extends Controller {
 		super()
 	}
 
+	public async version (request: Request, response: Response) {
+		await this.handleRequest(request, response, this.service.version.bind(this.service))
+	}
+
 	public async health (request: Request, response: Response) {
 		await this.handleRequest(request, response, this.service.health.bind(this.service))
 	}

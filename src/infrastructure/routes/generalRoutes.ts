@@ -10,6 +10,7 @@ export class GeneralRoutes {
 
 	public getRoutes ():express.Router {
 		const router = express.Router()
+		router.get('/version', this.controller.version.bind(this.controller))
 		router.get('/health', this.controller.health.bind(this.controller))
 		router.get('/ping', this.controller.ping.bind(this.controller))
 		router.get('/metrics', this.controller.metrics.bind(this.controller))
