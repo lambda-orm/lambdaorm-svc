@@ -10,6 +10,7 @@ export class SchemaRoutes {
 
 	public getRoutes ():express.Router {
 		const router = express.Router()
+		router.get('/schema', this.controller.version.bind(this.controller))
 		router.get('/schema/version', this.controller.version.bind(this.controller))
 		router.get('/domain', this.controller.domain.bind(this.controller))
 		router.get('/dataSource/:dataSource', this.controller.dataSource.bind(this.controller))

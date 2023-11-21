@@ -229,6 +229,20 @@ paths:
       tags:
       - schema
       x-eov-operation-handler: controllers/SchemaController
+  /schema:
+    get:
+      operationId: schema
+      parameters: []
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/schema'
+          description: Ok
+      tags:
+      - schema
+      x-eov-operation-handler: controllers/SchemaController
   /domain:
     get:
       operationId: domain
@@ -914,10 +928,20 @@ components:
       - entity
       - relation
       type: object
+    schema:
+      type: object
+      additionalProperties: false
+      properties:
+        version:
+          type: string
+        Domain:
+          $ref: '#/components/schemas/Domain'
     Domain:
       type: object
       additionalProperties: false
       properties:
+        version:
+          type: string
         entities:
           items:
             $ref: '#/components/schemas/Entity'

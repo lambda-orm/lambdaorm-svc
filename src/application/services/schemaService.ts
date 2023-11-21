@@ -1,4 +1,4 @@
-import { Entity, EntityMapping, Enum, IOrm, Mapping, Stage, DomainSchema } from 'lambdaorm'
+import { Entity, EntityMapping, Enum, IOrm, Mapping, Stage, DomainSchema, Schema } from 'lambdaorm'
 export class SchemaService {
 	// eslint-disable-next-line no-useless-constructor
 	constructor (private readonly orm: IOrm) { }
@@ -11,12 +11,27 @@ export class SchemaService {
 		return this.orm.schema.schema.domain
 	}
 
+	public async schema (): Promise<Schema> {
+		return {
+			version: this.orm.schema.schema.version || '0.0.0',
+			domain: this.orm.schema.schema.domain,
+			infrastructure: undefined,
+			application: undefined
+		}
+	}
+
 	public async dataSources (): Promise<{name:string, dialect:string}[]> {
+		if (!this.orm.schema.schema.infrastructure) {
+			return []
+		}
 		return this.orm.schema.schema.infrastructure.sources
 			.map(p => ({ name: p.name, dialect: p.dialect as string }))
 	}
 
 	public async dataSource ({ datasource }:{ datasource:string }): Promise<{name:string, dialect:string}[]> {
+		if (!this.orm.schema.schema.infrastructure) {
+			return []
+		}
 		return this.orm.schema.schema.infrastructure.sources
 			.filter(p => p.name === datasource)
 			.map(p => ({ name: p.name, dialect: p.dialect as string }))
@@ -60,6 +75,9 @@ export class SchemaService {
 	}
 
 	public async views (): Promise<string[]> {
+		if (!this.orm.schema.schema.infrastructure) {
+			return []
+		}
 		return this.orm.schema.schema.infrastructure.views.map(p => p.name)
 	}
 }

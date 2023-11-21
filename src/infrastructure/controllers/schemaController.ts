@@ -11,6 +11,10 @@ export class SchemaController extends Controller {
 		await this.handleRequest(request, response, this.service.version.bind(this.service))
 	}
 
+	public async schema (request: Request, response: Response) {
+		await this.handleRequest(request, response, this.service.schema.bind(this.service))
+	}
+
 	public async domain (request: Request, response: Response) {
 		await this.handleRequest(request, response, this.service.domain.bind(this.service))
 	}
