@@ -49,7 +49,7 @@ Controller.constructor
 
 #### Defined in
 
-[infrastructure/controllers/generalController.ts:6](https://github.com/FlavioLionelRita/lambdaorm-svc/blob/2a2edc0/src/infrastructure/controllers/generalController.ts#L6)
+[infrastructure/controllers/generalController.ts:6](https://github.com/FlavioLionelRita/lambdaorm-svc/blob/df65407/src/infrastructure/controllers/generalController.ts#L6)
 
 ## Properties
 
@@ -59,7 +59,7 @@ Controller.constructor
 
 #### Defined in
 
-[infrastructure/controllers/generalController.ts:6](https://github.com/FlavioLionelRita/lambdaorm-svc/blob/2a2edc0/src/infrastructure/controllers/generalController.ts#L6)
+[infrastructure/controllers/generalController.ts:6](https://github.com/FlavioLionelRita/lambdaorm-svc/blob/df65407/src/infrastructure/controllers/generalController.ts#L6)
 
 ___
 
@@ -69,7 +69,7 @@ ___
 
 #### Defined in
 
-[infrastructure/controllers/generalController.ts:6](https://github.com/FlavioLionelRita/lambdaorm-svc/blob/2a2edc0/src/infrastructure/controllers/generalController.ts#L6)
+[infrastructure/controllers/generalController.ts:6](https://github.com/FlavioLionelRita/lambdaorm-svc/blob/df65407/src/infrastructure/controllers/generalController.ts#L6)
 
 ## Methods
 
@@ -93,7 +93,7 @@ Controller.collectRequestParams
 
 #### Defined in
 
-[infrastructure/controllers/Controller.ts:22](https://github.com/FlavioLionelRita/lambdaorm-svc/blob/2a2edc0/src/infrastructure/controllers/Controller.ts#L22)
+[infrastructure/controllers/Controller.ts:22](https://github.com/FlavioLionelRita/lambdaorm-svc/blob/df65407/src/infrastructure/controllers/Controller.ts#L22)
 
 ___
 
@@ -119,7 +119,7 @@ Controller.handleRequest
 
 #### Defined in
 
-[infrastructure/controllers/Controller.ts:45](https://github.com/FlavioLionelRita/lambdaorm-svc/blob/2a2edc0/src/infrastructure/controllers/Controller.ts#L45)
+[infrastructure/controllers/Controller.ts:45](https://github.com/FlavioLionelRita/lambdaorm-svc/blob/df65407/src/infrastructure/controllers/Controller.ts#L45)
 
 ___
 
@@ -140,7 +140,7 @@ ___
 
 #### Defined in
 
-[infrastructure/controllers/generalController.ts:14](https://github.com/FlavioLionelRita/lambdaorm-svc/blob/2a2edc0/src/infrastructure/controllers/generalController.ts#L14)
+[infrastructure/controllers/generalController.ts:14](https://github.com/FlavioLionelRita/lambdaorm-svc/blob/df65407/src/infrastructure/controllers/generalController.ts#L14)
 
 ___
 
@@ -161,7 +161,7 @@ ___
 
 #### Defined in
 
-[infrastructure/controllers/generalController.ts:22](https://github.com/FlavioLionelRita/lambdaorm-svc/blob/2a2edc0/src/infrastructure/controllers/generalController.ts#L22)
+[infrastructure/controllers/generalController.ts:22](https://github.com/FlavioLionelRita/lambdaorm-svc/blob/df65407/src/infrastructure/controllers/generalController.ts#L22)
 
 ___
 
@@ -182,7 +182,7 @@ ___
 
 #### Defined in
 
-[infrastructure/controllers/generalController.ts:18](https://github.com/FlavioLionelRita/lambdaorm-svc/blob/2a2edc0/src/infrastructure/controllers/generalController.ts#L18)
+[infrastructure/controllers/generalController.ts:18](https://github.com/FlavioLionelRita/lambdaorm-svc/blob/df65407/src/infrastructure/controllers/generalController.ts#L18)
 
 ___
 
@@ -207,7 +207,7 @@ Controller.sendError
 
 #### Defined in
 
-[infrastructure/controllers/Controller.ts:13](https://github.com/FlavioLionelRita/lambdaorm-svc/blob/2a2edc0/src/infrastructure/controllers/Controller.ts#L13)
+[infrastructure/controllers/Controller.ts:13](https://github.com/FlavioLionelRita/lambdaorm-svc/blob/df65407/src/infrastructure/controllers/Controller.ts#L13)
 
 ___
 
@@ -232,7 +232,7 @@ Controller.sendResponse
 
 #### Defined in
 
-[infrastructure/controllers/Controller.ts:3](https://github.com/FlavioLionelRita/lambdaorm-svc/blob/2a2edc0/src/infrastructure/controllers/Controller.ts#L3)
+[infrastructure/controllers/Controller.ts:3](https://github.com/FlavioLionelRita/lambdaorm-svc/blob/df65407/src/infrastructure/controllers/Controller.ts#L3)
 
 ___
 
@@ -253,4 +253,4 @@ ___
 
 #### Defined in
 
-[infrastructure/controllers/generalController.ts:10](https://github.com/FlavioLionelRita/lambdaorm-svc/blob/2a2edc0/src/infrastructure/controllers/generalController.ts#L10)
+[infrastructure/controllers/generalController.ts:10](https://github.com/FlavioLionelRita/lambdaorm-svc/blob/df65407/src/infrastructure/controllers/generalController.ts#L10)
