@@ -1,6 +1,6 @@
 {
   "name": "orm-service",
-  "version": "0.8.46",
+  "version": "0.8.47",
   "description": "Service that exposes the functionality of the LambdaOrm library",
   "main": "./dist/lib/index",
   "scripts": {
