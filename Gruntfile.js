@@ -44,6 +44,7 @@ module.exports = function (grunt) {
 		copy: {
 			swagger: { expand: true, cwd: './src/infrastructure', src: './swagger.yaml', dest: 'build/infrastructure' },
 			lib: { expand: true, cwd: 'build/', src: '**', dest: 'dist/' },
+			images: { expand: true, cwd: 'images/', src: '**', dest: 'dist/images/' },
 			readme: { expand: true, src: './README.md', dest: 'dist/' },
 			changeLog: { expand: true, src: './CHANGELOG.md', dest: 'dist/' },
 			license: { expand: true, src: './LICENSE', dest: 'dist/' },
@@ -86,7 +87,7 @@ module.exports = function (grunt) {
 	grunt.registerTask('build', ['lint', 'clean:build', 'exec:tsc', 'copy:swagger'])
 	grunt.registerTask('test', ['build', 'exec:test'])
 	grunt.registerTask('doc', ['exec:doc'])
-	grunt.registerTask('dist', ['test', 'clean:dist', 'copy:lib', 'copy:readme', 'copy:license', 'create-package'])
+	grunt.registerTask('dist', ['test', 'clean:dist', 'copy:lib', 'copy:readme', 'copy:license', 'copy:images', 'create-package'])
 	grunt.registerTask('release', ['dist', 'doc', 'exec:getOriginalBranch', 'run-release-if-applicable'])
 	grunt.registerTask('default', [])
 }

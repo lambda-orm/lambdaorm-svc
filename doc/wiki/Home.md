@@ -21,15 +21,3 @@ The service exposes the following endpoints:
 ### Stage endpoints
 
 ![stage-methods](https://raw.githubusercontent.com/FlavioLionelRita/lambdaorm-svc/HEAD/images/stage-methods.png)
-
-## Documentation
-
-Full documentation is available in the [Wiki](https://github.com/FlavioLionelRita/lambdaorm-svc/wiki).
-
-## Docker Image
-
-You can access various images at [flaviorita/lambdaorm-svc](https://hub.docker.com/repository/docker/flaviorita/lambdaorm-svc/general)
-
-## Labs
-
-You can access various labs at [github.com/FlavioLionelRita/lambdaorm-labs](https://github.com/FlavioLionelRita/lambdaorm-labs)

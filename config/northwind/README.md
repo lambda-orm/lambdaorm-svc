@@ -9,6 +9,12 @@ mysql -h 0.0.0.0 -P 3306 -u northwind -pnorthwind northwind < northwind-mysql.sq
 
 ## Test
 
+**Metadata:**
+
+```sh
+curl -X POST "http://localhost:9291/metadata?format=beautiful" -H "Content-Type: application/json" -d '{"expression": "Orders.filter(p=>p.id==id).include(p=>p.details)"}'
+```
+
 **Model:**
 
 ```sh
