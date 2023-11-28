@@ -34,7 +34,7 @@ export class ExpressionController extends Controller {
 		await this.handleRequest(request, response, this.service.parameters.bind(this.service))
 	}
 
-	public async sentence (request: Request, response: Response) {
-		await this.handleRequest(request, response, this.service.sentence.bind(this.service))
+	public async plan (request: Request, response: Response) {
+		await this.handleRequest(request, response, this.service.plan.bind(this.service))
 	}
 }

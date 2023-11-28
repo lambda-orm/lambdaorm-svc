@@ -50,12 +50,10 @@ module.exports = function (grunt) {
 			jest: { expand: true, src: './jest-config.json', dest: 'dist/' }
 		}
 	})
-
 	grunt.registerTask('get-version', 'get version from package.json', function () {
 		const version = grunt.file.readJSON('./package.json').version
 		grunt.config.set('version', version)
 	})
-
 	grunt.registerTask('create-package', 'create package.json for dist', function () {
 		const data = require('./package.json')
 		delete data.devDependencies
@@ -68,8 +66,14 @@ module.exports = function (grunt) {
 		data.main = 'index.js'
 		fs.writeFileSync('dist/package.json', JSON.stringify(data, null, 2), 'utf8')
 	})
-
-	grunt.registerTask('exec-release', ['exec:standardVersion', 'copy:changeLog', 'create-package', 'get-version', 'exec:push', 'exec:createReleaseBranch', 'exec:mergeToMain', 'exec:mergeToOriginalBranch', 'exec:removeLocalReleaseBranch'])
+	grunt.registerTask('changelog-format', 'apply format to changelog', function () {
+		const changelog = grunt.file.read('CHANGELOG.md')
+		let newChangelog = changelog.replace(/https:\/\/github.com\/FlavioLionelRita\/lambdaorm-svc\/issues\//g, 'https://github.com/FlavioLionelRita/lambdaorm/issues/')
+		newChangelog = newChangelog.replace(/\n### Bug Fixes/g, '**Bug Fixes:**')
+		newChangelog = newChangelog.replace(/\n### Features/g, '**Features:**')
+		grunt.file.write('CHANGELOG.md', newChangelog)
+	})
+	grunt.registerTask('exec-release', ['exec:standardVersion', 'changelog-format', 'copy:changeLog', 'create-package', 'get-version', 'exec:push', 'exec:createReleaseBranch', 'exec:mergeToMain', 'exec:mergeToOriginalBranch', 'exec:removeLocalReleaseBranch'])
 	grunt.registerTask('run-release-if-applicable', 'run release if applicable', function () {
 		const originalBranch = grunt.config.get('originalBranch')
 		if (originalBranch === 'develop' || originalBranch.startsWith('hotfix')) {
@@ -78,7 +82,6 @@ module.exports = function (grunt) {
 			grunt.log.writeln('Current branch ' + originalBranch + ', cannot release from branch different from develop or hotfix.')
 		}
 	})
-
 	grunt.registerTask('lint', ['exec:lint'])
 	grunt.registerTask('build', ['lint', 'clean:build', 'exec:tsc', 'copy:swagger'])
 	grunt.registerTask('test', ['build', 'exec:test'])

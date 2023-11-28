@@ -1,4 +1,4 @@
-import { IOrm, Metadata, MetadataConstraint, MetadataModel, MetadataParameter, QueryInfo, QueryOptions } from 'lambdaorm'
+import { IOrm, Metadata, MetadataConstraint, MetadataModel, MetadataParameter, QueryPlan, QueryOptions } from 'lambdaorm'
 export class ExpressionService {
 	// eslint-disable-next-line no-useless-constructor
 	constructor (private readonly orm: IOrm) { }
@@ -19,8 +19,8 @@ export class ExpressionService {
 		return this.orm.parameters(body.expression)
 	}
 
-	public async sentence ({ body }: { body: {expression:string, options?:QueryOptions} }): Promise<QueryInfo> {
-		return this.orm.getInfo(body.expression, body.options)
+	public async plan ({ body }: { body: {expression:string, options?:QueryOptions} }): Promise<QueryPlan> {
+		return this.orm.plan(body.expression, body.options)
 	}
 
 	public async execute ({ body }: { body: {expression:string, data:any, options?:QueryOptions} }): Promise<any> {

@@ -16,7 +16,7 @@ export class ExpressionRoutes {
 		router.post('/metadata', this.controller.metadata.bind(this.controller))
 		router.post('/model', this.controller.model.bind(this.controller))
 		router.post('/parameters', this.controller.parameters.bind(this.controller))
-		router.post('/sentence', this.controller.sentence.bind(this.controller))
+		router.post('/plan', this.controller.plan.bind(this.controller))
 		return router
 	}
 }

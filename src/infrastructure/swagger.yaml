@@ -157,21 +157,21 @@ paths:
       tags:
       - expression
       x-eov-operation-handler: controllers/ExpressionController
-  /sentence:
+  /plan:
     post:
-      operationId: sentence
+      operationId: plan
       requestBody:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/SentenceRequest'
+              $ref: '#/components/schemas/PlanRequest'
         required: true
       responses:
         "200":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/MetadataSentence'
+                $ref: '#/components/schemas/MetadataPlan'
           description: Ok
       tags:
       - expression
@@ -826,7 +826,7 @@ components:
       - constraints
       - entity
       type: object
-    MetadataSentence:
+    MetadataPlan:
       additionalProperties: false
       example:
         sentence: sentence
@@ -847,7 +847,7 @@ components:
           type: string
         children:
           items:
-            $ref: '#/components/schemas/MetadataSentence'
+            $ref: '#/components/schemas/MetadataPlan'
           type: array
       required:
       - dataSource
@@ -1598,7 +1598,7 @@ components:
       required:
       - expression
       type: object
-    SentenceRequest:
+    PlanRequest:
       additionalProperties: false
       example:
         expression: expression
