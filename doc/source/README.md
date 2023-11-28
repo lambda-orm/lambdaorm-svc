@@ -4,92 +4,34 @@ orm-service / [Exports](modules.md)
 
 Service that exposes the functionality of the [LambdaOrm](https://github.com/FlavioLionelRita/lambdaorm) library
 
-## Configuration
+## Service
 
-### Workspace
+The service exposes the following endpoints:
 
-The WORKSPACE environment variable must be defined with the path to the directory where the lambdaorm configuration file is located.
+### Expressions endpoints
 
-Example of environment variable values:
+![expression-methods](https://raw.githubusercontent.com/FlavioLionelRita/lambdaorm-svc/HEAD/images/expression-methods.png)
 
-```sh
-export WORKSPACE=./config/northwind
-```
+### General endpoints
 
-### Service
+![general-methods](https://raw.githubusercontent.com/FlavioLionelRita/lambdaorm-svc/HEAD/images/general-methods.png)
 
-The service configuration must be added to the infrastructure section of the lambdaorm configuration file.
+### Schema endpoints
 
-```yml
-...
-infrastructure:
-  service:
-    host: $HOST
-    port: $PORT
-    requestBodySize: $REQUEST_BODY_SIZE
-    rateLimitWindowMs: $RATE_LIMIT_WINDOWS_MS
-    rateLimitMax: $RATE_LIMIT_MAX
+![schema-methods](https://raw.githubusercontent.com/FlavioLionelRita/lambdaorm-svc/HEAD/images/schema-methods.png)
 
-```
+### Stage endpoints
 
-Example of environment variable values:
+![stage-methods](https://raw.githubusercontent.com/FlavioLionelRita/lambdaorm-svc/HEAD/images/stage-methods.png)
 
-```sh
-export HOST=http://localhost
-export PORT=9291
-export REQUEST_BODY_SIZE=100mb
-export RATE_LIMIT_WINDOWS_MS=60000
-export RATE_LIMIT_MAX=1000
-```
+## Documentation
 
-### Kafka Queue
+Full documentation is available in the [Wiki](https://github.com/FlavioLionelRita/lambdaorm-svc/wiki).
 
-In the case of using Kafka queues, the following configuration must be added to the infrastructure section of the lambdaorm configuration file.
-
-```yaml
-...
-infrastructure:
-  queue: 
-    config: $QUEUE_CONFIG
-    consumers:
-      - name: syncInsights
-        config:
-          groupId: group1
-        subscribe:
-          topic: insights-sync
-          fromBeginning: true
-
-```
-
-Example of environment variable values:
-
-```sh
-export QUEUE_CONFIG='{"clientId": "collections", "brokers": ["localhost:9093"]}'
-```
-
-## Images
+## Docker Image
 
 You can access various images at [flaviorita/lambdaorm-svc](https://hub.docker.com/repository/docker/flaviorita/lambdaorm-svc/general)
 
 ## Labs
 
 You can access various labs at [github.com/FlavioLionelRita/lambdaorm-labs](https://github.com/FlavioLionelRita/lambdaorm-labs)
-
-## Tasks
-
-Main tasks are:
-
-| Task 							| Description 																					|
-| ----------------- | ----------------------------------------------------- |
-| `npm run start` 	| Start service 																				|
-| `npm run release` | Build code, generate documentation and publish to npm |
-
-Sub tasks are:
-
-| Task 							| Description 																					|
-| ----------------- | ----------------------------------------------------- |
-| `npm run lint` 		| Lint code 																						|
-| `npm run build` 	| Build code 																						|
-| `npm run test` 		| Run tests 																						|
-| `npm run doc` 		| Generate documentation 																|
-| `npm run dist` 		| Build code and generate documentation 								|
