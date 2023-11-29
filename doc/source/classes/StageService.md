@@ -33,7 +33,7 @@
 
 #### Defined in
 
-[application/services/stageService.ts:4](https://github.com/FlavioLionelRita/lambdaorm-svc/blob/4b62e68/src/application/services/stageService.ts#L4)
+[application/services/stageService.ts:4](https://github.com/FlavioLionelRita/lambdaorm-svc/blob/85fc4ec/src/application/services/stageService.ts#L4)
 
 ## Properties
 
@@ -43,13 +43,13 @@
 
 #### Defined in
 
-[application/services/stageService.ts:4](https://github.com/FlavioLionelRita/lambdaorm-svc/blob/4b62e68/src/application/services/stageService.ts#L4)
+[application/services/stageService.ts:4](https://github.com/FlavioLionelRita/lambdaorm-svc/blob/85fc4ec/src/application/services/stageService.ts#L4)
 
 ## Methods
 
 ### exists
 
-▸ **exists**(`«destructured»`): `Promise`<`boolean`\>
+▸ **exists**(`«destructured»`): `Promise`<`any`\>
 
 #### Parameters
 
@@ -60,11 +60,11 @@
 
 #### Returns
 
-`Promise`<`boolean`\>
+`Promise`<`any`\>
 
 #### Defined in
 
-[application/services/stageService.ts:10](https://github.com/FlavioLionelRita/lambdaorm-svc/blob/4b62e68/src/application/services/stageService.ts#L10)
+[application/services/stageService.ts:10](https://github.com/FlavioLionelRita/lambdaorm-svc/blob/85fc4ec/src/application/services/stageService.ts#L10)
 
 ___
 
@@ -85,7 +85,7 @@ ___
 
 #### Defined in
 
-[application/services/stageService.ts:14](https://github.com/FlavioLionelRita/lambdaorm-svc/blob/4b62e68/src/application/services/stageService.ts#L14)
+[application/services/stageService.ts:14](https://github.com/FlavioLionelRita/lambdaorm-svc/blob/85fc4ec/src/application/services/stageService.ts#L14)
 
 ___
 
@@ -107,7 +107,7 @@ ___
 
 #### Defined in
 
-[application/services/stageService.ts:18](https://github.com/FlavioLionelRita/lambdaorm-svc/blob/4b62e68/src/application/services/stageService.ts#L18)
+[application/services/stageService.ts:18](https://github.com/FlavioLionelRita/lambdaorm-svc/blob/85fc4ec/src/application/services/stageService.ts#L18)
 
 ___
 
@@ -121,4 +121,4 @@ ___
 
 #### Defined in
 
-[application/services/stageService.ts:6](https://github.com/FlavioLionelRita/lambdaorm-svc/blob/4b62e68/src/application/services/stageService.ts#L6)
+[application/services/stageService.ts:6](https://github.com/FlavioLionelRita/lambdaorm-svc/blob/85fc4ec/src/application/services/stageService.ts#L6)
