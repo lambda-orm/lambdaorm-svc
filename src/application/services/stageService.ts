@@ -7,8 +7,8 @@ export class StageService {
 		return this.orm.schema.stage.stages.map(p => p.name)
 	}
 
-	public async exists ({ stage }:{ stage:string }): Promise<boolean> {
-		return this.orm.stage.exists(stage)
+	public async exists ({ stage }:{ stage:string }): Promise<any> {
+		return { exists: await this.orm.stage.exists(stage) }
 	}
 
 	public async export ({ stage }:{ stage:string }): Promise<SchemaConfig> {
