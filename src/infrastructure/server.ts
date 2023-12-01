@@ -29,7 +29,7 @@ export class Server {
 	public async start () {
 		this.app = express()
 		try {
-			this.orm = new OrmBuilder().build(this.logger)
+			this.orm = new OrmBuilder().build()
 			this.schema = await this.orm.init() as ServiceSchema
 			this.config = this.schema.infrastructure.service || {}
 			if (h3lp.val.isNotNull(this.schema.infrastructure.queue)) {
