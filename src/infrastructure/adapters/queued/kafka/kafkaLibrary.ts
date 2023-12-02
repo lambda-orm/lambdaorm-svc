@@ -6,7 +6,7 @@ export class KafkaLibrary {
 	constructor (private readonly orm:IOrm, private readonly kafka:Kafka) {}
 
 	public async load (): Promise<void> {
-		this.orm.expressions.addFunction('sendMessage(topic:string,messages:any[]):void', async (topic:string, messages:any[]) => {
+		this.orm.expressions.addFunction('kafka.send(topic:string,messages:any[]):void', async (topic:string, messages:any[]) => {
 			try {
 				const producer = this.kafka.producer({
 					allowAutoTopicCreation: true,

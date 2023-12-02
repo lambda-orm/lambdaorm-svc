@@ -4,7 +4,10 @@
     * [[General]]
     * [[Schema]]
     * [[Stages]]
-  * [[Configuration]]
+  * Use
+    * [[Configuration]]
+    * [[Expressions]]
+    * [[Kafka]]
   * [Docker Image](https://hub.docker.com/repository/docker/flaviorita/lambdaorm-svc/general)
 	* Clients
 		* [Node Client](https://github.com/FlavioLionelRita/lambdaorm-client-node)
