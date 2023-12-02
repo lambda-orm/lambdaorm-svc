@@ -6,11 +6,10 @@ All notable changes to this project will be documented in this file.
 
 ### [0.8.52](https://github.com/FlavioLionelRita/lambdaorm-svc/compare/v0.8.51...v0.8.52) (2023-12-02)
 
+**Features:**
 
-### Features
-
-* remove orb library for apply on lambdaorm ([15da943](https://github.com/FlavioLionelRita/lambdaorm-svc/commit/15da9436c749b960719ac29fc84a3ad854b7cd03)), closes [#201](https://github.com/FlavioLionelRita/lambdaorm-svc/issues/201)
-* **wiki:** update wiki ([1cbd2c0](https://github.com/FlavioLionelRita/lambdaorm-svc/commit/1cbd2c0c0c6ab64a2d8b04a46bc1b22f6d8c18de)), closes [#201](https://github.com/FlavioLionelRita/lambdaorm-svc/issues/201)
+* remove orb library for apply on lambdaorm ([15da943](https://github.com/FlavioLionelRita/lambdaorm-svc/commit/15da9436c749b960719ac29fc84a3ad854b7cd03)), closes [#201](https://github.com/FlavioLionelRita/lambdaorm/issues/201)
+* **wiki:** update wiki ([1cbd2c0](https://github.com/FlavioLionelRita/lambdaorm-svc/commit/1cbd2c0c0c6ab64a2d8b04a46bc1b22f6d8c18de)), closes [#201](https://github.com/FlavioLionelRita/lambdaorm/issues/201)
 
 ### [0.8.51](https://github.com/FlavioLionelRita/lambdaorm-svc/compare/v0.8.50...v0.8.51) (2023-11-29)
 
