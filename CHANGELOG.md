@@ -4,6 +4,13 @@ All notable changes to this project will be documented in this file.
 
 ## Versions
 
+### [0.8.54](https://github.com/FlavioLionelRita/lambdaorm-svc/compare/v0.8.53...v0.8.54) (2023-12-13)
+
+
+### Features
+
+* fix: request without response data ([c9bd639](https://github.com/FlavioLionelRita/lambdaorm-svc/commit/c9bd63902a9ac57ec5f96330e1d943d5675faefb)), closes [#201](https://github.com/FlavioLionelRita/lambdaorm-svc/issues/201)
+
 ### [0.8.53](https://github.com/FlavioLionelRita/lambdaorm-svc/compare/v0.8.52...v0.8.53) (2023-12-13)
 
 **Features:**
