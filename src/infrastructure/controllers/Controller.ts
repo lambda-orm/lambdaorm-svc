@@ -1,6 +1,11 @@
 import { Request } from 'express'
 export abstract class Controller {
-	protected sendResponse (response:any, payload:any) {
+	protected sendResponse (response:any, payload?:any) {
+		if (!payload) {
+			response.status(204)
+			response.end()
+			return
+		}
 		response.status(payload.code || 200)
 		const responsePayload = payload.payload !== undefined ? payload.payload : payload
 		if (responsePayload instanceof Object) {
