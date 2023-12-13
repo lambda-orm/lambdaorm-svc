@@ -6,15 +6,13 @@ All notable changes to this project will be documented in this file.
 
 ### [0.8.53](https://github.com/FlavioLionelRita/lambdaorm-svc/compare/v0.8.52...v0.8.53) (2023-12-13)
 
+**Features:**
 
-### Features
+* **wiki:** update Sidebar ([5eac40d](https://github.com/FlavioLionelRita/lambdaorm-svc/commit/5eac40d00c447818316842222da4005a60a6b9c1)), closes [#201](https://github.com/FlavioLionelRita/lambdaorm/issues/201)
 
-* **wiki:** update Sidebar ([5eac40d](https://github.com/FlavioLionelRita/lambdaorm-svc/commit/5eac40d00c447818316842222da4005a60a6b9c1)), closes [#201](https://github.com/FlavioLionelRita/lambdaorm-svc/issues/201)
+**Bug Fixes:**
 
-
-### Bug Fixes
-
-* solve import request data ([413fc78](https://github.com/FlavioLionelRita/lambdaorm-svc/commit/413fc7892c60d2374e2f310fd71cadc9dda92a0a)), closes [#201](https://github.com/FlavioLionelRita/lambdaorm-svc/issues/201)
+* solve import request data ([413fc78](https://github.com/FlavioLionelRita/lambdaorm-svc/commit/413fc7892c60d2374e2f310fd71cadc9dda92a0a)), closes [#201](https://github.com/FlavioLionelRita/lambdaorm/issues/201)
 
 ### [0.8.52](https://github.com/FlavioLionelRita/lambdaorm-svc/compare/v0.8.51...v0.8.52) (2023-12-02)
 
