@@ -59,8 +59,8 @@ content-type: application/json
 	"expression": "{{expression}}"
 }
 
-### Sentence
-POST {{host}}/sentence HTTP/1.1
+### Plan
+POST {{host}}/plan HTTP/1.1
 content-type: application/json
 
 {

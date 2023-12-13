@@ -15,7 +15,7 @@ export class StageService {
 		return this.orm.stage.export({ stage }).execute()
 	}
 
-	public async import ({ stage, schemaData }:{ stage:string, schemaData:any }): Promise<void> {
-		return this.orm.stage.import({ stage }).execute(schemaData)
+	public async import ({ stage, body }:{ stage:string, body:any}): Promise<void> {
+		return this.orm.stage.import({ stage }).execute(body)
 	}
 }

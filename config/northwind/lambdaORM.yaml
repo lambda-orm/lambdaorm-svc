@@ -223,7 +223,7 @@ application:
       expression: console("λORM service stopped")          
   listeners:
     - name: tests
-      actions: [select]
+      on: [select]
       condition: 'options.stage === "MySQL" && query.entity=="Orders"'
       before: console(args.expression)
       after: console(stringify(args.result))
