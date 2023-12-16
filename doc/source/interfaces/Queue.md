@@ -8,6 +8,7 @@
 
 - [execute](Queue.md#execute)
 - [executeInBackground](Queue.md#executeinbackground)
+- [send](Queue.md#send)
 - [start](Queue.md#start)
 - [stop](Queue.md#stop)
 
@@ -29,7 +30,7 @@
 
 #### Defined in
 
-[application/ports/queue.ts:6](https://github.com/FlavioLionelRita/lambdaorm-svc/blob/c9bd639/src/application/ports/queue.ts#L6)
+[application/ports/queue.ts:6](https://github.com/FlavioLionelRita/lambdaorm-svc/blob/e49120e/src/application/ports/queue.ts#L6)
 
 ___
 
@@ -50,7 +51,28 @@ ___
 
 #### Defined in
 
-[application/ports/queue.ts:7](https://github.com/FlavioLionelRita/lambdaorm-svc/blob/c9bd639/src/application/ports/queue.ts#L7)
+[application/ports/queue.ts:7](https://github.com/FlavioLionelRita/lambdaorm-svc/blob/e49120e/src/application/ports/queue.ts#L7)
+
+___
+
+### send
+
+▸ **send**(`topic`, `messages`): `Promise`<`void`\>
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `topic` | `string` |
+| `messages` | `any`[] |
+
+#### Returns
+
+`Promise`<`void`\>
+
+#### Defined in
+
+[application/ports/queue.ts:8](https://github.com/FlavioLionelRita/lambdaorm-svc/blob/e49120e/src/application/ports/queue.ts#L8)
 
 ___
 
@@ -70,7 +92,7 @@ ___
 
 #### Defined in
 
-[application/ports/queue.ts:4](https://github.com/FlavioLionelRita/lambdaorm-svc/blob/c9bd639/src/application/ports/queue.ts#L4)
+[application/ports/queue.ts:4](https://github.com/FlavioLionelRita/lambdaorm-svc/blob/e49120e/src/application/ports/queue.ts#L4)
 
 ___
 
@@ -84,4 +106,4 @@ ___
 
 #### Defined in
 
-[application/ports/queue.ts:5](https://github.com/FlavioLionelRita/lambdaorm-svc/blob/c9bd639/src/application/ports/queue.ts#L5)
+[application/ports/queue.ts:5](https://github.com/FlavioLionelRita/lambdaorm-svc/blob/e49120e/src/application/ports/queue.ts#L5)

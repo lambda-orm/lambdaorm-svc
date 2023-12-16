@@ -19,7 +19,7 @@
 
 | Name | Type |
 | :------ | :------ |
-| `message` | `string` |
+| `message` | `any` |
 
 #### Returns
 
@@ -27,7 +27,7 @@
 
 #### Defined in
 
-[application/ports/logger.ts:2](https://github.com/FlavioLionelRita/lambdaorm-svc/blob/c9bd639/src/application/ports/logger.ts#L2)
+[application/ports/logger.ts:2](https://github.com/FlavioLionelRita/lambdaorm-svc/blob/e49120e/src/application/ports/logger.ts#L2)
 
 ___
 
@@ -47,4 +47,4 @@ ___
 
 #### Defined in
 
-[application/ports/logger.ts:3](https://github.com/FlavioLionelRita/lambdaorm-svc/blob/c9bd639/src/application/ports/logger.ts#L3)
+[application/ports/logger.ts:3](https://github.com/FlavioLionelRita/lambdaorm-svc/blob/e49120e/src/application/ports/logger.ts#L3)
