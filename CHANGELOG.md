@@ -6,10 +6,9 @@ All notable changes to this project will be documented in this file.
 
 ### [0.8.57](https://github.com/FlavioLionelRita/lambdaorm-svc/compare/v0.8.56...v0.8.57) (2023-12-16)
 
+**Features:**
 
-### Features
-
-* test cqrs ([279339d](https://github.com/FlavioLionelRita/lambdaorm-svc/commit/279339d554c5f3981659b54553b64eaeca100fe3)), closes [#201](https://github.com/FlavioLionelRita/lambdaorm-svc/issues/201)
+* test cqrs ([279339d](https://github.com/FlavioLionelRita/lambdaorm-svc/commit/279339d554c5f3981659b54553b64eaeca100fe3)), closes [#201](https://github.com/FlavioLionelRita/lambdaorm/issues/201)
 
 ### [0.8.56](https://github.com/FlavioLionelRita/lambdaorm-svc/compare/v0.8.55...v0.8.56) (2023-12-16)
 
