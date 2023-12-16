@@ -4,6 +4,13 @@ All notable changes to this project will be documented in this file.
 
 ## Versions
 
+### [0.8.55](https://github.com/FlavioLionelRita/lambdaorm-svc/compare/v0.8.54...v0.8.55) (2023-12-16)
+
+
+### Features
+
+* **queue:** refactorize consumer ([e49120e](https://github.com/FlavioLionelRita/lambdaorm-svc/commit/e49120ebff480d27f306a412d14b27f4127d8f11)), closes [#201](https://github.com/FlavioLionelRita/lambdaorm-svc/issues/201)
+
 ### [0.8.54](https://github.com/FlavioLionelRita/lambdaorm-svc/compare/v0.8.53...v0.8.54) (2023-12-13)
 
 **Features:**
