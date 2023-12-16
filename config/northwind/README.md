@@ -11,7 +11,7 @@ lambdaorm sync -e .env -s default
 lambdaorm sync -e .env -s insights
 ```
 
-- [kafdrop](http://localhost:9000)
+- [kafdrop](http://localhost:19000)
 
 ## Execute
 

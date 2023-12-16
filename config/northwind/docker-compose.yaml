@@ -41,46 +41,37 @@ services:
     networks:
       - northwind
   zookeeper:
-    # depends_on:
-    #   - orm
     container_name: zookeeper
-    image: bitnami/zookeeper:latest
-    ports:
-      - 2181:2181
-    networks:
-      - northwind  
+    image: confluentinc/cp-zookeeper:latest
+    networks: 
+      - northwind
     environment:
-      - ALLOW_ANONYMOUS_LOGIN=yes
+      ZOOKEEPER_CLIENT_PORT: 2181
+      ZOOKEEPER_TICK_TIME: 2000
   kafka:
+    container_name: kafka
+    image: confluentinc/cp-kafka:latest
+    networks: 
+      - northwind
     depends_on:
       - zookeeper
-    container_name: kafka
-    image: bitnami/kafka:latest
     ports:
       - 9092:9092
-      - 9093:9093
-    networks:
-      - northwind  
     environment:
-      - KAFKA_BROKER_ID=1
-      - KAFKA_CFG_ZOOKEEPER_CONNECT=zookeeper:2181
-      - ALLOW_PLAINTEXT_LISTENER=yes
-      - KAFKA_CFG_LISTENER_SECURITY_PROTOCOL_MAP=CLIENT:PLAINTEXT,EXTERNAL:PLAINTEXT
-      - KAFKA_CFG_LISTENERS=CLIENT://:9092,EXTERNAL://:9093
-      - KAFKA_CFG_ADVERTISED_LISTENERS=CLIENT://kafka:9092,EXTERNAL://localhost:9093
-      - KAFKA_CFG_INTER_BROKER_LISTENER_NAME=CLIENT    
+      KAFKA_BROKER_ID: 1
+      KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
+      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://kafka:29092,PLAINTEXT_HOST://localhost:9092
+      KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: PLAINTEXT:PLAINTEXT,PLAINTEXT_HOST:PLAINTEXT
+      KAFKA_INTER_BROKER_LISTENER_NAME: PLAINTEXT
+      KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
   kafdrop:
+    container_name: kafdrop
+    image: obsidiandynamics/kafdrop:latest
+    networks: 
+      - northwind
     depends_on:
       - kafka
-    container_name: kafdrop
-    image: obsidiandynamics/kafdrop
-    restart: 'no'
     ports:
-      - 9000:9000
-    expose:
-      - 9000
-    networks:
-      - northwind  
+      - 19000:9000
     environment:
-      KAFKA_BROKERCONNECT: 'kafka:9092'
-      JVM_OPTS: '-Xms16M -Xmx48M -Xss180K -XX:-TieredCompilation -XX:+UseStringDeduplication -noverify'     
+      KAFKA_BROKERCONNECT: kafka:29092     
