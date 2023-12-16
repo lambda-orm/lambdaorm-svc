@@ -1,10 +1,9 @@
 import { IOrm } from 'lambdaorm'
 import { Kafka, Partitioners, Consumer } from 'kafkajs'
-import { Logger, Queue } from '../../../../application'
-import { KafkaLibrary } from './kafkaLibrary'
+import { Logger, Queue } from '../../../application'
 import { v4 as uuidv4 } from 'uuid'
 import { h3lp } from 'h3lp'
-import { ConsumerInfo, QueueExecuteArgs, QueuedInfo } from '../../../../domain'
+import { ConsumerInfo, QueueExecuteArgs, QueuedInfo } from '../../../domain'
 
 // Doc: https://kafka.js.org/docs/configuration
 export class KafkaQueue implements Queue {
@@ -24,7 +23,7 @@ export class KafkaQueue implements Queue {
 		}
 		this.logger.info(`kafka config: ${JSON.stringify(queuedInfo.config)}`)
 		this.kafka = new Kafka(queuedInfo.config)
-		new KafkaLibrary(this.orm, this.kafka).load()
+
 		if (queuedInfo.consumers) {
 			const promises = []
 			for (const consumer of queuedInfo.consumers) {
@@ -49,16 +48,13 @@ export class KafkaQueue implements Queue {
 		await _consumer.connect()
 		await _consumer.subscribe(consumerInfo.subscribe)
 		await _consumer.run({
-			eachMessage: async ({ topic, message }) => {
+			eachMessage: async ({ topic, partition, message }) => {
 				try {
 					const value = message.value instanceof Buffer ? message.value.toString() : message.value || ''
 					const msg = JSON.parse(value)
-					if (msg.options === undefined) msg.options = {}
-					if (msg.options.headers === undefined) msg.options.headers = {}
-					msg.options.headers.topic = topic
-					await this.orm.execute(msg.expression, msg.data, msg.options)
+					await this.orm.expressions.evalAsync(msg.expression, { message: msg, topic, partition })
 				} catch (error) {
-					console.error(error)
+					this.logger.error(error)
 				}
 			}
 		})
@@ -76,6 +72,27 @@ export class KafkaQueue implements Queue {
 		// TODO: evaluate use of worker_threads to execute in background
 		this.executeInBackground(queueId, args)
 		return queueId
+	}
+
+	public async send (topic:string, messages:any[]): Promise<void> {
+		if (!this.kafka) {
+			throw new Error('kafka undefined')
+		}
+		try {
+			const producer = this.kafka.producer({
+				allowAutoTopicCreation: true,
+				createPartitioner: Partitioners.DefaultPartitioner
+			})
+			const _messages = []
+			for (const message of messages) {
+				_messages.push({ value: JSON.stringify(message) })
+			}
+			await producer.connect()
+			await producer.send({ topic, messages: _messages })
+			await producer.disconnect()
+		} catch (error) {
+			this.logger.error(error)
+		}
 	}
 
 	public async executeInBackground (queueId:string, args:QueueExecuteArgs): Promise<void> {

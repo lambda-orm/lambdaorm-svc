@@ -5,4 +5,5 @@ export interface Queue {
 	stop (): Promise<void>
 	execute (args:QueueExecuteArgs): string
 	executeInBackground (queueId:string, args:QueueExecuteArgs): Promise<void>
+	send (topic:string, messages:any[]): Promise<void>
 }

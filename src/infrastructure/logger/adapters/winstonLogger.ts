@@ -30,7 +30,15 @@ export class WinstonLogger implements Logger {
 		this.logger.info(message)
 	}
 
-	public async error (message: string):Promise<void> {
-		this.logger.error(message)
+	public async error (message: string|any):Promise<void> {
+		if (typeof message === 'string') {
+			this.logger('error', message)
+		} else if (message instanceof Error) {
+			this.logger('error', message.message)
+		} else if (message instanceof Object) {
+			this.logger('error', JSON.stringify(message))
+		} else {
+			this.logger('error', message.toISOString())
+		}
 	}
 }

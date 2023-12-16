@@ -1,54 +1,26 @@
-# Northwind lab
+# Service - Northwind CQRS (Command Query Responsibility Segregation)
 
 ## Start
 
 ```sh
-docker-compose -p lambdaorm-svc up -d
-mysql -h 0.0.0.0 -P 3306 -u northwind -pnorthwind northwind < northwind-mysql.sql
+docker-compose -p lambdaorm-lab up -d
+docker exec mysql  mysql --host 127.0.0.1 --port 3306 -uroot -proot -e "ALTER DATABASE test CHARACTER SET utf8 COLLATE utf8_general_ci;"
+docker exec mysql  mysql --host 127.0.0.1 --port 3306 -uroot -proot -e "GRANT ALL ON *.* TO 'test'@'%' with grant option; FLUSH PRIVILEGES;"
+docker exec postgres psql -U test -c "CREATE DATABASE insights" -W test
+lambdaorm sync -e .env -s default
+lambdaorm sync -e .env -s insights
 ```
 
-## Test
-
-**Metadata:**
+## Execute
 
 ```sh
-curl -X POST "http://localhost:9291/metadata?format=beautiful" -H "Content-Type: application/json" -d '{"expression": "Orders.filter(p=>p.id==id).include(p=>p.details)"}'
-```
-
-**Model:**
-
-```sh
-curl -X POST "http://localhost:9291/model?format=beautiful" -H "Content-Type: application/json" -d '{"expression": "Orders.filter(p=>p.id==id).include(p=>p.details)"}'
-```
-
-**Parameters:**
-
-```sh
-curl -X POST "http://localhost:9291/parameters?format=beautiful" -H "Content-Type: application/json" -d '{"expression": "Orders.filter(p=>p.id==id).include(p=>p.details)"}'
-```
-
-**Constraints:**
-
-```sh
-curl -X POST "http://localhost:9291/constraints?format=beautifu" -H "Content-Type: application/json" -d '{"expression": "Orders.filter(p=>p.id==id).include(p=>p.details)"}'
-```
-
-**Sentence:**
-
-```sh
-curl -X POST "http://localhost:9291/sentence?format=beautiful" -H "Content-Type: application/json" -d '{"expression": "Orders.filter(p=>p.id==id).include(p=>p.details)"}'
-```
-
-**Execute:**
-
-```sh
-curl -X POST "http://localhost:9291/execute?format=beautiful" -H "Content-Type: application/json" -d '{"expression": "Orders.filter(p=>p.id==id).include(p=>p.details)", "data": "{\"id\": 10248}" }'
+lambdaorm import -e .env -s default -d ./data.json
 ```
 
 ## End
 
 ```sh
-docker-compose -p lambdaorm-svc down --remove-orphans
-docker volume rm lambdaorm-svc_mysql-data
-docker volume rm lambdaorm-svc_mysql-log
+lambdaorm drop -e .env -s default
+lambdaorm drop -e .env -s insights
+docker-compose -p lambdaorm-lab down
 ```

@@ -1,4 +1,4 @@
 export interface Logger {
-	error(message: string): Promise<void>
+	error(message: string|any): Promise<void>
 	info(message: string): Promise<void>
 }

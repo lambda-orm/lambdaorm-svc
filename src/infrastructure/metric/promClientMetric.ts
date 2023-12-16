@@ -1,4 +1,4 @@
-import { Metric } from '../../../application/ports/metric'
+import { Metric } from '../../application/ports/metric'
 // https://www.npmjs.com/package/prom-client
 // https://stackabuse.com/nodejs-application-monitoring-with-prometheus-and-grafana/
 export class PromClientMetric implements Metric {

@@ -6,7 +6,6 @@ import cookieParser from 'cookie-parser'
 import swaggerUi from 'swagger-ui-express'
 import { h3lp } from 'h3lp'
 import { GeneralService, SchemaService, ExpressionService, StageService, Queue, Logger } from '../application'
-import { MetricBuilder, LoggerBuilder, QueueBuilder } from './adapters'
 import { GeneralRoutes, SchemaRoutes, ExpressionRoutes, StageRoutes } from './routes'
 import { OrmBuilder } from './orm'
 import path from 'path'
@@ -14,6 +13,9 @@ import http from 'http'
 import { IOrm } from 'lambdaorm'
 import { ServiceSchema, ServiceConfig } from '../domain'
 import { beautifyJsonMiddleware } from './middleware/beautifyJsonMiddleware'
+import { LoggerBuilder } from './logger/loggerBuilder'
+import { QueueBuilder } from './queued/queueBuilder'
+import { MetricBuilder } from './metric/metricBuilder'
 const YAML = require('js-yaml')
 
 export class Server {

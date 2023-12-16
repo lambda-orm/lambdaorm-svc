@@ -1,4 +1,4 @@
-import { Metric } from '../../../application'
+import { Metric } from '../../application'
 import { PromClientMetric } from './promClientMetric'
 
 export class MetricBuilder {

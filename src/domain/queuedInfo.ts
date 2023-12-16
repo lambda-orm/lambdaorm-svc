@@ -3,6 +3,7 @@ import { QueryOptions } from 'lambdaorm'
 export interface ConsumerInfo {
 	config:any
 	subscribe: any
+	execute: string
 }
 export interface QueuedInfo {
 	config:any
