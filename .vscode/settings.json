@@ -48,6 +48,7 @@
 		"instantclient",
 		"jexp",
 		"JEXP",
+		"kafdrop",
 		"kafkajs",
 		"keycloak",
 		"kong",

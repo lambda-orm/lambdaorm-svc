@@ -8,6 +8,6 @@ export class QueueLibrary {
 	public async load (): Promise<void> {
 		this.orm.expressions.addFunction('queue.send(topic:string,messages:any[]):void', async (topic:string, messages:any[]) => {
 			return this.queue.send(topic, messages)
-		})
+		}, { async: true })
 	}
 }

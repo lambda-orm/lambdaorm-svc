@@ -11,10 +11,26 @@ lambdaorm sync -e .env -s default
 lambdaorm sync -e .env -s insights
 ```
 
+- [kafdrop](http://localhost:9000)
+
 ## Execute
 
+Import data to default stage:
+
 ```sh
-lambdaorm import -e .env -s default -d ./data.json
+curl -X POST -H "Content-Type: application/json" -d @data.json http://localhost:9291/stages/default/import
+```
+
+Execute on default Stage:
+
+```sh
+curl -X POST "http://localhost:9291/execute?format=beautiful" -H "Content-Type: application/json" -d '{"expression": "Orders.filter(p=>p.customerId==customerId).include(p=>[p.details.include(p=>p.product.map(p=>p.name)).map(p=>{subTotal:p.quantity*p.unitPrice}),p.customer.map(p=>p.name)]).order(p=>p.orderDate).page(1,1)","data":"{\"customerId\": \"CENTC\"}", "options":"{\"stage\": \"default\"}"}'
+```
+
+Execute on CQRS Stage:
+
+```sh
+curl -X POST "http://localhost:9291/execute?format=beautiful" -H "Content-Type: application/json" -d '{"expression": "Orders.filter(p=>p.customerId==customerId).include(p=>[p.details.include(p=>p.product.map(p=>p.name)).map(p=>{subTotal:p.quantity*p.unitPrice}),p.customer.map(p=>p.name)]).order(p=>p.orderDate).page(1,1)","data":"{\"customerId\": \"CENTC\"}", "options":"{\"stage\": \"cqrs\"}"}'
 ```
 
 ## End

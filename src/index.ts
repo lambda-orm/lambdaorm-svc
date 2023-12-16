@@ -1,4 +1,4 @@
-import { LoggerBuilder } from 'infrastructure/logger/loggerBuilder'
+import { LoggerBuilder } from './infrastructure/logger/loggerBuilder'
 import { Server } from './infrastructure/server'
 const logger = new LoggerBuilder().build()
 const start = async () => {
