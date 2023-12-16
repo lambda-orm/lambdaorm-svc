@@ -34,7 +34,7 @@
 
 #### Defined in
 
-[application/services/generalService.ts:4](https://github.com/FlavioLionelRita/lambdaorm-svc/blob/e49120e/src/application/services/generalService.ts#L4)
+[application/services/generalService.ts:4](https://github.com/FlavioLionelRita/lambdaorm-svc/blob/b4a3d05/src/application/services/generalService.ts#L4)
 
 ## Properties
 
@@ -44,7 +44,7 @@
 
 #### Defined in
 
-[application/services/generalService.ts:4](https://github.com/FlavioLionelRita/lambdaorm-svc/blob/e49120e/src/application/services/generalService.ts#L4)
+[application/services/generalService.ts:4](https://github.com/FlavioLionelRita/lambdaorm-svc/blob/b4a3d05/src/application/services/generalService.ts#L4)
 
 ___
 
@@ -54,7 +54,7 @@ ___
 
 #### Defined in
 
-[application/services/generalService.ts:4](https://github.com/FlavioLionelRita/lambdaorm-svc/blob/e49120e/src/application/services/generalService.ts#L4)
+[application/services/generalService.ts:4](https://github.com/FlavioLionelRita/lambdaorm-svc/blob/b4a3d05/src/application/services/generalService.ts#L4)
 
 ## Methods
 
@@ -68,7 +68,7 @@ ___
 
 #### Defined in
 
-[application/services/generalService.ts:10](https://github.com/FlavioLionelRita/lambdaorm-svc/blob/e49120e/src/application/services/generalService.ts#L10)
+[application/services/generalService.ts:10](https://github.com/FlavioLionelRita/lambdaorm-svc/blob/b4a3d05/src/application/services/generalService.ts#L10)
 
 ___
 
@@ -82,7 +82,7 @@ ___
 
 #### Defined in
 
-[application/services/generalService.ts:28](https://github.com/FlavioLionelRita/lambdaorm-svc/blob/e49120e/src/application/services/generalService.ts#L28)
+[application/services/generalService.ts:28](https://github.com/FlavioLionelRita/lambdaorm-svc/blob/b4a3d05/src/application/services/generalService.ts#L28)
 
 ___
 
@@ -96,4 +96,4 @@ ___
 
 #### Defined in
 
-[application/services/generalService.ts:6](https://github.com/FlavioLionelRita/lambdaorm-svc/blob/e49120e/src/application/services/generalService.ts#L6)
+[application/services/generalService.ts:6](https://github.com/FlavioLionelRita/lambdaorm-svc/blob/b4a3d05/src/application/services/generalService.ts#L6)
