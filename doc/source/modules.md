@@ -21,6 +21,12 @@
 
 ### Interfaces
 
+- [ConsumerInfo](interfaces/ConsumerInfo.md)
 - [Logger](interfaces/Logger.md)
 - [Metric](interfaces/Metric.md)
 - [Queue](interfaces/Queue.md)
+- [QueueExecuteArgs](interfaces/QueueExecuteArgs.md)
+- [QueuedInfo](interfaces/QueuedInfo.md)
+- [ServiceConfig](interfaces/ServiceConfig.md)
+- [ServiceInfrastructureSchema](interfaces/ServiceInfrastructureSchema.md)
+- [ServiceSchema](interfaces/ServiceSchema.md)

@@ -22,7 +22,7 @@
 
 | Name | Type |
 | :------ | :------ |
-| `args` | `QueueExecuteArgs` |
+| `args` | [`QueueExecuteArgs`](QueueExecuteArgs.md) |
 
 #### Returns
 
@@ -30,7 +30,7 @@
 
 #### Defined in
 
-[application/ports/queue.ts:6](https://github.com/FlavioLionelRita/lambdaorm-svc/blob/a70e3b8/src/application/ports/queue.ts#L6)
+[src/application/ports/queue.ts:6](https://github.com/FlavioLionelRita/lambdaorm-svc/blob/3fd0a8b/src/application/ports/queue.ts#L6)
 
 ___
 
@@ -43,7 +43,7 @@ ___
 | Name | Type |
 | :------ | :------ |
 | `queueId` | `string` |
-| `args` | `QueueExecuteArgs` |
+| `args` | [`QueueExecuteArgs`](QueueExecuteArgs.md) |
 
 #### Returns
 
@@ -51,7 +51,7 @@ ___
 
 #### Defined in
 
-[application/ports/queue.ts:7](https://github.com/FlavioLionelRita/lambdaorm-svc/blob/a70e3b8/src/application/ports/queue.ts#L7)
+[src/application/ports/queue.ts:7](https://github.com/FlavioLionelRita/lambdaorm-svc/blob/3fd0a8b/src/application/ports/queue.ts#L7)
 
 ___
 
@@ -72,7 +72,7 @@ ___
 
 #### Defined in
 
-[application/ports/queue.ts:8](https://github.com/FlavioLionelRita/lambdaorm-svc/blob/a70e3b8/src/application/ports/queue.ts#L8)
+[src/application/ports/queue.ts:8](https://github.com/FlavioLionelRita/lambdaorm-svc/blob/3fd0a8b/src/application/ports/queue.ts#L8)
 
 ___
 
@@ -84,7 +84,7 @@ ___
 
 | Name | Type |
 | :------ | :------ |
-| `queuedInfo` | `QueuedInfo` |
+| `queuedInfo` | [`QueuedInfo`](QueuedInfo.md) |
 
 #### Returns
 
@@ -92,7 +92,7 @@ ___
 
 #### Defined in
 
-[application/ports/queue.ts:4](https://github.com/FlavioLionelRita/lambdaorm-svc/blob/a70e3b8/src/application/ports/queue.ts#L4)
+[src/application/ports/queue.ts:4](https://github.com/FlavioLionelRita/lambdaorm-svc/blob/3fd0a8b/src/application/ports/queue.ts#L4)
 
 ___
 
@@ -106,4 +106,4 @@ ___
 
 #### Defined in
 
-[application/ports/queue.ts:5](https://github.com/FlavioLionelRita/lambdaorm-svc/blob/a70e3b8/src/application/ports/queue.ts#L5)
+[src/application/ports/queue.ts:5](https://github.com/FlavioLionelRita/lambdaorm-svc/blob/3fd0a8b/src/application/ports/queue.ts#L5)

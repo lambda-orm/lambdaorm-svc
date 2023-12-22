@@ -1,0 +1,111 @@
+[orm-service](../README.md) / [Exports](../modules.md) / ServiceInfrastructureSchema
+
+# Interface: ServiceInfrastructureSchema
+
+## Hierarchy
+
+- `InfrastructureSchema`
+
+  ↳ **`ServiceInfrastructureSchema`**
+
+## Table of contents
+
+### Properties
+
+- [mappings](ServiceInfrastructureSchema.md#mappings)
+- [paths](ServiceInfrastructureSchema.md#paths)
+- [queue](ServiceInfrastructureSchema.md#queue)
+- [service](ServiceInfrastructureSchema.md#service)
+- [sources](ServiceInfrastructureSchema.md#sources)
+- [stages](ServiceInfrastructureSchema.md#stages)
+- [views](ServiceInfrastructureSchema.md#views)
+
+## Properties
+
+### mappings
+
+• **mappings**: `Mapping`[]
+
+#### Inherited from
+
+InfrastructureSchema.mappings
+
+#### Defined in
+
+node_modules/lambdaorm-base/schema/domain/schema.d.ts:162
+
+___
+
+### paths
+
+• **paths**: `AppPathsConfig`
+
+#### Inherited from
+
+InfrastructureSchema.paths
+
+#### Defined in
+
+node_modules/lambdaorm-base/schema/domain/schema.d.ts:161
+
+___
+
+### queue
+
+• **queue**: [`QueuedInfo`](QueuedInfo.md)
+
+#### Defined in
+
+[src/domain/serviceSchema.ts:14](https://github.com/FlavioLionelRita/lambdaorm-svc/blob/3fd0a8b/src/domain/serviceSchema.ts#L14)
+
+___
+
+### service
+
+• **service**: [`ServiceConfig`](ServiceConfig.md)
+
+#### Defined in
+
+[src/domain/serviceSchema.ts:13](https://github.com/FlavioLionelRita/lambdaorm-svc/blob/3fd0a8b/src/domain/serviceSchema.ts#L13)
+
+___
+
+### sources
+
+• **sources**: `Source`[]
+
+#### Inherited from
+
+InfrastructureSchema.sources
+
+#### Defined in
+
+node_modules/lambdaorm-base/schema/domain/schema.d.ts:164
+
+___
+
+### stages
+
+• **stages**: `Stage`[]
+
+#### Inherited from
+
+InfrastructureSchema.stages
+
+#### Defined in
+
+node_modules/lambdaorm-base/schema/domain/schema.d.ts:165
+
+___
+
+### views
+
+• **views**: `View`[]
+
+#### Inherited from
+
+InfrastructureSchema.views
+
+#### Defined in
+
+node_modules/lambdaorm-base/schema/domain/schema.d.ts:163
