@@ -21,8 +21,6 @@
 ### Methods
 
 - [collectRequestParams](SchemaController.md#collectrequestparams)
-- [dataSource](SchemaController.md#datasource)
-- [dataSources](SchemaController.md#datasources)
 - [domain](SchemaController.md#domain)
 - [entities](SchemaController.md#entities)
 - [entity](SchemaController.md#entity)
@@ -35,6 +33,8 @@
 - [schema](SchemaController.md#schema)
 - [sendError](SchemaController.md#senderror)
 - [sendResponse](SchemaController.md#sendresponse)
+- [source](SchemaController.md#source)
+- [sources](SchemaController.md#sources)
 - [stage](SchemaController.md#stage)
 - [stages](SchemaController.md#stages)
 - [version](SchemaController.md#version)
@@ -58,7 +58,7 @@ Controller.constructor
 
 #### Defined in
 
-[infrastructure/controllers/schemaController.ts:6](https://github.com/FlavioLionelRita/lambdaorm-svc/blob/401fbe7/src/infrastructure/controllers/schemaController.ts#L6)
+[infrastructure/controllers/schemaController.ts:6](https://github.com/FlavioLionelRita/lambdaorm-svc/blob/a70e3b8/src/infrastructure/controllers/schemaController.ts#L6)
 
 ## Properties
 
@@ -68,7 +68,7 @@ Controller.constructor
 
 #### Defined in
 
-[infrastructure/controllers/schemaController.ts:6](https://github.com/FlavioLionelRita/lambdaorm-svc/blob/401fbe7/src/infrastructure/controllers/schemaController.ts#L6)
+[infrastructure/controllers/schemaController.ts:6](https://github.com/FlavioLionelRita/lambdaorm-svc/blob/a70e3b8/src/infrastructure/controllers/schemaController.ts#L6)
 
 ## Methods
 
@@ -92,49 +92,7 @@ Controller.collectRequestParams
 
 #### Defined in
 
-[infrastructure/controllers/Controller.ts:27](https://github.com/FlavioLionelRita/lambdaorm-svc/blob/401fbe7/src/infrastructure/controllers/Controller.ts#L27)
-
-___
-
-### dataSource
-
-▸ **dataSource**(`request`, `response`): `Promise`<`void`\>
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `request` | `Request`<`ParamsDictionary`, `any`, `any`, `ParsedQs`, `Record`<`string`, `any`\>\> |
-| `response` | `Response`<`any`, `Record`<`string`, `any`\>\> |
-
-#### Returns
-
-`Promise`<`void`\>
-
-#### Defined in
-
-[infrastructure/controllers/schemaController.ts:22](https://github.com/FlavioLionelRita/lambdaorm-svc/blob/401fbe7/src/infrastructure/controllers/schemaController.ts#L22)
-
-___
-
-### dataSources
-
-▸ **dataSources**(`request`, `response`): `Promise`<`void`\>
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `request` | `Request`<`ParamsDictionary`, `any`, `any`, `ParsedQs`, `Record`<`string`, `any`\>\> |
-| `response` | `Response`<`any`, `Record`<`string`, `any`\>\> |
-
-#### Returns
-
-`Promise`<`void`\>
-
-#### Defined in
-
-[infrastructure/controllers/schemaController.ts:26](https://github.com/FlavioLionelRita/lambdaorm-svc/blob/401fbe7/src/infrastructure/controllers/schemaController.ts#L26)
+[infrastructure/controllers/Controller.ts:27](https://github.com/FlavioLionelRita/lambdaorm-svc/blob/a70e3b8/src/infrastructure/controllers/Controller.ts#L27)
 
 ___
 
@@ -155,7 +113,7 @@ ___
 
 #### Defined in
 
-[infrastructure/controllers/schemaController.ts:18](https://github.com/FlavioLionelRita/lambdaorm-svc/blob/401fbe7/src/infrastructure/controllers/schemaController.ts#L18)
+[infrastructure/controllers/schemaController.ts:18](https://github.com/FlavioLionelRita/lambdaorm-svc/blob/a70e3b8/src/infrastructure/controllers/schemaController.ts#L18)
 
 ___
 
@@ -176,7 +134,7 @@ ___
 
 #### Defined in
 
-[infrastructure/controllers/schemaController.ts:30](https://github.com/FlavioLionelRita/lambdaorm-svc/blob/401fbe7/src/infrastructure/controllers/schemaController.ts#L30)
+[infrastructure/controllers/schemaController.ts:30](https://github.com/FlavioLionelRita/lambdaorm-svc/blob/a70e3b8/src/infrastructure/controllers/schemaController.ts#L30)
 
 ___
 
@@ -197,7 +155,7 @@ ___
 
 #### Defined in
 
-[infrastructure/controllers/schemaController.ts:34](https://github.com/FlavioLionelRita/lambdaorm-svc/blob/401fbe7/src/infrastructure/controllers/schemaController.ts#L34)
+[infrastructure/controllers/schemaController.ts:34](https://github.com/FlavioLionelRita/lambdaorm-svc/blob/a70e3b8/src/infrastructure/controllers/schemaController.ts#L34)
 
 ___
 
@@ -218,7 +176,7 @@ ___
 
 #### Defined in
 
-[infrastructure/controllers/schemaController.ts:38](https://github.com/FlavioLionelRita/lambdaorm-svc/blob/401fbe7/src/infrastructure/controllers/schemaController.ts#L38)
+[infrastructure/controllers/schemaController.ts:38](https://github.com/FlavioLionelRita/lambdaorm-svc/blob/a70e3b8/src/infrastructure/controllers/schemaController.ts#L38)
 
 ___
 
@@ -239,7 +197,7 @@ ___
 
 #### Defined in
 
-[infrastructure/controllers/schemaController.ts:46](https://github.com/FlavioLionelRita/lambdaorm-svc/blob/401fbe7/src/infrastructure/controllers/schemaController.ts#L46)
+[infrastructure/controllers/schemaController.ts:46](https://github.com/FlavioLionelRita/lambdaorm-svc/blob/a70e3b8/src/infrastructure/controllers/schemaController.ts#L46)
 
 ___
 
@@ -260,7 +218,7 @@ ___
 
 #### Defined in
 
-[infrastructure/controllers/schemaController.ts:42](https://github.com/FlavioLionelRita/lambdaorm-svc/blob/401fbe7/src/infrastructure/controllers/schemaController.ts#L42)
+[infrastructure/controllers/schemaController.ts:42](https://github.com/FlavioLionelRita/lambdaorm-svc/blob/a70e3b8/src/infrastructure/controllers/schemaController.ts#L42)
 
 ___
 
@@ -286,7 +244,7 @@ Controller.handleRequest
 
 #### Defined in
 
-[infrastructure/controllers/Controller.ts:50](https://github.com/FlavioLionelRita/lambdaorm-svc/blob/401fbe7/src/infrastructure/controllers/Controller.ts#L50)
+[infrastructure/controllers/Controller.ts:50](https://github.com/FlavioLionelRita/lambdaorm-svc/blob/a70e3b8/src/infrastructure/controllers/Controller.ts#L50)
 
 ___
 
@@ -307,7 +265,7 @@ ___
 
 #### Defined in
 
-[infrastructure/controllers/schemaController.ts:54](https://github.com/FlavioLionelRita/lambdaorm-svc/blob/401fbe7/src/infrastructure/controllers/schemaController.ts#L54)
+[infrastructure/controllers/schemaController.ts:54](https://github.com/FlavioLionelRita/lambdaorm-svc/blob/a70e3b8/src/infrastructure/controllers/schemaController.ts#L54)
 
 ___
 
@@ -328,7 +286,7 @@ ___
 
 #### Defined in
 
-[infrastructure/controllers/schemaController.ts:50](https://github.com/FlavioLionelRita/lambdaorm-svc/blob/401fbe7/src/infrastructure/controllers/schemaController.ts#L50)
+[infrastructure/controllers/schemaController.ts:50](https://github.com/FlavioLionelRita/lambdaorm-svc/blob/a70e3b8/src/infrastructure/controllers/schemaController.ts#L50)
 
 ___
 
@@ -349,7 +307,7 @@ ___
 
 #### Defined in
 
-[infrastructure/controllers/schemaController.ts:14](https://github.com/FlavioLionelRita/lambdaorm-svc/blob/401fbe7/src/infrastructure/controllers/schemaController.ts#L14)
+[infrastructure/controllers/schemaController.ts:14](https://github.com/FlavioLionelRita/lambdaorm-svc/blob/a70e3b8/src/infrastructure/controllers/schemaController.ts#L14)
 
 ___
 
@@ -374,7 +332,7 @@ Controller.sendError
 
 #### Defined in
 
-[infrastructure/controllers/Controller.ts:18](https://github.com/FlavioLionelRita/lambdaorm-svc/blob/401fbe7/src/infrastructure/controllers/Controller.ts#L18)
+[infrastructure/controllers/Controller.ts:18](https://github.com/FlavioLionelRita/lambdaorm-svc/blob/a70e3b8/src/infrastructure/controllers/Controller.ts#L18)
 
 ___
 
@@ -399,7 +357,49 @@ Controller.sendResponse
 
 #### Defined in
 
-[infrastructure/controllers/Controller.ts:3](https://github.com/FlavioLionelRita/lambdaorm-svc/blob/401fbe7/src/infrastructure/controllers/Controller.ts#L3)
+[infrastructure/controllers/Controller.ts:3](https://github.com/FlavioLionelRita/lambdaorm-svc/blob/a70e3b8/src/infrastructure/controllers/Controller.ts#L3)
+
+___
+
+### source
+
+▸ **source**(`request`, `response`): `Promise`<`void`\>
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `request` | `Request`<`ParamsDictionary`, `any`, `any`, `ParsedQs`, `Record`<`string`, `any`\>\> |
+| `response` | `Response`<`any`, `Record`<`string`, `any`\>\> |
+
+#### Returns
+
+`Promise`<`void`\>
+
+#### Defined in
+
+[infrastructure/controllers/schemaController.ts:22](https://github.com/FlavioLionelRita/lambdaorm-svc/blob/a70e3b8/src/infrastructure/controllers/schemaController.ts#L22)
+
+___
+
+### sources
+
+▸ **sources**(`request`, `response`): `Promise`<`void`\>
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `request` | `Request`<`ParamsDictionary`, `any`, `any`, `ParsedQs`, `Record`<`string`, `any`\>\> |
+| `response` | `Response`<`any`, `Record`<`string`, `any`\>\> |
+
+#### Returns
+
+`Promise`<`void`\>
+
+#### Defined in
+
+[infrastructure/controllers/schemaController.ts:26](https://github.com/FlavioLionelRita/lambdaorm-svc/blob/a70e3b8/src/infrastructure/controllers/schemaController.ts#L26)
 
 ___
 
@@ -420,7 +420,7 @@ ___
 
 #### Defined in
 
-[infrastructure/controllers/schemaController.ts:62](https://github.com/FlavioLionelRita/lambdaorm-svc/blob/401fbe7/src/infrastructure/controllers/schemaController.ts#L62)
+[infrastructure/controllers/schemaController.ts:62](https://github.com/FlavioLionelRita/lambdaorm-svc/blob/a70e3b8/src/infrastructure/controllers/schemaController.ts#L62)
 
 ___
 
@@ -441,7 +441,7 @@ ___
 
 #### Defined in
 
-[infrastructure/controllers/schemaController.ts:58](https://github.com/FlavioLionelRita/lambdaorm-svc/blob/401fbe7/src/infrastructure/controllers/schemaController.ts#L58)
+[infrastructure/controllers/schemaController.ts:58](https://github.com/FlavioLionelRita/lambdaorm-svc/blob/a70e3b8/src/infrastructure/controllers/schemaController.ts#L58)
 
 ___
 
@@ -462,7 +462,7 @@ ___
 
 #### Defined in
 
-[infrastructure/controllers/schemaController.ts:10](https://github.com/FlavioLionelRita/lambdaorm-svc/blob/401fbe7/src/infrastructure/controllers/schemaController.ts#L10)
+[infrastructure/controllers/schemaController.ts:10](https://github.com/FlavioLionelRita/lambdaorm-svc/blob/a70e3b8/src/infrastructure/controllers/schemaController.ts#L10)
 
 ___
 
@@ -483,4 +483,4 @@ ___
 
 #### Defined in
 
-[infrastructure/controllers/schemaController.ts:66](https://github.com/FlavioLionelRita/lambdaorm-svc/blob/401fbe7/src/infrastructure/controllers/schemaController.ts#L66)
+[infrastructure/controllers/schemaController.ts:66](https://github.com/FlavioLionelRita/lambdaorm-svc/blob/a70e3b8/src/infrastructure/controllers/schemaController.ts#L66)

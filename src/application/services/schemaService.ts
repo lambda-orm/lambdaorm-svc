@@ -20,7 +20,7 @@ export class SchemaService {
 		}
 	}
 
-	public async dataSources (): Promise<{name:string, dialect:string}[]> {
+	public async sources (): Promise<{name:string, dialect:string}[]> {
 		if (!this.orm.schema.schema.infrastructure) {
 			return []
 		}
@@ -28,12 +28,12 @@ export class SchemaService {
 			.map(p => ({ name: p.name, dialect: p.dialect as string }))
 	}
 
-	public async dataSource ({ datasource }:{ datasource:string }): Promise<{name:string, dialect:string}[]> {
+	public async source ({ source }:{ source:string }): Promise<{name:string, dialect:string}[]> {
 		if (!this.orm.schema.schema.infrastructure) {
 			return []
 		}
 		return this.orm.schema.schema.infrastructure.sources
-			.filter(p => p.name === datasource)
+			.filter(p => p.name === source)
 			.map(p => ({ name: p.name, dialect: p.dialect as string }))
 	}
 

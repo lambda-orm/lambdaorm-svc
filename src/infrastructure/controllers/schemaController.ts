@@ -19,12 +19,12 @@ export class SchemaController extends Controller {
 		await this.handleRequest(request, response, this.service.domain.bind(this.service))
 	}
 
-	public async dataSource (request: Request, response: Response) {
-		await this.handleRequest(request, response, this.service.dataSource.bind(this.service))
+	public async source (request: Request, response: Response) {
+		await this.handleRequest(request, response, this.service.source.bind(this.service))
 	}
 
-	public async dataSources (request: Request, response: Response) {
-		await this.handleRequest(request, response, this.service.dataSources.bind(this.service))
+	public async sources (request: Request, response: Response) {
+		await this.handleRequest(request, response, this.service.sources.bind(this.service))
 	}
 
 	public async entities (request: Request, response: Response) {

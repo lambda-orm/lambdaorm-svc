@@ -36,7 +36,6 @@ curl -X POST "http://localhost:9291/execute?format=beautiful" -H "Content-Type: 
 ## End
 
 ```sh
-lambdaorm drop -e .env -s default
-lambdaorm drop -e .env -s insights
+rm -rf ./data
 docker-compose -p lambdaorm-lab down
 ```

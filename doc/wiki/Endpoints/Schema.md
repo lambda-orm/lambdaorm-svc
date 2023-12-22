@@ -2621,14 +2621,14 @@ Request:
 curl -X GET "http://localhost:9291/enums/Color?format=beautiful"
 ```
 
-## Datasources
+## Sources
 
-Return the datasources.
+Return the sources.
 
 Request:
 
 ```sh
-curl -X GET "http://localhost:9291/datasources?format=beautiful"
+curl -X GET "http://localhost:9291/sources?format=beautiful"
 ```
 
 Response
@@ -2642,14 +2642,14 @@ Response
 ]
 ```
 
-## Datasource
+## Source
 
-Return one datasource.
+Return one source.
 
 Request:
 
 ```sh
-curl -X GET "http://localhost:9291/datasources/default?format=beautiful"
+curl -X GET "http://localhost:9291/sources/default?format=beautiful"
 ```
 
 Response
