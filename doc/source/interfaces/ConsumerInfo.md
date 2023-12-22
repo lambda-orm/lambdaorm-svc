@@ -18,7 +18,7 @@
 
 #### Defined in
 
-[src/domain/queuedInfo.ts:4](https://github.com/FlavioLionelRita/lambdaorm-svc/blob/3fd0a8b/src/domain/queuedInfo.ts#L4)
+[src/domain/queuedInfo.ts:4](https://github.com/FlavioLionelRita/lambdaorm-svc/blob/73e5767/src/domain/queuedInfo.ts#L4)
 
 ___
 
@@ -28,7 +28,7 @@ ___
 
 #### Defined in
 
-[src/domain/queuedInfo.ts:6](https://github.com/FlavioLionelRita/lambdaorm-svc/blob/3fd0a8b/src/domain/queuedInfo.ts#L6)
+[src/domain/queuedInfo.ts:6](https://github.com/FlavioLionelRita/lambdaorm-svc/blob/73e5767/src/domain/queuedInfo.ts#L6)
 
 ___
 
@@ -38,4 +38,4 @@ ___
 
 #### Defined in
 
-[src/domain/queuedInfo.ts:5](https://github.com/FlavioLionelRita/lambdaorm-svc/blob/3fd0a8b/src/domain/queuedInfo.ts#L5)
+[src/domain/queuedInfo.ts:5](https://github.com/FlavioLionelRita/lambdaorm-svc/blob/73e5767/src/domain/queuedInfo.ts#L5)

@@ -56,7 +56,7 @@ ___
 
 #### Defined in
 
-[src/domain/serviceSchema.ts:14](https://github.com/FlavioLionelRita/lambdaorm-svc/blob/3fd0a8b/src/domain/serviceSchema.ts#L14)
+[src/domain/serviceSchema.ts:14](https://github.com/FlavioLionelRita/lambdaorm-svc/blob/73e5767/src/domain/serviceSchema.ts#L14)
 
 ___
 
@@ -66,7 +66,7 @@ ___
 
 #### Defined in
 
-[src/domain/serviceSchema.ts:13](https://github.com/FlavioLionelRita/lambdaorm-svc/blob/3fd0a8b/src/domain/serviceSchema.ts#L13)
+[src/domain/serviceSchema.ts:13](https://github.com/FlavioLionelRita/lambdaorm-svc/blob/73e5767/src/domain/serviceSchema.ts#L13)
 
 ___
 

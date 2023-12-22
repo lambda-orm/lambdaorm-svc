@@ -20,7 +20,7 @@
 
 #### Defined in
 
-[src/domain/queuedInfo.ts:17](https://github.com/FlavioLionelRita/lambdaorm-svc/blob/3fd0a8b/src/domain/queuedInfo.ts#L17)
+[src/domain/queuedInfo.ts:17](https://github.com/FlavioLionelRita/lambdaorm-svc/blob/73e5767/src/domain/queuedInfo.ts#L17)
 
 ___
 
@@ -30,7 +30,7 @@ ___
 
 #### Defined in
 
-[src/domain/queuedInfo.ts:16](https://github.com/FlavioLionelRita/lambdaorm-svc/blob/3fd0a8b/src/domain/queuedInfo.ts#L16)
+[src/domain/queuedInfo.ts:16](https://github.com/FlavioLionelRita/lambdaorm-svc/blob/73e5767/src/domain/queuedInfo.ts#L16)
 
 ___
 
@@ -40,7 +40,7 @@ ___
 
 #### Defined in
 
-[src/domain/queuedInfo.ts:15](https://github.com/FlavioLionelRita/lambdaorm-svc/blob/3fd0a8b/src/domain/queuedInfo.ts#L15)
+[src/domain/queuedInfo.ts:15](https://github.com/FlavioLionelRita/lambdaorm-svc/blob/73e5767/src/domain/queuedInfo.ts#L15)
 
 ___
 
@@ -50,7 +50,7 @@ ___
 
 #### Defined in
 
-[src/domain/queuedInfo.ts:18](https://github.com/FlavioLionelRita/lambdaorm-svc/blob/3fd0a8b/src/domain/queuedInfo.ts#L18)
+[src/domain/queuedInfo.ts:18](https://github.com/FlavioLionelRita/lambdaorm-svc/blob/73e5767/src/domain/queuedInfo.ts#L18)
 
 ___
 
@@ -60,4 +60,4 @@ ___
 
 #### Defined in
 
-[src/domain/queuedInfo.ts:14](https://github.com/FlavioLionelRita/lambdaorm-svc/blob/3fd0a8b/src/domain/queuedInfo.ts#L14)
+[src/domain/queuedInfo.ts:14](https://github.com/FlavioLionelRita/lambdaorm-svc/blob/73e5767/src/domain/queuedInfo.ts#L14)
