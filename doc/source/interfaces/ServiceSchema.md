@@ -57,7 +57,7 @@ Schema.infrastructure
 
 #### Defined in
 
-[src/domain/serviceSchema.ts:18](https://github.com/FlavioLionelRita/lambdaorm-svc/blob/73e5767/src/domain/serviceSchema.ts#L18)
+[src/domain/serviceSchema.ts:18](https://github.com/FlavioLionelRita/lambdaorm-svc/blob/87ce8a0/src/domain/serviceSchema.ts#L18)
 
 ___
 

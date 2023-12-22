@@ -30,7 +30,7 @@
 
 #### Defined in
 
-[src/application/ports/queue.ts:6](https://github.com/FlavioLionelRita/lambdaorm-svc/blob/73e5767/src/application/ports/queue.ts#L6)
+[src/application/ports/queue.ts:6](https://github.com/FlavioLionelRita/lambdaorm-svc/blob/87ce8a0/src/application/ports/queue.ts#L6)
 
 ___
 
@@ -51,7 +51,7 @@ ___
 
 #### Defined in
 
-[src/application/ports/queue.ts:7](https://github.com/FlavioLionelRita/lambdaorm-svc/blob/73e5767/src/application/ports/queue.ts#L7)
+[src/application/ports/queue.ts:7](https://github.com/FlavioLionelRita/lambdaorm-svc/blob/87ce8a0/src/application/ports/queue.ts#L7)
 
 ___
 
@@ -72,7 +72,7 @@ ___
 
 #### Defined in
 
-[src/application/ports/queue.ts:8](https://github.com/FlavioLionelRita/lambdaorm-svc/blob/73e5767/src/application/ports/queue.ts#L8)
+[src/application/ports/queue.ts:8](https://github.com/FlavioLionelRita/lambdaorm-svc/blob/87ce8a0/src/application/ports/queue.ts#L8)
 
 ___
 
@@ -92,7 +92,7 @@ ___
 
 #### Defined in
 
-[src/application/ports/queue.ts:4](https://github.com/FlavioLionelRita/lambdaorm-svc/blob/73e5767/src/application/ports/queue.ts#L4)
+[src/application/ports/queue.ts:4](https://github.com/FlavioLionelRita/lambdaorm-svc/blob/87ce8a0/src/application/ports/queue.ts#L4)
 
 ___
 
@@ -106,4 +106,4 @@ ___
 
 #### Defined in
 
-[src/application/ports/queue.ts:5](https://github.com/FlavioLionelRita/lambdaorm-svc/blob/73e5767/src/application/ports/queue.ts#L5)
+[src/application/ports/queue.ts:5](https://github.com/FlavioLionelRita/lambdaorm-svc/blob/87ce8a0/src/application/ports/queue.ts#L5)
