@@ -4,6 +4,13 @@ All notable changes to this project will be documented in this file.
 
 ## Versions
 
+### [0.8.59](https://github.com/FlavioLionelRita/lambdaorm-svc/compare/v0.8.58...v0.8.59) (2023-12-22)
+
+
+### Features
+
+* rename datasource for souce ([3fd0a8b](https://github.com/FlavioLionelRita/lambdaorm-svc/commit/3fd0a8b795dd8a57a95d3a8fdc8959bd218bd25f)), closes [#224](https://github.com/FlavioLionelRita/lambdaorm-svc/issues/224)
+
 ### [0.8.58](https://github.com/FlavioLionelRita/lambdaorm-svc/compare/v0.8.57...v0.8.58) (2023-12-17)
 
 **Features:**
