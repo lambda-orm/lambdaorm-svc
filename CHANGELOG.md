@@ -6,10 +6,9 @@ All notable changes to this project will be documented in this file.
 
 ## [1.1.0](https://github.com/FlavioLionelRita/lambdaorm-svc/compare/v0.8.60...v1.1.0) (2023-12-23)
 
+**Features:**
 
-### Features
-
-* update lambdaorm dependencie ([285fb49](https://github.com/FlavioLionelRita/lambdaorm-svc/commit/285fb496aba3169172bb3ef3ca19b92b7cc5be50)), closes [#224](https://github.com/FlavioLionelRita/lambdaorm-svc/issues/224)
+* update lambdaorm dependencie ([285fb49](https://github.com/FlavioLionelRita/lambdaorm-svc/commit/285fb496aba3169172bb3ef3ca19b92b7cc5be50)), closes [#224](https://github.com/FlavioLionelRita/lambdaorm/issues/224)
 
 ### [0.8.60](https://github.com/FlavioLionelRita/lambdaorm-svc/compare/v0.8.59...v0.8.60) (2023-12-22)
 
