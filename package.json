@@ -1,6 +1,6 @@
 {
   "name": "orm-service",
-  "version": "0.8.60",
+  "version": "1.0.0",
   "description": "Service that exposes the functionality of the LambdaOrm library",
   "main": "./dist/lib/index",
   "scripts": {
@@ -50,7 +50,7 @@
     "h3lp": "^1.5.1",
     "js-yaml": "^4.1.0",
     "kafkajs": "^2.2.4",
-    "lambdaorm": "^0.9.11",
+    "lambdaorm": "^1.0.2",
     "mongodb": "^6.2.0",
     "morgan": "^1.10.0",
     "mysql2": "^3.4.0",
