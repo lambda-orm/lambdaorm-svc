@@ -24,7 +24,7 @@
 
 ### mappings
 
-• **mappings**: `Mapping`[]
+• `Optional` **mappings**: `Mapping`[]
 
 #### Inherited from
 
@@ -38,7 +38,7 @@ ___
 
 ### paths
 
-• **paths**: `AppPathsConfig`
+• `Optional` **paths**: `AppPathsConfig`
 
 #### Inherited from
 
@@ -56,7 +56,7 @@ ___
 
 #### Defined in
 
-[src/domain/serviceSchema.ts:14](https://github.com/FlavioLionelRita/lambdaorm-svc/blob/285fb49/src/domain/serviceSchema.ts#L14)
+[src/domain/serviceSchema.ts:14](https://github.com/FlavioLionelRita/lambdaorm-svc/blob/6d9193f/src/domain/serviceSchema.ts#L14)
 
 ___
 
@@ -66,13 +66,13 @@ ___
 
 #### Defined in
 
-[src/domain/serviceSchema.ts:13](https://github.com/FlavioLionelRita/lambdaorm-svc/blob/285fb49/src/domain/serviceSchema.ts#L13)
+[src/domain/serviceSchema.ts:13](https://github.com/FlavioLionelRita/lambdaorm-svc/blob/6d9193f/src/domain/serviceSchema.ts#L13)
 
 ___
 
 ### sources
 
-• **sources**: `Source`[]
+• `Optional` **sources**: `Source`[]
 
 #### Inherited from
 
@@ -86,7 +86,7 @@ ___
 
 ### stages
 
-• **stages**: `Stage`[]
+• `Optional` **stages**: `Stage`[]
 
 #### Inherited from
 
@@ -100,7 +100,7 @@ ___
 
 ### views
 
-• **views**: `View`[]
+• `Optional` **views**: `View`[]
 
 #### Inherited from
 
