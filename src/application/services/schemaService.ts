@@ -21,7 +21,7 @@ export class SchemaService {
 	}
 
 	public async sources (): Promise<{name:string, dialect:string}[]> {
-		if (!this.orm.schema.schema.infrastructure) {
+		if (!this.orm.schema.schema.infrastructure || !this.orm.schema.schema.infrastructure.sources) {
 			return []
 		}
 		return this.orm.schema.schema.infrastructure.sources
@@ -29,7 +29,7 @@ export class SchemaService {
 	}
 
 	public async source ({ source }:{ source:string }): Promise<{name:string, dialect:string}[]> {
-		if (!this.orm.schema.schema.infrastructure) {
+		if (!this.orm.schema.schema.infrastructure || !this.orm.schema.schema.infrastructure.sources) {
 			return []
 		}
 		return this.orm.schema.schema.infrastructure.sources
@@ -75,7 +75,7 @@ export class SchemaService {
 	}
 
 	public async views (): Promise<string[]> {
-		if (!this.orm.schema.schema.infrastructure) {
+		if (!this.orm.schema.schema.infrastructure || !this.orm.schema.schema.infrastructure.views) {
 			return []
 		}
 		return this.orm.schema.schema.infrastructure.views.map(p => p.name)
