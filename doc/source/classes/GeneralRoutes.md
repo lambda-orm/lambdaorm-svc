@@ -31,7 +31,7 @@
 
 #### Defined in
 
-[src/infrastructure/routes/generalRoutes.ts:7](https://github.com/FlavioLionelRita/lambdaorm-svc/blob/6d9193f/src/infrastructure/routes/generalRoutes.ts#L7)
+[src/infrastructure/routes/generalRoutes.ts:7](https://github.com/lambda-orm/lambdaorm-svc/blob/6d9193f/src/infrastructure/routes/generalRoutes.ts#L7)
 
 ## Properties
 
@@ -41,7 +41,7 @@
 
 #### Defined in
 
-[src/infrastructure/routes/generalRoutes.ts:6](https://github.com/FlavioLionelRita/lambdaorm-svc/blob/6d9193f/src/infrastructure/routes/generalRoutes.ts#L6)
+[src/infrastructure/routes/generalRoutes.ts:6](https://github.com/lambda-orm/lambdaorm-svc/blob/6d9193f/src/infrastructure/routes/generalRoutes.ts#L6)
 
 ## Methods
 
@@ -55,4 +55,4 @@
 
 #### Defined in
 
-[src/infrastructure/routes/generalRoutes.ts:11](https://github.com/FlavioLionelRita/lambdaorm-svc/blob/6d9193f/src/infrastructure/routes/generalRoutes.ts#L11)
+[src/infrastructure/routes/generalRoutes.ts:11](https://github.com/lambda-orm/lambdaorm-svc/blob/6d9193f/src/infrastructure/routes/generalRoutes.ts#L11)

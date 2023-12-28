@@ -1,6 +1,6 @@
 # Expressions Endpoints
 
-![expression-methods](https://raw.githubusercontent.com/FlavioLionelRita/lambdaorm-svc/HEAD/images/expression-methods.png)
+![expression-methods](https://raw.githubusercontent.com/lambda-orm/lambdaorm-svc/HEAD/images/expression-methods.png)
 
 ## Metadata
 

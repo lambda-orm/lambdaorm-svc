@@ -1,6 +1,6 @@
 # Schema endpoints
 
-![schema-methods](https://raw.githubusercontent.com/FlavioLionelRita/lambdaorm-svc/HEAD/images/schema-methods.png)
+![schema-methods](https://raw.githubusercontent.com/lambda-orm/lambdaorm-svc/HEAD/images/schema-methods.png)
 
 ## Version
 

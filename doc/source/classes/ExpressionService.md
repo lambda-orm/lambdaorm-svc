@@ -35,7 +35,7 @@
 
 #### Defined in
 
-[src/application/services/expressionService.ts:4](https://github.com/FlavioLionelRita/lambdaorm-svc/blob/6d9193f/src/application/services/expressionService.ts#L4)
+[src/application/services/expressionService.ts:4](https://github.com/lambda-orm/lambdaorm-svc/blob/6d9193f/src/application/services/expressionService.ts#L4)
 
 ## Properties
 
@@ -45,7 +45,7 @@
 
 #### Defined in
 
-[src/application/services/expressionService.ts:4](https://github.com/FlavioLionelRita/lambdaorm-svc/blob/6d9193f/src/application/services/expressionService.ts#L4)
+[src/application/services/expressionService.ts:4](https://github.com/lambda-orm/lambdaorm-svc/blob/6d9193f/src/application/services/expressionService.ts#L4)
 
 ## Methods
 
@@ -67,7 +67,7 @@
 
 #### Defined in
 
-[src/application/services/expressionService.ts:6](https://github.com/FlavioLionelRita/lambdaorm-svc/blob/6d9193f/src/application/services/expressionService.ts#L6)
+[src/application/services/expressionService.ts:6](https://github.com/lambda-orm/lambdaorm-svc/blob/6d9193f/src/application/services/expressionService.ts#L6)
 
 ___
 
@@ -91,7 +91,7 @@ ___
 
 #### Defined in
 
-[src/application/services/expressionService.ts:26](https://github.com/FlavioLionelRita/lambdaorm-svc/blob/6d9193f/src/application/services/expressionService.ts#L26)
+[src/application/services/expressionService.ts:26](https://github.com/lambda-orm/lambdaorm-svc/blob/6d9193f/src/application/services/expressionService.ts#L26)
 
 ___
 
@@ -113,7 +113,7 @@ ___
 
 #### Defined in
 
-[src/application/services/expressionService.ts:10](https://github.com/FlavioLionelRita/lambdaorm-svc/blob/6d9193f/src/application/services/expressionService.ts#L10)
+[src/application/services/expressionService.ts:10](https://github.com/lambda-orm/lambdaorm-svc/blob/6d9193f/src/application/services/expressionService.ts#L10)
 
 ___
 
@@ -135,7 +135,7 @@ ___
 
 #### Defined in
 
-[src/application/services/expressionService.ts:14](https://github.com/FlavioLionelRita/lambdaorm-svc/blob/6d9193f/src/application/services/expressionService.ts#L14)
+[src/application/services/expressionService.ts:14](https://github.com/lambda-orm/lambdaorm-svc/blob/6d9193f/src/application/services/expressionService.ts#L14)
 
 ___
 
@@ -157,7 +157,7 @@ ___
 
 #### Defined in
 
-[src/application/services/expressionService.ts:18](https://github.com/FlavioLionelRita/lambdaorm-svc/blob/6d9193f/src/application/services/expressionService.ts#L18)
+[src/application/services/expressionService.ts:18](https://github.com/lambda-orm/lambdaorm-svc/blob/6d9193f/src/application/services/expressionService.ts#L18)
 
 ___
 
@@ -180,4 +180,4 @@ ___
 
 #### Defined in
 
-[src/application/services/expressionService.ts:22](https://github.com/FlavioLionelRita/lambdaorm-svc/blob/6d9193f/src/application/services/expressionService.ts#L22)
+[src/application/services/expressionService.ts:22](https://github.com/lambda-orm/lambdaorm-svc/blob/6d9193f/src/application/services/expressionService.ts#L22)

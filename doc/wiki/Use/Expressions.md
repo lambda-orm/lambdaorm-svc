@@ -21,7 +21,7 @@ In addition to the operations and functions defined in [3xpr](https://www.npmjs.
 
 ## Service functions
 
-In addition to the operations and functions defined in [3xpr](https://www.npmjs.com/package/3xpr) and [lambdaorm](https://github.com/FlavioLionelRita/lambdaorm/wiki/SchemaDefinition-Expressions), lambdaOrm Service extends the expression model with the following functions.
+In addition to the operations and functions defined in [3xpr](https://www.npmjs.com/package/3xpr) and [lambdaorm](https://github.com/lambda-orm/lambdaorm/wiki/SchemaDefinition-Expressions), lambdaOrm Service extends the expression model with the following functions.
 
 | Function 																									| Description 																|
 | --------------------------------------------------------- | ------------------------------------------- |

@@ -3,7 +3,7 @@ info:
   contact:
     email: flaviolrita@hotmail.com
     name: 'Flavio Lionel Rita'
-  description: Service that exposes the functionality of the [lambdaorm](https://github.com/FlavioLionelRita/lambdaorm) npm library
+  description: Service that exposes the functionality of the [lambdaorm](https://github.com/lambda-orm/lambdaorm) npm library
   license:
     name: MIT
     url: https://opensource.org/license/mit/

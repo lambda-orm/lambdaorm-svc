@@ -1,6 +1,6 @@
 # Stage endpoints
 
-![stage-methods](https://raw.githubusercontent.com/FlavioLionelRita/lambdaorm-svc/HEAD/images/stage-methods.png)
+![stage-methods](https://raw.githubusercontent.com/lambda-orm/lambdaorm-svc/HEAD/images/stage-methods.png)
 
 ## Exists
 
