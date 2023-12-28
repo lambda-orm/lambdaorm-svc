@@ -34,7 +34,7 @@ jobs:
           dockerfile: Dockerfile
           username: ${{ secrets.DOCKER_HUB_USERNAME }}
           password: ${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}
-      - name: Delete branch
-        run: |
-          git push origin --delete ${{ github.ref_name }} --no-verify
-          echo "Branch ${{ github.ref_name }} deleted"    
+      # - name: Delete branch
+      #   run: |
+      #     git push origin --delete ${{ github.ref_name }} --no-verify
+      #     echo "Branch ${{ github.ref_name }} deleted"    
