@@ -25,7 +25,7 @@
 
 ### constructor
 
-• **new ExpressionService**(`orm`)
+• **new ExpressionService**(`orm`): [`ExpressionService`](ExpressionService.md)
 
 #### Parameters
 
@@ -33,9 +33,13 @@
 | :------ | :------ |
 | `orm` | `IOrm` |
 
+#### Returns
+
+[`ExpressionService`](ExpressionService.md)
+
 #### Defined in
 
-[src/application/services/expressionService.ts:4](https://github.com/lambda-orm/lambdaorm-svc/blob/6d9193f/src/application/services/expressionService.ts#L4)
+[src/application/services/expressionService.ts:4](https://github.com/lambda-orm/lambdaorm-svc/blob/b929c27/src/application/services/expressionService.ts#L4)
 
 ## Properties
 
@@ -45,13 +49,13 @@
 
 #### Defined in
 
-[src/application/services/expressionService.ts:4](https://github.com/lambda-orm/lambdaorm-svc/blob/6d9193f/src/application/services/expressionService.ts#L4)
+[src/application/services/expressionService.ts:4](https://github.com/lambda-orm/lambdaorm-svc/blob/b929c27/src/application/services/expressionService.ts#L4)
 
 ## Methods
 
 ### constraints
 
-▸ **constraints**(`«destructured»`): `Promise`<`MetadataConstraint`\>
+▸ **constraints**(`«destructured»`): `Promise`\<`MetadataConstraint`\>
 
 #### Parameters
 
@@ -63,17 +67,17 @@
 
 #### Returns
 
-`Promise`<`MetadataConstraint`\>
+`Promise`\<`MetadataConstraint`\>
 
 #### Defined in
 
-[src/application/services/expressionService.ts:6](https://github.com/lambda-orm/lambdaorm-svc/blob/6d9193f/src/application/services/expressionService.ts#L6)
+[src/application/services/expressionService.ts:6](https://github.com/lambda-orm/lambdaorm-svc/blob/b929c27/src/application/services/expressionService.ts#L6)
 
 ___
 
 ### execute
 
-▸ **execute**(`«destructured»`): `Promise`<`any`\>
+▸ **execute**(`«destructured»`): `Promise`\<`any`\>
 
 #### Parameters
 
@@ -87,17 +91,17 @@ ___
 
 #### Returns
 
-`Promise`<`any`\>
+`Promise`\<`any`\>
 
 #### Defined in
 
-[src/application/services/expressionService.ts:26](https://github.com/lambda-orm/lambdaorm-svc/blob/6d9193f/src/application/services/expressionService.ts#L26)
+[src/application/services/expressionService.ts:26](https://github.com/lambda-orm/lambdaorm-svc/blob/b929c27/src/application/services/expressionService.ts#L26)
 
 ___
 
 ### metadata
 
-▸ **metadata**(`«destructured»`): `Promise`<`Metadata`\>
+▸ **metadata**(`«destructured»`): `Promise`\<`Metadata`\>
 
 #### Parameters
 
@@ -109,17 +113,17 @@ ___
 
 #### Returns
 
-`Promise`<`Metadata`\>
+`Promise`\<`Metadata`\>
 
 #### Defined in
 
-[src/application/services/expressionService.ts:10](https://github.com/lambda-orm/lambdaorm-svc/blob/6d9193f/src/application/services/expressionService.ts#L10)
+[src/application/services/expressionService.ts:10](https://github.com/lambda-orm/lambdaorm-svc/blob/b929c27/src/application/services/expressionService.ts#L10)
 
 ___
 
 ### model
 
-▸ **model**(`«destructured»`): `Promise`<`MetadataModel`[]\>
+▸ **model**(`«destructured»`): `Promise`\<`MetadataModel`[]\>
 
 #### Parameters
 
@@ -131,17 +135,17 @@ ___
 
 #### Returns
 
-`Promise`<`MetadataModel`[]\>
+`Promise`\<`MetadataModel`[]\>
 
 #### Defined in
 
-[src/application/services/expressionService.ts:14](https://github.com/lambda-orm/lambdaorm-svc/blob/6d9193f/src/application/services/expressionService.ts#L14)
+[src/application/services/expressionService.ts:14](https://github.com/lambda-orm/lambdaorm-svc/blob/b929c27/src/application/services/expressionService.ts#L14)
 
 ___
 
 ### parameters
 
-▸ **parameters**(`«destructured»`): `Promise`<`MetadataParameter`[]\>
+▸ **parameters**(`«destructured»`): `Promise`\<`MetadataParameter`[]\>
 
 #### Parameters
 
@@ -153,17 +157,17 @@ ___
 
 #### Returns
 
-`Promise`<`MetadataParameter`[]\>
+`Promise`\<`MetadataParameter`[]\>
 
 #### Defined in
 
-[src/application/services/expressionService.ts:18](https://github.com/lambda-orm/lambdaorm-svc/blob/6d9193f/src/application/services/expressionService.ts#L18)
+[src/application/services/expressionService.ts:18](https://github.com/lambda-orm/lambdaorm-svc/blob/b929c27/src/application/services/expressionService.ts#L18)
 
 ___
 
 ### plan
 
-▸ **plan**(`«destructured»`): `Promise`<`QueryPlan`\>
+▸ **plan**(`«destructured»`): `Promise`\<`QueryPlan`\>
 
 #### Parameters
 
@@ -176,8 +180,8 @@ ___
 
 #### Returns
 
-`Promise`<`QueryPlan`\>
+`Promise`\<`QueryPlan`\>
 
 #### Defined in
 
-[src/application/services/expressionService.ts:22](https://github.com/lambda-orm/lambdaorm-svc/blob/6d9193f/src/application/services/expressionService.ts#L22)
+[src/application/services/expressionService.ts:22](https://github.com/lambda-orm/lambdaorm-svc/blob/b929c27/src/application/services/expressionService.ts#L22)

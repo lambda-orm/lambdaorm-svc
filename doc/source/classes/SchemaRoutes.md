@@ -20,7 +20,7 @@
 
 ### constructor
 
-• **new SchemaRoutes**(`service`)
+• **new SchemaRoutes**(`service`): [`SchemaRoutes`](SchemaRoutes.md)
 
 #### Parameters
 
@@ -28,9 +28,13 @@
 | :------ | :------ |
 | `service` | [`SchemaService`](SchemaService.md) |
 
+#### Returns
+
+[`SchemaRoutes`](SchemaRoutes.md)
+
 #### Defined in
 
-[src/infrastructure/routes/schemaRoutes.ts:7](https://github.com/lambda-orm/lambdaorm-svc/blob/6d9193f/src/infrastructure/routes/schemaRoutes.ts#L7)
+[src/infrastructure/routes/schemaRoutes.ts:7](https://github.com/lambda-orm/lambdaorm-svc/blob/b929c27/src/infrastructure/routes/schemaRoutes.ts#L7)
 
 ## Properties
 
@@ -40,7 +44,7 @@
 
 #### Defined in
 
-[src/infrastructure/routes/schemaRoutes.ts:6](https://github.com/lambda-orm/lambdaorm-svc/blob/6d9193f/src/infrastructure/routes/schemaRoutes.ts#L6)
+[src/infrastructure/routes/schemaRoutes.ts:6](https://github.com/lambda-orm/lambdaorm-svc/blob/b929c27/src/infrastructure/routes/schemaRoutes.ts#L6)
 
 ## Methods
 
@@ -54,4 +58,4 @@
 
 #### Defined in
 
-[src/infrastructure/routes/schemaRoutes.ts:11](https://github.com/lambda-orm/lambdaorm-svc/blob/6d9193f/src/infrastructure/routes/schemaRoutes.ts#L11)
+[src/infrastructure/routes/schemaRoutes.ts:11](https://github.com/lambda-orm/lambdaorm-svc/blob/b929c27/src/infrastructure/routes/schemaRoutes.ts#L11)

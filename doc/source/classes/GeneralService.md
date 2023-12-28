@@ -23,7 +23,7 @@
 
 ### constructor
 
-• **new GeneralService**(`packageVersion`, `orm?`)
+• **new GeneralService**(`packageVersion`, `orm?`): [`GeneralService`](GeneralService.md)
 
 #### Parameters
 
@@ -32,9 +32,13 @@
 | `packageVersion` | `string` |
 | `orm?` | `IOrm` |
 
+#### Returns
+
+[`GeneralService`](GeneralService.md)
+
 #### Defined in
 
-[src/application/services/generalService.ts:4](https://github.com/lambda-orm/lambdaorm-svc/blob/6d9193f/src/application/services/generalService.ts#L4)
+[src/application/services/generalService.ts:4](https://github.com/lambda-orm/lambdaorm-svc/blob/b929c27/src/application/services/generalService.ts#L4)
 
 ## Properties
 
@@ -44,7 +48,7 @@
 
 #### Defined in
 
-[src/application/services/generalService.ts:4](https://github.com/lambda-orm/lambdaorm-svc/blob/6d9193f/src/application/services/generalService.ts#L4)
+[src/application/services/generalService.ts:4](https://github.com/lambda-orm/lambdaorm-svc/blob/b929c27/src/application/services/generalService.ts#L4)
 
 ___
 
@@ -54,46 +58,46 @@ ___
 
 #### Defined in
 
-[src/application/services/generalService.ts:4](https://github.com/lambda-orm/lambdaorm-svc/blob/6d9193f/src/application/services/generalService.ts#L4)
+[src/application/services/generalService.ts:4](https://github.com/lambda-orm/lambdaorm-svc/blob/b929c27/src/application/services/generalService.ts#L4)
 
 ## Methods
 
 ### health
 
-▸ **health**(): `Promise`<`any`\>
+▸ **health**(): `Promise`\<`any`\>
 
 #### Returns
 
-`Promise`<`any`\>
+`Promise`\<`any`\>
 
 #### Defined in
 
-[src/application/services/generalService.ts:10](https://github.com/lambda-orm/lambdaorm-svc/blob/6d9193f/src/application/services/generalService.ts#L10)
+[src/application/services/generalService.ts:10](https://github.com/lambda-orm/lambdaorm-svc/blob/b929c27/src/application/services/generalService.ts#L10)
 
 ___
 
 ### ping
 
-▸ **ping**(): `Promise`<`any`\>
+▸ **ping**(): `Promise`\<`any`\>
 
 #### Returns
 
-`Promise`<`any`\>
+`Promise`\<`any`\>
 
 #### Defined in
 
-[src/application/services/generalService.ts:28](https://github.com/lambda-orm/lambdaorm-svc/blob/6d9193f/src/application/services/generalService.ts#L28)
+[src/application/services/generalService.ts:28](https://github.com/lambda-orm/lambdaorm-svc/blob/b929c27/src/application/services/generalService.ts#L28)
 
 ___
 
 ### version
 
-▸ **version**(): `Promise`<{ `version`: `string`  }\>
+▸ **version**(): `Promise`\<\{ `version`: `string`  }\>
 
 #### Returns
 
-`Promise`<{ `version`: `string`  }\>
+`Promise`\<\{ `version`: `string`  }\>
 
 #### Defined in
 
-[src/application/services/generalService.ts:6](https://github.com/lambda-orm/lambdaorm-svc/blob/6d9193f/src/application/services/generalService.ts#L6)
+[src/application/services/generalService.ts:6](https://github.com/lambda-orm/lambdaorm-svc/blob/b929c27/src/application/services/generalService.ts#L6)

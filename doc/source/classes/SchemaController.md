@@ -44,7 +44,7 @@
 
 ### constructor
 
-• **new SchemaController**(`service`)
+• **new SchemaController**(`service`): [`SchemaController`](SchemaController.md)
 
 #### Parameters
 
@@ -52,13 +52,17 @@
 | :------ | :------ |
 | `service` | [`SchemaService`](SchemaService.md) |
 
+#### Returns
+
+[`SchemaController`](SchemaController.md)
+
 #### Overrides
 
 Controller.constructor
 
 #### Defined in
 
-[src/infrastructure/controllers/schemaController.ts:6](https://github.com/lambda-orm/lambdaorm-svc/blob/6d9193f/src/infrastructure/controllers/schemaController.ts#L6)
+[src/infrastructure/controllers/schemaController.ts:6](https://github.com/lambda-orm/lambdaorm-svc/blob/b929c27/src/infrastructure/controllers/schemaController.ts#L6)
 
 ## Properties
 
@@ -68,19 +72,19 @@ Controller.constructor
 
 #### Defined in
 
-[src/infrastructure/controllers/schemaController.ts:6](https://github.com/lambda-orm/lambdaorm-svc/blob/6d9193f/src/infrastructure/controllers/schemaController.ts#L6)
+[src/infrastructure/controllers/schemaController.ts:6](https://github.com/lambda-orm/lambdaorm-svc/blob/b929c27/src/infrastructure/controllers/schemaController.ts#L6)
 
 ## Methods
 
 ### collectRequestParams
 
-▸ `Protected` **collectRequestParams**(`request`): `any`
+▸ **collectRequestParams**(`request`): `any`
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `request` | `Request`<`ParamsDictionary`, `any`, `any`, `ParsedQs`, `Record`<`string`, `any`\>\> |
+| `request` | `Request`\<`ParamsDictionary`, `any`, `any`, `ParsedQs`, `Record`\<`string`, `any`\>\> |
 
 #### Returns
 
@@ -92,139 +96,139 @@ Controller.collectRequestParams
 
 #### Defined in
 
-[src/infrastructure/controllers/Controller.ts:27](https://github.com/lambda-orm/lambdaorm-svc/blob/6d9193f/src/infrastructure/controllers/Controller.ts#L27)
+[src/infrastructure/controllers/Controller.ts:27](https://github.com/lambda-orm/lambdaorm-svc/blob/b929c27/src/infrastructure/controllers/Controller.ts#L27)
 
 ___
 
 ### domain
 
-▸ **domain**(`request`, `response`): `Promise`<`void`\>
+▸ **domain**(`request`, `response`): `Promise`\<`void`\>
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `request` | `Request`<`ParamsDictionary`, `any`, `any`, `ParsedQs`, `Record`<`string`, `any`\>\> |
-| `response` | `Response`<`any`, `Record`<`string`, `any`\>\> |
+| `request` | `Request`\<`ParamsDictionary`, `any`, `any`, `ParsedQs`, `Record`\<`string`, `any`\>\> |
+| `response` | `Response`\<`any`, `Record`\<`string`, `any`\>\> |
 
 #### Returns
 
-`Promise`<`void`\>
+`Promise`\<`void`\>
 
 #### Defined in
 
-[src/infrastructure/controllers/schemaController.ts:18](https://github.com/lambda-orm/lambdaorm-svc/blob/6d9193f/src/infrastructure/controllers/schemaController.ts#L18)
+[src/infrastructure/controllers/schemaController.ts:18](https://github.com/lambda-orm/lambdaorm-svc/blob/b929c27/src/infrastructure/controllers/schemaController.ts#L18)
 
 ___
 
 ### entities
 
-▸ **entities**(`request`, `response`): `Promise`<`void`\>
+▸ **entities**(`request`, `response`): `Promise`\<`void`\>
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `request` | `Request`<`ParamsDictionary`, `any`, `any`, `ParsedQs`, `Record`<`string`, `any`\>\> |
-| `response` | `Response`<`any`, `Record`<`string`, `any`\>\> |
+| `request` | `Request`\<`ParamsDictionary`, `any`, `any`, `ParsedQs`, `Record`\<`string`, `any`\>\> |
+| `response` | `Response`\<`any`, `Record`\<`string`, `any`\>\> |
 
 #### Returns
 
-`Promise`<`void`\>
+`Promise`\<`void`\>
 
 #### Defined in
 
-[src/infrastructure/controllers/schemaController.ts:30](https://github.com/lambda-orm/lambdaorm-svc/blob/6d9193f/src/infrastructure/controllers/schemaController.ts#L30)
+[src/infrastructure/controllers/schemaController.ts:30](https://github.com/lambda-orm/lambdaorm-svc/blob/b929c27/src/infrastructure/controllers/schemaController.ts#L30)
 
 ___
 
 ### entity
 
-▸ **entity**(`request`, `response`): `Promise`<`void`\>
+▸ **entity**(`request`, `response`): `Promise`\<`void`\>
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `request` | `Request`<`ParamsDictionary`, `any`, `any`, `ParsedQs`, `Record`<`string`, `any`\>\> |
-| `response` | `Response`<`any`, `Record`<`string`, `any`\>\> |
+| `request` | `Request`\<`ParamsDictionary`, `any`, `any`, `ParsedQs`, `Record`\<`string`, `any`\>\> |
+| `response` | `Response`\<`any`, `Record`\<`string`, `any`\>\> |
 
 #### Returns
 
-`Promise`<`void`\>
+`Promise`\<`void`\>
 
 #### Defined in
 
-[src/infrastructure/controllers/schemaController.ts:34](https://github.com/lambda-orm/lambdaorm-svc/blob/6d9193f/src/infrastructure/controllers/schemaController.ts#L34)
+[src/infrastructure/controllers/schemaController.ts:34](https://github.com/lambda-orm/lambdaorm-svc/blob/b929c27/src/infrastructure/controllers/schemaController.ts#L34)
 
 ___
 
 ### entityMapping
 
-▸ **entityMapping**(`request`, `response`): `Promise`<`void`\>
+▸ **entityMapping**(`request`, `response`): `Promise`\<`void`\>
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `request` | `Request`<`ParamsDictionary`, `any`, `any`, `ParsedQs`, `Record`<`string`, `any`\>\> |
-| `response` | `Response`<`any`, `Record`<`string`, `any`\>\> |
+| `request` | `Request`\<`ParamsDictionary`, `any`, `any`, `ParsedQs`, `Record`\<`string`, `any`\>\> |
+| `response` | `Response`\<`any`, `Record`\<`string`, `any`\>\> |
 
 #### Returns
 
-`Promise`<`void`\>
+`Promise`\<`void`\>
 
 #### Defined in
 
-[src/infrastructure/controllers/schemaController.ts:38](https://github.com/lambda-orm/lambdaorm-svc/blob/6d9193f/src/infrastructure/controllers/schemaController.ts#L38)
+[src/infrastructure/controllers/schemaController.ts:38](https://github.com/lambda-orm/lambdaorm-svc/blob/b929c27/src/infrastructure/controllers/schemaController.ts#L38)
 
 ___
 
 ### enum
 
-▸ **enum**(`request`, `response`): `Promise`<`void`\>
+▸ **enum**(`request`, `response`): `Promise`\<`void`\>
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `request` | `Request`<`ParamsDictionary`, `any`, `any`, `ParsedQs`, `Record`<`string`, `any`\>\> |
-| `response` | `Response`<`any`, `Record`<`string`, `any`\>\> |
+| `request` | `Request`\<`ParamsDictionary`, `any`, `any`, `ParsedQs`, `Record`\<`string`, `any`\>\> |
+| `response` | `Response`\<`any`, `Record`\<`string`, `any`\>\> |
 
 #### Returns
 
-`Promise`<`void`\>
+`Promise`\<`void`\>
 
 #### Defined in
 
-[src/infrastructure/controllers/schemaController.ts:46](https://github.com/lambda-orm/lambdaorm-svc/blob/6d9193f/src/infrastructure/controllers/schemaController.ts#L46)
+[src/infrastructure/controllers/schemaController.ts:46](https://github.com/lambda-orm/lambdaorm-svc/blob/b929c27/src/infrastructure/controllers/schemaController.ts#L46)
 
 ___
 
 ### enums
 
-▸ **enums**(`request`, `response`): `Promise`<`void`\>
+▸ **enums**(`request`, `response`): `Promise`\<`void`\>
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `request` | `Request`<`ParamsDictionary`, `any`, `any`, `ParsedQs`, `Record`<`string`, `any`\>\> |
-| `response` | `Response`<`any`, `Record`<`string`, `any`\>\> |
+| `request` | `Request`\<`ParamsDictionary`, `any`, `any`, `ParsedQs`, `Record`\<`string`, `any`\>\> |
+| `response` | `Response`\<`any`, `Record`\<`string`, `any`\>\> |
 
 #### Returns
 
-`Promise`<`void`\>
+`Promise`\<`void`\>
 
 #### Defined in
 
-[src/infrastructure/controllers/schemaController.ts:42](https://github.com/lambda-orm/lambdaorm-svc/blob/6d9193f/src/infrastructure/controllers/schemaController.ts#L42)
+[src/infrastructure/controllers/schemaController.ts:42](https://github.com/lambda-orm/lambdaorm-svc/blob/b929c27/src/infrastructure/controllers/schemaController.ts#L42)
 
 ___
 
 ### handleRequest
 
-▸ `Protected` **handleRequest**(`request`, `response`, `serviceOperation`): `Promise`<`void`\>
+▸ **handleRequest**(`request`, `response`, `serviceOperation`): `Promise`\<`void`\>
 
 #### Parameters
 
@@ -236,7 +240,7 @@ ___
 
 #### Returns
 
-`Promise`<`void`\>
+`Promise`\<`void`\>
 
 #### Inherited from
 
@@ -244,76 +248,76 @@ Controller.handleRequest
 
 #### Defined in
 
-[src/infrastructure/controllers/Controller.ts:50](https://github.com/lambda-orm/lambdaorm-svc/blob/6d9193f/src/infrastructure/controllers/Controller.ts#L50)
+[src/infrastructure/controllers/Controller.ts:50](https://github.com/lambda-orm/lambdaorm-svc/blob/b929c27/src/infrastructure/controllers/Controller.ts#L50)
 
 ___
 
 ### mapping
 
-▸ **mapping**(`request`, `response`): `Promise`<`void`\>
+▸ **mapping**(`request`, `response`): `Promise`\<`void`\>
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `request` | `Request`<`ParamsDictionary`, `any`, `any`, `ParsedQs`, `Record`<`string`, `any`\>\> |
-| `response` | `Response`<`any`, `Record`<`string`, `any`\>\> |
+| `request` | `Request`\<`ParamsDictionary`, `any`, `any`, `ParsedQs`, `Record`\<`string`, `any`\>\> |
+| `response` | `Response`\<`any`, `Record`\<`string`, `any`\>\> |
 
 #### Returns
 
-`Promise`<`void`\>
+`Promise`\<`void`\>
 
 #### Defined in
 
-[src/infrastructure/controllers/schemaController.ts:54](https://github.com/lambda-orm/lambdaorm-svc/blob/6d9193f/src/infrastructure/controllers/schemaController.ts#L54)
+[src/infrastructure/controllers/schemaController.ts:54](https://github.com/lambda-orm/lambdaorm-svc/blob/b929c27/src/infrastructure/controllers/schemaController.ts#L54)
 
 ___
 
 ### mappings
 
-▸ **mappings**(`request`, `response`): `Promise`<`void`\>
+▸ **mappings**(`request`, `response`): `Promise`\<`void`\>
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `request` | `Request`<`ParamsDictionary`, `any`, `any`, `ParsedQs`, `Record`<`string`, `any`\>\> |
-| `response` | `Response`<`any`, `Record`<`string`, `any`\>\> |
+| `request` | `Request`\<`ParamsDictionary`, `any`, `any`, `ParsedQs`, `Record`\<`string`, `any`\>\> |
+| `response` | `Response`\<`any`, `Record`\<`string`, `any`\>\> |
 
 #### Returns
 
-`Promise`<`void`\>
+`Promise`\<`void`\>
 
 #### Defined in
 
-[src/infrastructure/controllers/schemaController.ts:50](https://github.com/lambda-orm/lambdaorm-svc/blob/6d9193f/src/infrastructure/controllers/schemaController.ts#L50)
+[src/infrastructure/controllers/schemaController.ts:50](https://github.com/lambda-orm/lambdaorm-svc/blob/b929c27/src/infrastructure/controllers/schemaController.ts#L50)
 
 ___
 
 ### schema
 
-▸ **schema**(`request`, `response`): `Promise`<`void`\>
+▸ **schema**(`request`, `response`): `Promise`\<`void`\>
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `request` | `Request`<`ParamsDictionary`, `any`, `any`, `ParsedQs`, `Record`<`string`, `any`\>\> |
-| `response` | `Response`<`any`, `Record`<`string`, `any`\>\> |
+| `request` | `Request`\<`ParamsDictionary`, `any`, `any`, `ParsedQs`, `Record`\<`string`, `any`\>\> |
+| `response` | `Response`\<`any`, `Record`\<`string`, `any`\>\> |
 
 #### Returns
 
-`Promise`<`void`\>
+`Promise`\<`void`\>
 
 #### Defined in
 
-[src/infrastructure/controllers/schemaController.ts:14](https://github.com/lambda-orm/lambdaorm-svc/blob/6d9193f/src/infrastructure/controllers/schemaController.ts#L14)
+[src/infrastructure/controllers/schemaController.ts:14](https://github.com/lambda-orm/lambdaorm-svc/blob/b929c27/src/infrastructure/controllers/schemaController.ts#L14)
 
 ___
 
 ### sendError
 
-▸ `Protected` **sendError**(`response`, `error`): `void`
+▸ **sendError**(`response`, `error`): `void`
 
 #### Parameters
 
@@ -332,13 +336,13 @@ Controller.sendError
 
 #### Defined in
 
-[src/infrastructure/controllers/Controller.ts:18](https://github.com/lambda-orm/lambdaorm-svc/blob/6d9193f/src/infrastructure/controllers/Controller.ts#L18)
+[src/infrastructure/controllers/Controller.ts:18](https://github.com/lambda-orm/lambdaorm-svc/blob/b929c27/src/infrastructure/controllers/Controller.ts#L18)
 
 ___
 
 ### sendResponse
 
-▸ `Protected` **sendResponse**(`response`, `payload?`): `void`
+▸ **sendResponse**(`response`, `payload?`): `void`
 
 #### Parameters
 
@@ -357,130 +361,130 @@ Controller.sendResponse
 
 #### Defined in
 
-[src/infrastructure/controllers/Controller.ts:3](https://github.com/lambda-orm/lambdaorm-svc/blob/6d9193f/src/infrastructure/controllers/Controller.ts#L3)
+[src/infrastructure/controllers/Controller.ts:3](https://github.com/lambda-orm/lambdaorm-svc/blob/b929c27/src/infrastructure/controllers/Controller.ts#L3)
 
 ___
 
 ### source
 
-▸ **source**(`request`, `response`): `Promise`<`void`\>
+▸ **source**(`request`, `response`): `Promise`\<`void`\>
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `request` | `Request`<`ParamsDictionary`, `any`, `any`, `ParsedQs`, `Record`<`string`, `any`\>\> |
-| `response` | `Response`<`any`, `Record`<`string`, `any`\>\> |
+| `request` | `Request`\<`ParamsDictionary`, `any`, `any`, `ParsedQs`, `Record`\<`string`, `any`\>\> |
+| `response` | `Response`\<`any`, `Record`\<`string`, `any`\>\> |
 
 #### Returns
 
-`Promise`<`void`\>
+`Promise`\<`void`\>
 
 #### Defined in
 
-[src/infrastructure/controllers/schemaController.ts:22](https://github.com/lambda-orm/lambdaorm-svc/blob/6d9193f/src/infrastructure/controllers/schemaController.ts#L22)
+[src/infrastructure/controllers/schemaController.ts:22](https://github.com/lambda-orm/lambdaorm-svc/blob/b929c27/src/infrastructure/controllers/schemaController.ts#L22)
 
 ___
 
 ### sources
 
-▸ **sources**(`request`, `response`): `Promise`<`void`\>
+▸ **sources**(`request`, `response`): `Promise`\<`void`\>
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `request` | `Request`<`ParamsDictionary`, `any`, `any`, `ParsedQs`, `Record`<`string`, `any`\>\> |
-| `response` | `Response`<`any`, `Record`<`string`, `any`\>\> |
+| `request` | `Request`\<`ParamsDictionary`, `any`, `any`, `ParsedQs`, `Record`\<`string`, `any`\>\> |
+| `response` | `Response`\<`any`, `Record`\<`string`, `any`\>\> |
 
 #### Returns
 
-`Promise`<`void`\>
+`Promise`\<`void`\>
 
 #### Defined in
 
-[src/infrastructure/controllers/schemaController.ts:26](https://github.com/lambda-orm/lambdaorm-svc/blob/6d9193f/src/infrastructure/controllers/schemaController.ts#L26)
+[src/infrastructure/controllers/schemaController.ts:26](https://github.com/lambda-orm/lambdaorm-svc/blob/b929c27/src/infrastructure/controllers/schemaController.ts#L26)
 
 ___
 
 ### stage
 
-▸ **stage**(`request`, `response`): `Promise`<`void`\>
+▸ **stage**(`request`, `response`): `Promise`\<`void`\>
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `request` | `Request`<`ParamsDictionary`, `any`, `any`, `ParsedQs`, `Record`<`string`, `any`\>\> |
-| `response` | `Response`<`any`, `Record`<`string`, `any`\>\> |
+| `request` | `Request`\<`ParamsDictionary`, `any`, `any`, `ParsedQs`, `Record`\<`string`, `any`\>\> |
+| `response` | `Response`\<`any`, `Record`\<`string`, `any`\>\> |
 
 #### Returns
 
-`Promise`<`void`\>
+`Promise`\<`void`\>
 
 #### Defined in
 
-[src/infrastructure/controllers/schemaController.ts:62](https://github.com/lambda-orm/lambdaorm-svc/blob/6d9193f/src/infrastructure/controllers/schemaController.ts#L62)
+[src/infrastructure/controllers/schemaController.ts:62](https://github.com/lambda-orm/lambdaorm-svc/blob/b929c27/src/infrastructure/controllers/schemaController.ts#L62)
 
 ___
 
 ### stages
 
-▸ **stages**(`request`, `response`): `Promise`<`void`\>
+▸ **stages**(`request`, `response`): `Promise`\<`void`\>
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `request` | `Request`<`ParamsDictionary`, `any`, `any`, `ParsedQs`, `Record`<`string`, `any`\>\> |
-| `response` | `Response`<`any`, `Record`<`string`, `any`\>\> |
+| `request` | `Request`\<`ParamsDictionary`, `any`, `any`, `ParsedQs`, `Record`\<`string`, `any`\>\> |
+| `response` | `Response`\<`any`, `Record`\<`string`, `any`\>\> |
 
 #### Returns
 
-`Promise`<`void`\>
+`Promise`\<`void`\>
 
 #### Defined in
 
-[src/infrastructure/controllers/schemaController.ts:58](https://github.com/lambda-orm/lambdaorm-svc/blob/6d9193f/src/infrastructure/controllers/schemaController.ts#L58)
+[src/infrastructure/controllers/schemaController.ts:58](https://github.com/lambda-orm/lambdaorm-svc/blob/b929c27/src/infrastructure/controllers/schemaController.ts#L58)
 
 ___
 
 ### version
 
-▸ **version**(`request`, `response`): `Promise`<`void`\>
+▸ **version**(`request`, `response`): `Promise`\<`void`\>
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `request` | `Request`<`ParamsDictionary`, `any`, `any`, `ParsedQs`, `Record`<`string`, `any`\>\> |
-| `response` | `Response`<`any`, `Record`<`string`, `any`\>\> |
+| `request` | `Request`\<`ParamsDictionary`, `any`, `any`, `ParsedQs`, `Record`\<`string`, `any`\>\> |
+| `response` | `Response`\<`any`, `Record`\<`string`, `any`\>\> |
 
 #### Returns
 
-`Promise`<`void`\>
+`Promise`\<`void`\>
 
 #### Defined in
 
-[src/infrastructure/controllers/schemaController.ts:10](https://github.com/lambda-orm/lambdaorm-svc/blob/6d9193f/src/infrastructure/controllers/schemaController.ts#L10)
+[src/infrastructure/controllers/schemaController.ts:10](https://github.com/lambda-orm/lambdaorm-svc/blob/b929c27/src/infrastructure/controllers/schemaController.ts#L10)
 
 ___
 
 ### views
 
-▸ **views**(`request`, `response`): `Promise`<`void`\>
+▸ **views**(`request`, `response`): `Promise`\<`void`\>
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `request` | `Request`<`ParamsDictionary`, `any`, `any`, `ParsedQs`, `Record`<`string`, `any`\>\> |
-| `response` | `Response`<`any`, `Record`<`string`, `any`\>\> |
+| `request` | `Request`\<`ParamsDictionary`, `any`, `any`, `ParsedQs`, `Record`\<`string`, `any`\>\> |
+| `response` | `Response`\<`any`, `Record`\<`string`, `any`\>\> |
 
 #### Returns
 
-`Promise`<`void`\>
+`Promise`\<`void`\>
 
 #### Defined in
 
-[src/infrastructure/controllers/schemaController.ts:66](https://github.com/lambda-orm/lambdaorm-svc/blob/6d9193f/src/infrastructure/controllers/schemaController.ts#L66)
+[src/infrastructure/controllers/schemaController.ts:66](https://github.com/lambda-orm/lambdaorm-svc/blob/b929c27/src/infrastructure/controllers/schemaController.ts#L66)

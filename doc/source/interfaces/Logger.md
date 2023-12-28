@@ -13,7 +13,7 @@
 
 ### error
 
-▸ **error**(`message`): `Promise`<`void`\>
+▸ **error**(`message`): `Promise`\<`void`\>
 
 #### Parameters
 
@@ -23,17 +23,17 @@
 
 #### Returns
 
-`Promise`<`void`\>
+`Promise`\<`void`\>
 
 #### Defined in
 
-[src/application/ports/logger.ts:2](https://github.com/lambda-orm/lambdaorm-svc/blob/6d9193f/src/application/ports/logger.ts#L2)
+[src/application/ports/logger.ts:2](https://github.com/lambda-orm/lambdaorm-svc/blob/b929c27/src/application/ports/logger.ts#L2)
 
 ___
 
 ### info
 
-▸ **info**(`message`): `Promise`<`void`\>
+▸ **info**(`message`): `Promise`\<`void`\>
 
 #### Parameters
 
@@ -43,8 +43,8 @@ ___
 
 #### Returns
 
-`Promise`<`void`\>
+`Promise`\<`void`\>
 
 #### Defined in
 
-[src/application/ports/logger.ts:3](https://github.com/lambda-orm/lambdaorm-svc/blob/6d9193f/src/application/ports/logger.ts#L3)
+[src/application/ports/logger.ts:3](https://github.com/lambda-orm/lambdaorm-svc/blob/b929c27/src/application/ports/logger.ts#L3)

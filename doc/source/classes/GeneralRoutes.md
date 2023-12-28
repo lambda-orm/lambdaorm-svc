@@ -20,7 +20,7 @@
 
 ### constructor
 
-• **new GeneralRoutes**(`service`, `metric`)
+• **new GeneralRoutes**(`service`, `metric`): [`GeneralRoutes`](GeneralRoutes.md)
 
 #### Parameters
 
@@ -29,9 +29,13 @@
 | `service` | [`GeneralService`](GeneralService.md) |
 | `metric` | [`Metric`](../interfaces/Metric.md) |
 
+#### Returns
+
+[`GeneralRoutes`](GeneralRoutes.md)
+
 #### Defined in
 
-[src/infrastructure/routes/generalRoutes.ts:7](https://github.com/lambda-orm/lambdaorm-svc/blob/6d9193f/src/infrastructure/routes/generalRoutes.ts#L7)
+[src/infrastructure/routes/generalRoutes.ts:7](https://github.com/lambda-orm/lambdaorm-svc/blob/b929c27/src/infrastructure/routes/generalRoutes.ts#L7)
 
 ## Properties
 
@@ -41,7 +45,7 @@
 
 #### Defined in
 
-[src/infrastructure/routes/generalRoutes.ts:6](https://github.com/lambda-orm/lambdaorm-svc/blob/6d9193f/src/infrastructure/routes/generalRoutes.ts#L6)
+[src/infrastructure/routes/generalRoutes.ts:6](https://github.com/lambda-orm/lambdaorm-svc/blob/b929c27/src/infrastructure/routes/generalRoutes.ts#L6)
 
 ## Methods
 
@@ -55,4 +59,4 @@
 
 #### Defined in
 
-[src/infrastructure/routes/generalRoutes.ts:11](https://github.com/lambda-orm/lambdaorm-svc/blob/6d9193f/src/infrastructure/routes/generalRoutes.ts#L11)
+[src/infrastructure/routes/generalRoutes.ts:11](https://github.com/lambda-orm/lambdaorm-svc/blob/b929c27/src/infrastructure/routes/generalRoutes.ts#L11)

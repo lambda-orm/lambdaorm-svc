@@ -20,7 +20,7 @@
 
 ### constructor
 
-• **new StageRoutes**(`service`)
+• **new StageRoutes**(`service`): [`StageRoutes`](StageRoutes.md)
 
 #### Parameters
 
@@ -28,9 +28,13 @@
 | :------ | :------ |
 | `service` | [`StageService`](StageService.md) |
 
+#### Returns
+
+[`StageRoutes`](StageRoutes.md)
+
 #### Defined in
 
-[src/infrastructure/routes/stageRoutes.ts:7](https://github.com/lambda-orm/lambdaorm-svc/blob/6d9193f/src/infrastructure/routes/stageRoutes.ts#L7)
+[src/infrastructure/routes/stageRoutes.ts:7](https://github.com/lambda-orm/lambdaorm-svc/blob/b929c27/src/infrastructure/routes/stageRoutes.ts#L7)
 
 ## Properties
 
@@ -40,7 +44,7 @@
 
 #### Defined in
 
-[src/infrastructure/routes/stageRoutes.ts:6](https://github.com/lambda-orm/lambdaorm-svc/blob/6d9193f/src/infrastructure/routes/stageRoutes.ts#L6)
+[src/infrastructure/routes/stageRoutes.ts:6](https://github.com/lambda-orm/lambdaorm-svc/blob/b929c27/src/infrastructure/routes/stageRoutes.ts#L6)
 
 ## Methods
 
@@ -54,4 +58,4 @@
 
 #### Defined in
 
-[src/infrastructure/routes/stageRoutes.ts:11](https://github.com/lambda-orm/lambdaorm-svc/blob/6d9193f/src/infrastructure/routes/stageRoutes.ts#L11)
+[src/infrastructure/routes/stageRoutes.ts:11](https://github.com/lambda-orm/lambdaorm-svc/blob/b929c27/src/infrastructure/routes/stageRoutes.ts#L11)

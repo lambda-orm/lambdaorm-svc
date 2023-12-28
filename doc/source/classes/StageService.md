@@ -23,7 +23,7 @@
 
 ### constructor
 
-• **new StageService**(`orm`)
+• **new StageService**(`orm`): [`StageService`](StageService.md)
 
 #### Parameters
 
@@ -31,9 +31,13 @@
 | :------ | :------ |
 | `orm` | `IOrm` |
 
+#### Returns
+
+[`StageService`](StageService.md)
+
 #### Defined in
 
-[src/application/services/stageService.ts:4](https://github.com/lambda-orm/lambdaorm-svc/blob/6d9193f/src/application/services/stageService.ts#L4)
+[src/application/services/stageService.ts:4](https://github.com/lambda-orm/lambdaorm-svc/blob/b929c27/src/application/services/stageService.ts#L4)
 
 ## Properties
 
@@ -43,13 +47,13 @@
 
 #### Defined in
 
-[src/application/services/stageService.ts:4](https://github.com/lambda-orm/lambdaorm-svc/blob/6d9193f/src/application/services/stageService.ts#L4)
+[src/application/services/stageService.ts:4](https://github.com/lambda-orm/lambdaorm-svc/blob/b929c27/src/application/services/stageService.ts#L4)
 
 ## Methods
 
 ### exists
 
-▸ **exists**(`«destructured»`): `Promise`<`any`\>
+▸ **exists**(`«destructured»`): `Promise`\<`any`\>
 
 #### Parameters
 
@@ -60,17 +64,17 @@
 
 #### Returns
 
-`Promise`<`any`\>
+`Promise`\<`any`\>
 
 #### Defined in
 
-[src/application/services/stageService.ts:10](https://github.com/lambda-orm/lambdaorm-svc/blob/6d9193f/src/application/services/stageService.ts#L10)
+[src/application/services/stageService.ts:10](https://github.com/lambda-orm/lambdaorm-svc/blob/b929c27/src/application/services/stageService.ts#L10)
 
 ___
 
 ### export
 
-▸ **export**(`«destructured»`): `Promise`<`SchemaConfig`\>
+▸ **export**(`«destructured»`): `Promise`\<`SchemaConfig`\>
 
 #### Parameters
 
@@ -81,17 +85,17 @@ ___
 
 #### Returns
 
-`Promise`<`SchemaConfig`\>
+`Promise`\<`SchemaConfig`\>
 
 #### Defined in
 
-[src/application/services/stageService.ts:14](https://github.com/lambda-orm/lambdaorm-svc/blob/6d9193f/src/application/services/stageService.ts#L14)
+[src/application/services/stageService.ts:14](https://github.com/lambda-orm/lambdaorm-svc/blob/b929c27/src/application/services/stageService.ts#L14)
 
 ___
 
 ### import
 
-▸ **import**(`«destructured»`): `Promise`<`void`\>
+▸ **import**(`«destructured»`): `Promise`\<`void`\>
 
 #### Parameters
 
@@ -103,22 +107,22 @@ ___
 
 #### Returns
 
-`Promise`<`void`\>
+`Promise`\<`void`\>
 
 #### Defined in
 
-[src/application/services/stageService.ts:18](https://github.com/lambda-orm/lambdaorm-svc/blob/6d9193f/src/application/services/stageService.ts#L18)
+[src/application/services/stageService.ts:18](https://github.com/lambda-orm/lambdaorm-svc/blob/b929c27/src/application/services/stageService.ts#L18)
 
 ___
 
 ### list
 
-▸ **list**(): `Promise`<`string`[]\>
+▸ **list**(): `Promise`\<`string`[]\>
 
 #### Returns
 
-`Promise`<`string`[]\>
+`Promise`\<`string`[]\>
 
 #### Defined in
 
-[src/application/services/stageService.ts:6](https://github.com/lambda-orm/lambdaorm-svc/blob/6d9193f/src/application/services/stageService.ts#L6)
+[src/application/services/stageService.ts:6](https://github.com/lambda-orm/lambdaorm-svc/blob/b929c27/src/application/services/stageService.ts#L6)

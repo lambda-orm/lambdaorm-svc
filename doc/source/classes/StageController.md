@@ -33,7 +33,7 @@
 
 ### constructor
 
-• **new StageController**(`service`)
+• **new StageController**(`service`): [`StageController`](StageController.md)
 
 #### Parameters
 
@@ -41,13 +41,17 @@
 | :------ | :------ |
 | `service` | [`StageService`](StageService.md) |
 
+#### Returns
+
+[`StageController`](StageController.md)
+
 #### Overrides
 
 Controller.constructor
 
 #### Defined in
 
-[src/infrastructure/controllers/stageController.ts:6](https://github.com/lambda-orm/lambdaorm-svc/blob/6d9193f/src/infrastructure/controllers/stageController.ts#L6)
+[src/infrastructure/controllers/stageController.ts:6](https://github.com/lambda-orm/lambdaorm-svc/blob/b929c27/src/infrastructure/controllers/stageController.ts#L6)
 
 ## Properties
 
@@ -57,19 +61,19 @@ Controller.constructor
 
 #### Defined in
 
-[src/infrastructure/controllers/stageController.ts:6](https://github.com/lambda-orm/lambdaorm-svc/blob/6d9193f/src/infrastructure/controllers/stageController.ts#L6)
+[src/infrastructure/controllers/stageController.ts:6](https://github.com/lambda-orm/lambdaorm-svc/blob/b929c27/src/infrastructure/controllers/stageController.ts#L6)
 
 ## Methods
 
 ### collectRequestParams
 
-▸ `Protected` **collectRequestParams**(`request`): `any`
+▸ **collectRequestParams**(`request`): `any`
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `request` | `Request`<`ParamsDictionary`, `any`, `any`, `ParsedQs`, `Record`<`string`, `any`\>\> |
+| `request` | `Request`\<`ParamsDictionary`, `any`, `any`, `ParsedQs`, `Record`\<`string`, `any`\>\> |
 
 #### Returns
 
@@ -81,55 +85,55 @@ Controller.collectRequestParams
 
 #### Defined in
 
-[src/infrastructure/controllers/Controller.ts:27](https://github.com/lambda-orm/lambdaorm-svc/blob/6d9193f/src/infrastructure/controllers/Controller.ts#L27)
+[src/infrastructure/controllers/Controller.ts:27](https://github.com/lambda-orm/lambdaorm-svc/blob/b929c27/src/infrastructure/controllers/Controller.ts#L27)
 
 ___
 
 ### exists
 
-▸ **exists**(`request`, `response`): `Promise`<`void`\>
+▸ **exists**(`request`, `response`): `Promise`\<`void`\>
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `request` | `Request`<`ParamsDictionary`, `any`, `any`, `ParsedQs`, `Record`<`string`, `any`\>\> |
-| `response` | `Response`<`any`, `Record`<`string`, `any`\>\> |
+| `request` | `Request`\<`ParamsDictionary`, `any`, `any`, `ParsedQs`, `Record`\<`string`, `any`\>\> |
+| `response` | `Response`\<`any`, `Record`\<`string`, `any`\>\> |
 
 #### Returns
 
-`Promise`<`void`\>
+`Promise`\<`void`\>
 
 #### Defined in
 
-[src/infrastructure/controllers/stageController.ts:14](https://github.com/lambda-orm/lambdaorm-svc/blob/6d9193f/src/infrastructure/controllers/stageController.ts#L14)
+[src/infrastructure/controllers/stageController.ts:14](https://github.com/lambda-orm/lambdaorm-svc/blob/b929c27/src/infrastructure/controllers/stageController.ts#L14)
 
 ___
 
 ### export
 
-▸ **export**(`request`, `response`): `Promise`<`void`\>
+▸ **export**(`request`, `response`): `Promise`\<`void`\>
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `request` | `Request`<`ParamsDictionary`, `any`, `any`, `ParsedQs`, `Record`<`string`, `any`\>\> |
-| `response` | `Response`<`any`, `Record`<`string`, `any`\>\> |
+| `request` | `Request`\<`ParamsDictionary`, `any`, `any`, `ParsedQs`, `Record`\<`string`, `any`\>\> |
+| `response` | `Response`\<`any`, `Record`\<`string`, `any`\>\> |
 
 #### Returns
 
-`Promise`<`void`\>
+`Promise`\<`void`\>
 
 #### Defined in
 
-[src/infrastructure/controllers/stageController.ts:18](https://github.com/lambda-orm/lambdaorm-svc/blob/6d9193f/src/infrastructure/controllers/stageController.ts#L18)
+[src/infrastructure/controllers/stageController.ts:18](https://github.com/lambda-orm/lambdaorm-svc/blob/b929c27/src/infrastructure/controllers/stageController.ts#L18)
 
 ___
 
 ### handleRequest
 
-▸ `Protected` **handleRequest**(`request`, `response`, `serviceOperation`): `Promise`<`void`\>
+▸ **handleRequest**(`request`, `response`, `serviceOperation`): `Promise`\<`void`\>
 
 #### Parameters
 
@@ -141,7 +145,7 @@ ___
 
 #### Returns
 
-`Promise`<`void`\>
+`Promise`\<`void`\>
 
 #### Inherited from
 
@@ -149,55 +153,55 @@ Controller.handleRequest
 
 #### Defined in
 
-[src/infrastructure/controllers/Controller.ts:50](https://github.com/lambda-orm/lambdaorm-svc/blob/6d9193f/src/infrastructure/controllers/Controller.ts#L50)
+[src/infrastructure/controllers/Controller.ts:50](https://github.com/lambda-orm/lambdaorm-svc/blob/b929c27/src/infrastructure/controllers/Controller.ts#L50)
 
 ___
 
 ### import
 
-▸ **import**(`request`, `response`): `Promise`<`void`\>
+▸ **import**(`request`, `response`): `Promise`\<`void`\>
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `request` | `Request`<`ParamsDictionary`, `any`, `any`, `ParsedQs`, `Record`<`string`, `any`\>\> |
-| `response` | `Response`<`any`, `Record`<`string`, `any`\>\> |
+| `request` | `Request`\<`ParamsDictionary`, `any`, `any`, `ParsedQs`, `Record`\<`string`, `any`\>\> |
+| `response` | `Response`\<`any`, `Record`\<`string`, `any`\>\> |
 
 #### Returns
 
-`Promise`<`void`\>
+`Promise`\<`void`\>
 
 #### Defined in
 
-[src/infrastructure/controllers/stageController.ts:22](https://github.com/lambda-orm/lambdaorm-svc/blob/6d9193f/src/infrastructure/controllers/stageController.ts#L22)
+[src/infrastructure/controllers/stageController.ts:22](https://github.com/lambda-orm/lambdaorm-svc/blob/b929c27/src/infrastructure/controllers/stageController.ts#L22)
 
 ___
 
 ### list
 
-▸ **list**(`request`, `response`): `Promise`<`void`\>
+▸ **list**(`request`, `response`): `Promise`\<`void`\>
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `request` | `Request`<`ParamsDictionary`, `any`, `any`, `ParsedQs`, `Record`<`string`, `any`\>\> |
-| `response` | `Response`<`any`, `Record`<`string`, `any`\>\> |
+| `request` | `Request`\<`ParamsDictionary`, `any`, `any`, `ParsedQs`, `Record`\<`string`, `any`\>\> |
+| `response` | `Response`\<`any`, `Record`\<`string`, `any`\>\> |
 
 #### Returns
 
-`Promise`<`void`\>
+`Promise`\<`void`\>
 
 #### Defined in
 
-[src/infrastructure/controllers/stageController.ts:10](https://github.com/lambda-orm/lambdaorm-svc/blob/6d9193f/src/infrastructure/controllers/stageController.ts#L10)
+[src/infrastructure/controllers/stageController.ts:10](https://github.com/lambda-orm/lambdaorm-svc/blob/b929c27/src/infrastructure/controllers/stageController.ts#L10)
 
 ___
 
 ### sendError
 
-▸ `Protected` **sendError**(`response`, `error`): `void`
+▸ **sendError**(`response`, `error`): `void`
 
 #### Parameters
 
@@ -216,13 +220,13 @@ Controller.sendError
 
 #### Defined in
 
-[src/infrastructure/controllers/Controller.ts:18](https://github.com/lambda-orm/lambdaorm-svc/blob/6d9193f/src/infrastructure/controllers/Controller.ts#L18)
+[src/infrastructure/controllers/Controller.ts:18](https://github.com/lambda-orm/lambdaorm-svc/blob/b929c27/src/infrastructure/controllers/Controller.ts#L18)
 
 ___
 
 ### sendResponse
 
-▸ `Protected` **sendResponse**(`response`, `payload?`): `void`
+▸ **sendResponse**(`response`, `payload?`): `void`
 
 #### Parameters
 
@@ -241,4 +245,4 @@ Controller.sendResponse
 
 #### Defined in
 
-[src/infrastructure/controllers/Controller.ts:3](https://github.com/lambda-orm/lambdaorm-svc/blob/6d9193f/src/infrastructure/controllers/Controller.ts#L3)
+[src/infrastructure/controllers/Controller.ts:3](https://github.com/lambda-orm/lambdaorm-svc/blob/b929c27/src/infrastructure/controllers/Controller.ts#L3)

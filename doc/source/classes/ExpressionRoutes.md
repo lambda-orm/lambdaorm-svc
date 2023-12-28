@@ -20,7 +20,7 @@
 
 ### constructor
 
-• **new ExpressionRoutes**(`service`, `queue?`)
+• **new ExpressionRoutes**(`service`, `queue?`): [`ExpressionRoutes`](ExpressionRoutes.md)
 
 #### Parameters
 
@@ -29,9 +29,13 @@
 | `service` | [`ExpressionService`](ExpressionService.md) |
 | `queue?` | [`Queue`](../interfaces/Queue.md) |
 
+#### Returns
+
+[`ExpressionRoutes`](ExpressionRoutes.md)
+
 #### Defined in
 
-[src/infrastructure/routes/expressionRoutes.ts:7](https://github.com/lambda-orm/lambdaorm-svc/blob/6d9193f/src/infrastructure/routes/expressionRoutes.ts#L7)
+[src/infrastructure/routes/expressionRoutes.ts:7](https://github.com/lambda-orm/lambdaorm-svc/blob/b929c27/src/infrastructure/routes/expressionRoutes.ts#L7)
 
 ## Properties
 
@@ -41,7 +45,7 @@
 
 #### Defined in
 
-[src/infrastructure/routes/expressionRoutes.ts:6](https://github.com/lambda-orm/lambdaorm-svc/blob/6d9193f/src/infrastructure/routes/expressionRoutes.ts#L6)
+[src/infrastructure/routes/expressionRoutes.ts:6](https://github.com/lambda-orm/lambdaorm-svc/blob/b929c27/src/infrastructure/routes/expressionRoutes.ts#L6)
 
 ## Methods
 
@@ -55,4 +59,4 @@
 
 #### Defined in
 
-[src/infrastructure/routes/expressionRoutes.ts:11](https://github.com/lambda-orm/lambdaorm-svc/blob/6d9193f/src/infrastructure/routes/expressionRoutes.ts#L11)
+[src/infrastructure/routes/expressionRoutes.ts:11](https://github.com/lambda-orm/lambdaorm-svc/blob/b929c27/src/infrastructure/routes/expressionRoutes.ts#L11)

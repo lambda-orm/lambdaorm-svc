@@ -30,13 +30,13 @@
 
 #### Defined in
 
-[src/application/ports/queue.ts:6](https://github.com/lambda-orm/lambdaorm-svc/blob/6d9193f/src/application/ports/queue.ts#L6)
+[src/application/ports/queue.ts:6](https://github.com/lambda-orm/lambdaorm-svc/blob/b929c27/src/application/ports/queue.ts#L6)
 
 ___
 
 ### executeInBackground
 
-▸ **executeInBackground**(`queueId`, `args`): `Promise`<`void`\>
+▸ **executeInBackground**(`queueId`, `args`): `Promise`\<`void`\>
 
 #### Parameters
 
@@ -47,17 +47,17 @@ ___
 
 #### Returns
 
-`Promise`<`void`\>
+`Promise`\<`void`\>
 
 #### Defined in
 
-[src/application/ports/queue.ts:7](https://github.com/lambda-orm/lambdaorm-svc/blob/6d9193f/src/application/ports/queue.ts#L7)
+[src/application/ports/queue.ts:7](https://github.com/lambda-orm/lambdaorm-svc/blob/b929c27/src/application/ports/queue.ts#L7)
 
 ___
 
 ### send
 
-▸ **send**(`topic`, `messages`): `Promise`<`void`\>
+▸ **send**(`topic`, `messages`): `Promise`\<`void`\>
 
 #### Parameters
 
@@ -68,17 +68,17 @@ ___
 
 #### Returns
 
-`Promise`<`void`\>
+`Promise`\<`void`\>
 
 #### Defined in
 
-[src/application/ports/queue.ts:8](https://github.com/lambda-orm/lambdaorm-svc/blob/6d9193f/src/application/ports/queue.ts#L8)
+[src/application/ports/queue.ts:8](https://github.com/lambda-orm/lambdaorm-svc/blob/b929c27/src/application/ports/queue.ts#L8)
 
 ___
 
 ### start
 
-▸ **start**(`queuedInfo`): `Promise`<`void`\>
+▸ **start**(`queuedInfo`): `Promise`\<`void`\>
 
 #### Parameters
 
@@ -88,22 +88,22 @@ ___
 
 #### Returns
 
-`Promise`<`void`\>
+`Promise`\<`void`\>
 
 #### Defined in
 
-[src/application/ports/queue.ts:4](https://github.com/lambda-orm/lambdaorm-svc/blob/6d9193f/src/application/ports/queue.ts#L4)
+[src/application/ports/queue.ts:4](https://github.com/lambda-orm/lambdaorm-svc/blob/b929c27/src/application/ports/queue.ts#L4)
 
 ___
 
 ### stop
 
-▸ **stop**(): `Promise`<`void`\>
+▸ **stop**(): `Promise`\<`void`\>
 
 #### Returns
 
-`Promise`<`void`\>
+`Promise`\<`void`\>
 
 #### Defined in
 
-[src/application/ports/queue.ts:5](https://github.com/lambda-orm/lambdaorm-svc/blob/6d9193f/src/application/ports/queue.ts#L5)
+[src/application/ports/queue.ts:5](https://github.com/lambda-orm/lambdaorm-svc/blob/b929c27/src/application/ports/queue.ts#L5)
