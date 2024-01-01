@@ -69,7 +69,7 @@
     "@babel/eslint-parser": "^7.23.3",
     "@types/jest": "^29.5.2",
     "@types/node": "^20.9.2",
-    "@typescript-eslint/eslint-plugin": "^6.12.0",
+    "@typescript-eslint/eslint-plugin": "^6.16.0",
     "@typescript-eslint/parser": "^6.12.0",
     "config-extends": "2.0.6",
     "eslint": "^8.54.0",
