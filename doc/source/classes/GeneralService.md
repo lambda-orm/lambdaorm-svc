@@ -38,7 +38,7 @@
 
 #### Defined in
 
-[src/application/services/generalService.ts:4](https://github.com/lambda-orm/lambdaorm-svc/blob/b929c27/src/application/services/generalService.ts#L4)
+[src/application/services/generalService.ts:4](https://github.com/lambda-orm/lambdaorm-svc/blob/454fa1df10e472bc978f8a973a986e73b6e90794/src/application/services/generalService.ts#L4)
 
 ## Properties
 
@@ -48,7 +48,7 @@
 
 #### Defined in
 
-[src/application/services/generalService.ts:4](https://github.com/lambda-orm/lambdaorm-svc/blob/b929c27/src/application/services/generalService.ts#L4)
+[src/application/services/generalService.ts:4](https://github.com/lambda-orm/lambdaorm-svc/blob/454fa1df10e472bc978f8a973a986e73b6e90794/src/application/services/generalService.ts#L4)
 
 ___
 
@@ -58,7 +58,7 @@ ___
 
 #### Defined in
 
-[src/application/services/generalService.ts:4](https://github.com/lambda-orm/lambdaorm-svc/blob/b929c27/src/application/services/generalService.ts#L4)
+[src/application/services/generalService.ts:4](https://github.com/lambda-orm/lambdaorm-svc/blob/454fa1df10e472bc978f8a973a986e73b6e90794/src/application/services/generalService.ts#L4)
 
 ## Methods
 
@@ -72,7 +72,7 @@ ___
 
 #### Defined in
 
-[src/application/services/generalService.ts:10](https://github.com/lambda-orm/lambdaorm-svc/blob/b929c27/src/application/services/generalService.ts#L10)
+[src/application/services/generalService.ts:10](https://github.com/lambda-orm/lambdaorm-svc/blob/454fa1df10e472bc978f8a973a986e73b6e90794/src/application/services/generalService.ts#L10)
 
 ___
 
@@ -86,7 +86,7 @@ ___
 
 #### Defined in
 
-[src/application/services/generalService.ts:28](https://github.com/lambda-orm/lambdaorm-svc/blob/b929c27/src/application/services/generalService.ts#L28)
+[src/application/services/generalService.ts:28](https://github.com/lambda-orm/lambdaorm-svc/blob/454fa1df10e472bc978f8a973a986e73b6e90794/src/application/services/generalService.ts#L28)
 
 ___
 
@@ -100,4 +100,4 @@ ___
 
 #### Defined in
 
-[src/application/services/generalService.ts:6](https://github.com/lambda-orm/lambdaorm-svc/blob/b929c27/src/application/services/generalService.ts#L6)
+[src/application/services/generalService.ts:6](https://github.com/lambda-orm/lambdaorm-svc/blob/454fa1df10e472bc978f8a973a986e73b6e90794/src/application/services/generalService.ts#L6)

@@ -15,6 +15,7 @@
 - [mappings](ServiceInfrastructureSchema.md#mappings)
 - [paths](ServiceInfrastructureSchema.md#paths)
 - [queue](ServiceInfrastructureSchema.md#queue)
+- [server](ServiceInfrastructureSchema.md#server)
 - [service](ServiceInfrastructureSchema.md#service)
 - [sources](ServiceInfrastructureSchema.md#sources)
 - [stages](ServiceInfrastructureSchema.md#stages)
@@ -32,7 +33,7 @@ InfrastructureSchema.mappings
 
 #### Defined in
 
-node_modules/lambdaorm-base/schema/domain/schema.d.ts:162
+node_modules/lambdaorm-base/schema/domain/schema.d.ts:166
 
 ___
 
@@ -46,7 +47,7 @@ InfrastructureSchema.paths
 
 #### Defined in
 
-node_modules/lambdaorm-base/schema/domain/schema.d.ts:161
+node_modules/lambdaorm-base/schema/domain/schema.d.ts:165
 
 ___
 
@@ -56,7 +57,21 @@ ___
 
 #### Defined in
 
-[src/domain/serviceSchema.ts:14](https://github.com/lambda-orm/lambdaorm-svc/blob/b929c27/src/domain/serviceSchema.ts#L14)
+[src/domain/serviceSchema.ts:14](https://github.com/lambda-orm/lambdaorm-svc/blob/454fa1df10e472bc978f8a973a986e73b6e90794/src/domain/serviceSchema.ts#L14)
+
+___
+
+### server
+
+• `Optional` **server**: `ServerConfig`
+
+#### Inherited from
+
+InfrastructureSchema.server
+
+#### Defined in
+
+node_modules/lambdaorm-base/schema/domain/schema.d.ts:170
 
 ___
 
@@ -66,7 +81,7 @@ ___
 
 #### Defined in
 
-[src/domain/serviceSchema.ts:13](https://github.com/lambda-orm/lambdaorm-svc/blob/b929c27/src/domain/serviceSchema.ts#L13)
+[src/domain/serviceSchema.ts:13](https://github.com/lambda-orm/lambdaorm-svc/blob/454fa1df10e472bc978f8a973a986e73b6e90794/src/domain/serviceSchema.ts#L13)
 
 ___
 
@@ -80,7 +95,7 @@ InfrastructureSchema.sources
 
 #### Defined in
 
-node_modules/lambdaorm-base/schema/domain/schema.d.ts:164
+node_modules/lambdaorm-base/schema/domain/schema.d.ts:168
 
 ___
 
@@ -94,7 +109,7 @@ InfrastructureSchema.stages
 
 #### Defined in
 
-node_modules/lambdaorm-base/schema/domain/schema.d.ts:165
+node_modules/lambdaorm-base/schema/domain/schema.d.ts:169
 
 ___
 
@@ -108,4 +123,4 @@ InfrastructureSchema.views
 
 #### Defined in
 
-node_modules/lambdaorm-base/schema/domain/schema.d.ts:163
+node_modules/lambdaorm-base/schema/domain/schema.d.ts:167

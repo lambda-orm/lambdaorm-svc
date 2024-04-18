@@ -20,7 +20,7 @@
 
 #### Defined in
 
-[src/domain/serviceSchema.ts:6](https://github.com/lambda-orm/lambdaorm-svc/blob/b929c27/src/domain/serviceSchema.ts#L6)
+[src/domain/serviceSchema.ts:6](https://github.com/lambda-orm/lambdaorm-svc/blob/454fa1df10e472bc978f8a973a986e73b6e90794/src/domain/serviceSchema.ts#L6)
 
 ___
 
@@ -30,7 +30,7 @@ ___
 
 #### Defined in
 
-[src/domain/serviceSchema.ts:5](https://github.com/lambda-orm/lambdaorm-svc/blob/b929c27/src/domain/serviceSchema.ts#L5)
+[src/domain/serviceSchema.ts:5](https://github.com/lambda-orm/lambdaorm-svc/blob/454fa1df10e472bc978f8a973a986e73b6e90794/src/domain/serviceSchema.ts#L5)
 
 ___
 
@@ -40,7 +40,7 @@ ___
 
 #### Defined in
 
-[src/domain/serviceSchema.ts:9](https://github.com/lambda-orm/lambdaorm-svc/blob/b929c27/src/domain/serviceSchema.ts#L9)
+[src/domain/serviceSchema.ts:9](https://github.com/lambda-orm/lambdaorm-svc/blob/454fa1df10e472bc978f8a973a986e73b6e90794/src/domain/serviceSchema.ts#L9)
 
 ___
 
@@ -50,7 +50,7 @@ ___
 
 #### Defined in
 
-[src/domain/serviceSchema.ts:8](https://github.com/lambda-orm/lambdaorm-svc/blob/b929c27/src/domain/serviceSchema.ts#L8)
+[src/domain/serviceSchema.ts:8](https://github.com/lambda-orm/lambdaorm-svc/blob/454fa1df10e472bc978f8a973a986e73b6e90794/src/domain/serviceSchema.ts#L8)
 
 ___
 
@@ -60,4 +60,4 @@ ___
 
 #### Defined in
 
-[src/domain/serviceSchema.ts:7](https://github.com/lambda-orm/lambdaorm-svc/blob/b929c27/src/domain/serviceSchema.ts#L7)
+[src/domain/serviceSchema.ts:7](https://github.com/lambda-orm/lambdaorm-svc/blob/454fa1df10e472bc978f8a973a986e73b6e90794/src/domain/serviceSchema.ts#L7)

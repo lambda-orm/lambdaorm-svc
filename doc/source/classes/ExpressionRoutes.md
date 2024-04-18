@@ -35,7 +35,7 @@
 
 #### Defined in
 
-[src/infrastructure/routes/expressionRoutes.ts:7](https://github.com/lambda-orm/lambdaorm-svc/blob/b929c27/src/infrastructure/routes/expressionRoutes.ts#L7)
+[src/infrastructure/routes/expressionRoutes.ts:7](https://github.com/lambda-orm/lambdaorm-svc/blob/454fa1df10e472bc978f8a973a986e73b6e90794/src/infrastructure/routes/expressionRoutes.ts#L7)
 
 ## Properties
 
@@ -45,7 +45,7 @@
 
 #### Defined in
 
-[src/infrastructure/routes/expressionRoutes.ts:6](https://github.com/lambda-orm/lambdaorm-svc/blob/b929c27/src/infrastructure/routes/expressionRoutes.ts#L6)
+[src/infrastructure/routes/expressionRoutes.ts:6](https://github.com/lambda-orm/lambdaorm-svc/blob/454fa1df10e472bc978f8a973a986e73b6e90794/src/infrastructure/routes/expressionRoutes.ts#L6)
 
 ## Methods
 
@@ -59,4 +59,4 @@
 
 #### Defined in
 
-[src/infrastructure/routes/expressionRoutes.ts:11](https://github.com/lambda-orm/lambdaorm-svc/blob/b929c27/src/infrastructure/routes/expressionRoutes.ts#L11)
+[src/infrastructure/routes/expressionRoutes.ts:11](https://github.com/lambda-orm/lambdaorm-svc/blob/454fa1df10e472bc978f8a973a986e73b6e90794/src/infrastructure/routes/expressionRoutes.ts#L11)
