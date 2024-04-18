@@ -4,80 +4,67 @@ export class SchemaService {
 	constructor (private readonly orm: IOrm) { }
 
 	public async version (): Promise<{version:string}> {
-		return { version: this.orm.schema.schema.version || '0.0.0' }
+		return this.orm.state.getSchemaVersion()
 	}
 
 	public async domain (): Promise<DomainSchema> {
-		return this.orm.schema.schema.domain
+		return this.orm.state.getSchemaDomain()
 	}
 
 	public async schema (): Promise<Schema> {
 		return {
-			version: this.orm.schema.schema.version || '0.0.0',
-			domain: this.orm.schema.schema.domain,
+			version: this.orm.state.getSchemaVersion().version,
+			domain: this.orm.state.getSchemaDomain(),
 			infrastructure: undefined,
 			application: undefined
 		}
 	}
 
 	public async sources (): Promise<{name:string, dialect:string}[]> {
-		if (!this.orm.schema.schema.infrastructure || !this.orm.schema.schema.infrastructure.sources) {
-			return []
-		}
-		return this.orm.schema.schema.infrastructure.sources
-			.map(p => ({ name: p.name, dialect: p.dialect as string }))
+		return this.orm.state.getSchemaSources()
 	}
 
-	public async source ({ source }:{ source:string }): Promise<{name:string, dialect:string}[]> {
-		if (!this.orm.schema.schema.infrastructure || !this.orm.schema.schema.infrastructure.sources) {
-			return []
-		}
-		return this.orm.schema.schema.infrastructure.sources
-			.filter(p => p.name === source)
-			.map(p => ({ name: p.name, dialect: p.dialect as string }))
+	public async source ({ source }:{ source:string }): Promise<{name:string, dialect:string}> {
+		return this.orm.state.getSchemaSource(source)
 	}
 
 	public async entities (): Promise<Entity[]> {
-		return this.orm.schema.domain.entities
+		return this.orm.state.getSchemaEntities()
 	}
 
 	public async entity ({ entity }:{ entity:string }): Promise<Entity|undefined> {
-		return this.orm.schema.domain.entities.find(p => p.name === entity)
+		return this.orm.state.getSchemaEntity(entity)
 	}
 
 	public async enums (): Promise<Enum[]> {
-		return this.orm.schema.domain.enums
+		return this.orm.state.getSchemaEnums()
 	}
 
 	public async enum ({ _enum }:{ _enum:string }): Promise<Enum|undefined> {
-		return this.orm.schema.domain.enums.find(p => p.name === _enum)
+		return this.orm.state.getSchemaEnum(_enum)
 	}
 
 	public async mappings (): Promise<Mapping[]> {
-		return this.orm.schema.mapping.mappings
+		return this.orm.state.getSchemaMappings()
 	}
 
 	public async mapping ({ mapping }:{ mapping:string }): Promise<Mapping|undefined> {
-		return this.orm.schema.mapping.mappings.find(p => p.name === mapping)
+		return this.orm.state.getSchemaMapping(mapping)
 	}
 
 	public async entityMapping ({ mapping, entity }:{ mapping:string, entity:string }): Promise<EntityMapping|undefined> {
-		const _mapping = this.orm.schema.mapping.mappings.find(p => p.name === mapping)
-		return _mapping ? _mapping.entities.find(p => p.name === entity) : undefined
+		return this.orm.state.getSchemaEntityMapping(mapping, entity)
 	}
 
 	public async stages (): Promise<Stage[]> {
-		return this.orm.schema.stage.stages
+		return this.orm.state.getSchemaStages()
 	}
 
 	public async stage ({ stage }:{ stage:string }): Promise<Stage|undefined> {
-		return this.orm.schema.stage.stages.find(p => p.name === stage)
+		return this.orm.state.getSchemaStage(stage)
 	}
 
 	public async views (): Promise<string[]> {
-		if (!this.orm.schema.schema.infrastructure || !this.orm.schema.schema.infrastructure.views) {
-			return []
-		}
-		return this.orm.schema.schema.infrastructure.views.map(p => p.name)
+		return this.orm.state.getSchemaViews()
 	}
 }

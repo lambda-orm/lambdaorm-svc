@@ -9,13 +9,13 @@ export class GeneralService {
 
 	public async health ():Promise<any> {
 		// TODO: add health on ORM
-		if (!this.orm || !this.orm.schema || !this.orm.schema.schema || !this.orm.schema.schema.infrastructure) {
+		if (!this.orm || !this.orm.state || !this.orm.state.schema || !this.orm.state.schema.infrastructure) {
 			throw new Error('Lambda ORM not initialized')
 		}
-		if (!this.orm.schema.schema.infrastructure.stages || this.orm.schema.schema.infrastructure.stages.length === 0) {
+		if (!this.orm.state.schema.infrastructure.stages || this.orm.state.schema.infrastructure.stages.length === 0) {
 			throw new Error('Lambda ORM can\'t stages not initialized')
 		}
-		if (!this.orm.schema.schema.infrastructure.sources || this.orm.schema.schema.infrastructure.sources.length === 0) {
+		if (!this.orm.state.schema.infrastructure.sources || this.orm.state.schema.infrastructure.sources.length === 0) {
 			throw new Error('Lambda ORM can\'t sources not initialized')
 		}
 		return {
