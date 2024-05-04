@@ -53,7 +53,7 @@ Controller.constructor
 
 #### Defined in
 
-[src/infrastructure/controllers/generalController.ts:6](https://github.com/lambda-orm/lambdaorm-svc/blob/544946027110866e64f7cd501248b170a08ee945/src/infrastructure/controllers/generalController.ts#L6)
+[src/infrastructure/controllers/generalController.ts:6](https://github.com/lambda-orm/lambdaorm-svc/blob/c3125b9eb5322ac4673a26ba4710ffb3a3545f04/src/infrastructure/controllers/generalController.ts#L6)
 
 ## Properties
 
@@ -63,7 +63,7 @@ Controller.constructor
 
 #### Defined in
 
-[src/infrastructure/controllers/generalController.ts:6](https://github.com/lambda-orm/lambdaorm-svc/blob/544946027110866e64f7cd501248b170a08ee945/src/infrastructure/controllers/generalController.ts#L6)
+[src/infrastructure/controllers/generalController.ts:6](https://github.com/lambda-orm/lambdaorm-svc/blob/c3125b9eb5322ac4673a26ba4710ffb3a3545f04/src/infrastructure/controllers/generalController.ts#L6)
 
 ___
 
@@ -73,7 +73,7 @@ ___
 
 #### Defined in
 
-[src/infrastructure/controllers/generalController.ts:6](https://github.com/lambda-orm/lambdaorm-svc/blob/544946027110866e64f7cd501248b170a08ee945/src/infrastructure/controllers/generalController.ts#L6)
+[src/infrastructure/controllers/generalController.ts:6](https://github.com/lambda-orm/lambdaorm-svc/blob/c3125b9eb5322ac4673a26ba4710ffb3a3545f04/src/infrastructure/controllers/generalController.ts#L6)
 
 ## Methods
 
@@ -97,7 +97,7 @@ Controller.collectRequestParams
 
 #### Defined in
 
-[src/infrastructure/controllers/Controller.ts:27](https://github.com/lambda-orm/lambdaorm-svc/blob/544946027110866e64f7cd501248b170a08ee945/src/infrastructure/controllers/Controller.ts#L27)
+[src/infrastructure/controllers/Controller.ts:27](https://github.com/lambda-orm/lambdaorm-svc/blob/c3125b9eb5322ac4673a26ba4710ffb3a3545f04/src/infrastructure/controllers/Controller.ts#L27)
 
 ___
 
@@ -123,7 +123,7 @@ Controller.handleRequest
 
 #### Defined in
 
-[src/infrastructure/controllers/Controller.ts:50](https://github.com/lambda-orm/lambdaorm-svc/blob/544946027110866e64f7cd501248b170a08ee945/src/infrastructure/controllers/Controller.ts#L50)
+[src/infrastructure/controllers/Controller.ts:50](https://github.com/lambda-orm/lambdaorm-svc/blob/c3125b9eb5322ac4673a26ba4710ffb3a3545f04/src/infrastructure/controllers/Controller.ts#L50)
 
 ___
 
@@ -144,7 +144,7 @@ ___
 
 #### Defined in
 
-[src/infrastructure/controllers/generalController.ts:14](https://github.com/lambda-orm/lambdaorm-svc/blob/544946027110866e64f7cd501248b170a08ee945/src/infrastructure/controllers/generalController.ts#L14)
+[src/infrastructure/controllers/generalController.ts:14](https://github.com/lambda-orm/lambdaorm-svc/blob/c3125b9eb5322ac4673a26ba4710ffb3a3545f04/src/infrastructure/controllers/generalController.ts#L14)
 
 ___
 
@@ -165,7 +165,7 @@ ___
 
 #### Defined in
 
-[src/infrastructure/controllers/generalController.ts:22](https://github.com/lambda-orm/lambdaorm-svc/blob/544946027110866e64f7cd501248b170a08ee945/src/infrastructure/controllers/generalController.ts#L22)
+[src/infrastructure/controllers/generalController.ts:22](https://github.com/lambda-orm/lambdaorm-svc/blob/c3125b9eb5322ac4673a26ba4710ffb3a3545f04/src/infrastructure/controllers/generalController.ts#L22)
 
 ___
 
@@ -186,7 +186,7 @@ ___
 
 #### Defined in
 
-[src/infrastructure/controllers/generalController.ts:18](https://github.com/lambda-orm/lambdaorm-svc/blob/544946027110866e64f7cd501248b170a08ee945/src/infrastructure/controllers/generalController.ts#L18)
+[src/infrastructure/controllers/generalController.ts:18](https://github.com/lambda-orm/lambdaorm-svc/blob/c3125b9eb5322ac4673a26ba4710ffb3a3545f04/src/infrastructure/controllers/generalController.ts#L18)
 
 ___
 
@@ -211,7 +211,7 @@ Controller.sendError
 
 #### Defined in
 
-[src/infrastructure/controllers/Controller.ts:18](https://github.com/lambda-orm/lambdaorm-svc/blob/544946027110866e64f7cd501248b170a08ee945/src/infrastructure/controllers/Controller.ts#L18)
+[src/infrastructure/controllers/Controller.ts:18](https://github.com/lambda-orm/lambdaorm-svc/blob/c3125b9eb5322ac4673a26ba4710ffb3a3545f04/src/infrastructure/controllers/Controller.ts#L18)
 
 ___
 
@@ -236,7 +236,7 @@ Controller.sendResponse
 
 #### Defined in
 
-[src/infrastructure/controllers/Controller.ts:3](https://github.com/lambda-orm/lambdaorm-svc/blob/544946027110866e64f7cd501248b170a08ee945/src/infrastructure/controllers/Controller.ts#L3)
+[src/infrastructure/controllers/Controller.ts:3](https://github.com/lambda-orm/lambdaorm-svc/blob/c3125b9eb5322ac4673a26ba4710ffb3a3545f04/src/infrastructure/controllers/Controller.ts#L3)
 
 ___
 
@@ -257,4 +257,4 @@ ___
 
 #### Defined in
 
-[src/infrastructure/controllers/generalController.ts:10](https://github.com/lambda-orm/lambdaorm-svc/blob/544946027110866e64f7cd501248b170a08ee945/src/infrastructure/controllers/generalController.ts#L10)
+[src/infrastructure/controllers/generalController.ts:10](https://github.com/lambda-orm/lambdaorm-svc/blob/c3125b9eb5322ac4673a26ba4710ffb3a3545f04/src/infrastructure/controllers/generalController.ts#L10)
