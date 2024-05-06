@@ -6,9 +6,9 @@ Service that exposes the functionality of the [LambdaOrm](https://github.com/lam
 
 The service exposes the following endpoints:
 
-### Expressions endpoints
+### Queries endpoints
 
-![expression-methods](https://raw.githubusercontent.com/lambda-orm/lambdaorm-svc/HEAD/images/expression-methods.png)
+![query-methods](https://raw.githubusercontent.com/lambda-orm/lambdaorm-svc/HEAD/images/query-methods.png)
 
 ### General endpoints
 
@@ -42,7 +42,7 @@ Result:
 ### Model
 
 ```sh
-curl -X POST "http://localhost:9291/model?format=beautiful" -H "Content-Type: application/json" -d '{"expression": "Orders.filter(p=>p.customerId==customerId).include(p=>p.details)"}'
+curl -X POST "http://localhost:9291/model?format=beautiful" -H "Content-Type: application/json" -d '{"query": "Orders.filter(p=>p.customerId==customerId).include(p=>p.details)"}'
 ```
 
 Result:
@@ -93,7 +93,7 @@ Result:
 ### Parameters
 
 ```sh
-curl -X POST "http://localhost:9291/parameters?format=beautiful" -H "Content-Type: application/json" -d '{"expression": "Orders.filter(p=>p.customerId==customerId).include(p=>p.details)"}'
+curl -X POST "http://localhost:9291/parameters?format=beautiful" -H "Content-Type: application/json" -d '{"query": "Orders.filter(p=>p.customerId==customerId).include(p=>p.details)"}'
 ```
 
 Result:
@@ -120,7 +120,7 @@ Result:
 ### Constraints
 
 ```sh
-curl -X POST "http://localhost:9291/constraints?format=beautiful" -H "Content-Type: application/json" -d '{"expression": "Orders.filter(p=>p.customerId==customerId).include(p=>p.details)"}'
+curl -X POST "http://localhost:9291/constraints?format=beautiful" -H "Content-Type: application/json" -d '{"query": "Orders.filter(p=>p.customerId==customerId).include(p=>p.details)"}'
 ```
 
 Result:
@@ -141,7 +141,7 @@ Result:
 ### Plan
 
 ```sh
-curl -X POST "http://localhost:9291/plan?format=beautiful" -H "Content-Type: application/json" -d '{"expression": "Orders.filter(p=>p.customerId==customerId).include(p=>p.details)"}'
+curl -X POST "http://localhost:9291/plan?format=beautiful" -H "Content-Type: application/json" -d '{"query": "Orders.filter(p=>p.customerId==customerId).include(p=>p.details)"}'
 ```
 
 Result:
@@ -172,7 +172,7 @@ curl -X POST -H "Content-Type: application/json" -d @data.json http://localhost:
 ### Execute
 
 ```sh
-curl -X POST "http://localhost:9291/execute?format=beautiful" -H "Content-Type: application/json" -d '{"expression": "Orders.filter(p=>p.customerId==customerId).include(p=>p.details)", "data": "{\"customerId\": \"CENTC\"}" }'
+curl -X POST "http://localhost:9291/execute?format=beautiful" -H "Content-Type: application/json" -d '{"query": "Orders.filter(p=>p.customerId==customerId).include(p=>p.details)", "data": "{\"customerId\": \"CENTC\"}" }'
 ```
 
 Result:

@@ -1,11 +1,11 @@
 import express from 'express'
-import { ExpressionController } from '../controllers'
-import { ExpressionService, Queue } from '../../application'
+import { QueryController } from '../controllers'
+import { QueryService, Queue } from '../../application'
 
-export class ExpressionRoutes {
-	private readonly controller: ExpressionController
-	constructor (service: ExpressionService, queue?: Queue) {
-		this.controller = new ExpressionController(service, queue)
+export class QueryRoutes {
+	private readonly controller: QueryController
+	constructor (service: QueryService, queue?: Queue) {
+		this.controller = new QueryController(service, queue)
 	}
 
 	public getRoutes ():express.Router {

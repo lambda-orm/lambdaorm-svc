@@ -6,12 +6,12 @@
 
 ### Classes
 
-- [ExpressionController](classes/ExpressionController.md)
-- [ExpressionRoutes](classes/ExpressionRoutes.md)
-- [ExpressionService](classes/ExpressionService.md)
 - [GeneralController](classes/GeneralController.md)
 - [GeneralRoutes](classes/GeneralRoutes.md)
 - [GeneralService](classes/GeneralService.md)
+- [QueryController](classes/QueryController.md)
+- [QueryRoutes](classes/QueryRoutes.md)
+- [QueryService](classes/QueryService.md)
 - [SchemaController](classes/SchemaController.md)
 - [SchemaRoutes](classes/SchemaRoutes.md)
 - [SchemaService](classes/SchemaService.md)

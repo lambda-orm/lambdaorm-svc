@@ -5,8 +5,8 @@ import { rateLimit } from 'express-rate-limit'
 import cookieParser from 'cookie-parser'
 import swaggerUi from 'swagger-ui-express'
 import { h3lp } from 'h3lp'
-import { GeneralService, SchemaService, ExpressionService, StageService, Queue, Logger } from '../application'
-import { GeneralRoutes, SchemaRoutes, ExpressionRoutes, StageRoutes } from './routes'
+import { GeneralService, SchemaService, QueryService, StageService, Queue, Logger } from '../application'
+import { GeneralRoutes, SchemaRoutes, QueryRoutes, StageRoutes } from './routes'
 import { OrmBuilder } from './orm'
 import path from 'path'
 import http from 'http'
@@ -57,7 +57,7 @@ export class Server {
 			this.app.use(cookieParser())
 			const metric = new MetricBuilder().build()
 			this.app.use('', new GeneralRoutes(new GeneralService(await this.getVersion(), this.orm), metric).getRoutes())
-			this.app.use('', new ExpressionRoutes(new ExpressionService(this.orm), this.queue).getRoutes())
+			this.app.use('', new QueryRoutes(new QueryService(this.orm), this.queue).getRoutes())
 			this.app.use('', new SchemaRoutes(new SchemaService(this.orm)).getRoutes())
 			this.app.use('', new StageRoutes(new StageService(this.orm)).getRoutes())
 			this.app.use('/api-docs', swaggerUi.serve, swaggerSetup)

@@ -57,7 +57,7 @@ ___
 
 #### Defined in
 
-[src/domain/serviceSchema.ts:14](https://github.com/lambda-orm/lambdaorm-svc/blob/c3125b9eb5322ac4673a26ba4710ffb3a3545f04/src/domain/serviceSchema.ts#L14)
+[src/domain/serviceSchema.ts:14](https://github.com/lambda-orm/lambdaorm-svc/blob/532896b631f65517f4753a83325f1748c1fdb1ff/src/domain/serviceSchema.ts#L14)
 
 ___
 
@@ -81,7 +81,7 @@ ___
 
 #### Defined in
 
-[src/domain/serviceSchema.ts:13](https://github.com/lambda-orm/lambdaorm-svc/blob/c3125b9eb5322ac4673a26ba4710ffb3a3545f04/src/domain/serviceSchema.ts#L13)
+[src/domain/serviceSchema.ts:13](https://github.com/lambda-orm/lambdaorm-svc/blob/532896b631f65517f4753a83325f1748c1fdb1ff/src/domain/serviceSchema.ts#L13)
 
 ___
 

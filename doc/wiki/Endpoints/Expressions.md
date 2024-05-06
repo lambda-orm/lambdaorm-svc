@@ -1,15 +1,15 @@
-# Expressions Endpoints
+# Queries Endpoints
 
-![expression-methods](https://raw.githubusercontent.com/lambda-orm/lambdaorm-svc/HEAD/images/expression-methods.png)
+![query-methods](https://raw.githubusercontent.com/lambda-orm/lambdaorm-svc/HEAD/images/query-methods.png)
 
 ## Metadata
 
-Return the metadata of the expression.
+Return the metadata of the query.
 
 Request:
 
 ```sh
-curl -X POST "http://localhost:9291/metadata?format=beautiful" -H "Content-Type: application/json" -d '{"expression": "Orders.filter(p=>p.id==id).include(p=>p.details)"}'
+curl -X POST "http://localhost:9291/metadata?format=beautiful" -H "Content-Type: application/json" -d '{"query": "Orders.filter(p=>p.id==id).include(p=>p.details)"}'
 ```
 
 Response:
@@ -152,12 +152,12 @@ Response:
 
 ## Model
 
-Return the model of the expression.
+Return the model of the query.
 
 Request:
 
 ```sh
-curl -X POST "http://localhost:9291/model?format=beautiful" -H "Content-Type: application/json" -d '{"expression": "Orders.filter(p=>p.id==id).include(p=>p.details)"}'
+curl -X POST "http://localhost:9291/model?format=beautiful" -H "Content-Type: application/json" -d '{"query": "Orders.filter(p=>p.id==id).include(p=>p.details)"}'
 ```
 
 Response:
@@ -255,12 +255,12 @@ Response:
 
 ## Parameters
 
-Return the parameters of the expression.
+Return the parameters of the query.
 
 Request:
 
 ```sh
-curl -X POST "http://localhost:9291/parameters?format=beautiful" -H "Content-Type: application/json" -d '{"expression": "Orders.filter(p=>p.id==id).include(p=>p.details)"}'
+curl -X POST "http://localhost:9291/parameters?format=beautiful" -H "Content-Type: application/json" -d '{"query": "Orders.filter(p=>p.id==id).include(p=>p.details)"}'
 ```
 
 Response:
@@ -286,12 +286,12 @@ Response:
 
 ## Constraints
 
-Return the constraints of the expression.
+Return the constraints of the query.
 
 Request:
 
 ```sh
-curl -X POST "http://localhost:9291/constraints?format=beautiful" -H "Content-Type: application/json" -d '{"expression": "Orders.filter(p=>p.id==id).include(p=>p.details)"}'
+curl -X POST "http://localhost:9291/constraints?format=beautiful" -H "Content-Type: application/json" -d '{"query": "Orders.filter(p=>p.id==id).include(p=>p.details)"}'
 ```
 
 Response:
@@ -311,12 +311,12 @@ Response:
 
 ## Plan
 
-Return the plan of the expression, with the sentences to be executed.
+Return the plan of the query, with the sentences to be executed.
 
 Request:
 
 ```sh
-curl -X POST "http://localhost:9291/plan?format=beautiful" -H "Content-Type: application/json" -d '{"expression": "Orders.filter(p=>p.id==id).include(p=>p.details)"}'
+curl -X POST "http://localhost:9291/plan?format=beautiful" -H "Content-Type: application/json" -d '{"query": "Orders.filter(p=>p.id==id).include(p=>p.details)"}'
 ```
 
 Response:
@@ -340,12 +340,12 @@ Response:
 
 ## Execute
 
-Execute the expression.
+Execute the query.
 
 Request:
 
 ```sh
-curl -X POST "http://localhost:9291/execute?format=beautiful" -H "Content-Type: application/json" -d '{"expression": "Orders.filter(p=>p.id==id).include(p=>p.details)", "data": "{\"id\": 10248}" }'
+curl -X POST "http://localhost:9291/execute?format=beautiful" -H "Content-Type: application/json" -d '{"query": "Orders.filter(p=>p.id==id).include(p=>p.details)", "data": "{\"id\": 10248}" }'
 ```
 
 Response:

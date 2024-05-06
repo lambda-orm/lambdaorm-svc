@@ -1,54 +1,54 @@
-[orm-service](../README.md) / [Exports](../modules.md) / ExpressionController
+[orm-service](../README.md) / [Exports](../modules.md) / QueryController
 
-# Class: ExpressionController
+# Class: QueryController
 
 ## Hierarchy
 
 - `Controller`
 
-  ↳ **`ExpressionController`**
+  ↳ **`QueryController`**
 
 ## Table of contents
 
 ### Constructors
 
-- [constructor](ExpressionController.md#constructor)
+- [constructor](QueryController.md#constructor)
 
 ### Properties
 
-- [queue](ExpressionController.md#queue)
-- [service](ExpressionController.md#service)
+- [queue](QueryController.md#queue)
+- [service](QueryController.md#service)
 
 ### Methods
 
-- [collectRequestParams](ExpressionController.md#collectrequestparams)
-- [constraints](ExpressionController.md#constraints)
-- [execute](ExpressionController.md#execute)
-- [executeQueued](ExpressionController.md#executequeued)
-- [handleRequest](ExpressionController.md#handlerequest)
-- [metadata](ExpressionController.md#metadata)
-- [model](ExpressionController.md#model)
-- [parameters](ExpressionController.md#parameters)
-- [plan](ExpressionController.md#plan)
-- [sendError](ExpressionController.md#senderror)
-- [sendResponse](ExpressionController.md#sendresponse)
+- [collectRequestParams](QueryController.md#collectrequestparams)
+- [constraints](QueryController.md#constraints)
+- [execute](QueryController.md#execute)
+- [executeQueued](QueryController.md#executequeued)
+- [handleRequest](QueryController.md#handlerequest)
+- [metadata](QueryController.md#metadata)
+- [model](QueryController.md#model)
+- [parameters](QueryController.md#parameters)
+- [plan](QueryController.md#plan)
+- [sendError](QueryController.md#senderror)
+- [sendResponse](QueryController.md#sendresponse)
 
 ## Constructors
 
 ### constructor
 
-• **new ExpressionController**(`service`, `queue?`): [`ExpressionController`](ExpressionController.md)
+• **new QueryController**(`service`, `queue?`): [`QueryController`](QueryController.md)
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `service` | [`ExpressionService`](ExpressionService.md) |
+| `service` | [`QueryService`](QueryService.md) |
 | `queue?` | [`Queue`](../interfaces/Queue.md) |
 
 #### Returns
 
-[`ExpressionController`](ExpressionController.md)
+[`QueryController`](QueryController.md)
 
 #### Overrides
 
@@ -56,7 +56,7 @@ Controller.constructor
 
 #### Defined in
 
-[src/infrastructure/controllers/expressionController.ts:6](https://github.com/lambda-orm/lambdaorm-svc/blob/c3125b9eb5322ac4673a26ba4710ffb3a3545f04/src/infrastructure/controllers/expressionController.ts#L6)
+src/infrastructure/controllers/queryController.ts:6
 
 ## Properties
 
@@ -66,17 +66,17 @@ Controller.constructor
 
 #### Defined in
 
-[src/infrastructure/controllers/expressionController.ts:6](https://github.com/lambda-orm/lambdaorm-svc/blob/c3125b9eb5322ac4673a26ba4710ffb3a3545f04/src/infrastructure/controllers/expressionController.ts#L6)
+src/infrastructure/controllers/queryController.ts:6
 
 ___
 
 ### service
 
-• `Private` `Readonly` **service**: [`ExpressionService`](ExpressionService.md)
+• `Private` `Readonly` **service**: [`QueryService`](QueryService.md)
 
 #### Defined in
 
-[src/infrastructure/controllers/expressionController.ts:6](https://github.com/lambda-orm/lambdaorm-svc/blob/c3125b9eb5322ac4673a26ba4710ffb3a3545f04/src/infrastructure/controllers/expressionController.ts#L6)
+src/infrastructure/controllers/queryController.ts:6
 
 ## Methods
 
@@ -100,7 +100,7 @@ Controller.collectRequestParams
 
 #### Defined in
 
-[src/infrastructure/controllers/Controller.ts:27](https://github.com/lambda-orm/lambdaorm-svc/blob/c3125b9eb5322ac4673a26ba4710ffb3a3545f04/src/infrastructure/controllers/Controller.ts#L27)
+[src/infrastructure/controllers/Controller.ts:27](https://github.com/lambda-orm/lambdaorm-svc/blob/532896b631f65517f4753a83325f1748c1fdb1ff/src/infrastructure/controllers/Controller.ts#L27)
 
 ___
 
@@ -121,7 +121,7 @@ ___
 
 #### Defined in
 
-[src/infrastructure/controllers/expressionController.ts:10](https://github.com/lambda-orm/lambdaorm-svc/blob/c3125b9eb5322ac4673a26ba4710ffb3a3545f04/src/infrastructure/controllers/expressionController.ts#L10)
+src/infrastructure/controllers/queryController.ts:10
 
 ___
 
@@ -142,7 +142,7 @@ ___
 
 #### Defined in
 
-[src/infrastructure/controllers/expressionController.ts:14](https://github.com/lambda-orm/lambdaorm-svc/blob/c3125b9eb5322ac4673a26ba4710ffb3a3545f04/src/infrastructure/controllers/expressionController.ts#L14)
+src/infrastructure/controllers/queryController.ts:14
 
 ___
 
@@ -163,7 +163,7 @@ ___
 
 #### Defined in
 
-[src/infrastructure/controllers/expressionController.ts:18](https://github.com/lambda-orm/lambdaorm-svc/blob/c3125b9eb5322ac4673a26ba4710ffb3a3545f04/src/infrastructure/controllers/expressionController.ts#L18)
+src/infrastructure/controllers/queryController.ts:18
 
 ___
 
@@ -189,7 +189,7 @@ Controller.handleRequest
 
 #### Defined in
 
-[src/infrastructure/controllers/Controller.ts:50](https://github.com/lambda-orm/lambdaorm-svc/blob/c3125b9eb5322ac4673a26ba4710ffb3a3545f04/src/infrastructure/controllers/Controller.ts#L50)
+[src/infrastructure/controllers/Controller.ts:50](https://github.com/lambda-orm/lambdaorm-svc/blob/532896b631f65517f4753a83325f1748c1fdb1ff/src/infrastructure/controllers/Controller.ts#L50)
 
 ___
 
@@ -210,7 +210,7 @@ ___
 
 #### Defined in
 
-[src/infrastructure/controllers/expressionController.ts:25](https://github.com/lambda-orm/lambdaorm-svc/blob/c3125b9eb5322ac4673a26ba4710ffb3a3545f04/src/infrastructure/controllers/expressionController.ts#L25)
+src/infrastructure/controllers/queryController.ts:25
 
 ___
 
@@ -231,7 +231,7 @@ ___
 
 #### Defined in
 
-[src/infrastructure/controllers/expressionController.ts:29](https://github.com/lambda-orm/lambdaorm-svc/blob/c3125b9eb5322ac4673a26ba4710ffb3a3545f04/src/infrastructure/controllers/expressionController.ts#L29)
+src/infrastructure/controllers/queryController.ts:29
 
 ___
 
@@ -252,7 +252,7 @@ ___
 
 #### Defined in
 
-[src/infrastructure/controllers/expressionController.ts:33](https://github.com/lambda-orm/lambdaorm-svc/blob/c3125b9eb5322ac4673a26ba4710ffb3a3545f04/src/infrastructure/controllers/expressionController.ts#L33)
+src/infrastructure/controllers/queryController.ts:33
 
 ___
 
@@ -273,7 +273,7 @@ ___
 
 #### Defined in
 
-[src/infrastructure/controllers/expressionController.ts:37](https://github.com/lambda-orm/lambdaorm-svc/blob/c3125b9eb5322ac4673a26ba4710ffb3a3545f04/src/infrastructure/controllers/expressionController.ts#L37)
+src/infrastructure/controllers/queryController.ts:37
 
 ___
 
@@ -298,7 +298,7 @@ Controller.sendError
 
 #### Defined in
 
-[src/infrastructure/controllers/Controller.ts:18](https://github.com/lambda-orm/lambdaorm-svc/blob/c3125b9eb5322ac4673a26ba4710ffb3a3545f04/src/infrastructure/controllers/Controller.ts#L18)
+[src/infrastructure/controllers/Controller.ts:18](https://github.com/lambda-orm/lambdaorm-svc/blob/532896b631f65517f4753a83325f1748c1fdb1ff/src/infrastructure/controllers/Controller.ts#L18)
 
 ___
 
@@ -323,4 +323,4 @@ Controller.sendResponse
 
 #### Defined in
 
-[src/infrastructure/controllers/Controller.ts:3](https://github.com/lambda-orm/lambdaorm-svc/blob/c3125b9eb5322ac4673a26ba4710ffb3a3545f04/src/infrastructure/controllers/Controller.ts#L3)
+[src/infrastructure/controllers/Controller.ts:3](https://github.com/lambda-orm/lambdaorm-svc/blob/532896b631f65517f4753a83325f1748c1fdb1ff/src/infrastructure/controllers/Controller.ts#L3)

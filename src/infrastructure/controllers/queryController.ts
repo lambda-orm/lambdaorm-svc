@@ -1,9 +1,9 @@
 import { Request, Response } from 'express'
 import { Controller } from './Controller'
-import { ExpressionService, Queue } from '../../application'
+import { QueryService, Queue } from '../../application'
 
-export class ExpressionController extends Controller {
-	constructor (private readonly service: ExpressionService, private readonly queue?: Queue) {
+export class QueryController extends Controller {
+	constructor (private readonly service: QueryService, private readonly queue?: Queue) {
 		super()
 	}
 

@@ -13,8 +13,8 @@ externalDocs:
   description: Find out more about lambdaorm npm library
   url: https://www.npmjs.com/package/lambdaorm
 tags:
-- description: Expression methods
-  name: expression
+- description: Query methods
+  name: query
 - description: General methods
   name: general
 - description: Schema methods
@@ -97,8 +97,8 @@ paths:
                 $ref: '#/components/schemas/Metadata'
           description: Ok
       tags:
-      - expression
-      x-eov-operation-handler: controllers/ExpressionController
+      - query
+      x-eov-operation-handler: controllers/QueryController
   /model:
     post:
       operationId: model
@@ -117,8 +117,8 @@ paths:
                 type: array
           description: Ok
       tags:
-      - expression
-      x-eov-operation-handler: controllers/ExpressionController
+      - query
+      x-eov-operation-handler: controllers/QueryController
   /parameters:
     post:
       operationId: parameters
@@ -137,8 +137,8 @@ paths:
                 type: array
           description: Ok
       tags:
-      - expression
-      x-eov-operation-handler: controllers/ExpressionController
+      - query
+      x-eov-operation-handler: controllers/QueryController
   /constraints:
     post:
       operationId: constraints
@@ -155,8 +155,8 @@ paths:
                 $ref: '#/components/schemas/MetadataConstraint'
           description: Ok
       tags:
-      - expression
-      x-eov-operation-handler: controllers/ExpressionController
+      - query
+      x-eov-operation-handler: controllers/QueryController
   /plan:
     post:
       operationId: plan
@@ -174,8 +174,8 @@ paths:
                 $ref: '#/components/schemas/MetadataPlan'
           description: Ok
       tags:
-      - expression
-      x-eov-operation-handler: controllers/ExpressionController
+      - query
+      x-eov-operation-handler: controllers/QueryController
   /execute:
     post:
       operationId: execute
@@ -192,8 +192,8 @@ paths:
               schema: {}
           description: Ok
       tags:
-      - expression
-      x-eov-operation-handler: controllers/ExpressionController
+      - query
+      x-eov-operation-handler: controllers/QueryController
   /execute-queued:
     post:
       operationId: executeQueued
@@ -210,8 +210,8 @@ paths:
               schema: {}
           description: Ok
       tags:
-      - expression
-      x-eov-operation-handler: controllers/ExpressionController
+      - query
+      x-eov-operation-handler: controllers/QueryController
   /schema/version:
     get:
       operationId: version
@@ -1591,50 +1591,50 @@ components:
     MetadataRequest:
       additionalProperties: false
       example:
-        expression: expression
+        query: query
       properties:
-        expression:
+        query:
           type: string
       required:
-      - expression
+      - query
       type: object
     PlanRequest:
       additionalProperties: false
       example:
-        expression: expression
+        query: query
         options:
           stage: default
       properties:
         options:
           $ref: '#/components/schemas/QueryOptions'
-        expression:
+        query:
           type: string
         data: {}
       required:
-      - expression
+      - query
       - options
       type: object
     QueryRequest:
       additionalProperties: false
       example:
-        expression: expression
+        query: query
         options:
           stage: default
         data: {}
       properties:
         options:
           $ref: '#/components/schemas/QueryOptions'
-        expression:
+        query:
           type: string
         data: {}
       required:
-      - expression
+      - query
       - options
       type: object
     QueryQueuedRequest:
       additionalProperties: false
       example:
-        expression: expression
+        query: query
         data: {}
         topic: topic-test
         chunk: 1000
@@ -1643,7 +1643,7 @@ components:
       properties:
         options:
           $ref: '#/components/schemas/QueryOptions'
-        expression:
+        query:
           type: string
         data: {}
         topic:
@@ -1651,7 +1651,7 @@ components:
         chunk:
           type: number
       required:
-      - expression
+      - query
       - options
       - topic
       type: object

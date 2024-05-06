@@ -98,7 +98,7 @@ export class KafkaQueue implements Queue {
 	public async executeInBackground (queueId:string, args:QueueExecuteArgs): Promise<void> {
 		try {
 			try {
-				const result = await this.orm.execute(args.expression, args.data, args.options)
+				const result = await this.orm.execute(args.query, args.data, args.options)
 				const headers:any = {}
 				if (args.options !== undefined && args.options.headers !== undefined) {
 					for (const entry of Object.entries(args.options.headers)) {

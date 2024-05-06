@@ -1,12 +1,12 @@
   * [[Home]]
   * Endpoints
-    * [[Expressions]]
+    * [[Query]]
     * [[General]]
     * [[Schema]]
     * [[Stages]]
   * Use
     * [[Configuration]]
-    * [[Expressions]]
+    * [[Queries]]
     * [[Kafka]]
   * [Docker Image](https://hub.docker.com/repository/docker/flaviorita/lambdaorm-svc/general)
   * Clients

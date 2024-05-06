@@ -12,7 +12,7 @@ export interface QueuedInfo {
 
 export interface QueueExecuteArgs {
 	topic:string
-	expression:string
+	query:string
 	data:any,
 	chunk?:number
 	options?:QueryOptions

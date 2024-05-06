@@ -8,8 +8,8 @@
 
 - [chunk](QueueExecuteArgs.md#chunk)
 - [data](QueueExecuteArgs.md#data)
-- [expression](QueueExecuteArgs.md#expression)
 - [options](QueueExecuteArgs.md#options)
+- [query](QueueExecuteArgs.md#query)
 - [topic](QueueExecuteArgs.md#topic)
 
 ## Properties
@@ -20,7 +20,7 @@
 
 #### Defined in
 
-[src/domain/queuedInfo.ts:17](https://github.com/lambda-orm/lambdaorm-svc/blob/c3125b9eb5322ac4673a26ba4710ffb3a3545f04/src/domain/queuedInfo.ts#L17)
+[src/domain/queuedInfo.ts:17](https://github.com/lambda-orm/lambdaorm-svc/blob/532896b631f65517f4753a83325f1748c1fdb1ff/src/domain/queuedInfo.ts#L17)
 
 ___
 
@@ -30,17 +30,7 @@ ___
 
 #### Defined in
 
-[src/domain/queuedInfo.ts:16](https://github.com/lambda-orm/lambdaorm-svc/blob/c3125b9eb5322ac4673a26ba4710ffb3a3545f04/src/domain/queuedInfo.ts#L16)
-
-___
-
-### expression
-
-• **expression**: `string`
-
-#### Defined in
-
-[src/domain/queuedInfo.ts:15](https://github.com/lambda-orm/lambdaorm-svc/blob/c3125b9eb5322ac4673a26ba4710ffb3a3545f04/src/domain/queuedInfo.ts#L15)
+[src/domain/queuedInfo.ts:16](https://github.com/lambda-orm/lambdaorm-svc/blob/532896b631f65517f4753a83325f1748c1fdb1ff/src/domain/queuedInfo.ts#L16)
 
 ___
 
@@ -50,7 +40,17 @@ ___
 
 #### Defined in
 
-[src/domain/queuedInfo.ts:18](https://github.com/lambda-orm/lambdaorm-svc/blob/c3125b9eb5322ac4673a26ba4710ffb3a3545f04/src/domain/queuedInfo.ts#L18)
+[src/domain/queuedInfo.ts:18](https://github.com/lambda-orm/lambdaorm-svc/blob/532896b631f65517f4753a83325f1748c1fdb1ff/src/domain/queuedInfo.ts#L18)
+
+___
+
+### query
+
+• **query**: `string`
+
+#### Defined in
+
+[src/domain/queuedInfo.ts:15](https://github.com/lambda-orm/lambdaorm-svc/blob/532896b631f65517f4753a83325f1748c1fdb1ff/src/domain/queuedInfo.ts#L15)
 
 ___
 
@@ -60,4 +60,4 @@ ___
 
 #### Defined in
 
-[src/domain/queuedInfo.ts:14](https://github.com/lambda-orm/lambdaorm-svc/blob/c3125b9eb5322ac4673a26ba4710ffb3a3545f04/src/domain/queuedInfo.ts#L14)
+[src/domain/queuedInfo.ts:14](https://github.com/lambda-orm/lambdaorm-svc/blob/532896b631f65517f4753a83325f1748c1fdb1ff/src/domain/queuedInfo.ts#L14)
