@@ -35,5 +35,5 @@ application:
     - name: syncInsights
       on: [insert, bulkInsert, update, delete ]
       condition: options.stage.in("default","cqrs")
-       after: kafka.send("insights-sync",[{expression:expression,data:data}])    
+       after: kafka.send("insights-sync",[{query:query,data:data}])    
 ```

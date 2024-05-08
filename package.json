@@ -48,7 +48,7 @@
     "express": "^4.18.2",
     "express-rate-limit": "^7.0.2",
     "h3lp": "^1.10.1",
-    "lambdaorm": "^1.13.2",
+    "lambdaorm": "^2.0.4",
     "js-yaml": "^4.1.0",
     "kafkajs": "^2.2.4",
     "mongodb": "^6.2.0",
