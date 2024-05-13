@@ -7,10 +7,9 @@ import swaggerUi from 'swagger-ui-express'
 import { h3lp } from 'h3lp'
 import { GeneralService, SchemaService, QueryService, StageService, Queue, Logger } from '../application'
 import { GeneralRoutes, SchemaRoutes, QueryRoutes, StageRoutes } from './routes'
-import { OrmBuilder } from './orm'
 import path from 'path'
 import http from 'http'
-import { IOrm } from 'lambdaorm'
+import { IOrm, Orm } from 'lambdaorm'
 import { ServiceSchema, ServiceConfig } from '../domain'
 import { beautifyJsonMiddleware } from './middleware/beautifyJsonMiddleware'
 import { LoggerBuilder } from './logger/loggerBuilder'
@@ -31,8 +30,8 @@ export class Server {
 	public async start () {
 		this.app = express()
 		try {
-			this.orm = new OrmBuilder().build()
-			this.schema = await this.orm.init() as ServiceSchema
+			this.orm = new Orm()
+			this.schema = await this.orm.init(process.env.WORKSPACE || '/workspace') as ServiceSchema
 			this.config = this.schema.infrastructure.service || {}
 			if (h3lp.val.isNotNull(this.schema.infrastructure.queue)) {
 				this.queue = new QueueBuilder().build(this.orm, this.logger)

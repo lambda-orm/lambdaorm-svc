@@ -6,8 +6,8 @@ export class QueueLibrary {
 	constructor (private readonly orm:IOrm, private readonly queue:Queue) {}
 
 	public async load (): Promise<void> {
-		this.orm.expressions.addFunction('queue.send(topic:string,messages:any[]):void', async (topic:string, messages:any[]) => {
+		this.orm.exp.addFunction('queue.send(topic:string,messages:any[]):void', async (topic:string, messages:any[]) => {
 			return this.queue.send(topic, messages)
-		}, { async: true })
+		}, { async: true, description: 'Send messages to a queue' })
 	}
 }

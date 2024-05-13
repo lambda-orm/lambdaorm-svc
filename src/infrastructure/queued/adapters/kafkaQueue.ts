@@ -52,7 +52,7 @@ export class KafkaQueue implements Queue {
 				try {
 					const value = message.value instanceof Buffer ? message.value.toString() : message.value || ''
 					const msg = JSON.parse(value)
-					await this.orm.expressions.evalAsync(consumerInfo.execute, { message: msg, topic, partition })
+					await this.orm.exp.evalAsync(consumerInfo.execute, { message: msg, topic, partition })
 				} catch (error) {
 					this.logger.error(error)
 				}

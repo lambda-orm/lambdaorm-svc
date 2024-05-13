@@ -400,7 +400,7 @@ application:
       # - name: syncInsights2
       #   on: [insert, bulkInsert, update, delete]
       #   condition: options.stage.in("default","cqrs")
-      #   after: sendMessage("insights-sync-3",[{query:query,data:data,options:{stage:"insights"}}])
+      #   after: sendMessage("insights-sync-3",[{query,data,options:{stage:"insights"}}])
         # - name: syncInsights
         #   # In this option the same updates are executed in the insights base (not transactional).
         #   # If there is an error in updating the insights database, a message is generated
@@ -418,7 +418,7 @@ application:
 infrastructure:
   paths:
     src: src
-    data: data
+    state: orm_state 
     model: model
   mappings:
     - name: default

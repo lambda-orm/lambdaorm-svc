@@ -239,6 +239,6 @@ infrastructure:
 application:
   listeners:
     - name: syncInsights
-      on: [insert, bulkInsert, update, delete ]
+      on: [insert, upsert, update, delete ]
       condition: options.stage.in("default","cqrs")
       after: queue.send("insights-sync",[{query:query,data:data}])  
