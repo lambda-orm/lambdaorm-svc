@@ -33,7 +33,7 @@ InfrastructureSchema.mappings
 
 #### Defined in
 
-node_modules/lambdaorm-base/schema/domain/schema.d.ts:166
+node_modules/lambdaorm-base/schema/domain/schema.d.ts:167
 
 ___
 
@@ -47,7 +47,7 @@ InfrastructureSchema.paths
 
 #### Defined in
 
-node_modules/lambdaorm-base/schema/domain/schema.d.ts:165
+node_modules/lambdaorm-base/schema/domain/schema.d.ts:166
 
 ___
 
@@ -57,7 +57,7 @@ ___
 
 #### Defined in
 
-[src/domain/serviceSchema.ts:14](https://github.com/lambda-orm/lambdaorm-svc/blob/532896b631f65517f4753a83325f1748c1fdb1ff/src/domain/serviceSchema.ts#L14)
+[src/domain/serviceSchema.ts:14](https://github.com/lambda-orm/lambdaorm-svc/blob/c6a8fe9507aaf461cdd51965bf4fd0b7faab4ce1/src/domain/serviceSchema.ts#L14)
 
 ___
 
@@ -71,7 +71,7 @@ InfrastructureSchema.server
 
 #### Defined in
 
-node_modules/lambdaorm-base/schema/domain/schema.d.ts:170
+node_modules/lambdaorm-base/schema/domain/schema.d.ts:171
 
 ___
 
@@ -81,7 +81,7 @@ ___
 
 #### Defined in
 
-[src/domain/serviceSchema.ts:13](https://github.com/lambda-orm/lambdaorm-svc/blob/532896b631f65517f4753a83325f1748c1fdb1ff/src/domain/serviceSchema.ts#L13)
+[src/domain/serviceSchema.ts:13](https://github.com/lambda-orm/lambdaorm-svc/blob/c6a8fe9507aaf461cdd51965bf4fd0b7faab4ce1/src/domain/serviceSchema.ts#L13)
 
 ___
 
@@ -95,7 +95,7 @@ InfrastructureSchema.sources
 
 #### Defined in
 
-node_modules/lambdaorm-base/schema/domain/schema.d.ts:168
+node_modules/lambdaorm-base/schema/domain/schema.d.ts:169
 
 ___
 
@@ -109,7 +109,7 @@ InfrastructureSchema.stages
 
 #### Defined in
 
-node_modules/lambdaorm-base/schema/domain/schema.d.ts:169
+node_modules/lambdaorm-base/schema/domain/schema.d.ts:170
 
 ___
 
@@ -123,4 +123,4 @@ InfrastructureSchema.views
 
 #### Defined in
 
-node_modules/lambdaorm-base/schema/domain/schema.d.ts:167
+node_modules/lambdaorm-base/schema/domain/schema.d.ts:168

@@ -18,7 +18,7 @@
 
 #### Defined in
 
-[src/domain/queuedInfo.ts:4](https://github.com/lambda-orm/lambdaorm-svc/blob/532896b631f65517f4753a83325f1748c1fdb1ff/src/domain/queuedInfo.ts#L4)
+[src/domain/queuedInfo.ts:4](https://github.com/lambda-orm/lambdaorm-svc/blob/c6a8fe9507aaf461cdd51965bf4fd0b7faab4ce1/src/domain/queuedInfo.ts#L4)
 
 ___
 
@@ -28,7 +28,7 @@ ___
 
 #### Defined in
 
-[src/domain/queuedInfo.ts:6](https://github.com/lambda-orm/lambdaorm-svc/blob/532896b631f65517f4753a83325f1748c1fdb1ff/src/domain/queuedInfo.ts#L6)
+[src/domain/queuedInfo.ts:6](https://github.com/lambda-orm/lambdaorm-svc/blob/c6a8fe9507aaf461cdd51965bf4fd0b7faab4ce1/src/domain/queuedInfo.ts#L6)
 
 ___
 
@@ -38,4 +38,4 @@ ___
 
 #### Defined in
 
-[src/domain/queuedInfo.ts:5](https://github.com/lambda-orm/lambdaorm-svc/blob/532896b631f65517f4753a83325f1748c1fdb1ff/src/domain/queuedInfo.ts#L5)
+[src/domain/queuedInfo.ts:5](https://github.com/lambda-orm/lambdaorm-svc/blob/c6a8fe9507aaf461cdd51965bf4fd0b7faab4ce1/src/domain/queuedInfo.ts#L5)

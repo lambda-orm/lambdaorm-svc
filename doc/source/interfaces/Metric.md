@@ -30,7 +30,7 @@
 
 #### Defined in
 
-[src/application/ports/metric.ts:3](https://github.com/lambda-orm/lambdaorm-svc/blob/532896b631f65517f4753a83325f1748c1fdb1ff/src/application/ports/metric.ts#L3)
+[src/application/ports/metric.ts:3](https://github.com/lambda-orm/lambdaorm-svc/blob/c6a8fe9507aaf461cdd51965bf4fd0b7faab4ce1/src/application/ports/metric.ts#L3)
 
 ___
 
@@ -52,7 +52,7 @@ ___
 
 #### Defined in
 
-[src/application/ports/metric.ts:2](https://github.com/lambda-orm/lambdaorm-svc/blob/532896b631f65517f4753a83325f1748c1fdb1ff/src/application/ports/metric.ts#L2)
+[src/application/ports/metric.ts:2](https://github.com/lambda-orm/lambdaorm-svc/blob/c6a8fe9507aaf461cdd51965bf4fd0b7faab4ce1/src/application/ports/metric.ts#L2)
 
 ___
 
@@ -66,4 +66,4 @@ ___
 
 #### Defined in
 
-[src/application/ports/metric.ts:4](https://github.com/lambda-orm/lambdaorm-svc/blob/532896b631f65517f4753a83325f1748c1fdb1ff/src/application/ports/metric.ts#L4)
+[src/application/ports/metric.ts:4](https://github.com/lambda-orm/lambdaorm-svc/blob/c6a8fe9507aaf461cdd51965bf4fd0b7faab4ce1/src/application/ports/metric.ts#L4)

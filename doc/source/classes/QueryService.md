@@ -39,7 +39,7 @@
 
 #### Defined in
 
-src/application/services/queryService.ts:4
+[src/application/services/queryService.ts:4](https://github.com/lambda-orm/lambdaorm-svc/blob/c6a8fe9507aaf461cdd51965bf4fd0b7faab4ce1/src/application/services/queryService.ts#L4)
 
 ## Properties
 
@@ -49,7 +49,7 @@ src/application/services/queryService.ts:4
 
 #### Defined in
 
-src/application/services/queryService.ts:4
+[src/application/services/queryService.ts:4](https://github.com/lambda-orm/lambdaorm-svc/blob/c6a8fe9507aaf461cdd51965bf4fd0b7faab4ce1/src/application/services/queryService.ts#L4)
 
 ## Methods
 
@@ -71,7 +71,7 @@ src/application/services/queryService.ts:4
 
 #### Defined in
 
-src/application/services/queryService.ts:6
+[src/application/services/queryService.ts:6](https://github.com/lambda-orm/lambdaorm-svc/blob/c6a8fe9507aaf461cdd51965bf4fd0b7faab4ce1/src/application/services/queryService.ts#L6)
 
 ___
 
@@ -95,7 +95,7 @@ ___
 
 #### Defined in
 
-src/application/services/queryService.ts:26
+[src/application/services/queryService.ts:26](https://github.com/lambda-orm/lambdaorm-svc/blob/c6a8fe9507aaf461cdd51965bf4fd0b7faab4ce1/src/application/services/queryService.ts#L26)
 
 ___
 
@@ -117,7 +117,7 @@ ___
 
 #### Defined in
 
-src/application/services/queryService.ts:10
+[src/application/services/queryService.ts:10](https://github.com/lambda-orm/lambdaorm-svc/blob/c6a8fe9507aaf461cdd51965bf4fd0b7faab4ce1/src/application/services/queryService.ts#L10)
 
 ___
 
@@ -139,7 +139,7 @@ ___
 
 #### Defined in
 
-src/application/services/queryService.ts:14
+[src/application/services/queryService.ts:14](https://github.com/lambda-orm/lambdaorm-svc/blob/c6a8fe9507aaf461cdd51965bf4fd0b7faab4ce1/src/application/services/queryService.ts#L14)
 
 ___
 
@@ -161,7 +161,7 @@ ___
 
 #### Defined in
 
-src/application/services/queryService.ts:18
+[src/application/services/queryService.ts:18](https://github.com/lambda-orm/lambdaorm-svc/blob/c6a8fe9507aaf461cdd51965bf4fd0b7faab4ce1/src/application/services/queryService.ts#L18)
 
 ___
 
@@ -184,4 +184,4 @@ ___
 
 #### Defined in
 
-src/application/services/queryService.ts:22
+[src/application/services/queryService.ts:22](https://github.com/lambda-orm/lambdaorm-svc/blob/c6a8fe9507aaf461cdd51965bf4fd0b7faab4ce1/src/application/services/queryService.ts#L22)

@@ -29,7 +29,7 @@ Schema.application
 
 #### Defined in
 
-node_modules/lambdaorm-base/schema/domain/schema.d.ts:181
+node_modules/lambdaorm-base/schema/domain/schema.d.ts:182
 
 ___
 
@@ -43,7 +43,7 @@ Schema.domain
 
 #### Defined in
 
-node_modules/lambdaorm-base/schema/domain/schema.d.ts:179
+node_modules/lambdaorm-base/schema/domain/schema.d.ts:180
 
 ___
 
@@ -57,7 +57,7 @@ Schema.infrastructure
 
 #### Defined in
 
-[src/domain/serviceSchema.ts:18](https://github.com/lambda-orm/lambdaorm-svc/blob/532896b631f65517f4753a83325f1748c1fdb1ff/src/domain/serviceSchema.ts#L18)
+[src/domain/serviceSchema.ts:18](https://github.com/lambda-orm/lambdaorm-svc/blob/c6a8fe9507aaf461cdd51965bf4fd0b7faab4ce1/src/domain/serviceSchema.ts#L18)
 
 ___
 
@@ -71,4 +71,4 @@ Schema.version
 
 #### Defined in
 
-node_modules/lambdaorm-base/schema/domain/schema.d.ts:178
+node_modules/lambdaorm-base/schema/domain/schema.d.ts:179

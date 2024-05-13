@@ -6,8 +6,7 @@ All notable changes to this project will be documented in this file.
 
 ## [2.1.0](https://github.com/lambda-orm/lambdaorm-svc/compare/v1.2.3...v2.1.0) (2024-05-13)
 
-
-### Features
+**Features:**
 
 * update methods and dependences ([c6a8fe9](https://github.com/lambda-orm/lambdaorm-svc/commit/c6a8fe9507aaf461cdd51965bf4fd0b7faab4ce1)), closes [#0](https://github.com/lambda-orm/lambdaorm-svc/issues/0)
 
