@@ -51,7 +51,7 @@
     "lambdaorm": "^2.2.8",
     "js-yaml": "^4.1.0",
     "kafkajs": "^2.2.4",
-    "mongodb": "^6.2.0",
+    "mongodb": "^6.6.1",
     "morgan": "^1.10.0",
     "mysql2": "^3.9.7",
     "ono": "^7.1.3",
