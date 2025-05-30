@@ -4,6 +4,38 @@ All notable changes to this project will be documented in this file.
 
 ## Versions
 
+## [2.2.0](https://github.com/lambda-orm/lambdaorm-svc/compare/v0.8.35...v2.2.0) (2025-05-30)
+
+
+### Features
+
+* add beatiful format on endpoints ([6a99932](https://github.com/lambda-orm/lambdaorm-svc/commit/6a99932ba30592584ec77df266fc5913634898fa)), closes [#189](https://github.com/lambda-orm/lambdaorm-svc/issues/189)
+* complete readme ([9f17af2](https://github.com/lambda-orm/lambdaorm-svc/commit/9f17af2383d21745b907155b0e4ab6b035e4d974)), closes [#189](https://github.com/lambda-orm/lambdaorm-svc/issues/189)
+* complete readme ([6b7083f](https://github.com/lambda-orm/lambdaorm-svc/commit/6b7083fe6673a5ef3c87568b67fe53ac864e5ce8)), closes [#189](https://github.com/lambda-orm/lambdaorm-svc/issues/189)
+* **depens:** update lambdaorm dependence ([cea5225](https://github.com/lambda-orm/lambdaorm-svc/commit/cea5225d689130b92465228656714e2e4c273fd3)), closes [#201](https://github.com/lambda-orm/lambdaorm-svc/issues/201)
+* **docs:** add usage on readme ([401fbe7](https://github.com/lambda-orm/lambdaorm-svc/commit/401fbe71dc26d970be791f3b67ea97017ec37754)), closes [#201](https://github.com/lambda-orm/lambdaorm-svc/issues/201)
+* **docs:** update readme and wiki ([85fc4ec](https://github.com/lambda-orm/lambdaorm-svc/commit/85fc4ec6f8e96a10ecc50c92134e2a3ee5c4e80c)), closes [#201](https://github.com/lambda-orm/lambdaorm-svc/issues/201)
+* fix: request without response data ([c9bd639](https://github.com/lambda-orm/lambdaorm-svc/commit/c9bd63902a9ac57ec5f96330e1d943d5675faefb)), closes [#201](https://github.com/lambda-orm/lambdaorm-svc/issues/201)
+* **queue:** refactorize consumer ([e49120e](https://github.com/lambda-orm/lambdaorm-svc/commit/e49120ebff480d27f306a412d14b27f4127d8f11)), closes [#201](https://github.com/lambda-orm/lambdaorm-svc/issues/201)
+* **queue:** test cqrs with kafka ([b4a3d05](https://github.com/lambda-orm/lambdaorm-svc/commit/b4a3d053f13942ee7f32088464cd8f15b1332b18)), closes [#201](https://github.com/lambda-orm/lambdaorm-svc/issues/201)
+* remove /api prefix on endpoints, refactorize folders and complete readme ([bc575cc](https://github.com/lambda-orm/lambdaorm-svc/commit/bc575cce24063411a59f7d1db30f7fa0c7eb15e4)), closes [#189](https://github.com/lambda-orm/lambdaorm-svc/issues/189)
+* remove orb library for apply on lambdaorm ([15da943](https://github.com/lambda-orm/lambdaorm-svc/commit/15da9436c749b960719ac29fc84a3ad854b7cd03)), closes [#201](https://github.com/lambda-orm/lambdaorm-svc/issues/201)
+* rename datasource for souce ([3fd0a8b](https://github.com/lambda-orm/lambdaorm-svc/commit/3fd0a8b795dd8a57a95d3a8fdc8959bd218bd25f)), closes [#224](https://github.com/lambda-orm/lambdaorm-svc/issues/224)
+* **schema:** add schema endpoint ([24d7055](https://github.com/lambda-orm/lambdaorm-svc/commit/24d7055ea3a01070954c8d00eb2e3006f5069ba7)), closes [#202](https://github.com/lambda-orm/lambdaorm-svc/issues/202)
+* **schema:** add version and views ([439b45b](https://github.com/lambda-orm/lambdaorm-svc/commit/439b45bad5f687a6ff7774a95d6f5d5ed82ad443)), closes [#202](https://github.com/lambda-orm/lambdaorm-svc/issues/202)
+* test cqrs ([279339d](https://github.com/lambda-orm/lambdaorm-svc/commit/279339d554c5f3981659b54553b64eaeca100fe3)), closes [#201](https://github.com/lambda-orm/lambdaorm-svc/issues/201)
+* update lambdaorm dependencie ([285fb49](https://github.com/lambda-orm/lambdaorm-svc/commit/285fb496aba3169172bb3ef3ca19b92b7cc5be50)), closes [#224](https://github.com/lambda-orm/lambdaorm-svc/issues/224)
+* update methods and dependences ([c6a8fe9](https://github.com/lambda-orm/lambdaorm-svc/commit/c6a8fe9507aaf461cdd51965bf4fd0b7faab4ce1)), closes [#0](https://github.com/lambda-orm/lambdaorm-svc/issues/0)
+* update readme ([ba346c8](https://github.com/lambda-orm/lambdaorm-svc/commit/ba346c865f20b6a39443dac5ce7fb12e16707e86)), closes [#189](https://github.com/lambda-orm/lambdaorm-svc/issues/189)
+* **wiki:** update Sidebar ([5eac40d](https://github.com/lambda-orm/lambdaorm-svc/commit/5eac40d00c447818316842222da4005a60a6b9c1)), closes [#201](https://github.com/lambda-orm/lambdaorm-svc/issues/201)
+* **wiki:** update wiki ([1cbd2c0](https://github.com/lambda-orm/lambdaorm-svc/commit/1cbd2c0c0c6ab64a2d8b04a46bc1b22f6d8c18de)), closes [#201](https://github.com/lambda-orm/lambdaorm-svc/issues/201)
+
+
+### Bug Fixes
+
+* solve bug on body parameters ([647df0d](https://github.com/lambda-orm/lambdaorm-svc/commit/647df0d11112e47861fd859125b572f47a8f5da9)), closes [#189](https://github.com/lambda-orm/lambdaorm-svc/issues/189)
+* solve import request data ([413fc78](https://github.com/lambda-orm/lambdaorm-svc/commit/413fc7892c60d2374e2f310fd71cadc9dda92a0a)), closes [#201](https://github.com/lambda-orm/lambdaorm-svc/issues/201)
+
 ## [2.1.0](https://github.com/lambda-orm/lambdaorm-svc/compare/v1.2.3...v2.1.0) (2024-05-13)
 
 **Features:**
