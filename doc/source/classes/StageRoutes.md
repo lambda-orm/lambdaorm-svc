@@ -34,7 +34,7 @@
 
 #### Defined in
 
-[src/infrastructure/routes/stageRoutes.ts:7](https://github.com/lambda-orm/lambdaorm-svc/blob/c6a8fe9507aaf461cdd51965bf4fd0b7faab4ce1/src/infrastructure/routes/stageRoutes.ts#L7)
+[src/infrastructure/routes/stageRoutes.ts:7](https://github.com/lambda-orm/lambdaorm-svc/blob/329a1ab8cb856cb7ce9bb3c8d329805dd7e67b36/src/infrastructure/routes/stageRoutes.ts#L7)
 
 ## Properties
 
@@ -44,7 +44,7 @@
 
 #### Defined in
 
-[src/infrastructure/routes/stageRoutes.ts:6](https://github.com/lambda-orm/lambdaorm-svc/blob/c6a8fe9507aaf461cdd51965bf4fd0b7faab4ce1/src/infrastructure/routes/stageRoutes.ts#L6)
+[src/infrastructure/routes/stageRoutes.ts:6](https://github.com/lambda-orm/lambdaorm-svc/blob/329a1ab8cb856cb7ce9bb3c8d329805dd7e67b36/src/infrastructure/routes/stageRoutes.ts#L6)
 
 ## Methods
 
@@ -58,4 +58,4 @@
 
 #### Defined in
 
-[src/infrastructure/routes/stageRoutes.ts:11](https://github.com/lambda-orm/lambdaorm-svc/blob/c6a8fe9507aaf461cdd51965bf4fd0b7faab4ce1/src/infrastructure/routes/stageRoutes.ts#L11)
+[src/infrastructure/routes/stageRoutes.ts:11](https://github.com/lambda-orm/lambdaorm-svc/blob/329a1ab8cb856cb7ce9bb3c8d329805dd7e67b36/src/infrastructure/routes/stageRoutes.ts#L11)
